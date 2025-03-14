@@ -1,0 +1,1300 @@
+DEBUG - 2025-03-05 01:00:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 01:02:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 01:02:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 01:03:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 01:05:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 01:05:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 01:05:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 01:05:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 01:05:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 01:07:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 01:08:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 01:09:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 01:11:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 01:11:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 01:11:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 01:16:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 01:34:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 01:35:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 01:36:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 01:38:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 01:39:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 01:39:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 01:41:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 01:45:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 01:49:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 01:49:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 01:50:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 01:51:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 01:53:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 01:54:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 01:54:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 01:54:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 01:55:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 01:55:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-05 01:55:43 --> ErrorException: Undefined variable $title
+[Method: POST, Route: atursiswa/save]
+in APPPATH\Views\header.php on line 7.
+ 1 APPPATH\Views\header.php(7): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $title', 'D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\header.php', 7)
+ 2 SYSTEMPATH\View\View.php(224): include('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\header.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(475): CodeIgniter\View\View->render('header', null, true)
+ 5 APPPATH\Views\dashboardadministrator.php(5): CodeIgniter\View\View->include('header')
+ 6 SYSTEMPATH\View\View.php(224): include('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\dashboardadministrator.php')
+ 7 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\View\View.php(475): CodeIgniter\View\View->render('dashboardadministrator', null, true)
+ 9 APPPATH\Views\atursiswa.php(1): CodeIgniter\View\View->include('dashboardadministrator')
+10 SYSTEMPATH\View\View.php(224): include('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\atursiswa.php')
+11 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('atursiswa', [], true)
+13 APPPATH\Controllers\AturSiswa.php(49): view('atursiswa', [...])
+14 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AturSiswa->save()
+15 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AturSiswa))
+16 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+18 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+19 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+20 SYSTEMPATH\rewrite.php(44): require_once('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+DEBUG - 2025-03-05 01:57:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-05 01:57:19 --> ErrorException: Undefined variable $title
+[Method: POST, Route: atursiswa/save]
+in APPPATH\Views\header.php on line 7.
+ 1 APPPATH\Views\header.php(7): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $title', 'D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\header.php', 7)
+ 2 SYSTEMPATH\View\View.php(224): include('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\header.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(475): CodeIgniter\View\View->render('header', null, true)
+ 5 APPPATH\Views\dashboardadministrator.php(5): CodeIgniter\View\View->include('header')
+ 6 SYSTEMPATH\View\View.php(224): include('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\dashboardadministrator.php')
+ 7 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\View\View.php(475): CodeIgniter\View\View->render('dashboardadministrator', null, true)
+ 9 APPPATH\Views\atursiswa.php(1): CodeIgniter\View\View->include('dashboardadministrator')
+10 SYSTEMPATH\View\View.php(224): include('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\atursiswa.php')
+11 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('atursiswa', [], true)
+13 APPPATH\Controllers\AturSiswa.php(50): view('atursiswa', [...])
+14 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AturSiswa->save()
+15 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AturSiswa))
+16 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+18 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+19 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+20 SYSTEMPATH\rewrite.php(44): require_once('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+DEBUG - 2025-03-05 01:57:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 01:57:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-05 01:57:48 --> ErrorException: Undefined variable $title
+[Method: POST, Route: atursiswa/save]
+in APPPATH\Views\header.php on line 7.
+ 1 APPPATH\Views\header.php(7): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $title', 'D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\header.php', 7)
+ 2 SYSTEMPATH\View\View.php(224): include('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\header.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(475): CodeIgniter\View\View->render('header', null, true)
+ 5 APPPATH\Views\dashboardadministrator.php(5): CodeIgniter\View\View->include('header')
+ 6 SYSTEMPATH\View\View.php(224): include('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\dashboardadministrator.php')
+ 7 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\View\View.php(475): CodeIgniter\View\View->render('dashboardadministrator', null, true)
+ 9 APPPATH\Views\atursiswa.php(1): CodeIgniter\View\View->include('dashboardadministrator')
+10 SYSTEMPATH\View\View.php(224): include('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\atursiswa.php')
+11 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('atursiswa', [], true)
+13 APPPATH\Controllers\AturSiswa.php(49): view('atursiswa', [...])
+14 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AturSiswa->save()
+15 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AturSiswa))
+16 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+18 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+19 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+20 SYSTEMPATH\rewrite.php(44): require_once('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+DEBUG - 2025-03-05 01:58:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-05 01:58:22 --> ErrorException: Undefined variable $title
+[Method: POST, Route: atursiswa/save]
+in APPPATH\Views\header.php on line 7.
+ 1 APPPATH\Views\header.php(7): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $title', 'D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\header.php', 7)
+ 2 SYSTEMPATH\View\View.php(224): include('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\header.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(475): CodeIgniter\View\View->render('header', null, true)
+ 5 APPPATH\Views\dashboardadministrator.php(5): CodeIgniter\View\View->include('header')
+ 6 SYSTEMPATH\View\View.php(224): include('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\dashboardadministrator.php')
+ 7 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\View\View.php(475): CodeIgniter\View\View->render('dashboardadministrator', null, true)
+ 9 APPPATH\Views\atursiswa.php(1): CodeIgniter\View\View->include('dashboardadministrator')
+10 SYSTEMPATH\View\View.php(224): include('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\atursiswa.php')
+11 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('atursiswa', [], true)
+13 APPPATH\Controllers\AturSiswa.php(49): view('atursiswa', [...])
+14 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AturSiswa->save()
+15 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AturSiswa))
+16 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+18 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+19 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+20 SYSTEMPATH\rewrite.php(44): require_once('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+DEBUG - 2025-03-05 01:58:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 01:58:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 02:02:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 02:05:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 02:06:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 02:06:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 02:07:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 02:09:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 02:11:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 02:11:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 02:12:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 02:12:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 02:13:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 02:14:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 02:15:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 02:16:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 02:16:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 02:17:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 02:19:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 02:19:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 02:25:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 02:25:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 02:25:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 02:26:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 02:27:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 02:31:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 02:33:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 02:34:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 02:36:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-05 02:36:13 --> ErrorException: Undefined variable $title
+[Method: POST, Route: atursiswa/save]
+in APPPATH\Views\header.php on line 7.
+ 1 APPPATH\Views\header.php(7): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $title', 'D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\header.php', 7)
+ 2 SYSTEMPATH\View\View.php(224): include('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\header.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(475): CodeIgniter\View\View->render('header', null, true)
+ 5 APPPATH\Views\dashboardadministrator.php(5): CodeIgniter\View\View->include('header')
+ 6 SYSTEMPATH\View\View.php(224): include('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\dashboardadministrator.php')
+ 7 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\View\View.php(475): CodeIgniter\View\View->render('dashboardadministrator', null, true)
+ 9 APPPATH\Views\atursiswa.php(1): CodeIgniter\View\View->include('dashboardadministrator')
+10 SYSTEMPATH\View\View.php(224): include('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\atursiswa.php')
+11 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('atursiswa', [], true)
+13 APPPATH\Controllers\AturSiswa.php(49): view('atursiswa', [...])
+14 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AturSiswa->save()
+15 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AturSiswa))
+16 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+18 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+19 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+20 SYSTEMPATH\rewrite.php(44): require_once('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+DEBUG - 2025-03-05 02:42:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 02:42:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-05 02:42:54 --> ErrorException: Undefined variable $title
+[Method: POST, Route: atursiswa/save]
+in APPPATH\Views\header.php on line 7.
+ 1 APPPATH\Views\header.php(7): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $title', 'D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\header.php', 7)
+ 2 SYSTEMPATH\View\View.php(224): include('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\header.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(475): CodeIgniter\View\View->render('header', null, true)
+ 5 APPPATH\Views\dashboardadministrator.php(5): CodeIgniter\View\View->include('header')
+ 6 SYSTEMPATH\View\View.php(224): include('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\dashboardadministrator.php')
+ 7 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\View\View.php(475): CodeIgniter\View\View->render('dashboardadministrator', null, true)
+ 9 APPPATH\Views\atursiswa.php(1): CodeIgniter\View\View->include('dashboardadministrator')
+10 SYSTEMPATH\View\View.php(224): include('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\atursiswa.php')
+11 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('atursiswa', [], true)
+13 APPPATH\Controllers\AturSiswa.php(49): view('atursiswa', [...])
+14 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AturSiswa->save()
+15 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AturSiswa))
+16 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+18 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+19 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+20 SYSTEMPATH\rewrite.php(44): require_once('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+DEBUG - 2025-03-05 02:45:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 02:45:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-05 02:45:40 --> ErrorException: Undefined variable $title
+[Method: POST, Route: atursiswa/save]
+in APPPATH\Views\header.php on line 7.
+ 1 APPPATH\Views\header.php(7): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $title', 'D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\header.php', 7)
+ 2 SYSTEMPATH\View\View.php(224): include('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\header.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(475): CodeIgniter\View\View->render('header', null, true)
+ 5 APPPATH\Views\dashboardadministrator.php(5): CodeIgniter\View\View->include('header')
+ 6 SYSTEMPATH\View\View.php(224): include('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\dashboardadministrator.php')
+ 7 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\View\View.php(475): CodeIgniter\View\View->render('dashboardadministrator', null, true)
+ 9 APPPATH\Views\atursiswa.php(1): CodeIgniter\View\View->include('dashboardadministrator')
+10 SYSTEMPATH\View\View.php(224): include('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\atursiswa.php')
+11 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('atursiswa', [], true)
+13 APPPATH\Controllers\AturSiswa.php(53): view('atursiswa', [...])
+14 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AturSiswa->save()
+15 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AturSiswa))
+16 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+18 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+19 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+20 SYSTEMPATH\rewrite.php(44): require_once('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+DEBUG - 2025-03-05 02:45:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 02:45:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 02:45:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 02:47:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-03-05 02:47:08 --> ErrorException: pg_query(): Query failed: ERROR:  nilai kunci ganda melanggar batasan unik « siswa_pkey »
+DETAIL:  Kunci « (nis)=(701) » sudah ada. in D:\stmik komputama\Semester 8\SISTEM\project_apin\system\Database\Postgre\Connection.php:206
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Que...', 'D:\\stmik komput...', 206)
+#1 D:\stmik komputama\Semester 8\SISTEM\project_apin\system\Database\Postgre\Connection.php(206): pg_query(Object(PgSql\Connection), 'INSERT INTO "si...')
+#2 D:\stmik komputama\Semester 8\SISTEM\project_apin\system\Database\BaseConnection.php(738): CodeIgniter\Database\Postgre\Connection->execute('INSERT INTO "si...')
+#3 D:\stmik komputama\Semester 8\SISTEM\project_apin\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO "si...')
+#4 D:\stmik komputama\Semester 8\SISTEM\project_apin\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO "si...', Array, false)
+#5 D:\stmik komputama\Semester 8\SISTEM\project_apin\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#6 D:\stmik komputama\Semester 8\SISTEM\project_apin\system\BaseModel.php(839): CodeIgniter\Model->doInsert(Array)
+#7 D:\stmik komputama\Semester 8\SISTEM\project_apin\system\Model.php(800): CodeIgniter\BaseModel->insert(Array, false)
+#8 D:\stmik komputama\Semester 8\SISTEM\project_apin\system\BaseModel.php(750): CodeIgniter\Model->insert(Array, false)
+#9 D:\stmik komputama\Semester 8\SISTEM\project_apin\app\Controllers\AturSiswa.php(45): CodeIgniter\BaseModel->save(Array)
+#10 D:\stmik komputama\Semester 8\SISTEM\project_apin\system\CodeIgniter.php(933): App\Controllers\AturSiswa->save()
+#11 D:\stmik komputama\Semester 8\SISTEM\project_apin\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AturSiswa))
+#12 D:\stmik komputama\Semester 8\SISTEM\project_apin\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 D:\stmik komputama\Semester 8\SISTEM\project_apin\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#14 D:\stmik komputama\Semester 8\SISTEM\project_apin\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#15 D:\stmik komputama\Semester 8\SISTEM\project_apin\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#16 D:\stmik komputama\Semester 8\SISTEM\project_apin\system\rewrite.php(44): require_once('D:\\stmik komput...')
+#17 {main}
+CRITICAL - 2025-03-05 02:47:08 --> CodeIgniter\Database\Exceptions\DatabaseException: pg_query(): Query failed: ERROR:  nilai kunci ganda melanggar batasan unik « siswa_pkey »
+DETAIL:  Kunci « (nis)=(701) » sudah ada.
+[Method: POST, Route: atursiswa/save]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO "siswa" ("nis", "name", "phonenumber", "gender", "kelas") VALUES (:nis:, :name:, :phonenumber:, :gender:, :kelas:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(839): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(800): CodeIgniter\BaseModel->insert([...], false)
+ 5 SYSTEMPATH\BaseModel.php(750): CodeIgniter\Model->insert([...], false)
+ 6 APPPATH\Controllers\AturSiswa.php(45): CodeIgniter\BaseModel->save([...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AturSiswa->save()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AturSiswa))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+CRITICAL - 2025-03-05 02:47:08 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: pg_query(): Query failed: ERROR:  nilai kunci ganda melanggar batasan unik « siswa_pkey »
+DETAIL:  Kunci « (nis)=(701) » sudah ada.
+in SYSTEMPATH\Database\Postgre\Connection.php on line 211.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\Postgre\Connection->execute('INSERT INTO "siswa" ("nis", "name", "phonenumber", "gender", "kelas") VALUES (\'701\', \'ALIYA QURROTUNNADA\', \'081234567890\', \'P\', \'7\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO "siswa" ("nis", "name", "phonenumber", "gender", "kelas") VALUES (\'701\', \'ALIYA QURROTUNNADA\', \'081234567890\', \'P\', \'7\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO "siswa" ("nis", "name", "phonenumber", "gender", "kelas") VALUES (:nis:, :name:, :phonenumber:, :gender:, :kelas:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(839): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(800): CodeIgniter\BaseModel->insert([...], false)
+ 7 SYSTEMPATH\BaseModel.php(750): CodeIgniter\Model->insert([...], false)
+ 8 APPPATH\Controllers\AturSiswa.php(45): CodeIgniter\BaseModel->save([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AturSiswa->save()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AturSiswa))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+CRITICAL - 2025-03-05 02:47:08 --> [Caused by] ErrorException: pg_query(): Query failed: ERROR:  nilai kunci ganda melanggar batasan unik « siswa_pkey »
+DETAIL:  Kunci « (nis)=(701) » sudah ada.
+in SYSTEMPATH\Database\Postgre\Connection.php on line 206.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Query failed: ERROR:  nilai kunci ganda melanggar batasan unik « siswa_pkey »
+DETAIL:  Kunci « (nis)=(701) » sudah ada.', 'D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\system\\Database\\Postgre\\Connection.php', 206)
+ 2 SYSTEMPATH\Database\Postgre\Connection.php(206): pg_query(Object(PgSql\Connection), 'INSERT INTO "siswa" ("nis", "name", "phonenumber", "gender", "kelas") VALUES (\'701\', \'ALIYA QURROTUNNADA\', \'081234567890\', \'P\', \'7\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\Postgre\Connection->execute('INSERT INTO "siswa" ("nis", "name", "phonenumber", "gender", "kelas") VALUES (\'701\', \'ALIYA QURROTUNNADA\', \'081234567890\', \'P\', \'7\')')
+ 4 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO "siswa" ("nis", "name", "phonenumber", "gender", "kelas") VALUES (\'701\', \'ALIYA QURROTUNNADA\', \'081234567890\', \'P\', \'7\')')
+ 5 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO "siswa" ("nis", "name", "phonenumber", "gender", "kelas") VALUES (:nis:, :name:, :phonenumber:, :gender:, :kelas:)', [...], false)
+ 6 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 7 SYSTEMPATH\BaseModel.php(839): CodeIgniter\Model->doInsert([...])
+ 8 SYSTEMPATH\Model.php(800): CodeIgniter\BaseModel->insert([...], false)
+ 9 SYSTEMPATH\BaseModel.php(750): CodeIgniter\Model->insert([...], false)
+10 APPPATH\Controllers\AturSiswa.php(45): CodeIgniter\BaseModel->save([...])
+11 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AturSiswa->save()
+12 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AturSiswa))
+13 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+14 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+15 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+16 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+17 SYSTEMPATH\rewrite.php(44): require_once('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+DEBUG - 2025-03-05 02:47:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 02:48:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 02:49:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 02:50:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 02:50:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 02:50:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 03:10:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 03:10:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 03:11:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 03:12:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 03:17:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 03:17:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 03:19:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 03:19:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 03:30:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 03:30:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 03:31:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 03:31:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 03:31:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 03:31:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 03:32:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 03:32:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-03-05 03:32:32 --> ErrorException: pg_query(): Query failed: ERROR:  nilai kunci ganda melanggar batasan unik « siswa_phonenumber_key »
+DETAIL:  Kunci « (phonenumber)=(081234567890) » sudah ada. in D:\stmik komputama\Semester 8\SISTEM\project_apin\system\Database\Postgre\Connection.php:206
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Que...', 'D:\\stmik komput...', 206)
+#1 D:\stmik komputama\Semester 8\SISTEM\project_apin\system\Database\Postgre\Connection.php(206): pg_query(Object(PgSql\Connection), 'INSERT INTO "si...')
+#2 D:\stmik komputama\Semester 8\SISTEM\project_apin\system\Database\BaseConnection.php(738): CodeIgniter\Database\Postgre\Connection->execute('INSERT INTO "si...')
+#3 D:\stmik komputama\Semester 8\SISTEM\project_apin\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO "si...')
+#4 D:\stmik komputama\Semester 8\SISTEM\project_apin\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO "si...', Array, false)
+#5 D:\stmik komputama\Semester 8\SISTEM\project_apin\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#6 D:\stmik komputama\Semester 8\SISTEM\project_apin\system\BaseModel.php(839): CodeIgniter\Model->doInsert(Array)
+#7 D:\stmik komputama\Semester 8\SISTEM\project_apin\system\Model.php(800): CodeIgniter\BaseModel->insert(Array, false)
+#8 D:\stmik komputama\Semester 8\SISTEM\project_apin\system\BaseModel.php(750): CodeIgniter\Model->insert(Array, false)
+#9 D:\stmik komputama\Semester 8\SISTEM\project_apin\app\Controllers\AturSiswa.php(45): CodeIgniter\BaseModel->save(Array)
+#10 D:\stmik komputama\Semester 8\SISTEM\project_apin\system\CodeIgniter.php(933): App\Controllers\AturSiswa->save()
+#11 D:\stmik komputama\Semester 8\SISTEM\project_apin\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AturSiswa))
+#12 D:\stmik komputama\Semester 8\SISTEM\project_apin\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 D:\stmik komputama\Semester 8\SISTEM\project_apin\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#14 D:\stmik komputama\Semester 8\SISTEM\project_apin\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#15 D:\stmik komputama\Semester 8\SISTEM\project_apin\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#16 D:\stmik komputama\Semester 8\SISTEM\project_apin\system\rewrite.php(44): require_once('D:\\stmik komput...')
+#17 {main}
+CRITICAL - 2025-03-05 03:32:32 --> CodeIgniter\Database\Exceptions\DatabaseException: pg_query(): Query failed: ERROR:  nilai kunci ganda melanggar batasan unik « siswa_phonenumber_key »
+DETAIL:  Kunci « (phonenumber)=(081234567890) » sudah ada.
+[Method: POST, Route: atursiswa/save]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO "siswa" ("nis", "name", "phonenumber", "gender", "kelas") VALUES (:nis:, :name:, :phonenumber:, :gender:, :kelas:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(839): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(800): CodeIgniter\BaseModel->insert([...], false)
+ 5 SYSTEMPATH\BaseModel.php(750): CodeIgniter\Model->insert([...], false)
+ 6 APPPATH\Controllers\AturSiswa.php(45): CodeIgniter\BaseModel->save([...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AturSiswa->save()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AturSiswa))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+CRITICAL - 2025-03-05 03:32:32 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: pg_query(): Query failed: ERROR:  nilai kunci ganda melanggar batasan unik « siswa_phonenumber_key »
+DETAIL:  Kunci « (phonenumber)=(081234567890) » sudah ada.
+in SYSTEMPATH\Database\Postgre\Connection.php on line 211.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\Postgre\Connection->execute('INSERT INTO "siswa" ("nis", "name", "phonenumber", "gender", "kelas") VALUES (\'702\', \'ARSHILLA NATASYA RIFKY\', \'081234567890\', \'P\', \'7\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO "siswa" ("nis", "name", "phonenumber", "gender", "kelas") VALUES (\'702\', \'ARSHILLA NATASYA RIFKY\', \'081234567890\', \'P\', \'7\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO "siswa" ("nis", "name", "phonenumber", "gender", "kelas") VALUES (:nis:, :name:, :phonenumber:, :gender:, :kelas:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(839): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(800): CodeIgniter\BaseModel->insert([...], false)
+ 7 SYSTEMPATH\BaseModel.php(750): CodeIgniter\Model->insert([...], false)
+ 8 APPPATH\Controllers\AturSiswa.php(45): CodeIgniter\BaseModel->save([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AturSiswa->save()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AturSiswa))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+CRITICAL - 2025-03-05 03:32:32 --> [Caused by] ErrorException: pg_query(): Query failed: ERROR:  nilai kunci ganda melanggar batasan unik « siswa_phonenumber_key »
+DETAIL:  Kunci « (phonenumber)=(081234567890) » sudah ada.
+in SYSTEMPATH\Database\Postgre\Connection.php on line 206.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Query failed: ERROR:  nilai kunci ganda melanggar batasan unik « siswa_phonenumber_key »
+DETAIL:  Kunci « (phonenumber)=(081234567890) » sudah ada.', 'D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\system\\Database\\Postgre\\Connection.php', 206)
+ 2 SYSTEMPATH\Database\Postgre\Connection.php(206): pg_query(Object(PgSql\Connection), 'INSERT INTO "siswa" ("nis", "name", "phonenumber", "gender", "kelas") VALUES (\'702\', \'ARSHILLA NATASYA RIFKY\', \'081234567890\', \'P\', \'7\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\Postgre\Connection->execute('INSERT INTO "siswa" ("nis", "name", "phonenumber", "gender", "kelas") VALUES (\'702\', \'ARSHILLA NATASYA RIFKY\', \'081234567890\', \'P\', \'7\')')
+ 4 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO "siswa" ("nis", "name", "phonenumber", "gender", "kelas") VALUES (\'702\', \'ARSHILLA NATASYA RIFKY\', \'081234567890\', \'P\', \'7\')')
+ 5 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO "siswa" ("nis", "name", "phonenumber", "gender", "kelas") VALUES (:nis:, :name:, :phonenumber:, :gender:, :kelas:)', [...], false)
+ 6 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 7 SYSTEMPATH\BaseModel.php(839): CodeIgniter\Model->doInsert([...])
+ 8 SYSTEMPATH\Model.php(800): CodeIgniter\BaseModel->insert([...], false)
+ 9 SYSTEMPATH\BaseModel.php(750): CodeIgniter\Model->insert([...], false)
+10 APPPATH\Controllers\AturSiswa.php(45): CodeIgniter\BaseModel->save([...])
+11 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AturSiswa->save()
+12 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AturSiswa))
+13 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+14 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+15 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+16 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+17 SYSTEMPATH\rewrite.php(44): require_once('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+DEBUG - 2025-03-05 03:34:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 03:35:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 03:35:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 03:35:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 03:40:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 03:41:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 03:41:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 03:42:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 03:42:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 03:42:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 03:49:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 03:49:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 03:49:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 03:49:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 03:49:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 03:52:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 03:52:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 03:52:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 03:52:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-05 03:52:51 --> ErrorException: Undefined variable $title
+[Method: GET, Route: atursiswa/edit/3]
+in APPPATH\Views\header.php on line 7.
+ 1 APPPATH\Views\header.php(7): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $title', 'D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\header.php', 7)
+ 2 SYSTEMPATH\View\View.php(224): include('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\header.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(475): CodeIgniter\View\View->render('header', null, true)
+ 5 APPPATH\Views\dashboardadministrator.php(5): CodeIgniter\View\View->include('header')
+ 6 SYSTEMPATH\View\View.php(224): include('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\dashboardadministrator.php')
+ 7 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\View\View.php(475): CodeIgniter\View\View->render('dashboardadministrator', null, true)
+ 9 APPPATH\Views\atursiswa.php(1): CodeIgniter\View\View->include('dashboardadministrator')
+10 SYSTEMPATH\View\View.php(224): include('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\atursiswa.php')
+11 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('atursiswa', [], true)
+13 APPPATH\Controllers\AturSiswa.php(68): view('atursiswa', [...])
+14 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AturSiswa->edit('3')
+15 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AturSiswa))
+16 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+18 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+19 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+20 SYSTEMPATH\rewrite.php(44): require_once('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+DEBUG - 2025-03-05 03:55:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-05 03:55:57 --> Error: Call to undefined function set_value()
+[Method: GET, Route: atursiswa/edit/3]
+in APPPATH\Views\atursiswa.php on line 69.
+ 1 SYSTEMPATH\View\View.php(224): include()
+ 2 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('atursiswa', [], true)
+ 4 APPPATH\Controllers\AturSiswa.php(74): view('atursiswa', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AturSiswa->edit('3')
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AturSiswa))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+DEBUG - 2025-03-05 03:58:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-05 03:58:42 --> ErrorException: Undefined variable $title
+[Method: GET, Route: atursiswa/edit/3]
+in APPPATH\Views\header.php on line 7.
+ 1 APPPATH\Views\header.php(7): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $title', 'D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\header.php', 7)
+ 2 SYSTEMPATH\View\View.php(224): include('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\header.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(475): CodeIgniter\View\View->render('header', null, true)
+ 5 APPPATH\Views\dashboardadministrator.php(5): CodeIgniter\View\View->include('header')
+ 6 SYSTEMPATH\View\View.php(224): include('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\dashboardadministrator.php')
+ 7 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\View\View.php(475): CodeIgniter\View\View->render('dashboardadministrator', null, true)
+ 9 APPPATH\Views\atursiswa.php(1): CodeIgniter\View\View->include('dashboardadministrator')
+10 SYSTEMPATH\View\View.php(224): include('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\atursiswa.php')
+11 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('atursiswa', [], true)
+13 APPPATH\Controllers\AturSiswa.php(68): view('atursiswa', [...])
+14 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AturSiswa->edit('3')
+15 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AturSiswa))
+16 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+18 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+19 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+20 SYSTEMPATH\rewrite.php(44): require_once('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+DEBUG - 2025-03-05 04:00:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-05 04:00:35 --> Error: Call to undefined function set_value()
+[Method: GET, Route: atursiswa/edit/3]
+in APPPATH\Views\atursiswa.php on line 69.
+ 1 SYSTEMPATH\View\View.php(224): include()
+ 2 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('atursiswa', [], true)
+ 4 APPPATH\Controllers\AturSiswa.php(76): view('atursiswa', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AturSiswa->edit('3')
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AturSiswa))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+DEBUG - 2025-03-05 04:01:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:01:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:01:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:01:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:02:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-05 04:02:55 --> ErrorException: Undefined variable $editsiswa
+[Method: GET, Route: atursiswa/edit/2]
+in APPPATH\Views\atursiswa.php on line 48.
+ 1 APPPATH\Views\atursiswa.php(48): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $editsiswa', 'D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\atursiswa.php', 48)
+ 2 SYSTEMPATH\View\View.php(224): include('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\atursiswa.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('atursiswa', [], true)
+ 5 APPPATH\Controllers\AturSiswa.php(78): view('atursiswa', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AturSiswa->edit('2')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AturSiswa))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+DEBUG - 2025-03-05 04:05:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-05 04:05:30 --> ErrorException: Undefined variable $editsiswa
+[Method: GET, Route: atursiswa/edit/2]
+in APPPATH\Views\atursiswa.php on line 48.
+ 1 APPPATH\Views\atursiswa.php(48): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $editsiswa', 'D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\atursiswa.php', 48)
+ 2 SYSTEMPATH\View\View.php(224): include('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\atursiswa.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('atursiswa', [], true)
+ 5 APPPATH\Controllers\AturSiswa.php(78): view('atursiswa', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AturSiswa->edit('2')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AturSiswa))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+DEBUG - 2025-03-05 04:06:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-05 04:06:28 --> TypeError: Cannot access offset of type string on string
+[Method: GET, Route: atursiswa/edit/2]
+in APPPATH\Views\atursiswa.php on line 49.
+ 1 SYSTEMPATH\View\View.php(224): include()
+ 2 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('atursiswa', [], true)
+ 4 APPPATH\Controllers\AturSiswa.php(79): view('atursiswa', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AturSiswa->edit('2')
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AturSiswa))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+DEBUG - 2025-03-05 04:07:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-05 04:07:10 --> TypeError: Cannot access offset of type string on string
+[Method: GET, Route: atursiswa/edit/2]
+in APPPATH\Views\atursiswa.php on line 50.
+ 1 SYSTEMPATH\View\View.php(224): include()
+ 2 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('atursiswa', [], true)
+ 4 APPPATH\Controllers\AturSiswa.php(79): view('atursiswa', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AturSiswa->edit('2')
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AturSiswa))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+DEBUG - 2025-03-05 04:12:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-05 04:12:46 --> ErrorException: Undefined variable $editsiswa
+[Method: GET, Route: atursiswa/edit/2]
+in APPPATH\Views\atursiswa.php on line 48.
+ 1 APPPATH\Views\atursiswa.php(48): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $editsiswa', 'D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\atursiswa.php', 48)
+ 2 SYSTEMPATH\View\View.php(224): include('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\atursiswa.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('atursiswa', [], true)
+ 5 APPPATH\Controllers\AturSiswa.php(76): view('atursiswa', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AturSiswa->edit('2')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AturSiswa))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+DEBUG - 2025-03-05 04:13:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-05 04:13:21 --> TypeError: Cannot access offset of type string on string
+[Method: GET, Route: atursiswa/edit/2]
+in APPPATH\Views\atursiswa.php on line 49.
+ 1 SYSTEMPATH\View\View.php(224): include()
+ 2 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('atursiswa', [], true)
+ 4 APPPATH\Controllers\AturSiswa.php(76): view('atursiswa', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AturSiswa->edit('2')
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AturSiswa))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+DEBUG - 2025-03-05 04:31:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-05 04:31:46 --> ErrorException: Undefined variable $title
+[Method: GET, Route: atursiswa/edit/2]
+in APPPATH\Views\header.php on line 7.
+ 1 APPPATH\Views\header.php(7): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $title', 'D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\header.php', 7)
+ 2 SYSTEMPATH\View\View.php(224): include('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\header.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(475): CodeIgniter\View\View->render('header', null, true)
+ 5 APPPATH\Views\dashboardadministrator.php(5): CodeIgniter\View\View->include('header')
+ 6 SYSTEMPATH\View\View.php(224): include('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\dashboardadministrator.php')
+ 7 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\View\View.php(475): CodeIgniter\View\View->render('dashboardadministrator', null, true)
+ 9 APPPATH\Views\atursiswa.php(1): CodeIgniter\View\View->include('dashboardadministrator')
+10 SYSTEMPATH\View\View.php(224): include('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\atursiswa.php')
+11 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('atursiswa', [], true)
+13 APPPATH\Controllers\AturSiswa.php(68): view('atursiswa', [...])
+14 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AturSiswa->edit('2')
+15 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AturSiswa))
+16 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+18 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+19 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+20 SYSTEMPATH\rewrite.php(44): require_once('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+DEBUG - 2025-03-05 04:31:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-05 04:31:57 --> ErrorException: Undefined variable $ed
+[Method: GET, Route: atursiswa]
+in APPPATH\Views\atursiswa.php on line 49.
+ 1 APPPATH\Views\atursiswa.php(49): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $ed', 'D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\atursiswa.php', 49)
+ 2 SYSTEMPATH\View\View.php(224): include('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\atursiswa.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('atursiswa', [], true)
+ 5 APPPATH\Controllers\AturSiswa.php(19): view('atursiswa', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AturSiswa->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AturSiswa))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+DEBUG - 2025-03-05 04:32:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-05 04:32:24 --> ErrorException: Undefined variable $ed
+[Method: GET, Route: atursiswa]
+in APPPATH\Views\atursiswa.php on line 51.
+ 1 APPPATH\Views\atursiswa.php(51): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $ed', 'D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\atursiswa.php', 51)
+ 2 SYSTEMPATH\View\View.php(224): include('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\atursiswa.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('atursiswa', [], true)
+ 5 APPPATH\Controllers\AturSiswa.php(19): view('atursiswa', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AturSiswa->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AturSiswa))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+DEBUG - 2025-03-05 04:33:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:33:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:34:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:37:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:39:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:40:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:40:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:41:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:41:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:41:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:42:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:42:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:42:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:42:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:42:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:42:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:42:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:42:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:42:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:42:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:42:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:42:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:43:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:43:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:43:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:43:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:43:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:44:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:44:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:44:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:44:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:44:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:44:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:44:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:44:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:44:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:44:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:44:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:44:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:45:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:45:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:46:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:46:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:46:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:46:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:46:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:46:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:46:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:46:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:46:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:46:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:46:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:46:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:51:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:55:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-05 04:55:34 --> ErrorException: Undefined variable $infaq
+[Method: GET, Route: atursiswa]
+in APPPATH\Views\atursiswa.php on line 34.
+ 1 APPPATH\Views\atursiswa.php(34): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $infaq', 'D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\atursiswa.php', 34)
+ 2 SYSTEMPATH\View\View.php(224): include('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\atursiswa.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('atursiswa', [], true)
+ 5 APPPATH\Controllers\AturSiswa.php(19): view('atursiswa', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AturSiswa->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AturSiswa))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+DEBUG - 2025-03-05 04:55:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:55:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-05 04:55:46 --> ErrorException: Undefined variable $title
+[Method: GET, Route: atursiswa/edit/3]
+in APPPATH\Views\header.php on line 8.
+ 1 APPPATH\Views\header.php(8): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $title', 'D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\header.php', 8)
+ 2 SYSTEMPATH\View\View.php(224): include('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\header.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(475): CodeIgniter\View\View->render('header', null, true)
+ 5 APPPATH\Views\dashboardadministrator.php(5): CodeIgniter\View\View->include('header')
+ 6 SYSTEMPATH\View\View.php(224): include('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\dashboardadministrator.php')
+ 7 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\View\View.php(475): CodeIgniter\View\View->render('dashboardadministrator', null, true)
+ 9 APPPATH\Views\atursiswa.php(1): CodeIgniter\View\View->include('dashboardadministrator')
+10 SYSTEMPATH\View\View.php(224): include('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\atursiswa.php')
+11 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('atursiswa', [], true)
+13 APPPATH\Controllers\AturSiswa.php(68): view('atursiswa', [...])
+14 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AturSiswa->edit('3')
+15 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AturSiswa))
+16 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+18 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+19 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+20 SYSTEMPATH\rewrite.php(44): require_once('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+CRITICAL - 2025-03-05 04:56:18 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "atursiswa/edit.php"
+[Method: GET, Route: atursiswa/edit/3]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('atursiswa/edit.php')
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('atursiswa/edit', [], true)
+ 3 APPPATH\Controllers\AturSiswa.php(68): view('atursiswa/edit', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AturSiswa->edit('3')
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AturSiswa))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+DEBUG - 2025-03-05 04:57:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 04:58:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-05 04:58:55 --> ErrorException: Undefined variable $title
+[Method: GET, Route: atursiswa/edit/3]
+in APPPATH\Views\header.php on line 8.
+ 1 APPPATH\Views\header.php(8): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $title', 'D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\header.php', 8)
+ 2 SYSTEMPATH\View\View.php(224): include('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\header.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(475): CodeIgniter\View\View->render('header', null, true)
+ 5 APPPATH\Views\dashboardadministrator.php(5): CodeIgniter\View\View->include('header')
+ 6 SYSTEMPATH\View\View.php(224): include('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\dashboardadministrator.php')
+ 7 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\View\View.php(475): CodeIgniter\View\View->render('dashboardadministrator', null, true)
+ 9 APPPATH\Views\editsiswa.php(1): CodeIgniter\View\View->include('dashboardadministrator')
+10 SYSTEMPATH\View\View.php(224): include('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\editsiswa.php')
+11 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('editsiswa', [], true)
+13 APPPATH\Controllers\AturSiswa.php(68): view('editsiswa', [...])
+14 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AturSiswa->edit('3')
+15 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AturSiswa))
+16 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+18 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+19 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+20 SYSTEMPATH\rewrite.php(44): require_once('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+DEBUG - 2025-03-05 04:59:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:02:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:02:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:02:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:03:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:05:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:05:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:05:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:05:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:05:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:05:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:06:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:06:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:06:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:06:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:06:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:07:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:07:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:07:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:10:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:10:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-05 05:10:27 --> Error: Array callback must have exactly two elements
+[Method: GET, Route: atursiswa/edit/3]
+in APPPATH\Views\editsiswa.php on line 14.
+ 1 SYSTEMPATH\View\View.php(224): include()
+ 2 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('editsiswa', [], true)
+ 4 APPPATH\Controllers\AturSiswa.php(75): view('editsiswa', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AturSiswa->edit('3')
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AturSiswa))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+DEBUG - 2025-03-05 05:13:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:13:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:13:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:14:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:14:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:14:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:22:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:22:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:22:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:23:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:23:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:23:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:23:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:23:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:24:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:28:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:28:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:29:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:29:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:31:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:31:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:31:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:35:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:36:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:36:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:38:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:38:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:38:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:38:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:39:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:39:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:39:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:40:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:40:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:40:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:40:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:40:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:42:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:42:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:42:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:42:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:43:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 05:43:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 06:00:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 06:00:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 06:00:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 06:00:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 06:00:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 06:00:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 06:00:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 06:00:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 06:00:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 06:01:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 06:01:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 06:01:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 06:02:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 06:02:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 06:02:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 06:03:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 06:03:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 06:33:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 06:34:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 06:34:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 06:34:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 06:34:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 06:35:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 06:35:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 06:35:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 06:35:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 06:35:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 06:35:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 06:35:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 06:36:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 06:36:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 06:36:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 06:36:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 06:39:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 06:40:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 06:40:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 06:40:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 06:41:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 06:41:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 06:42:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 06:42:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 06:42:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 06:42:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 06:46:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 06:47:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 06:52:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 06:52:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 06:53:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 07:00:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 07:01:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-05 07:01:04 --> ErrorException: Undefined variable $title
+[Method: GET, Route: aturinfaq/edit/1]
+in APPPATH\Views\header.php on line 8.
+ 1 APPPATH\Views\header.php(8): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $title', 'D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\header.php', 8)
+ 2 SYSTEMPATH\View\View.php(224): include('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\header.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(475): CodeIgniter\View\View->render('header', null, true)
+ 5 APPPATH\Views\dashboardadministrator.php(5): CodeIgniter\View\View->include('header')
+ 6 SYSTEMPATH\View\View.php(224): include('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\dashboardadministrator.php')
+ 7 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\View\View.php(475): CodeIgniter\View\View->render('dashboardadministrator', null, true)
+ 9 APPPATH\Views\editinfaq.php(1): CodeIgniter\View\View->include('dashboardadministrator')
+10 SYSTEMPATH\View\View.php(224): include('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\editinfaq.php')
+11 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('editinfaq', [], true)
+13 APPPATH\Controllers\AturInfaq.php(57): view('editinfaq', [...])
+14 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AturInfaq->edit('1')
+15 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AturInfaq))
+16 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+18 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+19 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+20 SYSTEMPATH\rewrite.php(44): require_once('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+DEBUG - 2025-03-05 07:02:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-05 07:02:16 --> Error: Call to undefined function set_value()
+[Method: GET, Route: aturinfaq/edit/1]
+in APPPATH\Views\atursiswa.php on line 60.
+ 1 SYSTEMPATH\View\View.php(224): include()
+ 2 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('atursiswa', [], true)
+ 4 APPPATH\Controllers\AturInfaq.php(63): view('atursiswa', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AturInfaq->edit('1')
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AturInfaq))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+DEBUG - 2025-03-05 07:02:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 07:02:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-05 07:02:37 --> Error: Call to undefined function set_value()
+[Method: GET, Route: aturinfaq/edit/1]
+in APPPATH\Views\atursiswa.php on line 60.
+ 1 SYSTEMPATH\View\View.php(224): include()
+ 2 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('atursiswa', [], true)
+ 4 APPPATH\Controllers\AturInfaq.php(63): view('atursiswa', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AturInfaq->edit('1')
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AturInfaq))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+DEBUG - 2025-03-05 07:04:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-05 07:04:22 --> Error: Call to undefined function set_value()
+[Method: GET, Route: aturinfaq/edit/1]
+in APPPATH\Views\aturinfaq.php on line 59.
+ 1 SYSTEMPATH\View\View.php(224): include()
+ 2 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('aturinfaq', [], true)
+ 4 APPPATH\Controllers\AturInfaq.php(63): view('aturinfaq', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AturInfaq->edit('1')
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AturInfaq))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+DEBUG - 2025-03-05 07:05:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-05 07:05:32 --> Error: Call to undefined function set_value()
+[Method: GET, Route: aturinfaq/edit/1]
+in APPPATH\Views\aturinfaq.php on line 59.
+ 1 SYSTEMPATH\View\View.php(224): include()
+ 2 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('aturinfaq', [], true)
+ 4 APPPATH\Controllers\AturInfaq.php(63): view('aturinfaq', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AturInfaq->edit('1')
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AturInfaq))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+DEBUG - 2025-03-05 07:05:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-05 07:05:33 --> Error: Call to undefined function set_value()
+[Method: GET, Route: aturinfaq/edit/1]
+in APPPATH\Views\aturinfaq.php on line 59.
+ 1 SYSTEMPATH\View\View.php(224): include()
+ 2 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('aturinfaq', [], true)
+ 4 APPPATH\Controllers\AturInfaq.php(63): view('aturinfaq', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AturInfaq->edit('1')
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AturInfaq))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+DEBUG - 2025-03-05 07:06:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-05 07:06:38 --> Error: Call to undefined function set_value()
+[Method: GET, Route: aturinfaq/edit/1]
+in APPPATH\Views\aturinfaq.php on line 59.
+ 1 SYSTEMPATH\View\View.php(224): include()
+ 2 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('aturinfaq', [], true)
+ 4 APPPATH\Controllers\AturInfaq.php(62): view('aturinfaq', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AturInfaq->edit('1')
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AturInfaq))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+DEBUG - 2025-03-05 07:09:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-05 07:09:09 --> Error: Call to undefined function set_value()
+[Method: GET, Route: aturinfaq/edit/1]
+in APPPATH\Views\aturinfaq.php on line 59.
+ 1 SYSTEMPATH\View\View.php(224): include()
+ 2 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('aturinfaq', [], true)
+ 4 APPPATH\Controllers\AturInfaq.php(74): view('aturinfaq', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AturInfaq->edit('1')
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AturInfaq))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+DEBUG - 2025-03-05 07:09:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-05 07:09:12 --> Error: Call to undefined function set_value()
+[Method: GET, Route: aturinfaq/edit/1]
+in APPPATH\Views\aturinfaq.php on line 59.
+ 1 SYSTEMPATH\View\View.php(224): include()
+ 2 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('aturinfaq', [], true)
+ 4 APPPATH\Controllers\AturInfaq.php(74): view('aturinfaq', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AturInfaq->edit('1')
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AturInfaq))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+DEBUG - 2025-03-05 07:10:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-05 07:10:26 --> Error: Call to undefined function set_value()
+[Method: GET, Route: aturinfaq/edit/1]
+in APPPATH\Views\aturinfaq.php on line 59.
+ 1 SYSTEMPATH\View\View.php(224): include()
+ 2 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('aturinfaq', [], true)
+ 4 APPPATH\Controllers\AturInfaq.php(74): view('aturinfaq', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AturInfaq->edit('1')
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AturInfaq))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+DEBUG - 2025-03-05 07:11:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-05 07:11:55 --> Error: Call to undefined function set_value()
+[Method: GET, Route: aturinfaq/edit/1]
+in APPPATH\Views\aturinfaq.php on line 59.
+ 1 SYSTEMPATH\View\View.php(224): include()
+ 2 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('aturinfaq', [], true)
+ 4 APPPATH\Controllers\AturInfaq.php(71): view('aturinfaq', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AturInfaq->edit('1')
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AturInfaq))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+DEBUG - 2025-03-05 07:13:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-05 07:13:00 --> Error: Call to undefined function set_value()
+[Method: GET, Route: aturinfaq/edit/1]
+in APPPATH\Views\aturinfaq.php on line 59.
+ 1 SYSTEMPATH\View\View.php(224): include()
+ 2 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('aturinfaq', [], true)
+ 4 APPPATH\Controllers\AturInfaq.php(71): view('aturinfaq', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AturInfaq->edit('1')
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AturInfaq))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+DEBUG - 2025-03-05 07:16:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-05 07:16:33 --> Error: Call to undefined function set_value()
+[Method: GET, Route: aturinfaq/edit/1]
+in APPPATH\Views\aturinfaq.php on line 56.
+ 1 SYSTEMPATH\View\View.php(224): include()
+ 2 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('aturinfaq', [], true)
+ 4 APPPATH\Controllers\AturInfaq.php(71): view('aturinfaq', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AturInfaq->edit('1')
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AturInfaq))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+DEBUG - 2025-03-05 07:17:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 07:19:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 07:19:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 07:19:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 07:19:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 07:19:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 07:19:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-05 07:19:12 --> Error: Call to undefined function set_value()
+[Method: GET, Route: aturinfaq/edit/1]
+in APPPATH\Views\aturinfaq.php on line 56.
+ 1 SYSTEMPATH\View\View.php(224): include()
+ 2 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('aturinfaq', [], true)
+ 4 APPPATH\Controllers\AturInfaq.php(71): view('aturinfaq', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AturInfaq->edit('1')
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AturInfaq))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+DEBUG - 2025-03-05 07:19:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-05 07:19:45 --> Error: Call to undefined function set_value()
+[Method: GET, Route: aturinfaq/edit/1]
+in APPPATH\Views\aturinfaq.php on line 56.
+ 1 SYSTEMPATH\View\View.php(224): include()
+ 2 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('aturinfaq', [], true)
+ 4 APPPATH\Controllers\AturInfaq.php(71): view('aturinfaq', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AturInfaq->edit('1')
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AturInfaq))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+DEBUG - 2025-03-05 07:20:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-05 07:20:37 --> Error: Call to undefined function set_value()
+[Method: GET, Route: aturinfaq/edit/1]
+in APPPATH\Views\aturinfaq.php on line 56.
+ 1 SYSTEMPATH\View\View.php(224): include()
+ 2 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('aturinfaq', [], true)
+ 4 APPPATH\Controllers\AturInfaq.php(71): view('aturinfaq', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AturInfaq->edit('1')
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AturInfaq))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+DEBUG - 2025-03-05 07:22:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-03-05 07:23:10 --> ErrorException: pg_query(): Query failed: ERROR:  nilai kunci ganda melanggar batasan unik « infaq_name_key »
+DETAIL:  Kunci « (name)=(SOT Juli) » sudah ada. in D:\stmik komputama\Semester 8\SISTEM\project_apin\system\Database\Postgre\Connection.php:206
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Que...', 'D:\\stmik komput...', 206)
+#1 D:\stmik komputama\Semester 8\SISTEM\project_apin\system\Database\Postgre\Connection.php(206): pg_query(Object(PgSql\Connection), 'INSERT INTO "in...')
+#2 D:\stmik komputama\Semester 8\SISTEM\project_apin\system\Database\BaseConnection.php(738): CodeIgniter\Database\Postgre\Connection->execute('INSERT INTO "in...')
+#3 D:\stmik komputama\Semester 8\SISTEM\project_apin\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO "in...')
+#4 D:\stmik komputama\Semester 8\SISTEM\project_apin\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO "in...', Array, false)
+#5 D:\stmik komputama\Semester 8\SISTEM\project_apin\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#6 D:\stmik komputama\Semester 8\SISTEM\project_apin\system\BaseModel.php(839): CodeIgniter\Model->doInsert(Array)
+#7 D:\stmik komputama\Semester 8\SISTEM\project_apin\system\Model.php(800): CodeIgniter\BaseModel->insert(Array, false)
+#8 D:\stmik komputama\Semester 8\SISTEM\project_apin\system\BaseModel.php(750): CodeIgniter\Model->insert(Array, false)
+#9 D:\stmik komputama\Semester 8\SISTEM\project_apin\app\Controllers\AturInfaq.php(41): CodeIgniter\BaseModel->save(Array)
+#10 D:\stmik komputama\Semester 8\SISTEM\project_apin\system\CodeIgniter.php(933): App\Controllers\AturInfaq->save()
+#11 D:\stmik komputama\Semester 8\SISTEM\project_apin\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AturInfaq))
+#12 D:\stmik komputama\Semester 8\SISTEM\project_apin\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 D:\stmik komputama\Semester 8\SISTEM\project_apin\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#14 D:\stmik komputama\Semester 8\SISTEM\project_apin\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#15 D:\stmik komputama\Semester 8\SISTEM\project_apin\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#16 D:\stmik komputama\Semester 8\SISTEM\project_apin\system\rewrite.php(44): require_once('D:\\stmik komput...')
+#17 {main}
+CRITICAL - 2025-03-05 07:23:10 --> CodeIgniter\Database\Exceptions\DatabaseException: pg_query(): Query failed: ERROR:  nilai kunci ganda melanggar batasan unik « infaq_name_key »
+DETAIL:  Kunci « (name)=(SOT Juli) » sudah ada.
+[Method: POST, Route: aturinfaq/save]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO "infaq" ("name", "kelas", "harga") VALUES (:name:, :kelas:, :harga:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(839): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(800): CodeIgniter\BaseModel->insert([...], false)
+ 5 SYSTEMPATH\BaseModel.php(750): CodeIgniter\Model->insert([...], false)
+ 6 APPPATH\Controllers\AturInfaq.php(41): CodeIgniter\BaseModel->save([...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AturInfaq->save()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AturInfaq))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+CRITICAL - 2025-03-05 07:23:10 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: pg_query(): Query failed: ERROR:  nilai kunci ganda melanggar batasan unik « infaq_name_key »
+DETAIL:  Kunci « (name)=(SOT Juli) » sudah ada.
+in SYSTEMPATH\Database\Postgre\Connection.php on line 211.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\Postgre\Connection->execute('INSERT INTO "infaq" ("name", "kelas", "harga") VALUES (\'SOT Juli\', \'789\', \'45000\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO "infaq" ("name", "kelas", "harga") VALUES (\'SOT Juli\', \'789\', \'45000\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO "infaq" ("name", "kelas", "harga") VALUES (:name:, :kelas:, :harga:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(839): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(800): CodeIgniter\BaseModel->insert([...], false)
+ 7 SYSTEMPATH\BaseModel.php(750): CodeIgniter\Model->insert([...], false)
+ 8 APPPATH\Controllers\AturInfaq.php(41): CodeIgniter\BaseModel->save([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AturInfaq->save()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AturInfaq))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+CRITICAL - 2025-03-05 07:23:10 --> [Caused by] ErrorException: pg_query(): Query failed: ERROR:  nilai kunci ganda melanggar batasan unik « infaq_name_key »
+DETAIL:  Kunci « (name)=(SOT Juli) » sudah ada.
+in SYSTEMPATH\Database\Postgre\Connection.php on line 206.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Query failed: ERROR:  nilai kunci ganda melanggar batasan unik « infaq_name_key »
+DETAIL:  Kunci « (name)=(SOT Juli) » sudah ada.', 'D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\system\\Database\\Postgre\\Connection.php', 206)
+ 2 SYSTEMPATH\Database\Postgre\Connection.php(206): pg_query(Object(PgSql\Connection), 'INSERT INTO "infaq" ("name", "kelas", "harga") VALUES (\'SOT Juli\', \'789\', \'45000\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\Postgre\Connection->execute('INSERT INTO "infaq" ("name", "kelas", "harga") VALUES (\'SOT Juli\', \'789\', \'45000\')')
+ 4 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO "infaq" ("name", "kelas", "harga") VALUES (\'SOT Juli\', \'789\', \'45000\')')
+ 5 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO "infaq" ("name", "kelas", "harga") VALUES (:name:, :kelas:, :harga:)', [...], false)
+ 6 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 7 SYSTEMPATH\BaseModel.php(839): CodeIgniter\Model->doInsert([...])
+ 8 SYSTEMPATH\Model.php(800): CodeIgniter\BaseModel->insert([...], false)
+ 9 SYSTEMPATH\BaseModel.php(750): CodeIgniter\Model->insert([...], false)
+10 APPPATH\Controllers\AturInfaq.php(41): CodeIgniter\BaseModel->save([...])
+11 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AturInfaq->save()
+12 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AturInfaq))
+13 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+14 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+15 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+16 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+17 SYSTEMPATH\rewrite.php(44): require_once('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+DEBUG - 2025-03-05 07:26:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 07:26:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 07:26:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 07:26:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 07:26:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 07:27:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-05 07:27:46 --> ErrorException: Undefined variable $siswa
+[Method: GET, Route: aturinfaq/edit/1]
+in APPPATH\Views\editinfaq.php on line 32.
+ 1 APPPATH\Views\editinfaq.php(32): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $siswa', 'D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\editinfaq.php', 32)
+ 2 SYSTEMPATH\View\View.php(224): include('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\editinfaq.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('editinfaq', [], true)
+ 5 APPPATH\Controllers\AturInfaq.php(72): view('editinfaq', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AturInfaq->edit('1')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AturInfaq))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+DEBUG - 2025-03-05 07:28:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 07:28:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 07:29:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 07:30:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 07:32:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 07:33:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 07:34:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 07:35:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 07:35:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 07:35:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 07:35:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 07:35:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 07:36:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 07:36:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 07:36:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 07:36:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 07:36:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 07:40:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 07:40:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 07:40:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 07:40:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 07:41:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 07:41:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-05 07:41:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

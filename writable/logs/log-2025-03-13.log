@@ -1,0 +1,282 @@
+CRITICAL - 2025-03-13 06:28:26 --> Error: Class "Locale" not found
+[Method: GET, Route: /]
+in SYSTEMPATH\CodeIgniter.php on line 189.
+ 1 SYSTEMPATH\Boot.php(321): CodeIgniter\CodeIgniter->initialize()
+ 2 SYSTEMPATH\Boot.php(101): CodeIgniter\Boot::initializeCodeIgniter()
+ 3 ROOTPATH\spark(84): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+CRITICAL - 2025-03-13 06:28:26 --> ErrorException: Uncaught Error: Class "Locale" not found in E:\stmik komputama\Semester 8\SISTEM\project_apin\system\I18n\TimeTrait.php:76
+Stack trace:
+#0 E:\stmik komputama\Semester 8\SISTEM\project_apin\system\I18n\TimeTrait.php(117): CodeIgniter\I18n\Time->__construct(NULL, NULL, NULL)
+#1 E:\stmik komputama\Semester 8\SISTEM\project_apin\system\HTTP\ResponseTrait.php(398): CodeIgniter\I18n\Time::now()
+#2 E:\stmik komputama\Semester 8\SISTEM\project_apin\system\HTTP\ResponseTrait.php(376): CodeIgniter\HTTP\Response->sendHeaders()
+#3 E:\stmik komputama\Semester 8\SISTEM\project_apin\system\Debug\ExceptionHandler.php(85): CodeIgniter\HTTP\Response->send()
+#4 E:\stmik komputama\Semester 8\SISTEM\project_apin\system\Debug\Exceptions.php(162): CodeIgniter\Debug\ExceptionHandler->handle(Object(Error), Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), 500, 1)
+#5 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(Error))
+#6 {main}
+  thrown
+【Previous Exception】
+Error
+Class "Locale" not found
+#0 E:\stmik komputama\Semester 8\SISTEM\project_apin\system\Boot.php(321): CodeIgniter\CodeIgniter->initialize()
+#1 E:\stmik komputama\Semester 8\SISTEM\project_apin\system\Boot.php(101): CodeIgniter\Boot::initializeCodeIgniter()
+#2 E:\stmik komputama\Semester 8\SISTEM\project_apin\spark(84): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#3 {main}
+[Method: GET, Route: /]
+in SYSTEMPATH\I18n\TimeTrait.php on line 76.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+DEBUG - 2025-03-13 05:30:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-13 05:30:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-03-13 05:30:09 --> Error connecting to the database: ErrorException: pg_connect(): Unable to connect to PostgreSQL server: FATAL:  password gagal diotentikasi untuk pengguna  � hakimarvinnoer � in E:\stmik komputama\Semester 8\SISTEM\project_apin\system\Database\Postgre\Connection.php:78
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_connect(): U...', 'E:\\stmik komput...', 78)
+#1 E:\stmik komputama\Semester 8\SISTEM\project_apin\system\Database\Postgre\Connection.php(78): pg_connect('host=localhost ...')
+#2 E:\stmik komputama\Semester 8\SISTEM\project_apin\system\Database\BaseConnection.php(421): CodeIgniter\Database\Postgre\Connection->connect(false)
+#3 E:\stmik komputama\Semester 8\SISTEM\project_apin\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->initialize()
+#4 E:\stmik komputama\Semester 8\SISTEM\project_apin\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM "...', Array, false)
+#5 E:\stmik komputama\Semester 8\SISTEM\project_apin\system\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+#6 E:\stmik komputama\Semester 8\SISTEM\project_apin\system\BaseModel.php(713): CodeIgniter\Model->doFirst()
+#7 E:\stmik komputama\Semester 8\SISTEM\project_apin\app\Controllers\LoginAdministrator.php(21): CodeIgniter\BaseModel->first()
+#8 E:\stmik komputama\Semester 8\SISTEM\project_apin\system\CodeIgniter.php(933): App\Controllers\LoginAdministrator->auth()
+#9 E:\stmik komputama\Semester 8\SISTEM\project_apin\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LoginAdministrator))
+#10 E:\stmik komputama\Semester 8\SISTEM\project_apin\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 E:\stmik komputama\Semester 8\SISTEM\project_apin\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 E:\stmik komputama\Semester 8\SISTEM\project_apin\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 E:\stmik komputama\Semester 8\SISTEM\project_apin\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 E:\stmik komputama\Semester 8\SISTEM\project_apin\system\rewrite.php(44): require_once('E:\\stmik komput...')
+#15 {main}
+CRITICAL - 2025-03-13 05:30:09 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [Postgre]: pg_connect(): Unable to connect to PostgreSQL server: FATAL:  password gagal diotentikasi untuk pengguna  � hakimarvinnoer �
+[Method: POST, Route: loginadministrator/auth]
+in SYSTEMPATH\Database\BaseConnection.php on line 467.
+ 1 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM "administrator"
+WHERE "adminname" = :adminname:
+ LIMIT 1', [...], false)
+ 3 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(713): CodeIgniter\Model->doFirst()
+ 5 APPPATH\Controllers\LoginAdministrator.php(21): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\LoginAdministrator->auth()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LoginAdministrator))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('E:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+DEBUG - 2025-03-13 05:32:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-03-13 05:32:08 --> Error connecting to the database: ErrorException: pg_connect(): Unable to connect to PostgreSQL server: FATAL:  password gagal diotentikasi untuk pengguna  � hakimarvinnoer � in E:\stmik komputama\Semester 8\SISTEM\project_apin\system\Database\Postgre\Connection.php:78
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_connect(): U...', 'E:\\stmik komput...', 78)
+#1 E:\stmik komputama\Semester 8\SISTEM\project_apin\system\Database\Postgre\Connection.php(78): pg_connect('host=localhost ...')
+#2 E:\stmik komputama\Semester 8\SISTEM\project_apin\system\Database\BaseConnection.php(421): CodeIgniter\Database\Postgre\Connection->connect(false)
+#3 E:\stmik komputama\Semester 8\SISTEM\project_apin\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->initialize()
+#4 E:\stmik komputama\Semester 8\SISTEM\project_apin\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM "...', Array, false)
+#5 E:\stmik komputama\Semester 8\SISTEM\project_apin\system\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+#6 E:\stmik komputama\Semester 8\SISTEM\project_apin\system\BaseModel.php(713): CodeIgniter\Model->doFirst()
+#7 E:\stmik komputama\Semester 8\SISTEM\project_apin\app\Controllers\LoginAdministrator.php(21): CodeIgniter\BaseModel->first()
+#8 E:\stmik komputama\Semester 8\SISTEM\project_apin\system\CodeIgniter.php(933): App\Controllers\LoginAdministrator->auth()
+#9 E:\stmik komputama\Semester 8\SISTEM\project_apin\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LoginAdministrator))
+#10 E:\stmik komputama\Semester 8\SISTEM\project_apin\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 E:\stmik komputama\Semester 8\SISTEM\project_apin\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 E:\stmik komputama\Semester 8\SISTEM\project_apin\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 E:\stmik komputama\Semester 8\SISTEM\project_apin\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 E:\stmik komputama\Semester 8\SISTEM\project_apin\system\rewrite.php(44): require_once('E:\\stmik komput...')
+#15 {main}
+CRITICAL - 2025-03-13 05:32:08 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [Postgre]: pg_connect(): Unable to connect to PostgreSQL server: FATAL:  password gagal diotentikasi untuk pengguna  � hakimarvinnoer �
+[Method: POST, Route: loginadministrator/auth]
+in SYSTEMPATH\Database\BaseConnection.php on line 467.
+ 1 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM "administrator"
+WHERE "adminname" = :adminname:
+ LIMIT 1', [...], false)
+ 3 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(713): CodeIgniter\Model->doFirst()
+ 5 APPPATH\Controllers\LoginAdministrator.php(21): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\LoginAdministrator->auth()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LoginAdministrator))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('E:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+DEBUG - 2025-03-13 05:32:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-13 05:32:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-03-13 05:32:46 --> Error connecting to the database: ErrorException: pg_connect(): Unable to connect to PostgreSQL server: FATAL:  password gagal diotentikasi untuk pengguna  � hakimarvinnoer � in E:\stmik komputama\Semester 8\SISTEM\project_apin\system\Database\Postgre\Connection.php:78
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_connect(): U...', 'E:\\stmik komput...', 78)
+#1 E:\stmik komputama\Semester 8\SISTEM\project_apin\system\Database\Postgre\Connection.php(78): pg_connect('host=localhost ...')
+#2 E:\stmik komputama\Semester 8\SISTEM\project_apin\system\Database\BaseConnection.php(421): CodeIgniter\Database\Postgre\Connection->connect(false)
+#3 E:\stmik komputama\Semester 8\SISTEM\project_apin\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->initialize()
+#4 E:\stmik komputama\Semester 8\SISTEM\project_apin\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM "...', Array, false)
+#5 E:\stmik komputama\Semester 8\SISTEM\project_apin\system\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+#6 E:\stmik komputama\Semester 8\SISTEM\project_apin\system\BaseModel.php(713): CodeIgniter\Model->doFirst()
+#7 E:\stmik komputama\Semester 8\SISTEM\project_apin\app\Controllers\LoginAdministrator.php(21): CodeIgniter\BaseModel->first()
+#8 E:\stmik komputama\Semester 8\SISTEM\project_apin\system\CodeIgniter.php(933): App\Controllers\LoginAdministrator->auth()
+#9 E:\stmik komputama\Semester 8\SISTEM\project_apin\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LoginAdministrator))
+#10 E:\stmik komputama\Semester 8\SISTEM\project_apin\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 E:\stmik komputama\Semester 8\SISTEM\project_apin\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 E:\stmik komputama\Semester 8\SISTEM\project_apin\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 E:\stmik komputama\Semester 8\SISTEM\project_apin\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 E:\stmik komputama\Semester 8\SISTEM\project_apin\system\rewrite.php(44): require_once('E:\\stmik komput...')
+#15 {main}
+CRITICAL - 2025-03-13 05:32:46 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [Postgre]: pg_connect(): Unable to connect to PostgreSQL server: FATAL:  password gagal diotentikasi untuk pengguna  � hakimarvinnoer �
+[Method: POST, Route: loginadministrator/auth]
+in SYSTEMPATH\Database\BaseConnection.php on line 467.
+ 1 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM "administrator"
+WHERE "adminname" = :adminname:
+ LIMIT 1', [...], false)
+ 3 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(713): CodeIgniter\Model->doFirst()
+ 5 APPPATH\Controllers\LoginAdministrator.php(21): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\LoginAdministrator->auth()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LoginAdministrator))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('E:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+DEBUG - 2025-03-13 05:37:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-13 05:37:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-13 05:37:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-13 05:37:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-13 05:38:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-13 05:38:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-13 08:52:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-13 08:52:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-13 08:52:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-13 08:52:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-13 08:52:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-13 09:05:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-13 09:07:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-13 09:24:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-13 09:36:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-13 10:14:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-13 10:25:24 --> Dompdf\Exception: Function imagecreatefromwebp() not found.  Cannot convert webp image: C:\Users\LENOVO\AppData\Local\Temp\ca_3E76.tmp.  Please install the image PHP extension.
+[Method: GET, Route: export-pdf]
+in VENDORPATH\dompdf\dompdf\src\Adapter\CPDF.php on line 608.
+ 1 VENDORPATH\dompdf\dompdf\src\Adapter\CPDF.php(662): Dompdf\Adapter\CPDF->_convert_to_png('C:\\Users\\LENOVO\\AppData\\Local\\Temp\\ca_3E76.tmp', 'webp')
+ 2 VENDORPATH\dompdf\dompdf\src\Renderer\Image.php(63): Dompdf\Adapter\CPDF->image('C:\\Users\\LENOVO\\AppData\\Local\\Temp\\ca_3E76.tmp', 222.64, 110.04774803149607, 150.0, 111.62790697674419, 'normal')
+ 3 VENDORPATH\dompdf\dompdf\src\Renderer.php(305): Dompdf\Renderer\Image->render(Object(Dompdf\FrameDecorator\Image))
+ 4 VENDORPATH\dompdf\dompdf\src\Renderer.php(140): Dompdf\Renderer->_render_frame('image', Object(Dompdf\FrameDecorator\Image))
+ 5 VENDORPATH\dompdf\dompdf\src\Renderer.php(207): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Image))
+ 6 VENDORPATH\dompdf\dompdf\src\Renderer.php(207): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+ 7 VENDORPATH\dompdf\dompdf\src\FrameReflower\Page.php(149): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+ 8 VENDORPATH\dompdf\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(905): Dompdf\FrameReflower\Page->reflow(null)
+ 9 VENDORPATH\dompdf\dompdf\src\Dompdf.php(808): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+10 APPPATH\Controllers\PDFController.php(55): Dompdf\Dompdf->render()
+11 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\PDFController->exportToPdf()
+12 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PDFController))
+13 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+14 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+15 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+16 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+17 SYSTEMPATH\rewrite.php(44): require_once('E:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+CRITICAL - 2025-03-13 10:25:38 --> ErrorException: Allowed memory size of 536870912 bytes exhausted (tried to allocate 257953792 bytes)
+【Previous Exception】
+Dompdf\Exception
+Function imagecreatefromwebp() not found.  Cannot convert webp image: C:\Users\LENOVO\AppData\Local\Temp\ca_3E76.tmp.  Please install the image PHP extension.
+#0 E:\stmik komputama\Semester 8\SISTEM\project_apin\vendor\dompdf\dompdf\src\Adapter\CPDF.php(662): Dompdf\Adapter\CPDF->_convert_to_png('C:\\Users\\LENOVO...', 'webp')
+#1 E:\stmik komputama\Semester 8\SISTEM\project_apin\vendor\dompdf\dompdf\src\Renderer\Image.php(63): Dompdf\Adapter\CPDF->image('C:\\Users\\LENOVO...', 222.64, 110.0477480315, 150.0, 111.62790697674, 'normal')
+#2 E:\stmik komputama\Semester 8\SISTEM\project_apin\vendor\dompdf\dompdf\src\Renderer.php(305): Dompdf\Renderer\Image->render(Object(Dompdf\FrameDecorator\Image))
+#3 E:\stmik komputama\Semester 8\SISTEM\project_apin\vendor\dompdf\dompdf\src\Renderer.php(140): Dompdf\Renderer->_render_frame('image', Object(Dompdf\FrameDecorator\Image))
+#4 E:\stmik komputama\Semester 8\SISTEM\project_apin\vendor\dompdf\dompdf\src\Renderer.php(207): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Image))
+#5 E:\stmik komputama\Semester 8\SISTEM\project_apin\vendor\dompdf\dompdf\src\Renderer.php(207): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+#6 E:\stmik komputama\Semester 8\SISTEM\project_apin\vendor\dompdf\dompdf\src\FrameReflower\Page.php(149): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+#7 E:\stmik komputama\Semester 8\SISTEM\project_apin\vendor\dompdf\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(905): Dompdf\FrameReflower\Page->reflow(NULL)
+#8 E:\stmik komputama\Semester 8\SISTEM\project_apin\vendor\dompdf\dompdf\src\Dompdf.php(808): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+#9 E:\stmik komputama\Semester 8\SISTEM\project_apin\app\Controllers\PDFController.php(55): Dompdf\Dompdf->render()
+#10 E:\stmik komputama\Semester 8\SISTEM\project_apin\system\CodeIgniter.php(933): App\Controllers\PDFController->exportToPdf()
+#11 E:\stmik komputama\Semester 8\SISTEM\project_apin\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PDFController))
+#12 E:\stmik komputama\Semester 8\SISTEM\project_apin\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 E:\stmik komputama\Semester 8\SISTEM\project_apin\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#14 E:\stmik komputama\Semester 8\SISTEM\project_apin\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#15 E:\stmik komputama\Semester 8\SISTEM\project_apin\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#16 E:\stmik komputama\Semester 8\SISTEM\project_apin\system\rewrite.php(44): require_once('E:\\stmik komput...')
+#17 {main}
+[Method: GET, Route: export-pdf]
+in APPPATH\Views\errors\html\error_exception.php on line 131.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2025-03-13 10:26:42 --> Dompdf\Exception: Function imagecreatefromwebp() not found.  Cannot convert webp image: C:\Users\LENOVO\AppData\Local\Temp\ca_6F17.tmp.  Please install the image PHP extension.
+[Method: GET, Route: export-pdf]
+in VENDORPATH\dompdf\dompdf\src\Adapter\CPDF.php on line 608.
+ 1 VENDORPATH\dompdf\dompdf\src\Adapter\CPDF.php(662): Dompdf\Adapter\CPDF->_convert_to_png('C:\\Users\\LENOVO\\AppData\\Local\\Temp\\ca_6F17.tmp', 'webp')
+ 2 VENDORPATH\dompdf\dompdf\src\Renderer\Image.php(63): Dompdf\Adapter\CPDF->image('C:\\Users\\LENOVO\\AppData\\Local\\Temp\\ca_6F17.tmp', 222.64, 110.04774803149607, 150.0, 111.62790697674419, 'normal')
+ 3 VENDORPATH\dompdf\dompdf\src\Renderer.php(305): Dompdf\Renderer\Image->render(Object(Dompdf\FrameDecorator\Image))
+ 4 VENDORPATH\dompdf\dompdf\src\Renderer.php(140): Dompdf\Renderer->_render_frame('image', Object(Dompdf\FrameDecorator\Image))
+ 5 VENDORPATH\dompdf\dompdf\src\Renderer.php(207): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Image))
+ 6 VENDORPATH\dompdf\dompdf\src\Renderer.php(207): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+ 7 VENDORPATH\dompdf\dompdf\src\FrameReflower\Page.php(149): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+ 8 VENDORPATH\dompdf\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(905): Dompdf\FrameReflower\Page->reflow(null)
+ 9 VENDORPATH\dompdf\dompdf\src\Dompdf.php(808): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+10 APPPATH\Controllers\PDFController.php(55): Dompdf\Dompdf->render()
+11 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\PDFController->exportToPdf()
+12 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PDFController))
+13 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+14 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+15 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+16 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+17 SYSTEMPATH\rewrite.php(44): require_once('E:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+CRITICAL - 2025-03-13 10:26:53 --> ErrorException: Allowed memory size of 536870912 bytes exhausted (tried to allocate 257953792 bytes)
+【Previous Exception】
+Dompdf\Exception
+Function imagecreatefromwebp() not found.  Cannot convert webp image: C:\Users\LENOVO\AppData\Local\Temp\ca_6F17.tmp.  Please install the image PHP extension.
+#0 E:\stmik komputama\Semester 8\SISTEM\project_apin\vendor\dompdf\dompdf\src\Adapter\CPDF.php(662): Dompdf\Adapter\CPDF->_convert_to_png('C:\\Users\\LENOVO...', 'webp')
+#1 E:\stmik komputama\Semester 8\SISTEM\project_apin\vendor\dompdf\dompdf\src\Renderer\Image.php(63): Dompdf\Adapter\CPDF->image('C:\\Users\\LENOVO...', 222.64, 110.0477480315, 150.0, 111.62790697674, 'normal')
+#2 E:\stmik komputama\Semester 8\SISTEM\project_apin\vendor\dompdf\dompdf\src\Renderer.php(305): Dompdf\Renderer\Image->render(Object(Dompdf\FrameDecorator\Image))
+#3 E:\stmik komputama\Semester 8\SISTEM\project_apin\vendor\dompdf\dompdf\src\Renderer.php(140): Dompdf\Renderer->_render_frame('image', Object(Dompdf\FrameDecorator\Image))
+#4 E:\stmik komputama\Semester 8\SISTEM\project_apin\vendor\dompdf\dompdf\src\Renderer.php(207): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Image))
+#5 E:\stmik komputama\Semester 8\SISTEM\project_apin\vendor\dompdf\dompdf\src\Renderer.php(207): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+#6 E:\stmik komputama\Semester 8\SISTEM\project_apin\vendor\dompdf\dompdf\src\FrameReflower\Page.php(149): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+#7 E:\stmik komputama\Semester 8\SISTEM\project_apin\vendor\dompdf\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(905): Dompdf\FrameReflower\Page->reflow(NULL)
+#8 E:\stmik komputama\Semester 8\SISTEM\project_apin\vendor\dompdf\dompdf\src\Dompdf.php(808): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+#9 E:\stmik komputama\Semester 8\SISTEM\project_apin\app\Controllers\PDFController.php(55): Dompdf\Dompdf->render()
+#10 E:\stmik komputama\Semester 8\SISTEM\project_apin\system\CodeIgniter.php(933): App\Controllers\PDFController->exportToPdf()
+#11 E:\stmik komputama\Semester 8\SISTEM\project_apin\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PDFController))
+#12 E:\stmik komputama\Semester 8\SISTEM\project_apin\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 E:\stmik komputama\Semester 8\SISTEM\project_apin\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#14 E:\stmik komputama\Semester 8\SISTEM\project_apin\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#15 E:\stmik komputama\Semester 8\SISTEM\project_apin\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#16 E:\stmik komputama\Semester 8\SISTEM\project_apin\system\rewrite.php(44): require_once('E:\\stmik komput...')
+#17 {main}
+[Method: GET, Route: export-pdf]
+in APPPATH\Views\errors\html\error_exception.php on line 131.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2025-03-13 10:49:28 --> Error: Undefined constant "url"
+[Method: GET, Route: export-pdf]
+in APPPATH\Views\pdf_siswa.php on line 54.
+ 1 SYSTEMPATH\View\View.php(224): include()
+ 2 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('pdf_siswa', [], true)
+ 4 APPPATH\Controllers\PDFController.php(45): view('pdf_siswa', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\PDFController->exportToPdf()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PDFController))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('E:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+DEBUG - 2025-03-13 10:56:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-13 22:12:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-13 22:12:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-13 22:12:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-13 22:12:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-13 22:20:09 --> Error: Undefined constant "PUBLICPATH"
+[Method: GET, Route: export-pdf]
+in APPPATH\Views\pdf_siswa.php on line 54.
+ 1 SYSTEMPATH\View\View.php(224): include()
+ 2 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('pdf_siswa', [], true)
+ 4 APPPATH\Controllers\PDFController.php(14): view('pdf_siswa', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\PDFController->exportToPdf()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PDFController))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('E:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')
+DEBUG - 2025-03-13 22:59:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
