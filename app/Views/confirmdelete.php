@@ -6,7 +6,7 @@
             <span class="tombol green">DATA SISWA</span>
 
     <form action="/atursiswa/delete/<?= $siswa['id'] ?>" method="post">
-    <table>
+    <table class="">
                     <tbody>
                         <tr>
                             <td>Nama Siswa</td>

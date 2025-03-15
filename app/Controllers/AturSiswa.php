@@ -102,4 +102,19 @@ class AturSiswa extends Controller
 
         return redirect()->to('/atursiswa')->with('success', 'Data siswa berhasil dihapus.');
     }
+
+    public function confirmdelete($id)
+    {
+        $model = new SiswaModel();
+        $data['siswa'] = $model->find($id);
+
+        $data = [
+            'menu' => 'Perencanaan',
+            'title' => 'Atur Siswa',
+            'siswa' => $model->find($id),
+            'on' => true,
+        ];
+
+        return view('confirmdelete', $data);
+    }
 }

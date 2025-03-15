@@ -8,7 +8,7 @@
     <form method="GET" action="<?= base_url('atursiswa'); ?>">
         <span>Search :</span>
     <div class="input">
-    <input type="text" id="search" name="keyword" placeholder="Cari siswa" value="<?= isset($_GET['keyword']) ? $_GET['keyword'] : '' ?>" >
+    <input class="search" type="text" id="search" name="keyword" placeholder="Cari siswa" value="<?= isset($_GET['keyword']) ? $_GET['keyword'] : '' ?>" >
     <?php if ($keyword) : ?>
     <a href="<?= base_url('atursiswa')?>"><i class="i">&#xE14C</i></a>
     <?php endif; ?>

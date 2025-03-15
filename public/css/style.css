@@ -20,7 +20,7 @@ input, textarea, select, button
     font: inherit;
 }
 
-input:focus
+.search input:focus
 {
     all: unset;
 }
