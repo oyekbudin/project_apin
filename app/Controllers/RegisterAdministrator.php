@@ -87,7 +87,7 @@ class RegisterAdministrator extends Controller
         $data = [
             'menu' => 'Pengaturan',
             'title' => 'Atur User',
-            'infaq' => $model->find($id),
+            'administrator' => $model->find($id),
             'on' => true,
         ];
         return view('editadministrator', $data);
@@ -105,7 +105,7 @@ class RegisterAdministrator extends Controller
         ];
         $model->update($id, $data);
 
-        return redirect()->to('/registeradministrator');
+        return redirect()->to('/registeradministrator')->with('success', 'Data user berhasil diperbarui.');
     }
 
     public function delete($id)
@@ -113,7 +113,7 @@ class RegisterAdministrator extends Controller
         $model = new AdministratorModel();
         $model->delete($id);
 
-        return redirect()->to('/registeradministrator')->with('success', 'Data infaq berhasil dihapus.');
+        return redirect()->to('/registeradministrator')->with('success', 'Data user berhasil dihapus.');
     }
 
     public function confirmdelete($id)

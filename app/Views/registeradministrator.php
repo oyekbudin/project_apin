@@ -1,7 +1,5 @@
 <?= $this->include('dashboardadministrator') ?>
-    <!--h2>List User</h2-->
     <div class="board-wrap">
-
 <div class="group-action">
 <button class="tombol green" onclick="onmodalTambah()">Tambah User</button>
 <!--a href="<//?= base_url('/export-pdf/infaq'); ?>" class="tombol secondary" target="_blank">Export PDF</a-->
@@ -83,7 +81,7 @@
                         </tr>
                         <tr>
                             <td>Roles</td>
-                            <td><select class="input" name="role" id="inputrole" value="">
+                            <td><select class="input" name="role" id="inputrole">
                                 <option value="">Pilih Roles</option>
                                 <option value="SistemAdmin" <?= set_value('role') == "SistemAdmin" ? "selected" : "" ?>>Sistem Admin</option>
                                 <option value="KepalaSekolah" <?= set_value('role') == "KepalaSekolah" ? "selected" : "" ?>>Kepala Sekolah</option>
@@ -92,7 +90,7 @@
                         </tr>
                         <tr>
                             <td>Password</td>
-                            <td><input class="input" type="password" name="passowrd" id="inputpassword" value="<?= set_value('password') ?>" placeholder="Password">
+                            <td><input class="input" type="password" name="password" id="inputpassword" value="<?= set_value('password') ?>" placeholder="Password">
                             <span class="txtdanger data-subtitle"><?= isset($validation) ? $validation->getError('password') : "" ?></span></td>
                         </tr>
                     </tbody>
