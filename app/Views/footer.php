@@ -10,6 +10,16 @@
     function onmodalTambah()
     {
         document.getElementById("modalTambah").style.display = "flex";
+        document.querySelectorAll('#modalTambah input, #modalTambah select').forEach(function(element)
+    {
+        if (element.type === 'select-one')
+    {
+        element.selectedIndex = 0;
+    } else {
+        element.value = '';
+    }
+    });
+        
     }
 
     function offmodalTambah()

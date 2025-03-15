@@ -42,7 +42,7 @@
                 <td><?= $user['role'] ?></td>
                 <td>
                     <a class="tombol warning-outline" href="/registeradministrator/edit/<?= $user['idadmin'] ?>">Edit</a>
-                    <a class="tombol danger-outline" href="/registeradministrator/confirmdelete/<?= $user['idadmin'] ?>">Hapus</a>
+                    <a class="tombol danger-outline" href="/registeradministrator/confirmdeleteadministrator/<?= $user['idadmin'] ?>">Hapus</a>
                 </td>
             </tr>
             <?php endforeach; ?>
@@ -68,29 +68,29 @@
                         <tr>
                             <td>Nama Lengkap</td>
                             <td>
-                                <input class="input" type="text" name="name" id="inputname" value="<?= set_value('name') ?>" placeholder="Nama Lengkap">
+                                <input class="input" type="text" name="name" id="inputname" value="" placeholder="Nama Lengkap">
                                 <span class="txtdanger data-subtitle"><?= isset($validation) ? $validation->getError('name') : "" ?></span>
                             </td>
                         </tr>
                         <tr>
                             <td>Username</td>
                             <td>
-                                <input class="input" type="text" name="adminname" id="inputadminname" value="<?= set_value('adminname') ?>" placeholder="Username">
+                                <input class="input" type="text" name="adminname" id="inputadminname" value="" placeholder="Username">
                                 <span class="txtdanger data-subtitle"><?= isset($validation) ? $validation->getError('adminname') : "" ?></span>
                             </td>
                         </tr>
                         <tr>
                             <td>Password</td>
-                            <td><input class="input" type="password" name="password" id="inputpassword" value="<?= set_value('password') ?>" placeholder="Password">
+                            <td><input class="input" type="password" name="password" id="inputpassword" value="" placeholder="Password">
                             <span class="txtdanger data-subtitle"><?= isset($validation) ? $validation->getError('password') : "" ?></span></td>
                         </tr>
                         <tr>
                             <td>Roles</td>
                             <td><select class="input" name="role" id="inputrole">
                                 <option value="">Pilih Roles</option>
-                                <option value="SistemAdmin" <?= set_value('role') == "SistemAdmin" ? "selected" : "" ?>>Sistem Admin</option>
-                                <option value="KepalaSekolah" <?= set_value('role') == "KepalaSekolah" ? "selected" : "" ?>>Kepala Sekolah</option>
-                                <option value="Bendahara" <?= set_value('role') == "Bendahara" ? "selected" : "" ?>>Bendahara</option>
+                                <option value="SistemAdmin" >Sistem Admin</option>
+                                <option value="KepalaSekolah">Kepala Sekolah</option>
+                                <option value="Bendahara">Bendahara</option>
                             </select></td>
                         </tr>
                         

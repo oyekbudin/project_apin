@@ -7,7 +7,7 @@ class RegisterAdministrator extends Controller
 {
     public function index()
     {
-        helper(['form']);
+        //helper(['form']);
         $Model = new AdministratorModel();
         $perPage = 10;
         $page = (int) ($this->request->getGet('page') ?? 1);
@@ -87,7 +87,7 @@ class RegisterAdministrator extends Controller
         $data = [
             'menu' => 'Pengaturan',
             'title' => 'Atur User',
-            'administrator' => $model->find($id),
+            'user' => $model->find($id),
             'on' => true,
         ];
         return view('editadministrator', $data);
@@ -124,7 +124,7 @@ class RegisterAdministrator extends Controller
         $data = [
             'menu' => 'Pengaturan',
             'title' => 'Atur User',
-            'administrator' => $model->find($id),
+            'user' => $model->find($id),
             'on' => true,
         ];
 

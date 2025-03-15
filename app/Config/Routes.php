@@ -14,7 +14,8 @@ $routes->get('/registeradministrator', 'RegisterAdministrator::index');
 $routes->post('/registeradministrator/save', 'RegisterAdministrator::save');
 $routes->get('/registeradministrator/edit/(:num)', 'RegisterAdministrator::edit/$1');
 $routes->post('/registeradministrator/update/(:num)', 'RegisterAdministrator::update/$1');
-$routes->get('/registeradministrator/delete/(:num)', 'RegisterAdministrator::delete/$1');
+$routes->get('/registeradministrator/confirmdeleteadministrator/(:num)', 'RegisterAdministrator::confirmdelete/$1');
+$routes->post('/registeradministrator/delete/(:num)', 'RegisterAdministrator::delete/$1');
 
 $routes->get('/loginadministrator', 'LoginAdministrator::index');
 $routes->post('/loginadministrator/auth', 'LoginAdministrator::auth');
