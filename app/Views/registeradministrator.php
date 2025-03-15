@@ -80,6 +80,11 @@
                             </td>
                         </tr>
                         <tr>
+                            <td>Password</td>
+                            <td><input class="input" type="password" name="password" id="inputpassword" value="<?= set_value('password') ?>" placeholder="Password">
+                            <span class="txtdanger data-subtitle"><?= isset($validation) ? $validation->getError('password') : "" ?></span></td>
+                        </tr>
+                        <tr>
                             <td>Roles</td>
                             <td><select class="input" name="role" id="inputrole">
                                 <option value="">Pilih Roles</option>
@@ -88,11 +93,7 @@
                                 <option value="Bendahara" <?= set_value('role') == "Bendahara" ? "selected" : "" ?>>Bendahara</option>
                             </select></td>
                         </tr>
-                        <tr>
-                            <td>Password</td>
-                            <td><input class="input" type="password" name="password" id="inputpassword" value="<?= set_value('password') ?>" placeholder="Password">
-                            <span class="txtdanger data-subtitle"><?= isset($validation) ? $validation->getError('password') : "" ?></span></td>
-                        </tr>
+                        
                     </tbody>
                 </table>
                 <div class="divider"></div>
