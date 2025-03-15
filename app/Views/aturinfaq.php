@@ -56,18 +56,11 @@
                     <td colspan="5">Tidak ada data</td>
                 </tr>
                 <?php endif; ?>
-
-
         </tbody>
     </table>
-
     <!-- pagination -->
     <?= $this->include('pagination') ?>
-
-
     </div>
-
-
 <!-- Modal -->
 <div id="modalTambah" class="black-board">
     <div class="pop">
@@ -84,8 +77,9 @@
                                 <span class="txtdanger data-subtitle"><?= isset($validation) ? $validation->getError('name') : "" ?></span>
                             </td>
                         </tr>
+                        <tr>
                             <td>Kelas</td>
-                            <td><select class="input" name="kelas" id="inputkelas" value="<?= set_value('kelas') ?>">
+                            <td><select class="input" name="kelas" id="inputkelas" value="">
                                 <option value="">Pilih Kelas</option>
                                 <option value="7" <?= set_value('kelas') == "7" ? "selected" : "" ?>>7</option>
                                 <option value="8" <?= set_value('kelas') == "8" ? "selected" : "" ?>>8</option>

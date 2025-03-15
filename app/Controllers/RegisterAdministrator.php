@@ -8,18 +8,41 @@ class RegisterAdministrator extends Controller
     public function index()
     {
         helper(['form']);
-        $data = [];
+        $Model = new AdministratorModel();
+        $perPage = 10;
+        $page = (int) ($this->request->getGet('page') ?? 1);
+        $total = $Model->countAll();
+
+
+        $offset = ($page - 1) * $perPage;
+
+
+
+        $keyword = $this->request->getGet('keyword');
+
+        if ($keyword) {
+            $dataadministrator = $Model->search($keyword);
+        } else {
+            $dataadministrator = $Model->getPaginated($perPage, $offset);
+        }
+        //$data = [];
         //echo view('registeradministrator', $data);
 
-        $lihatmodel = new AdministratorModel();
-        $lihatdata = $lihatmodel->findAll();
+        //$lihatmodel = new AdministratorModel();
+        //$lihatdata = $lihatmodel->findAll();
         //$data['lihatdata'] = $lihatdata;
         //$data['title'] = 'Atur User';
 
         $data = [
             'menu' => 'Pengaturan',
             'title' => 'Atur User',
-            'lihatdata' => $lihatdata,
+            //'lihatdata' => $lihatdata,
+            'dataadministrator' => $dataadministrator,
+            'total' => $total,
+            'perpage' => $perPage,
+            'currentPage' => $page,
+            'totalPages' => ($total > 0) ? ceil($total / $perPage) : 1,
+            'keyword' => $keyword,
         ];
 
         //echo view('atursiswa', $data);
@@ -48,18 +71,25 @@ class RegisterAdministrator extends Controller
                 'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT)
             ];
             $model->save($data);
-            return redirect()->to('/registeradministrator');
+            return redirect()->to('/registeradministrator')->with('success', 'Data User berhasil ditambahkan.');;
         } else {
-            $data['validation'] = $this->validator;
-            echo view('registeradministrator', $data);
+            session()->setFlashdata('errors', $this->validator->getErrors());
+            //$data['validation'] = $this->validator;
+            //echo view('registeradministrator', $data);
+            return redirect()->to('/registeradministrator');
         }
     }
 
     public function edit($id)
     {
         $model = new AdministratorModel();
-        $data['user'] = $model->find($id);
-
+        //$data['user'] = $model->find($id);
+        $data = [
+            'menu' => 'Pengaturan',
+            'title' => 'Atur User',
+            'infaq' => $model->find($id),
+            'on' => true,
+        ];
         return view('editadministrator', $data);
     }
 
@@ -83,6 +113,21 @@ class RegisterAdministrator extends Controller
         $model = new AdministratorModel();
         $model->delete($id);
 
-        return redirect()->to('/registeradministrator');
+        return redirect()->to('/registeradministrator')->with('success', 'Data infaq berhasil dihapus.');
+    }
+
+    public function confirmdelete($id)
+    {
+        $model = new AdministratorModel();
+        //$data['administrator'] = $model->find($id);
+
+        $data = [
+            'menu' => 'Pengaturan',
+            'title' => 'Atur User',
+            'administrator' => $model->find($id),
+            'on' => true,
+        ];
+
+        return view('confirmdeleteadministrator', $data);
     }
 }

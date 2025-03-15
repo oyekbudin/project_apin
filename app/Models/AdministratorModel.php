@@ -5,5 +5,26 @@ use CodeIgniter\Model;
 class AdministratorModel extends Model
 {
     protected $table ='administrator';
-    protected $allowedFields = ['name','registerdate','adminname','role','password'];
+    protected $primaryKey ='idadmin';
+    protected $allowedFields = ['idadmin','name','registerdate','adminname','role','password'];
+
+    public function getTotalAdministrator()
+    {
+        return $this->countAll();
+    }
+
+    public function getPaginated($limit, $offset)
+    {
+        return $this->orderBy('idadmin', 'ASC')
+                    ->limit($limit, $offset)
+                    ->find();
+    }
+
+    public function search($keyword)
+    {
+        return $this->table('administrator')
+                    ->like('LOWER(name)', strtolower($keyword))
+                    ->findAll();
+        
+    }
 }

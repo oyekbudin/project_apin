@@ -123,7 +123,7 @@ class AturInfaq extends Controller
     public function confirmdeleteinfaq($id)
     {
         $model = new InfaqModel();
-        $data['infaq'] = $model->find($id);
+        //$data['infaq'] = $model->find($id);
 
         $data = [
             'menu' => 'Perencanaan',
