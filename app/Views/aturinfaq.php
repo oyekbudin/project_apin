@@ -3,8 +3,21 @@
 
 <div class="group-action">
 <button class="tombol green" onclick="onmodalTambah()">Tambah Jenis Infaq</button>
-<button class="tombol secondary">Export PDF</button>
-<div class="search"><span>Search :</span><input class="input" type="text" name="" id=""></div>
+<!--button class="tombol secondary">Export PDF</button-->
+<a href="<?= base_url('/export-pdf/infaq'); ?>" class="tombol secondary" target="_blank">Export PDF</a>
+<!--div class="search"><span>Search :</span><input class="input" type="text" name="" id=""></div-->
+<div class="search">
+    
+    <form method="GET" action="<?= base_url('aturinfaq'); ?>">
+        <span>Search :</span>
+    <div class="input">
+    <input class="search" type="text" id="search" name="keyword" placeholder="Cari infaq" value="<?= isset($_GET['keyword']) ? $_GET['keyword'] : '' ?>" >
+    <?php if ($keyword) : ?>
+    <a href="<?= base_url('aturinfaq')?>"><i class="i">&#xE14C</i></a>
+    <?php endif; ?>
+    </div>
+</form>
+</div>
 </div>
 <div class="divider"></div>
     <table>
@@ -19,13 +32,17 @@
         </thead>
         <tbody>
             
-            <!-- -->
-            <?php if(!empty($lihatdata)) : ?>
-            <?php $i = 1; ?>
-            <?php foreach ($lihatdata as $infaq) : ?>
+<!--  data -->
+            <?php if(!empty($datainfaq)) : ?>
+            <?php 
+            $startNumber = ($currentPage - 1) * $perpage + 1;
+            $i = $startNumber;
+            ?>
+            <!--?php $i = 1; ?-->
+            <?php foreach ($datainfaq as $infaq) : ?>
             <tr>
                 <td><?= $i++ ; ?></td>
-                <td><?= $infaq['name'] ?></td>
+                <td style="text-align:left"><?= $infaq['name'] ?></td>
                 <td><?= $infaq['kelas'] ?></td>
                 <td><?= $infaq['harga'] ?></td>
                 <td>
@@ -43,8 +60,15 @@
 
         </tbody>
     </table>
+
+    <!-- pagination -->
+    <?= $this->include('pagination') ?>
+
+
     </div>
 
+
+<!-- Modal -->
 <div id="modalTambah" class="black-board">
     <div class="pop">
         <div class="group-action"><h2 class="data-title">Tambah Jenis Infaq</h2><i class="i" onclick="offmodalTambah()">&#xe14c</i></div>
@@ -63,13 +87,13 @@
                             <td>Kelas</td>
                             <td><select class="input" name="kelas" id="inputkelas" value="<?= set_value('kelas') ?>">
                                 <option value="">Pilih Kelas</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="78">7 dan 8</option>
-                                <option value="79">7 dan 9</option>
-                                <option value="89">8 dan 9</option>
-                                <option value="789">7, 8 dan 9</option>
+                                <option value="7" <?= set_value('kelas') == "7" ? "selected" : "" ?>>7</option>
+                                <option value="8" <?= set_value('kelas') == "8" ? "selected" : "" ?>>8</option>
+                                <option value="9" <?= set_value('kelas') == "9" ? "selected" : "" ?>>9</option>
+                                <option value="78" <?= set_value('kelas') == "78" ? "selected" : "" ?>>7 dan 8</option>
+                                <option value="79" <?= set_value('kelas') == "79" ? "selected" : "" ?>>7 dan 9</option>
+                                <option value="89" <?= set_value('kelas') == "89" ? "selected" : "" ?>>8 dan 9</option>
+                                <option value="789" <?= set_value('kelas') == "789" ? "selected" : "" ?>>7, 8 dan 9</option>
                             </select></td>
                         </tr>
                         <tr>
@@ -85,7 +109,6 @@
                 <button class="tombol primary" type="submit">Simpan</button>
                 </div>
     </form>
-
     </div>
     </div>
 <?= $this->include('closing') ?>

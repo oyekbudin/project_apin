@@ -8,13 +8,38 @@ class AturInfaq extends Controller
     public function index()
     {
         helper(['form']);
-        $lihatmodel = new InfaqModel();
-        $lihatdata = $lihatmodel->findAll();
+        $infaqModel = new InfaqModel();
+        $perPage = 10;
+        $page = (int) ($this->request->getGet('page') ?? 1);
+        $total = $infaqModel->countAll();
+
+
+        $offset = ($page - 1) * $perPage;
+
+
+
+        $keyword = $this->request->getGet('keyword');
+
+        if ($keyword) {
+            $datainfaq = $infaqModel->search($keyword);
+        } else {
+            $datainfaq = $infaqModel->getPaginated($perPage, $offset);
+        }
+
         $data = [
             'menu' => 'Perencanaan',
-            'title' => 'Atur Jenis Infaq',
-            'lihatdata' => $lihatdata,
+            'title' => 'Atur Infaq',
+            'datainfaq' => $datainfaq,
+            'total' => $total,
+            'perpage' => $perPage,
+            'currentPage' => $page,
+            'totalPages' => ($total > 0) ? ceil($total / $perPage) : 1,
+            'keyword' => $keyword,
         ];
+
+        //$lihatmodel = new InfaqModel();
+        //$lihatdata = $lihatmodel->findAll();
+        //$data = ['menu' => 'Perencanaan','title' => 'Atur Jenis Infaq','lihatdata' => $lihatdata,];
 
         return view('aturinfaq', $data);
     }
@@ -39,28 +64,29 @@ class AturInfaq extends Controller
                 'harga' => $this->request->getVar('harga'),
             ];
             $model->save($data);
-            return redirect()->to('/aturinfaq');
+            return redirect()->to('/aturinfaq')->with('success', 'Data infaq berhasil ditambahkan.');
         } else {
+            session()->setFlashdata('errors', $this->validator->getErrors());
             //$data['validation'] = $this->validator;
             //echo view('aturinfaq', $data);
-
-            $lihatmodel = new InfaqModel();
-            $lihatdata = $lihatmodel->findAll();
-            $data = [
-                'menu' => 'Perencanaan',
-                'title' => 'Atur Jenis Infaq',
-                'lihatdata' => $lihatdata,
-                'validation' => $this->validator,
-                'on' => true,
-            ];
+            //$lihatmodel = new InfaqModel();
+            //$lihatdata = $lihatmodel->findAll();
+            //$data = [
+            //    'menu' => 'Perencanaan',
+            //    'title' => 'Atur Jenis Infaq',
+            //    'lihatdata' => $lihatdata,
+            //    'validation' => $this->validator,
+            //    'on' => true,
+            //];
             //$data['validation'] = $this->validator;
-            return view('aturinfaq', $data);
+            //return view('aturinfaq', $data);
+            return redirect()->to('/aturinfaq');
         }
     }
 
     public function edit($id)
     {
-        helper(['form']);
+        //helper(['form']);
         $model = new InfaqModel();
 
         $data = [
@@ -86,6 +112,14 @@ class AturInfaq extends Controller
         return redirect()->to('/aturinfaq');
     }
 
+    public function delete($id)
+    {
+        $model = new InfaqModel();
+        $model->delete($id);
+
+        return redirect()->to('/aturinfaq')->with('success', 'Data infaq berhasil dihapus.');
+    }
+
     public function confirmdeleteinfaq($id)
     {
         $model = new InfaqModel();
@@ -101,11 +135,5 @@ class AturInfaq extends Controller
         return view('confirmdeleteinfaq', $data);
     }
 
-    public function delete($id)
-    {
-        $model = new InfaqModel();
-        $model->delete($id);
-
-        return redirect()->to('/aturinfaq');
-    }
+    
 }

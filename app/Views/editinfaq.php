@@ -16,15 +16,14 @@
                         </tr>
                         <tr>
                             <td>Kelas</td>
-                            <td><select class="input" name="kelas" id="inputkelas" value="<?= $infaq['kelas'] ?>">
-                                <option value="<?= $infaq['kelas'] ?>"><?= $infaq['kelas'] ?></option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="78">7 dan 8</option>
-                                <option value="79">7 dan 9</option>
-                                <option value="89">8 dan 9</option>
-                                <option value="789">7, 8 dan 9</option>
+                            <td><select class="input" name="kelas" id="inputkelas" value="<?= $infaq['kelas'] ?>">                                
+                                <option value="7" <?= $infaq['kelas'] == "7" ? "selected" : "" ?>>7</option>
+                                <option value="8" <?= $infaq['kelas'] == "8" ? "selected" : "" ?>>8</option>
+                                <option value="9" <?= $infaq['kelas'] == "9" ? "selected" : "" ?>>9</option>
+                                <option value="78" <?= $infaq['kelas'] == "78" ? "selected" : "" ?>>7 dan 8</option>
+                                <option value="79" <?= $infaq['kelas'] == "79" ? "selected" : "" ?>>7 dan 9</option>
+                                <option value="89" <?= $infaq['kelas'] == "89" ? "selected" : "" ?>>8 dan 9</option>
+                                <option value="789" <?= $infaq['kelas'] == "789" ? "selected" : "" ?>>7, 8 dan 9</option>
                             </select></td>
                         </tr>
                         <tr>

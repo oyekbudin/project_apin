@@ -12,4 +12,19 @@ class InfaqModel extends Model
     {
         return $this->countAll();
     }
+
+    public function getPaginated($limit, $offset)
+    {
+        return $this->orderBy('id', 'ASC')
+                    ->limit($limit, $offset)
+                    ->find();
+    }
+
+    public function search($keyword)
+    {
+        return $this->table('infaq')
+                    ->like('LOWER(name)', strtolower($keyword))
+                    ->findAll();
+        
+    }
 }

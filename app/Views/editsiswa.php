@@ -21,13 +21,10 @@
                             <span class="txtdanger data-subtitle"><?= isset($validation) ? $validation->getError('nis') : "" ?></span></td>
                         </tr>
                             <td>Kelas</td>
-                            <!--td><input class="input" type="text" name="kelas" id="inputkelas" value="" placeholder="Kelas">
-                            </td-->
                             <td><select class="input" name="kelas" id="inputkelas" value="<?= $siswa['kelas'] ?>">
-                                <option value="<?= $siswa['kelas'] ?>"><?= $siswa['kelas'] ?></option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
+                                <option value="7" <?= $siswa['kelas'] == "7" ? "selected" : "" ?>>7</option>
+                                <option value="8" <?= $siswa['kelas'] == "8" ? "selected" : "" ?>>8</option>
+                                <option value="9" <?= $siswa['kelas'] == "9" ? "selected" : "" ?>>9</option>
                             </select></td>
                         </tr>
                         <tr>
@@ -35,9 +32,8 @@
                             <!--td><input class="input" type="text" name="gender" id="inputgender" value="" placeholder="Jenis Kelamin">
                             </td-->
                             <td><select class="input" name="gender" id="inputgender" value="<?= $siswa['gender'] ?>">
-                                <option value="<?= $siswa['gender'] ?>"><?= ($siswa['gender'] == 'L') ? 'Laki-laki' : 'Perempuan' ?></option>
-                                <option value="L">Laki-laki</option>
-                                <option value="P">Perempuan</option>
+                                <option value="L" <?= $siswa['gender'] == "L" ? "selected" : "" ?>>Laki-laki</option>
+                                <option value="P" <?= $siswa['gender'] == "P" ? "selected" : "" ?>>Perempuan</option>
                             </select></td>
                         </tr>
                         <tr>

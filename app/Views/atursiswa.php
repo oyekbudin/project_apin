@@ -126,8 +126,8 @@
                             </td-->
                             <td><select class="input" name="gender" id="inputgender" value="<?= set_value('gender') ?>">
                                 <option value="">Pilih Jenis Kelamin</option>
-                                <option value="L">Laki-laki</option>
-                                <option value="P">Perempuan</option>
+                                <option value="L" <?= set_value('gender') == "L" ? "selected" : "" ?>>Laki-laki</option>
+                                <option value="P" <?= set_value('gender') == "P" ? "selected" : "" ?>>Perempuan</option>
                             </select></td>
                         </tr>
                         <tr>
@@ -145,9 +145,7 @@
             </form>
         </div>
     </div>
-
 <!--iframe src=" base_url('/export-pdf'); " width="100%" height="600px"></iframe-->
-
 <?= $this->include('closing') ?>
 
 
