@@ -13,3 +13,21 @@ DEBUG - 2025-03-15 03:15:06 --> Session: Class initialized using 'CodeIgniter\Se
 DEBUG - 2025-03-15 03:15:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 DEBUG - 2025-03-15 03:15:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 DEBUG - 2025-03-15 03:15:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-15 03:30:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-15 03:30:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-15 03:30:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-15 10:30:50 --> ErrorException: Undefined array key "harga"
+[Method: GET, Route: export-pdf/infaq]
+in APPPATH\Views\pdf_infaq.php on line 83.
+ 1 APPPATH\Views\pdf_infaq.php(83): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "harga"', 'E:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\pdf_infaq.php', 83)
+ 2 SYSTEMPATH\View\View.php(224): include('E:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\app\\Views\\pdf_infaq.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('pdf_infaq', [], true)
+ 5 APPPATH\Controllers\PDFController.php(91): view('pdf_infaq', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\PDFController->exportInfaq()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PDFController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('E:\\stmik komputama\\Semester 8\\SISTEM\\project_apin\\public\\index.php')

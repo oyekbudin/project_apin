@@ -38,7 +38,9 @@ $routes->get('/pembayaran', 'Pembayaran::index',['filter'=>'auth']);
 $routes->post('/pembayaran/save', 'Pembayaran::save');
 
 $routes->get('/siswa', 'carisiswa::index');
-$routes->get('/infaq', 'carisiswa::index');
+$routes->get('/infaq', 'cariinfaq::index');
 
 $routes->get('/export-pdf', 'PdfController::exportToPdf');
+
+$routes->get('/export-pdf/infaq', 'PdfController::exportInfaq');
 
