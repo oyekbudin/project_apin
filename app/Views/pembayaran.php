@@ -99,7 +99,7 @@
                                 $(document).ready(function(){
                                     $("#search-siswa").keyup(function(){
                                         let keyword = $(this).val();
-                                        if(keyword.length > 1){
+                                        if(keyword.length > 0){
                                             $.ajax({
                                                 url: "<?= base_url('pembayaran/searchSiswa') ?>",
                                                 type: "GET",
@@ -107,13 +107,15 @@
                                                 success: function(data){
                                                     let resultHtml = "";
                                                     $.each(data, function(index, siswa){
-                                                        resultHtml += `<div class="siswa-item" data-nis="${siswa.nis}" data-name="${siswa.name}" data-kelas="${siswa.kelas}"> ${siswa.nis} - ${siswa.name} (${siswa.kelas}) </div>`;
+                                                        //resultHtml += `<li class="siswa-item" data-nis="${siswa.nis}" data-name="${siswa.name}" data-kelas="${siswa.kelas}"> ${siswa.nis} - ${siswa.name} (${siswa.kelas}) </li>`;
+                                                        resultHtml += `<tr class="siswa-item" data-nis="${siswa.nis}" data-name="${siswa.name}" data-kelas="${siswa.kelas}"><td>${siswa.nis}</td><td>${siswa.name}</td><td>${siswa.kelas}</td></tr>`;
                                                     });
-                                                    $("#result-siswa").html(resultHtml);
+                                                    //$("#result-siswa").html('<ul>'+resultHtml+'</ul>');
+                                                    $("#result-siswa").html('<table><thead><th>NIS</th><th>Nama Siswa</th><th>Kelas</th></thead><tbody>'+resultHtml+'</tbody></table>');
                                                 }
                                             });
                                         } else {
-                                            $("#result-siswa").html(`<div class="siswa-item">Tidak ditemukan</div>`);
+                                            $("#result-siswa").html("");
                                         }
                                     });
 
@@ -135,7 +137,7 @@
                                             success: function(data){
                                                 let infaqOptions = `<option value="">Pilih Jenis Infaq</option>`;
                                                 $.each(data, function(index, infaq){
-                                                    infaqOptions += `<option value="${infaq.id}">${infaq.name} ${infaq.kelas} </option>`;
+                                                    infaqOptions += `<option value="${infaq.id}">${infaq.name} ${infaq.harga} </option>`;
                                                 });
                                                 $("#jenis-infaq").html(infaqOptions);
                                             }
