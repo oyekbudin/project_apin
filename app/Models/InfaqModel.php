@@ -25,6 +25,12 @@ class InfaqModel extends Model
         return $this->table('infaq')
                     ->like('LOWER(name)', strtolower($keyword))
                     ->findAll();
-        
+    }
+
+    public function searchByKelas($keyword)
+    {
+        return $this->table('infaq')
+                    ->like('kelas',$keyword)
+                    ->findAll();
     }
 }

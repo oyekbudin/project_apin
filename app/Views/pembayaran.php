@@ -17,8 +17,6 @@
 </div-->
 </div>
 <div class="divider"></div>
-
-    <h2>List Pembayaran</h2>
     <table>
         <thead>
             <tr>
@@ -81,7 +79,7 @@
                         </tr>
                         <tr>
                             <td>NIS</td>
-                            <td><input class="input" type="text" name="" id="nis" readonly placeholder="-"></td>
+                            <td><input class="input" type="text" name="idsiswa" id="nis" readonly placeholder="-"></td>
                         </tr>
                         <tr>
                             <td>Nama Siswa</td>
@@ -92,7 +90,7 @@
                         </tr>
                         <tr>
                             <td>Jenis Infaq</td>
-                            <td><select class="input" name="" id="jenis-infaq">
+                            <td><select class="input" name="idinfaq" id="jenis-infaq">
                                 <option value="">Pilih Jenis Infaq</option>
                             </select></td>
                             <!-- script -->
@@ -115,7 +113,7 @@
                                                 }
                                             });
                                         } else {
-                                            $("#result-siswa").html("");
+                                            $("#result-siswa").html(`<div class="siswa-item">Tidak ditemukan</div>`);
                                         }
                                     });
 
@@ -137,7 +135,7 @@
                                             success: function(data){
                                                 let infaqOptions = `<option value="">Pilih Jenis Infaq</option>`;
                                                 $.each(data, function(index, infaq){
-                                                    infaqOptions += `<option value="${infaq.id}">${infaq.name}</option>`;
+                                                    infaqOptions += `<option value="${infaq.id}">${infaq.name} ${infaq.kelas} </option>`;
                                                 });
                                                 $("#jenis-infaq").html(infaqOptions);
                                             }
@@ -151,7 +149,7 @@
                         <tr>
                             <td>Nominal</td>
                             <td>
-                                <input class="input" type="number" name="#" id="input#" value="" placeholder="Masukkan Nominal">
+                                <input class="input" type="number" name="nominal" id="input#" value="" placeholder="Masukkan Nominal">
                                 <span class="txtdanger data-subtitle"><?= isset($validation) ? $validation->getError('#') : "" ?></span>
                             </td>
                         </tr>                        

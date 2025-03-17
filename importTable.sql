@@ -1,5 +1,5 @@
-DROP TABLE IF EXISTS "userx" CASCADE;
-CREATE TABLE userx (
+DROP TABLE IF EXISTS "users" CASCADE;
+CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     name VARCHAR(100) UNIQUE NOT NULL,
     registerdate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -12,7 +12,7 @@ CREATE TABLE administrator (
     adminname VARCHAR(100) UNIQUE NOT NULL,
     role VARCHAR(50),
     password TEXT NOT NULL
-) INHERITS (Userx);
+) INHERITS (Users);
 
 INSERT INTO administrator (name, adminname, role, password) VALUES (
     'Arvin Noer Hakim', 'hakimarvinnoer', 'SistemAdmin', '$2y$10$lQJrDb9WcSdWaGOkjIMQxOxLxt.QGKO2z2gJ5kowbxLlE2QGvyBfW'
@@ -24,7 +24,7 @@ CREATE TABLE siswa (
     phonenumber VARCHAR(50) NOT NULL,
     gender VARCHAR(1) NOT NULL,
     kelas VARCHAR(1) NOT NULL
-) INHERITS (Userx);
+) INHERITS (Users);
 
 INSERT INTO siswa (name, nis, phonenumber, gender, kelas) VALUES 
     ('ALIYA QURROTUNNADA','701','087234567701','P','7'),
@@ -137,7 +137,7 @@ CREATE TABLE pembayaran (
     idsiswa int not null,
     idinfaq int not null,
     nominal int,
-    status BOOLEAN DEFAULT FALSE,
+    status VARCHAR(10),
     FOREIGN KEY (idsiswa) REFERENCES siswa(nis) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (idinfaq) REFERENCES infaq(id) ON UPDATE CASCADE
 );

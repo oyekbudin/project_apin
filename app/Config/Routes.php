@@ -39,6 +39,8 @@ $routes->get('/pembayaran', 'Pembayaran::index',['filter'=>'auth']);
 $routes->post('/pembayaran/save', 'Pembayaran::save');
 $routes->get('/pembayaran/searchSiswa', 'Pembayaran::searchSiswa');
 $routes->get('/pembayaran/getInfaqByKelas', 'Pembayaran::getInfaqByKelas');
+$routes->get('/pembayaran/confirmdeletepembayaran/(:num)', 'Pembayaran::confirmdelete/$1');
+$routes->post('/pembayaran/delete/(:num)', 'Pembayaran::delete/$1');
 
 $routes->get('/siswa', 'carisiswa::index');
 $routes->get('/infaq', 'cariinfaq::index');

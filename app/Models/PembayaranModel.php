@@ -22,4 +22,19 @@ class PembayaranModel extends Model
         ')
         ->findAll();
     }
+
+    public function getPembayaranDelete($id)
+    {
+        return $this
+        ->join('siswa','pembayaran.idsiswa = siswa.nis') 
+        ->join('infaq','pembayaran.idinfaq = infaq.id')
+        ->select('
+            siswa.nis,
+            siswa.name as nama_siswa,
+            siswa.kelas,
+            infaq.name as nama_infaq,
+            pembayaran.*
+        ')
+        ->find($id);
+    }
 }
