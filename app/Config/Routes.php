@@ -37,6 +37,8 @@ $routes->post('/aturinfaq/delete/(:num)', 'AturInfaq::delete/$1');
 
 $routes->get('/pembayaran', 'Pembayaran::index',['filter'=>'auth']);
 $routes->post('/pembayaran/save', 'Pembayaran::save');
+$routes->get('/pembayaran/searchSiswa', 'Pembayaran::searchSiswa');
+$routes->get('/pembayaran/getInfaqByKelas', 'Pembayaran::getInfaqByKelas');
 
 $routes->get('/siswa', 'carisiswa::index');
 $routes->get('/infaq', 'cariinfaq::index');

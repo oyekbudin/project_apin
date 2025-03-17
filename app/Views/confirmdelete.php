@@ -14,7 +14,7 @@
                         </tr>
                         <tr>
                             <td>NIS</td>
-                            <td>: <?= $siswa['nis'] ?>
+                            <td>: <?= $siswa['nis'] ?></td>
                         </tr>
                             <td>Kelas</td>
                             <td>: <?= $siswa['kelas'] ?></td>

@@ -7,7 +7,7 @@ class PembayaranModel extends Model
     protected $table ='pembayaran';
     protected $primaryKey ='id';
     protected $allowedFields = ['idsiswa','idinfaq','nominal','status'];
-    
+   
     public function getPembayaran()
     {
         return $this

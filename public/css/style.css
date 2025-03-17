@@ -762,8 +762,13 @@ td input
 
 .pop td
 {
-    
+    line-height: 36px;
     padding: 5px 0;
+}
+
+.pop td .input
+{
+    line-height: 1;
 }
 
 form .group-action a

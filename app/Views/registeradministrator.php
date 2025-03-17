@@ -92,8 +92,7 @@
                                 <option value="KepalaSekolah">Kepala Sekolah</option>
                                 <option value="Bendahara">Bendahara</option>
                             </select></td>
-                        </tr>
-                        
+                        </tr>                        
                     </tbody>
                 </table>
                 <div class="divider"></div>
