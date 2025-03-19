@@ -43,7 +43,7 @@
                 <td><?= $row['nominal'] ?></td>
                 <td><?= $row['status'] ?></td>
                 <td>
-                    <a class="tombol danger-outline" href="/pembayaran/confirmdeletepembayaran/<?= $row['id'] ?>">Hapus</a>
+                    <a class="tombol primary-outline" href="/pembayaran/confirmdeletepembayaran/<?= $row['id'] ?>">Detail</a>
                 </td>
             </tr>
             <?php endforeach; ?>

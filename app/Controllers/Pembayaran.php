@@ -43,7 +43,6 @@ class Pembayaran extends Controller
                 'idsiswa' => $this->request->getVar('idsiswa'),
                 'idinfaq' => $this->request->getVar('idinfaq'),
                 'nominal' => $this->request->getVar('nominal'),
-                'status' => 'Sukses',
             ];
             $model->save($data);
             return redirect()->to('/pembayaran')->with('success', 'Data pembayaran berhasil ditambahkan.');

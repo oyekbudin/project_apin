@@ -1,0 +1,36 @@
+# Ignore semua file dalam folder writable
+writable/*
+!writable/.gitignore  # Kecuali file .gitignore agar folder tetap ada
+
+# Ignore environment settings
+.env
+.env.example
+
+# Ignore vendor jika menggunakan composer
+/vendor/*
+!vendor/autoload.php  # Kecuali autoload.php agar tidak error
+
+# Ignore cache & logs
+**/cache/*
+**/logs/*
+**/session/*
+**/debugbar/*
+
+# Ignore upload folder jika ada
+public/uploads/*
+public/assets/uploads/*
+
+# Ignore database SQLite jika digunakan
+database/*.sqlite
+database/*.sqlite3
+
+# Ignore file IDE dan sistem
+*.swp
+*.swo
+*.bak
+*.sublime-workspace
+*.sublime-project
+.idea/
+.vscode/
+
+readme.txt

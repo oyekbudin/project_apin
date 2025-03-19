@@ -33,4 +33,9 @@ class InfaqModel extends Model
                     ->like('kelas',$keyword)
                     ->findAll();
     }
+
+    public function getDataInfaq()
+    {
+        return $this->select()->findAll();
+    }
 }

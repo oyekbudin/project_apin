@@ -27,4 +27,9 @@ class SiswaModel extends Model
                     ->findAll();
         
     }
+
+    public function getTagihan($id)
+    {
+        return $this->select()->findAll();
+    }
 }

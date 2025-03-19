@@ -22,7 +22,7 @@
                 <li <?= ($menu == 'Pengelolaan') ? 'class="on"' : 'class=""' ?>><i class="i">&#xEB86</i><span class="t">Pengelolaan</span><i class="i">&#xE313</i>
                 <ul <?= ($menu == 'Pengelolaan') ? 'style="display:block;"' : 'style="display:none;"' ?>>
                     <a href="<?= base_url('pembayaran') ?>"><li <?= ($title == 'Input Pembayaran') ? 'class="on"' : 'class=""' ?>><i class="i">&#xE5CC</i><span class="t">Input Pembayaran</span></li></a>
-                    <li><i class="i">&#xE5CC</i><span class="t">Tagihan</span></li>
+                    <a href="<?= base_url('tagihan') ?>"><li><i class="i">&#xE5CC</i><span class="t">Tagihan</span></li></a>
                 </ul>
                 </li>
                 <li><i class="i">&#xE555</i><span class="t">Pelaporan</span><i class="i">&#xE313</i>

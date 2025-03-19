@@ -392,11 +392,25 @@ aside ul li
     border: 1px solid var(--warning);
 }
 
+.orange-outline
+{
+    background-color: var(--secondary);
+    color: var(--orange);
+    border: 1px solid var(--orange);
+}
+
 .danger-outline
 {
     background-color: var(--secondary);
     color: var(--danger);
     border: 1px solid var(--danger);
+}
+
+.primary-outline
+{
+    background-color: var(--secondary);
+    color: var(--primary);
+    border: 1px solid var(--primary);
 }
 
 .txtsecondary
@@ -742,6 +756,8 @@ aside ul li
     position: relative;
     width: 60%;
     margin-top: 26px;
+    /*max-height: 80%;
+    overflow-y: auto;*/
 }
 
 table, td input, td select
@@ -770,6 +786,42 @@ td input
 .pop td .input
 {
     line-height: 1;
+}
+
+.datacontent
+{
+    overflow-y: auto;
+    max-height: 400px;
+    margin-bottom: 10px;
+}
+
+.datacontent#cb
+{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.cb
+{
+    width: calc(25% - 30px);
+    padding: 8px;
+    line-height: 30px;
+    border: none;
+    cursor: pointer;
+    box-sizing: border-box;
+    display: flex;
+    gap: 5px;
+}
+
+.cb label
+{
+    cursor: pointer;
+}
+
+.cb.selected
+{
+    border: 1px solid var(--disable);
 }
 
 form .group-action a
@@ -842,6 +894,10 @@ form .group-action
     background-color: var(--secondary);
 }
 
+#result-siswa:empty{
+    border: none;
+}
+
 #result-siswa ul
 {
     position: absolute;
@@ -893,4 +949,22 @@ form .group-action
     background-color: var(--primary);
     color: var(--secondary);
     cursor: pointer;
+}
+
+.datacontent th
+{
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: var(--disable);
+    color: var(--secondary);
+    line-height: 2;
+    padding: 5px 0;
+}
+
+.datacontent td
+{
+    text-align: center;
+    line-height: 2;
+    border: 1px solid var(--disable);
 }

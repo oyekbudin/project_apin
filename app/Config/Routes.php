@@ -42,6 +42,9 @@ $routes->get('/pembayaran/getInfaqByKelas', 'Pembayaran::getInfaqByKelas');
 $routes->get('/pembayaran/confirmdeletepembayaran/(:num)', 'Pembayaran::confirmdelete/$1');
 $routes->post('/pembayaran/delete/(:num)', 'Pembayaran::delete/$1');
 
+$routes->get('/tagihan', 'Tagihan::index',['filter'=>'auth']);
+$routes->get('/tagihan/daftartagihan/(:num)', 'Tagihan::daftartagihan/$1');
+
 $routes->get('/siswa', 'carisiswa::index');
 $routes->get('/infaq', 'cariinfaq::index');
 
