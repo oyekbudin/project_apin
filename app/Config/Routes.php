@@ -44,6 +44,9 @@ $routes->post('/pembayaran/delete/(:num)', 'Pembayaran::delete/$1');
 
 $routes->get('/tagihan', 'Tagihan::index',['filter'=>'auth']);
 $routes->get('/tagihan/daftartagihan/(:num)', 'Tagihan::daftartagihan/$1');
+$routes->get('/tagihan/lihatkartu', 'Tagihan::lihatkartu');
+$routes->post('/tagihan/buattagihan', 'Tagihan::buatTagihan');
+$routes->post('/tagihan/checkbox', 'Tagihan::checkbox');
 
 $routes->get('/siswa', 'carisiswa::index');
 $routes->get('/infaq', 'cariinfaq::index');

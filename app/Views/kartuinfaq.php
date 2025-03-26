@@ -3,11 +3,15 @@
         <div class="pop">
         <?php if (!empty($tagihan)) : ?>
             <?php $first = reset($tagihan); ?>
-            <div class="group-action"><h2 class="data-title"><?= $first['nama_siswa'] ?></h2><a href="<?= base_url('tagihan') ?>"> <i class="i" onclick="offmodalTambah()">&#xe14c</i></a> </div>
-        <?php endif; ?>
+            <div class="group-action"><h2 class="data-title">Kartu Infaq</h2><a href="<?= base_url('tagihan') ?>"> <i class="i" onclick="offmodalTambah()">&#xe14c</i></a> </div>
+        
             <div class="divider"></div>
-            <span class="tombol green">DATA TAGIHAN</span>
-    
+            <span class="tombol green">
+            NIS : <?= $first['nis'] ?> <br>
+            Nama : <?= $first['nama_siswa'] ?> <br>
+            Kelas : <?= $first['kelas'] ?>
+            </span>
+        <?php endif; ?>
             <form action="#" method="post">
             <div class="datacontent">
                 <table>

@@ -3,18 +3,6 @@
 <div class="group-action">
 <button class="tombol green" onclick="onmodalTambah()">Buat Tagihan</button>
 <a href="<?= base_url('/export-pdf'); ?>" class="tombol secondary" target="_blank">Kirim Tagihan</a>
-<div class="search">
-    
-    <form method="GET" action="<?= base_url('tagihan'); ?>">
-        <span>Search :</span>
-    <div class="input">
-    <input class="search" type="text" id="search" name="keyword" placeholder="Cari siswa" value="<?= isset($_GET['keyword']) ? $_GET['keyword'] : '' ?>" >
-    <?php if ($keyword) : ?>
-    <a href="<?= base_url('tagihan')?>"><i class="i">&#xE14C</i></a>
-    <?php endif; ?>
-    </div>
-</form>
-</div>
 
 </div>
 <div class="divider"></div>
@@ -22,72 +10,70 @@
     <table>
         <thead>
             <tr>
-                <th>No</th>
-                <th>Nama Siswa</th>
+                <th>Tanggal</th>
                 <th>NIS</th>
-                <th>Jenis Kelamin</th>
-                <th>Kelas</th>
-                <th>Nomor Whatsapp</th>
+                <th>Nama Siswa</th>
+                <th>Total Tagihan</th>
                 <th>Opsi</th>
             </tr>
         </thead>
         <tbody>
-            <?php if(!empty($siswa)) : ?>
-            <?php
-            $startNumber = ($currentPage - 1) * $perpage + 1;
-            $i = $startNumber;
-            ?>
-            <?php foreach ($siswa as $s) : ?>
+            <?php if(!empty($tagihan)) : ?>            
+            <?php foreach ($tagihan as $t) : ?>
             <tr>
-                <td><?= $i++ ; ?></td>
-                <td style="text-align:left"><?= $s['name'] ?></td>
-                <td><?= $s['nis'] ?></td>
-                <td><?= $s['gender'] ?></td>
-                <td><?= $s['kelas'] ?></td>
-                <td><?= $s['phonenumber'] ?></td>
+                <td><?= $t['tanggal'] ?></td>
+                <td><?= $t['nis'] ?></td>
+                <td style="text-align:left"><?= $t['nama_siswa'] ?></td>
+                <td><?= number_format($t['total'])  ?></td>
                 <td>
-                    <!--a class="tombol warning-outline" href="/atursiswa/edit/<//?= $siswa['id'] ?>">Edit</a-->
-                    <a class="tombol orange-outline" href="/tagihan/daftartagihan/<?= $s['nis'] ?>">Lihat</a>
+                    <a class="tombol green-outline" href="<?= base_url('tagihan/lihatkartu/?nis=' .$t['nis']. '&kelas='.$t['kelas']) ?>">Lihat Kartu</a>
+                    <a class="tombol orange-outline" href="/tagihan/lihattagihan/<?= $t['id'] ?>">Lihat Tagihan</a>
                 </td>
             </tr>
             <?php endforeach; ?>
             <?php else : ?>
                 <tr>
-                    <td colspan="7">Tidak ada data</td>
+                    <td colspan="5">Tidak ada data</td>
                 </tr>
                 <?php endif; ?>
         </tbody>
     </table> 
 
-    <!-- pagination -->
-    <?= $this->include('pagination') ?>
+<!-- pagination -->
     </div>
 
 <!-- Modal -->
 
     <div id="modalTambah" class="black-board">
-        <div class="pop">
-            <div class="group-action"><h2 class="data-title">Pilih Infaq yang akan dibuat tagihan</h2><i class="i" onclick="offmodalTambah()">&#xe14c</i></div>
-            <div class="divider"></div>
-            <span class="tombol green">DATA INFAQ</span>
-            <form action="/tagihan/save" method="post">
-                <div class="datacontent" id="cb">
-                    <?php if(!empty($infaq)) : ?>
-                    <?php foreach ($infaq as $in) : ?>
-                        <div class="cb"><input type="checkbox" name="" id="" value="<?= $in['id'] ?>"><label for=""><?= $in['name'] ?></label></div>
-                    <?php endforeach; ?>
-                    <?php else : ?>
-                        <div class="cb">Tidak ada data</div>
-                    <?php endif; ?>
-                </div>
-                <div class="divider"></div>
-                <div class="group-action">
-                <a class="tombol disable" onclick="offmodalTambah()">Close</a>
-                <button class="tombol primary" type="submit">Simpan</button>
-                </div>
-            </form>
+    <div class="pop">
+        <div class="group-action">
+            <h2 class="data-title">Pilih Infaq yang akan dibuat tagihan</h2>
+            <i class="i" onclick="offmodalTambah()">&#xe14c</i>
         </div>
+        <div class="divider"></div>
+        <span class="tombol green">DATA INFAQ</span>        
+        <form action="/tagihan/buattagihan" method="post">
+            <div class="datacontent" id="cb">
+                <?php if (!empty($infaq)) : ?>
+                    <?php foreach ($infaq as $in) : ?>
+                        <div class="cb">
+                            <input type="checkbox" name="infaq[]" id="<?= $in['id'] ?>" value="<?= $in['id'] ?>">
+                            <label for="<?= $in['id'] ?>"><?= $in['name'] ?></label>
+                        </div>
+                    <?php endforeach; ?>
+                <?php else : ?>
+                    <div class="cb">Tidak ada data</div>
+                <?php endif; ?>
+            </div>                
+            <div class="divider"></div>
+            <div class="group-action">
+                <a  class="tombol disable" onclick="offmodalTambah()">Close</a>
+                <button class="tombol primary" type="submit">Simpan</button>
+            </div>
+        </form>
     </div>
+</div>
+
 <!--iframe src=" base_url('/export-pdf'); " width="100%" height="600px"></iframe-->
 
 <script>

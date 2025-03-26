@@ -38,7 +38,7 @@ class PembayaranModel extends Model
         ->find($id);
     }
 
-    public function getTagihan($nis)
+    public function getTagihan($nis, $kelas)
     {
         return $this
         //->join('siswa','pembayaran.idsiswa = siswa.nis')
@@ -93,7 +93,7 @@ class PembayaranModel extends Model
             'p.idinfaq = i.id',
             'left'
         )
-        ->where('i.kelas LIKE', '%7%') // Hanya infaq untuk kelas siswa ini
+        ->where('i.kelas LIKE', "%{$kelas}%") // Hanya infaq untuk kelas siswa ini
         ->orderBy('i.id', 'ASC')
         ->findAll();
     }

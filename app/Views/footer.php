@@ -10,7 +10,7 @@
     function onmodalTambah()
     {
         document.getElementById("modalTambah").style.display = "flex";
-        document.querySelectorAll('#modalTambah input, #modalTambah select').forEach(function(element)
+        document.querySelectorAll('#modalTambah input[type="text"], #modalTambah input[type="number"], #modalTambah select').forEach(function(element)
     {
         if (element.type === 'select-one')
     {
@@ -25,7 +25,7 @@
     function offmodalTambah()
     {
         document.getElementById("modalTambah").style.display = "none";
-        document.querySelectorAll('#modalTambah input, #modalTambah select').forEach(function(element)
+        document.querySelectorAll('#modalTambah input[type="text"], #modalTambah input[type="number"], #modalTambah select').forEach(function(element)
     {
         if (element.type === 'select-one')
     {

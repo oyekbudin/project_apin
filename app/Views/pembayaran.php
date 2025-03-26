@@ -40,7 +40,7 @@
                 <td><?= $row['nama_siswa'] ?></td>
                 <td><?= $row['kelas'] ?></td>
                 <td><?= $row['nama_infaq'] ?></td>
-                <td><?= $row['nominal'] ?></td>
+                <td><?= number_format($row['nominal'])  ?></td>
                 <td><?= $row['status'] ?></td>
                 <td>
                     <a class="tombol primary-outline" href="/pembayaran/confirmdeletepembayaran/<?= $row['id'] ?>">Detail</a>

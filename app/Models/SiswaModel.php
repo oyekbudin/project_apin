@@ -24,8 +24,7 @@ class SiswaModel extends Model
     {
         return $this->table('siswa')
                     ->like('LOWER(name)', strtolower($keyword))
-                    ->findAll();
-        
+                    ->findAll();        
     }
 
     public function getTagihan($id)

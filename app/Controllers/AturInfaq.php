@@ -28,7 +28,7 @@ class AturInfaq extends Controller
 
         $data = [
             'menu' => 'Perencanaan',
-            'title' => 'Atur Infaq',
+            'title' => 'Atur Jenis Infaq',
             'datainfaq' => $datainfaq,
             'total' => $total,
             'perpage' => $perPage,
