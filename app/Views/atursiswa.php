@@ -58,35 +58,9 @@
                 <?php endif; ?>
         </tbody>
     </table> 
-
     <!-- pagination -->
-
-    <div class="divider"></div>
-    <?php if (!$keyword) : ?>
-    <div class="group-action data-subtitle" id="pagination">
-        <?php
-        $start = ($currentPage - 1) * $perpage + 1;
-        $end = min($start + $perpage - 1, $total);
-        ?>
-        <span>Showing <?= $start ?> to <?= $end ?> of <?= $total ?> entries</span>
-        
-        <ul class="pagination ">
-        <?php if ($currentPage > 1): ?>
-        <li><a href="?page=<?= $currentPage - 1 ?>">Prev</a></li>
-    <?php endif; ?>
-
-    <?php for ($i = 1; $i <= $totalPages; $i++): ?>
-        <li><a href="?page=<?= $i ?>" class="<?= ($i == $currentPage) ? 'active' : '' ?>"><?= $i ?></a></li>
-    <?php endfor; ?>
-
-    <?php if ($currentPage < $totalPages): ?>
-        <li><a href="?page=<?= $currentPage + 1 ?>">Next</a></li>
-    <?php endif; ?>
-        </ul>
+    <?= $this->include('pagination') ?>
     </div>
-</div>
-<?php endif; ?>
-
 <!-- Modal -->
 
     <div id="modalTambah" class="black-board">
@@ -100,40 +74,36 @@
                         <tr>
                             <td>Nama Siswa</td>
                             <td>
-                                <input class="input" type="text" name="name" id="inputname" value="<?= set_value('name') ?>" placeholder="Nama Siswa">
-                                <span class="txtdanger data-subtitle"><?= isset($validation) ? $validation->getError('name') : "" ?></span>
+                                <input class="input" type="text" name="name" id="inputname" value="<?= old('name') ?>" placeholder="Nama Siswa" required oninvalid="this.setCustomValidity('Nama Siswa harus diisi')" oninput="this.setCustomValidity('')">
+                                <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['name'] ?? '' ?></span>
                             </td>
                         </tr>
                         <tr>
                             <td>NIS</td>
-                            <td><input class="input" type="text" name="nis" id="inputnis" value="<?= set_value('nis') ?>" placeholder="NIS">
-                            <span class="txtdanger data-subtitle"><?= isset($validation) ? $validation->getError('nis') : "" ?></span></td>
+                            <td><input class="input" type="text" name="nis" id="inputnis" value="<?= old('nis') ?>" placeholder="NIS" required oninvalid="this.setCustomValidity('NIS harus diisi')" oninput="this.setCustomValidity('')">
+                            <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['nis'] ?? '' ?></span></td>
                         </tr>
                             <td>Kelas</td>
-                            <!--td><input class="input" type="text" name="kelas" id="inputkelas" value="" placeholder="Kelas">
-                            </td-->
-                            <td><select class="input" name="kelas">
+                            <td><select class="input" name="kelas" required oninvalid="this.setCustomValidity('Pilih kelas')" oninput="this.setCustomValidity('')">
                                 <option value="">Pilih Kelas</option>
-                                <option value="7" <?= set_value('kelas') == "7" ? "selected" : "" ?>>7</option>
-                                <option value="8" <?= set_value('kelas') == "8" ? "selected" : "" ?>>8</option>
-                                <option value="9" <?= set_value('kelas') == "9" ? "selected" : "" ?>>9</option>
+                                <option value="7" <?= old('kelas') == '7' ? 'selected' : '' ?>>7</option>
+                                <option value="8" <?= old('kelas') == '8' ? 'selected' : '' ?>>8</option>
+                                <option value="9" <?= old('kelas') == '9' ? 'selected' : '' ?>>9</option>
                             </select>
                             </td>
                         </tr>
                         <tr>
                             <td>Jenis Kelamin</td>
-                            <!--td><input class="input" type="text" name="gender" id="inputgender" value="" placeholder="Jenis Kelamin">
-                            </td-->
-                            <td><select class="input" name="gender" id="inputgender" value="<?= set_value('gender') ?>">
+                            <td><select class="input" name="gender" id="inputgender" required oninvalid="this.setCustomValidity('Pilih jenis kelamin')" oninput="this.setCustomValidity('')">
                                 <option value="">Pilih Jenis Kelamin</option>
-                                <option value="L" <?= set_value('gender') == "L" ? "selected" : "" ?>>Laki-laki</option>
-                                <option value="P" <?= set_value('gender') == "P" ? "selected" : "" ?>>Perempuan</option>
+                                <option value="L" <?= old('gender') == 'L' ? 'selected' : '' ?>>Laki-laki</option>
+                                <option value="P" <?= old('gender') == 'P' ? 'selected' : '' ?>>Perempuan</option>
                             </select></td>
                         </tr>
                         <tr>
                             <td>No Whatsapp</td>
-                            <td><input class="input" type="text" name="phonenumber" id="inputphonenumber" value="<?= set_value('phonenumber') ?>" placeholder="Nomor Whatsapp">
-                            <span class="txtdanger data-subtitle"><?= isset($validation) ? $validation->getError('phonenumber') : "" ?></span></td>
+                            <td><input class="input" type="text" name="phonenumber" id="inputphonenumber" value="<?= old('phonenumber') ?>" placeholder="Nomor Whatsapp" required oninvalid="this.setCustomValidity('Nomor Whatsapp harus diisi')" oninput="this.setCustomValidity('')">
+                            <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['phonenumber'] ?? '' ?></span></td>
                         </tr>
                     </tbody>
                 </table>
@@ -145,7 +115,4 @@
             </form>
         </div>
     </div>
-<!--iframe src=" base_url('/export-pdf'); " width="100%" height="600px"></iframe-->
 <?= $this->include('closing') ?>
-
-

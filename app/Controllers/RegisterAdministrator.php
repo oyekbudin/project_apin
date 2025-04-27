@@ -5,38 +5,30 @@
 
 class RegisterAdministrator extends Controller
 {
+    protected $administratorModel;
+
+    public function __construct()
+    {
+        $this->administratorModel = new AdministratorModel();
+    }
+
     public function index()
     {
-        //helper(['form']);
-        $Model = new AdministratorModel();
         $perPage = 10;
         $page = (int) ($this->request->getGet('page') ?? 1);
-        $total = $Model->countAll();
-
-
+        $total = $this->administratorModel->countAll();
         $offset = ($page - 1) * $perPage;
-
-
-
         $keyword = $this->request->getGet('keyword');
 
         if ($keyword) {
-            $dataadministrator = $Model->search($keyword);
+            $dataadministrator = $this->administratorModel->search($keyword);
         } else {
-            $dataadministrator = $Model->getPaginated($perPage, $offset);
+            $dataadministrator = $this->administratorModel->getPaginated($perPage, $offset);
         }
-        //$data = [];
-        //echo view('registeradministrator', $data);
-
-        //$lihatmodel = new AdministratorModel();
-        //$lihatdata = $lihatmodel->findAll();
-        //$data['lihatdata'] = $lihatdata;
-        //$data['title'] = 'Atur User';
 
         $data = [
             'menu' => 'Pengaturan',
             'title' => 'Atur User',
-            //'lihatdata' => $lihatdata,
             'dataadministrator' => $dataadministrator,
             'total' => $total,
             'perpage' => $perPage,
@@ -45,7 +37,6 @@ class RegisterAdministrator extends Controller
             'keyword' => $keyword,
         ];
 
-        //echo view('atursiswa', $data);
         return view('registeradministrator', $data);
     }
 
@@ -54,15 +45,29 @@ class RegisterAdministrator extends Controller
         helper(['form']);
         $rules =
         [
-            'name' => 'required|min_length[6]|max_length[40]',
+            'name' => 'required|min_length[6]|max_length[40]|alpha_space',
             'adminname' => 'required|min_length[6]|max_length[40]',
             'role' => 'required|min_length[6]|max_length[40]',
-            'password' => 'required|min_length[6]|',
+            'password' => 'required|min_length[6]|max_length[40]',
+        ];
+        $errors = [
+            'name' => [
+                'required'=>'Harus diisi',
+                'min_length'=>'Minimal 6 karakter',
+                'max_length'=>'Maksimal 40 karakter',
+                'alpha_space'=>'Tidak boleh mengandung angka (0-9)'],
+            'adminname' => [
+                'required'=>'Harus diisi',
+                'min_length'=>'Minimal 6 karakter',
+                'max_length'=>'Maksimal 40 karakter'],
+            'password' => [
+                'required'=>'Harus diisi',
+                'min_length'=>'Minimal 6 karakter',
+                'max_length'=>'Maksimal 40 karakter'],
         ];
 
-        if($this->validate($rules))
+        if($this->validate($rules, $errors))
         {
-            $model = new AdministratorModel();
             $data =
             [
                 'name' => $this->request->getVar('name'),
@@ -70,24 +75,21 @@ class RegisterAdministrator extends Controller
                 'role' => $this->request->getVar('role'),
                 'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT)
             ];
-            $model->save($data);
+            $this->administratorModel->save($data);
             return redirect()->to('/registeradministrator')->with('success', 'Data User berhasil ditambahkan.');;
         } else {
             session()->setFlashdata('errors', $this->validator->getErrors());
-            //$data['validation'] = $this->validator;
-            //echo view('registeradministrator', $data);
-            return redirect()->to('/registeradministrator');
+            session()->setFlashdata('show_modal',true);
+            return redirect()->back()->withInput();
         }
     }
 
     public function edit($id)
     {
-        $model = new AdministratorModel();
-        //$data['user'] = $model->find($id);
         $data = [
             'menu' => 'Pengaturan',
             'title' => 'Atur User',
-            'user' => $model->find($id),
+            'user' => $this->administratorModel->find($id),
             'on' => true,
         ];
         return view('editadministrator', $data);
@@ -95,36 +97,59 @@ class RegisterAdministrator extends Controller
 
     public function update($id)
     {
-        $model = new AdministratorModel();
-        $data =
+        $rules =
         [
-            'name' => $this->request->getVar('name'),
-            'adminname' => $this->request->getVar('adminname'),
-            'role' => $this->request->getVar('role'),
-            'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT)
+            'name' => 'required|min_length[6]|max_length[40]|alpha_space',
+            'adminname' => 'required|min_length[6]|max_length[40]',
+            'role' => 'required|min_length[6]|max_length[40]',
+            'password' => 'permit_empty|min_length[6]|max_length[40]',
         ];
-        $model->update($id, $data);
+        $errors = [
+            'name' => [
+                'required'=>'Harus diisi',
+                'min_length'=>'Minimal 6 karakter',
+                'max_length'=>'Maksimal 40 karakter',
+                'alpha_space'=>'Tidak boleh mengandung angka (0-9)'],
+            'adminname' => [
+                'required'=>'Harus diisi',
+                'min_length'=>'Minimal 6 karakter',
+                'max_length'=>'Maksimal 40 karakter'],
+            'password' => [
+                'min_length'=>'Minimal 6 karakter',
+                'max_length'=>'Maksimal 40 karakter'],
+        ];
 
-        return redirect()->to('/registeradministrator')->with('success', 'Data user berhasil diperbarui.');
+        if($this->validate($rules, $errors))
+        {
+            $data =
+            [
+                'name' => $this->request->getVar('name'),
+                'adminname' => $this->request->getVar('adminname'),
+                'role' => $this->request->getVar('role'),
+                'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT)
+            ];
+            $this->administratorModel->update($id, $data);
+            return redirect()->to('/registeradministrator')->with('success', 'Data User berhasil diperbarui');;
+        } else {
+            session()->setFlashdata('errors', $this->validator->getErrors());
+            session()->setFlashdata('show_modal',true);
+            return redirect()->back()->withInput();
+        }
     }
 
     public function delete($id)
     {
-        $model = new AdministratorModel();
-        $model->delete($id);
+        $this->administratorModel->delete($id);
 
         return redirect()->to('/registeradministrator')->with('success', 'Data user berhasil dihapus.');
     }
 
     public function confirmdelete($id)
     {
-        $model = new AdministratorModel();
-        //$data['administrator'] = $model->find($id);
-
         $data = [
             'menu' => 'Pengaturan',
             'title' => 'Atur User',
-            'user' => $model->find($id),
+            'user' => $this->administratorModel->find($id),
             'on' => true,
         ];
 

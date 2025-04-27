@@ -43,7 +43,7 @@
                 <td><?= number_format($row['nominal'])  ?></td>
                 <td><?= $row['status'] ?></td>
                 <td>
-                    <a class="tombol primary-outline" href="/pembayaran/confirmdeletepembayaran/<?= $row['id'] ?>">Detail</a>
+                    <a class="tombol primary-outline" href="/pembayaran/detail/<?= $row['id'] ?>">Detail</a>
                 </td>
             </tr>
             <?php endforeach; ?>
@@ -58,39 +58,35 @@
     <!--?= $this->include('pagination') ?-->
     </div> <!-- end board wrap -->
     <!-- Modal -->
-    <!--h2>Tambah Pembayaran</h2-->
     <div id="modalTambah" class="black-board">
     <div class="pop">
         <div class="group-action"><h2 class="data-title">Tambah Pembayaran</h2><i class="i" onclick="offmodalTambah()">&#xe14c</i></div>
         <div class="divider"></div>
         <span class="tombol green">DATA PEMBAYARAN</span>
-    <!--?php if(isset($validation)) :?>
-        <span><//?= $validation->listErrors() ?></span>
-    <//?php endif;?-->
     <form action="/pembayaran/save" method="post">
                 <table>
                     <tbody>
                         <tr>
-                            <td>Search</td>
+                            <td>Cari siswa</td>
                             <td>
-                                <input class="input" type="text" name="#" id="search-siswa" value="" placeholder="Cari Siswa">
+                                <input class="input" type="text" name="cari" id="search-siswa" value="<?= old('cari') ?>"  placeholder="Masukkan nama siswa" required oninvalid="this.setCustomValidity('Data siswa harus diisi')" oninput="this.setCustomValidity('')">
                                 <div id="result-siswa"></div>
                             </td>
                         </tr>
                         <tr>
                             <td>NIS</td>
-                            <td><input class="input" type="text" name="idsiswa" id="nis" readonly placeholder="-"></td>
+                            <td><input class="input" type="text" name="idsiswa" id="nis" readonly  placeholder="-" required oninvalid="this.setCustomValidity('NIS harus diisi')" oninput="this.setCustomValidity('')"></td>
                         </tr>
                         <tr>
                             <td>Nama Siswa</td>
-                            <td><input class="input" type="text" name="" id="name" readonly placeholder="-"></td>
+                            <td><input class="input" type="text" name="name" id="name" readonly placeholder="-" required oninvalid="this.setCustomValidity('Nama siswa harus diisi')" oninput="this.setCustomValidity('')"></td>
                         </tr>
                             <td>Kelas</td>
-                            <td><input class="input" type="text" name="" id="kelas" readonly placeholder="-"></td>
+                            <td><input class="input" type="text" name="kelas" id="kelas" readonly placeholder="-" required oninvalid="this.setCustomValidity('Nama siswa harus diisi')" oninput="this.setCustomValidity('')"></td>
                         </tr>
                         <tr>
                             <td>Jenis Infaq</td>
-                            <td><select class="input" name="idinfaq" id="jenis-infaq">
+                            <td><select class="input" name="idinfaq" id="jenis-infaq" required oninvalid="this.setCustomValidity('Pilih jenis infaq')" oninput="this.setCustomValidity('')">
                                 <option value="">Pilih Jenis Infaq</option>
                             </select></td>
                             <!-- script -->
@@ -137,7 +133,7 @@
                                             success: function(data){
                                                 let infaqOptions = `<option value="">Pilih Jenis Infaq</option>`;
                                                 $.each(data, function(index, infaq){
-                                                    infaqOptions += `<option value="${infaq.id}">${infaq.name} ${infaq.harga} </option>`;
+                                                    infaqOptions += `<option value="${infaq.id}">${infaq.name} (${infaq.harga}) </option>`;
                                                 });
                                                 $("#jenis-infaq").html(infaqOptions);
                                             }
@@ -151,8 +147,8 @@
                         <tr>
                             <td>Nominal</td>
                             <td>
-                                <input class="input" type="number" name="nominal" id="input#" value="" placeholder="Masukkan Nominal">
-                                <span class="txtdanger data-subtitle"><?= isset($validation) ? $validation->getError('#') : "" ?></span>
+                                <input class="input" type="number" name="nominal" id="input#" value="<?= old('nominal') ?>" placeholder="Masukkan Nominal" required oninvalid="this.setCustomValidity('Nominal harus diisi')" oninput="this.setCustomValidity('')">
+                                <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['nominal'] ?? '' ?></span>
                             </td>
                         </tr>                        
                     </tbody>

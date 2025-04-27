@@ -73,27 +73,27 @@
                         <tr>
                             <td>Nama Jenis Infaq</td>
                             <td>
-                                <input class="input" type="text" name="name" id="inputname" value="<?= set_value('name') ?>" placeholder="Nama Jenis Infaq">
-                                <span class="txtdanger data-subtitle"><?= isset($validation) ? $validation->getError('name') : "" ?></span>
+                                <input class="input" type="text" name="name" id="inputname" value="<?= old('name') ?>" placeholder="Nama Jenis Infaq" required oninvalid="this.setCustomValidity('Nama jenis infaq harus diisi')" oninput="this.setCustomValidity('')">
+                                <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['name'] ?? '' ?></span>
                             </td>
                         </tr>
                         <tr>
                             <td>Kelas</td>
-                            <td><select class="input" name="kelas" id="inputkelas" value="">
+                            <td><select class="input" name="kelas" id="inputkelas" required oninvalid="this.setCustomValidity('Pilih kelas')" oninput="this.setCustomValidity('')">
                                 <option value="">Pilih Kelas</option>
-                                <option value="7" <?= set_value('kelas') == "7" ? "selected" : "" ?>>7</option>
-                                <option value="8" <?= set_value('kelas') == "8" ? "selected" : "" ?>>8</option>
-                                <option value="9" <?= set_value('kelas') == "9" ? "selected" : "" ?>>9</option>
-                                <option value="78" <?= set_value('kelas') == "78" ? "selected" : "" ?>>7 dan 8</option>
-                                <option value="79" <?= set_value('kelas') == "79" ? "selected" : "" ?>>7 dan 9</option>
-                                <option value="89" <?= set_value('kelas') == "89" ? "selected" : "" ?>>8 dan 9</option>
-                                <option value="789" <?= set_value('kelas') == "789" ? "selected" : "" ?>>7, 8 dan 9</option>
+                                <option value="7" <?= old('kelas') == '7' ? 'selected' : '' ?>>7</option>
+                                <option value="8" <?= old('kelas') == '8' ? 'selected' : '' ?>>8</option>
+                                <option value="9" <?= old('kelas') == '9' ? 'selected' : '' ?>>9</option>
+                                <option value="78" <?= old('kelas') == '78' ? 'selected' : '' ?>>7 dan 8</option>
+                                <option value="79" <?= old('kelas') == '79' ? 'selected' : '' ?>>7 dan 9</option>
+                                <option value="89" <?= old('kelas') == '89' ? 'selected' : '' ?>>8 dan 9</option>
+                                <option value="789" <?= old('kelas') == '789' ? 'selected' : '' ?>>7, 8 dan 9</option>
                             </select></td>
                         </tr>
                         <tr>
                             <td>Harga</td>
-                            <td><input class="input" type="number" name="harga" id="inputharga" value="<?= set_value('harga') ?>" placeholder="Harga">
-                            <span class="txtdanger data-subtitle"><?= isset($validation) ? $validation->getError('harga') : "" ?></span></td>
+                            <td><input class="input" type="number" name="harga" id="inputharga" value="<?= old('harga') ?>" placeholder="Harga" required oninvalid="this.setCustomValidity('Harga harus diisi')" oninput="this.setCustomValidity('')">
+                            <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['harga'] ?? '' ?></span></td>
                         </tr>
                     </tbody>
                 </table>

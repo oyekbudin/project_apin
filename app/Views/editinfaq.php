@@ -10,8 +10,8 @@
                         <tr>
                             <td>Nama Jenis Infaq</td>
                             <td>
-                                <input class="input" type="text" name="name" id="inputname" value="<?= $infaq['name'] ?>" placeholder="Nama Jenis Infaq">
-                                <span class="txtdanger data-subtitle"><?= isset($validation) ? $validation->getError('name') : "" ?></span>
+                                <input class="input" type="text" name="name" id="inputname" value="<?= $infaq['name'] ?>" placeholder="Nama Jenis Infaq" required oninvalid="this.setCustomValidity('Nama jenis infaq harus diisi')" oninput="this.setCustomValidity('')">
+                                <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['name'] ?? '' ?></span>
                             </td>
                         </tr>
                         <tr>
@@ -28,8 +28,8 @@
                         </tr>
                         <tr>
                             <td>Harga</td>
-                            <td><input class="input" type="text" name="harga" id="inputharga" value="<?= $infaq['harga'] ?>" placeholder="Harga">
-                            <span class="txtdanger data-subtitle"><?= isset($validation) ? $validation->getError('harga') : "" ?></span></td>
+                            <td><input class="input" type="text" name="harga" id="inputharga" value="<?= $infaq['harga'] ?>" placeholder="Harga" required oninvalid="this.setCustomValidity('Harga harus diisi')" oninput="this.setCustomValidity('')">
+                            <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['harga'] ?? '' ?></span></td>
                         </tr>
                     </tbody>
                 </table>
@@ -41,5 +41,4 @@
     </form>
     </div>
 </div>
-
 <?= $this->include('closing') ?>

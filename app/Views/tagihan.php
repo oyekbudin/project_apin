@@ -27,7 +27,7 @@
                 <td><?= number_format($t['total'])  ?></td>
                 <td>
                     <a class="tombol green-outline" href="<?= base_url('tagihan/lihatkartu/?nis=' .$t['nis']. '&kelas='.$t['kelas']) ?>">Lihat Kartu</a>
-                    <a class="tombol orange-outline" href="/tagihan/lihattagihan/<?= $t['id'] ?>">Lihat Tagihan</a>
+                    <a class="tombol orange-outline" href="/tagihan/detailtagihan/<?= $t['id'] ?>">Lihat Tagihan</a>
                 </td>
             </tr>
             <?php endforeach; ?>

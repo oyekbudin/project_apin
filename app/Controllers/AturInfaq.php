@@ -5,25 +5,26 @@
 
 class AturInfaq extends Controller
 {
+    protected $infaqModel;
+
+    public function __construct()
+    {
+        $this->infaqModel = new InfaqModel();
+    }
+
     public function index()
     {
         helper(['form']);
-        $infaqModel = new InfaqModel();
         $perPage = 10;
         $page = (int) ($this->request->getGet('page') ?? 1);
-        $total = $infaqModel->countAll();
-
-
+        $total = $this->infaqModel->countAll();
         $offset = ($page - 1) * $perPage;
-
-
-
         $keyword = $this->request->getGet('keyword');
 
         if ($keyword) {
-            $datainfaq = $infaqModel->search($keyword);
+            $datainfaq = $this->infaqModel->search($keyword);
         } else {
-            $datainfaq = $infaqModel->getPaginated($perPage, $offset);
+            $datainfaq = $this->infaqModel->getPaginated($perPage, $offset);
         }
 
         $data = [
@@ -37,10 +38,6 @@ class AturInfaq extends Controller
             'keyword' => $keyword,
         ];
 
-        //$lihatmodel = new InfaqModel();
-        //$lihatdata = $lihatmodel->findAll();
-        //$data = ['menu' => 'Perencanaan','title' => 'Atur Jenis Infaq','lihatdata' => $lihatdata,];
-
         return view('aturinfaq', $data);
     }
 
@@ -49,91 +46,121 @@ class AturInfaq extends Controller
         helper(['form']);
         $rules =
         [
-            'name' => 'required|min_length[6]|max_length[40]',
-            'kelas' => 'required|min_length[1]|max_length[3]|',
-            'harga' => 'required|min_length[4]|max_length[7]|',
+            'name' => 'required|min_length[3]|max_length[40]|alpha_numeric_space',
+            'kelas' => 'required|min_length[1]|max_length[3]|numeric',
+            'harga' => 'required|min_length[4]|max_length[7]|numeric',
+        ];
+        $errors = [
+            'name' => [
+                'required'=>'Harus diisi',
+                'min_length'=>'Minimal 3 karakter',
+                'max_length'=>'Maksimal 40 karakter',
+                'alpha_numeric_space'=>'Karakter yang diizinkan (A-Z) (0-9)'
+            ],
+            'kelas' => [
+                'required'=>'Harus diisi',
+                'min_length'=>'Minimal 1 karakter',
+                'max_length'=>'Maksimal 3 karakter',
+                'numeric'=>'Harus berupa angka (0-9)'
+            ],
+            'harga' => [
+                'required'=>'Harus diisi',
+                'min_length'=>'Minimal 4 digit angka',
+                'max_length'=>'Maksimal 7 digit angka',
+                'numeric'=>'Harus berupa angka (0-9)'
+            ],
         ];
 
-        if($this->validate($rules))
+        if($this->validate($rules, $errors))
         {
-            $model = new InfaqModel();
             $data =
             [
                 'name' => $this->request->getVar('name'),
                 'kelas' => $this->request->getVar('kelas'),
                 'harga' => $this->request->getVar('harga'),
             ];
-            $model->save($data);
+            $this->infaqModel->save($data);
             return redirect()->to('/aturinfaq')->with('success', 'Data infaq berhasil ditambahkan.');
         } else {
             session()->setFlashdata('errors', $this->validator->getErrors());
-            //$data['validation'] = $this->validator;
-            //echo view('aturinfaq', $data);
-            //$lihatmodel = new InfaqModel();
-            //$lihatdata = $lihatmodel->findAll();
-            //$data = [
-            //    'menu' => 'Perencanaan',
-            //    'title' => 'Atur Jenis Infaq',
-            //    'lihatdata' => $lihatdata,
-            //    'validation' => $this->validator,
-            //    'on' => true,
-            //];
-            //$data['validation'] = $this->validator;
-            //return view('aturinfaq', $data);
-            return redirect()->to('/aturinfaq');
+            session()->setFlashdata('show_modal',true);
+            return redirect()->back()->withInput();
         }
     }
 
     public function edit($id)
     {
-        //helper(['form']);
-        $model = new InfaqModel();
-
         $data = [
             'menu' => 'Perencanaan',
             'title' => 'Atur Jenis Infaq',
-            'infaq' => $model->find($id),
+            'infaq' => $this->infaqModel->find($id),
             'on' => true,
         ];
         return view('editinfaq', $data);
     }
 
     public function update($id)
-    {
-        $model = new InfaqModel();
-        $data =
+    {       
+        $rules =
         [
-            'name' => $this->request->getVar('name'),
-            'kelas' => $this->request->getVar('kelas'),
-            'harga' => $this->request->getVar('harga'),
+            'name' => 'required|min_length[3]|max_length[40]|alpha_numeric_space',
+            'kelas' => 'required|min_length[1]|max_length[3]|numeric',
+            'harga' => 'required|min_length[4]|max_length[7]|numeric',
         ];
-        $model->update($id, $data);
+        $errors = [
+            'name' => [
+                'required'=>'Harus diisi',
+                'min_length'=>'Minimal 3 karakter',
+                'max_length'=>'Maksimal 40 karakter',
+                'alpha_numeric_space'=>'Karakter yang diizinkan (A-Z) (0-9)'
+            ],
+            'kelas' => [
+                'required'=>'Harus diisi',
+                'min_length'=>'Minimal 1 karakter',
+                'max_length'=>'Maksimal 3 karakter',
+                'numeric'=>'Harus berupa angka (0-9)'
+            ],
+            'harga' => [
+                'required'=>'Harus diisi',
+                'min_length'=>'Minimal 4 digit angka',
+                'max_length'=>'Maksimal 7 digit angka',
+                'numeric'=>'Harus berupa angka (0-9)'
+            ],
+        ];
 
-        return redirect()->to('/aturinfaq');
+        if ($this->validate($rules, $errors))
+        {
+            $data =
+            [
+                'name' => $this->request->getVar('name'),
+                'kelas' => $this->request->getVar('kelas'),
+                'harga' => $this->request->getVar('harga'),
+            ];
+            $this->infaqModel->update($id, $data);
+            return redirect()->to('/aturinfaq')->with('success', 'Data infaq berhasil diperbarui');
+        } else {
+            session()->setFlashdata('errors', $this->validator->getErrors());
+            session()->setFlashdata('show_modal',true);
+            return redirect()->back()->withInput();
+        }
     }
 
     public function delete($id)
     {
-        $model = new InfaqModel();
-        $model->delete($id);
+        $this->infaqModel->delete($id);
 
         return redirect()->to('/aturinfaq')->with('success', 'Data infaq berhasil dihapus.');
     }
 
     public function confirmdeleteinfaq($id)
     {
-        $model = new InfaqModel();
-        //$data['infaq'] = $model->find($id);
-
         $data = [
             'menu' => 'Perencanaan',
             'title' => 'Atur Jenis Infaq',
-            'infaq' => $model->find($id),
+            'infaq' => $this->infaqModel->find($id),
             'on' => true,
         ];
 
         return view('confirmdeleteinfaq', $data);
-    }
-
-    
+    }    
 }

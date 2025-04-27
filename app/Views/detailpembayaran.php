@@ -6,7 +6,7 @@
             <span class="tombol green">DATA PEMBAYARAN</span>
     
             <form action="/pembayaran/delete/<?= $pembayaran['id'] ?>" method="post">
-            <div class="datacontent">
+            <div class="datacontent" id="pembayaran">
                 <table>
                     <tbody>
                         <tr>

@@ -109,4 +109,18 @@ class Tagihan extends Controller
         echo "</pre>";
     }
 
+    public function detailTagihan($id)
+    {
+        $tagihan = $this->tagihanDetailModel->getDetailTagihan($id);
+
+        $data = [
+            'menu' => 'Pengelolaan',
+            'title' => 'Tagihan',
+            'tagihan' => $tagihan,
+            'on' => true,
+        ];
+
+        return view('detailtagihan', $data);
+    }
+
 }

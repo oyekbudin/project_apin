@@ -40,7 +40,7 @@ class LoginAdministrator extends Controller
                 return redirect()->to('/loginadministrator');
             }
         }else{
-            $session->setFlashdata('msg', 'Admin Name tidak ditemukan');
+            $session->setFlashdata('msg', 'Username tidak ditemukan');
             return redirect()->to('/loginadministrator');
         }
     }

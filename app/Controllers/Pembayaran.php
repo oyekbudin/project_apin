@@ -7,12 +7,23 @@
 
 class Pembayaran extends Controller
 {
+    protected $pembayaranModel;
+    protected $siswaModel;
+    protected $infaqModel;
+
+    public function __construct()
+    {
+        $this->pembayaranModel = new PembayaranModel();
+        $this->siswaModel = new SiswaModel();
+        $this->infaqModel = new InfaqModel();
+    }
+
     public function index()
     {
         helper(['form']);
 
-        $pembayaranModel = new PembayaranModel();
-        $pembayaran = $pembayaranModel->getPembayaran();
+        //$pembayaranModel = new PembayaranModel();
+        $pembayaran = $this->pembayaranModel->getPembayaran();
         //$data['pembayaran'] = $pembayaran;
         //$data['title'] = 'Input Pembayaran';
 
@@ -32,62 +43,75 @@ class Pembayaran extends Controller
         [
             'idsiswa' => 'required',
             'idinfaq' => 'required',
-            'nominal' => 'required',
+            'nominal' => 'required|min_length[4]|max_length[7]|numeric',
+        ];
+        $errors = [
+            'idsiswa' => [
+                'required'=>'Harus diisi'
+            ],
+            'idinfaq' => [
+                'required'=>'Harus diisi'
+            ],
+            'nominal' => [
+                'required'=>'Harus diisi',
+                'min_length'=>'Minimal 4 digit angka',
+                'max_length'=>'Maksimal 7 digit angka',
+                'numeric'=>'Harus berupa angka (0-9)'
+            ],
         ];
 
-        if($this->validate($rules))
+        if($this->validate($rules, $errors))
         {
-            $model = new PembayaranModel();
             $data =
             [
                 'idsiswa' => $this->request->getVar('idsiswa'),
                 'idinfaq' => $this->request->getVar('idinfaq'),
                 'nominal' => $this->request->getVar('nominal'),
             ];
-            $model->save($data);
+            $this->pembayaranModel->save($data);
             return redirect()->to('/pembayaran')->with('success', 'Data pembayaran berhasil ditambahkan.');
         } else {
             session()->setFlashdata('errors', $this->validator->getErrors());
-            //$data['validation'] = $this->validator;
-            //echo view('pembayaran', $data);
+            session()->setFlashdata('show_modal',true);
+            return redirect()->back()->withInput();
         }
     }
 
     public function searchSiswa()
     {
-        $Model = new SiswaModel();
+        //$Model = new SiswaModel();
         //$Model = new InfaqModel();
         $keyword = $this->request->getGet('keyword');
         //$result = $Model->like('name', $keyword)
                         //->orLike('nis', $keyword)
                         //->findAll(10);
-        $result = $Model->search($keyword);
+        $result = $this->siswaModel->search($keyword);
         return $this->response->setJSON($result);
     }
 
     public function getInfaqByKelas()
     {
-        $Model = new InfaqModel();
+        //$Model = new InfaqModel();
         $keyword = $this->request->getGet('kelas');
         //$result = $Model->find($keyword);
-        $result = $Model->searchByKelas($keyword);
+        $result = $this->infaqModel->searchByKelas($keyword);
         //$result = $Model->like('kelas',$kelas)->findAll();
         return $this->response->setJSON($result);
     }
 
     public function delete($id)
     {
-        $model = new PembayaranModel();
-        $model->delete($id);
+        //$model = new PembayaranModel();
+        $this->pembayaranModel->delete($id);
 
         return redirect()->to('/pembayaran')->with('success', 'Data Pembayaran berhasil dihapus.');
     }
 
-    public function confirmdelete($id)
+    public function detailPembayaran($id)
     {
-        $Model = new PembayaranModel();
+        //$Model = new PembayaranModel();
         //$data['administrator'] = $model->find($id);
-        $pembayaran = $Model->getPembayaranDelete($id);
+        $pembayaran = $this->pembayaranModel->getPembayaranDelete($id);
 
         $data = [
             'menu' => 'Pengelolaan',
@@ -96,6 +120,6 @@ class Pembayaran extends Controller
             'on' => true,
         ];
 
-        return view('confirmdeletepembayaran', $data);
+        return view('detailpembayaran', $data);
     }
 }

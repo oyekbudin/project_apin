@@ -18,10 +18,10 @@
                     <thead>
                         <tr>
                             <th>Nama Infaq</th>
-                            <th>Harga</th>
-                            <th>Dibayarkan</th>
-                            <th>Sisa</th>
-                            <th>Tanggal</th>
+                            <th>Biaya</th>
+                            <th>Telah Dibayarkan</th>
+                            <th>Sisa Tagihan</th>
+                            <th>Tanggal Pembayaran</th>
                         </tr>
                     </thead>
                 
@@ -29,11 +29,11 @@
                         <?php if(!empty($tagihan)) : ?>
                         <?php foreach ($tagihan as $t) : ?>
                         <tr>
-                            <td><?= $t['nama_infaq'] ?></td>
-                            <td><?= $t['harga'] ?></td>
-                            <td><?= $t['nominal'] ?></td>
-                            <td><?= $t['sisa_pembayaran'] ?></td>
-                            <td><?= $t['last_payment_date'] ?></td>
+                            <td style="text-align: left; padding-left: 10px;"><?= $t['nama_infaq'] ?></td>
+                            <td><?= number_format($t['harga'])  ?></td>
+                            <td><?= number_format($t['nominal'])  ?></td>
+                            <td><?= number_format($t['sisa_pembayaran']) ?></td>
+                            <td><?= !empty($t['last_payment_date']) ? date('d-m-Y', strtotime($t['last_payment_date'])) : '-' ?></td>
                         </tr>
                         <?php endforeach; ?>
                         <?php else : ?>

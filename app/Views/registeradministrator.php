@@ -68,29 +68,29 @@
                         <tr>
                             <td>Nama Lengkap</td>
                             <td>
-                                <input class="input" type="text" name="name" id="inputname" value="" placeholder="Nama Lengkap">
-                                <span class="txtdanger data-subtitle"><?= isset($validation) ? $validation->getError('name') : "" ?></span>
+                                <input class="input" type="text" name="name" id="inputname" value="<?= old('name') ?>" placeholder="Nama Lengkap" required oninvalid="this.setCustomValidity('Nama Lengkap harus diisi')" oninput="this.setCustomValidity('')">
+                                <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['name'] ?? '' ?></span>
                             </td>
                         </tr>
                         <tr>
                             <td>Username</td>
                             <td>
-                                <input class="input" type="text" name="adminname" id="inputadminname" value="" placeholder="Username">
-                                <span class="txtdanger data-subtitle"><?= isset($validation) ? $validation->getError('adminname') : "" ?></span>
+                                <input class="input" type="text" name="adminname" id="inputadminname" value="<?= old('adminname') ?>" placeholder="Username" required oninvalid="this.setCustomValidity('Username harus diisi')" oninput="this.setCustomValidity('')" >
+                                <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['adminname'] ?? '' ?></span>
                             </td>
                         </tr>
                         <tr>
                             <td>Password</td>
-                            <td><input class="input" type="password" name="password" id="inputpassword" value="" placeholder="Password">
-                            <span class="txtdanger data-subtitle"><?= isset($validation) ? $validation->getError('password') : "" ?></span></td>
+                            <td><input class="input" type="text" name="password" id="inputpassword" value="<?= old('password') ?>" placeholder="Password" required oninvalid="this.setCustomValidity('Password harus diisi')" oninput="this.setCustomValidity('')">
+                            <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['password'] ?? '' ?></span></td>
                         </tr>
                         <tr>
                             <td>Roles</td>
-                            <td><select class="input" name="role" id="inputrole">
+                            <td><select class="input" name="role" id="inputrole" required oninvalid="this.setCustomValidity('Pilih roles')" oninput="this.setCustomValidity('')">
                                 <option value="">Pilih Roles</option>
-                                <option value="SistemAdmin" >Sistem Admin</option>
-                                <option value="KepalaSekolah">Kepala Sekolah</option>
-                                <option value="Bendahara">Bendahara</option>
+                                <option value="SistemAdmin" <?= old('role') == 'SistemAdmin' ? 'selected' : '' ?> >Sistem Admin</option>
+                                <option value="KepalaSekolah" <?= old('role') == 'KepalaSekolah' ? 'selected' : '' ?>>Kepala Sekolah</option>
+                                <option value="Bendahara" <?= old('role') == 'Bendahara' ? 'selected' : '' ?>>Bendahara</option>
                             </select></td>
                         </tr>                        
                     </tbody>
@@ -103,17 +103,4 @@
     </form>
     </div>
     </div>
-
-<!-- old -->
-    <!--h2>Tambah User</h2>
-    <//?php if(isset($validation)) :?>
-        <span><//?= $validation->listErrors() ?></span>
-    <//?php endif;?>
-    <form action="/registeradministrator/save" method="post">
-        <input type="text" name="name" id="inputname" value="<//?= set_value('name') ?>" placeholder="Nama Lengkap">
-        <input type="text" name="adminname" id="inputadminname" value="<//?= set_value('adminname') ?>" placeholder="Username">
-        <input type="text" name="role" id="inputrole" value="<//?= set_value('role') ?>" placeholder="Roles">
-        <input type="password" name="password" id="inputpassword" placeholder="Password">
-        <button type="submit">Register Administrator</button>
-    </form-->
     <?= $this->include('closing') ?>

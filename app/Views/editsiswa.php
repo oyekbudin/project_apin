@@ -11,14 +11,14 @@
                         <tr>
                             <td>Nama Siswa</td>
                             <td>
-                                <input class="input" type="text" name="name" id="inputname" value="<?= $siswa['name'] ?>" placeholder="Nama Siswa">
-                                <span class="txtdanger data-subtitle"><?= isset($validation) ? $validation->getError('name') : "" ?></span>
+                                <input class="input" type="text" name="name" id="inputname" value="<?= $siswa['name'] ?>" placeholder="Nama Siswa" required oninvalid="this.setCustomValidity('Nama siswa harus diisi')" oninput="this.setCustomValidity('')">
+                                <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['name'] ?? '' ?></span>
                             </td>
                         </tr>
                         <tr>
                             <td>NIS</td>
-                            <td><input class="input" type="text" name="nis" id="inputnis" value="<?= $siswa['nis'] ?>" placeholder="NIS">
-                            <span class="txtdanger data-subtitle"><?= isset($validation) ? $validation->getError('nis') : "" ?></span></td>
+                            <td><input class="input" type="text" name="nis" id="inputnis" value="<?= $siswa['nis'] ?>" placeholder="NIS" required oninvalid="this.setCustomValidity('NIS harus diisi')" oninput="this.setCustomValidity('')">
+                            <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['nis'] ?? '' ?></span></td>
                         </tr>
                             <td>Kelas</td>
                             <td><select class="input" name="kelas" id="inputkelas" value="<?= $siswa['kelas'] ?>">
@@ -29,8 +29,6 @@
                         </tr>
                         <tr>
                             <td>Jenis Kelamin</td>
-                            <!--td><input class="input" type="text" name="gender" id="inputgender" value="" placeholder="Jenis Kelamin">
-                            </td-->
                             <td><select class="input" name="gender" id="inputgender" value="<?= $siswa['gender'] ?>">
                                 <option value="L" <?= $siswa['gender'] == "L" ? "selected" : "" ?>>Laki-laki</option>
                                 <option value="P" <?= $siswa['gender'] == "P" ? "selected" : "" ?>>Perempuan</option>
@@ -38,8 +36,8 @@
                         </tr>
                         <tr>
                             <td>No Whatsapp</td>
-                            <td><input class="input" type="text" name="phonenumber" id="inputphonenumber" value="<?= $siswa['phonenumber'] ?>" placeholder="Nomor Whatsapp">
-                            <span class="txtdanger data-subtitle"><?= isset($validation) ? $validation->getError('phonenumber') : "" ?></span></td>
+                            <td><input class="input" type="text" name="phonenumber" id="inputphonenumber" value="<?= $siswa['phonenumber'] ?>" placeholder="Nomor Whatsapp" required oninvalid="this.setCustomValidity('Nomor whatsapp harus diisi')" oninput="this.setCustomValidity('')">
+                            <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['phonenumber'] ?? '' ?></span></td>
                         </tr>
                     </tbody>
                 </table>

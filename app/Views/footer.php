@@ -46,3 +46,12 @@
     </script>
 <?php endif; ?>
 
+<?php if (session()->getFlashdata('show_modal')) : ?>
+    <script>
+        document.addEventListener("DOMContentLoaded", function ()
+    {
+        document.getElementById("modalTambah").style.display = "flex";
+    });
+    </script>
+<?php endif ?>
+

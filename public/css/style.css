@@ -746,7 +746,7 @@ aside ul li
 
 tbody tr:hover
 {
-    background-color: var(--light);
+    /*background-color: var(--light);*/
 }
 
 .black-board
@@ -979,4 +979,16 @@ form .group-action
     text-align: center;
     line-height: 2;
     border: 1px solid var(--green);
+}
+
+#pembayaran td
+{
+    text-align: left;
+    padding-left: 10px;
+    border: none;
+}
+
+#pembayaran tr:hover
+{
+    /*background-color: #fff;*/
 }
