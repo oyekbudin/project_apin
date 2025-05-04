@@ -1,15 +1,18 @@
 <?php namespace App\Controllers;
 
       use App\Models\InfaqModel;
-      use CodeIgniter\Controller;
+use App\Models\KelasModel;
+use CodeIgniter\Controller;
 
 class AturInfaq extends Controller
 {
     protected $infaqModel;
+    protected $kelasModel;
 
     public function __construct()
     {
         $this->infaqModel = new InfaqModel();
+        $this->kelasModel = new KelasModel();
     }
 
     public function index()
@@ -36,6 +39,7 @@ class AturInfaq extends Controller
             'currentPage' => $page,
             'totalPages' => ($total > 0) ? ceil($total / $perPage) : 1,
             'keyword' => $keyword,
+            'kelas' => $this->kelasModel->getDataKelas(),
         ];
 
         return view('aturinfaq', $data);
@@ -47,7 +51,7 @@ class AturInfaq extends Controller
         $rules =
         [
             'name' => 'required|min_length[3]|max_length[40]|alpha_numeric_space',
-            'kelas' => 'required|min_length[1]|max_length[3]|numeric',
+            'kelas_id' => 'required',
             'harga' => 'required|min_length[4]|max_length[7]|numeric',
         ];
         $errors = [
@@ -57,11 +61,8 @@ class AturInfaq extends Controller
                 'max_length'=>'Maksimal 40 karakter',
                 'alpha_numeric_space'=>'Karakter yang diizinkan (A-Z) (0-9)'
             ],
-            'kelas' => [
-                'required'=>'Harus diisi',
-                'min_length'=>'Minimal 1 karakter',
-                'max_length'=>'Maksimal 3 karakter',
-                'numeric'=>'Harus berupa angka (0-9)'
+            'kelas_id' => [
+                'required'=>'Pilih minimal 1 kelas'
             ],
             'harga' => [
                 'required'=>'Harus diisi',
@@ -73,13 +74,14 @@ class AturInfaq extends Controller
 
         if($this->validate($rules, $errors))
         {
-            $data =
+            $dataInfaq =
             [
                 'name' => $this->request->getVar('name'),
-                'kelas' => $this->request->getVar('kelas'),
+                //'kelas' => $this->request->getVar('kelas'),
                 'harga' => $this->request->getVar('harga'),
             ];
-            $this->infaqModel->save($data);
+            $kelasId = $this->request->getVar('kelas_id');
+            $this->infaqModel->saveInfaq($dataInfaq, $kelasId);
             return redirect()->to('/aturinfaq')->with('success', 'Data infaq berhasil ditambahkan.');
         } else {
             session()->setFlashdata('errors', $this->validator->getErrors());
@@ -90,12 +92,22 @@ class AturInfaq extends Controller
 
     public function edit($id)
     {
+        $kelasModel = new KelasModel();
+
+        
         $data = [
             'menu' => 'Perencanaan',
             'title' => 'Atur Jenis Infaq',
-            'infaq' => $this->infaqModel->find($id),
+            //'infaq' => $this->infaqModel->find($id),
+            'infaq' => $this->infaqModel->getInfaqById($id),
+            'kelas' => $this->kelasModel->getDataKelas(),
             'on' => true,
         ];
+        //$infaq = $this->infaqModel->getInfaqById($id);
+        //$infaq2 = $this->infaqModel->find($id);
+        //$kelas = $this->kelasModel->getDataKelas();
+        //print_r($kelas);
+        //print_r($infaq2);
         return view('editinfaq', $data);
     }
 
@@ -104,7 +116,7 @@ class AturInfaq extends Controller
         $rules =
         [
             'name' => 'required|min_length[3]|max_length[40]|alpha_numeric_space',
-            'kelas' => 'required|min_length[1]|max_length[3]|numeric',
+            //'kelas_id' => 'required',
             'harga' => 'required|min_length[4]|max_length[7]|numeric',
         ];
         $errors = [
@@ -114,12 +126,9 @@ class AturInfaq extends Controller
                 'max_length'=>'Maksimal 40 karakter',
                 'alpha_numeric_space'=>'Karakter yang diizinkan (A-Z) (0-9)'
             ],
-            'kelas' => [
-                'required'=>'Harus diisi',
-                'min_length'=>'Minimal 1 karakter',
-                'max_length'=>'Maksimal 3 karakter',
-                'numeric'=>'Harus berupa angka (0-9)'
-            ],
+            //'kelas_id' => [
+            //    'required'=>'Pilih minimal 1 kelas'
+            //],
             'harga' => [
                 'required'=>'Harus diisi',
                 'min_length'=>'Minimal 4 digit angka',
@@ -130,13 +139,15 @@ class AturInfaq extends Controller
 
         if ($this->validate($rules, $errors))
         {
-            $data =
+            $dataInfaq =
             [
                 'name' => $this->request->getVar('name'),
-                'kelas' => $this->request->getVar('kelas'),
+                //'kelas' => $this->request->getVar('kelas'),
                 'harga' => $this->request->getVar('harga'),
             ];
-            $this->infaqModel->update($id, $data);
+            $kelasId = $this->request->getVar('kelas_id');
+            //$this->infaqModel->update($id, $data);
+            $this->infaqModel->updateInfaq($id, $dataInfaq, $kelasId);
             return redirect()->to('/aturinfaq')->with('success', 'Data infaq berhasil diperbarui');
         } else {
             session()->setFlashdata('errors', $this->validator->getErrors());

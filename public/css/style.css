@@ -826,6 +826,28 @@ td input
     gap: 5px;
 }
 
+.cbkelas
+{
+    width: auto;
+    padding: 8px;
+    line-height: 30px;
+    border: none;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 5px;
+}
+
+.cbkelas input
+{
+    width: auto;
+}
+
+.cbkelas input:hover, .cbkelas label:hover
+{
+    cursor: pointer;
+}
+
 .cb label
 {
     cursor: pointer;

@@ -1,5 +1,5 @@
     
-        <span>Aplikasi Pengelola Infaq </span><span class="txtwarning">Versi 0.1.0-alpha.1 </span><span>, Arvin Noer Hakim | 215720010 STMIK KOMPUTAMA MAJENANG 2025</span>
+        <span>Aplikasi Pengelola Infaq </span><span class="txtwarning">Versi 0.2.0-alpha.1 </span><span>, Arvin Noer Hakim | 215720010 STMIK KOMPUTAMA MAJENANG 2025</span>
     </footer>
 </body>
 </html>
