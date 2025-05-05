@@ -7,18 +7,44 @@
     
             <form action="/tagihan/delete/#" method="post">
             <div class="datacontent" id="pembayaran">
-            <table>                
+
+            <?php
+            //$string1 = ;
+            //$string1 = str_replace(['{','}'],'',$string1);
+            //$nama_infaq_Array= explode(',',$string1);
+
+            //$string2 = $tagihan['harga_infaq'];
+            //$string2 = str_replace(['{','}'],'',$string2);
+            //$harga_infaq_Array= explode(',',$string2);
+            $total_tagihan = 0;
+            foreach ($tagihan as $t) {
+            $total_tagihan += $t['sisa_tagihan'];
+            }
+
+            ?>
+
+            <table>
+                    <thead>
+                        <tr>
+                            <th>Jenis Infaq</th>
+                            <th>Harga</th>
+                            <th>Pembayaran</th>
+                            <th>Sisa</th>
+                        </tr>
+                    </thead>                
                     <tbody>
                         <?php if(!empty($tagihan)) : ?>
                         <?php foreach ($tagihan as $t) : ?>
                         <tr>
                             <td><?= $t['nama_infaq'] ?></td>
-                            <td><?= number_format($t['nominal'])  ?></td>
+                            <td><?= $t['harga_infaq'] ?></td>
+                            <td><?= $t['total_pembayaran'] ?></td>
+                            <td><?= $t['sisa_tagihan'] ?></td>
                         </tr>
                         <?php endforeach; ?>
                         <tr class="danger">
                             <td>Total Tagihan</td>
-                            <td><?= number_format($t['total']) ?></td>
+                            <td><?= $total_tagihan ?></td>
                         </tr>
                         <?php else : ?>
                             <tr>

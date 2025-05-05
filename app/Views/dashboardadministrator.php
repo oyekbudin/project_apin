@@ -25,9 +25,9 @@
                     <a href="<?= base_url('tagihan') ?>"><li <?= ($title == 'Tagihan') ? 'class="on"' : 'class=""' ?>><i class="i">&#xE5CC</i><span class="t">Tagihan</span></li></a>
                 </ul>
                 </li>
-                <li><i class="i">&#xE555</i><span class="t">Pelaporan</span><i class="i">&#xE313</i>
+                <li <?= ($menu == 'Pelaporan') ? 'class="on"' : 'class=""' ?>><i class="i">&#xE555</i><span class="t">Pelaporan</span><i class="i">&#xE313</i>
                 <ul <?= ($menu == 'Pelaporan') ? 'style="display:block;"' : 'style="display:none;"' ?>>
-                    <li><i class="i">&#xE5CC</i><span class="t">Laporan Bulanan</span></li>
+                    <a href="<?= base_url('laporanbulanan') ?>"><li <?= ($title == 'Laporan Bulanan') ? 'class="on"' : 'class=""' ?>><i class="i">&#xE5CC</i><span class="t">Laporan Bulanan</span></li></a>
                     <li><i class="i">&#xE5CC</i><span class="t">Laporan Tahunan</span></li>
                 </ul>
                 </li>

@@ -39,15 +39,17 @@ $routes->get('/pembayaran', 'Pembayaran::index',['filter'=>'auth']);
 $routes->post('/pembayaran/save', 'Pembayaran::save');
 $routes->get('/pembayaran/searchSiswa', 'Pembayaran::searchSiswa');
 $routes->get('/pembayaran/getInfaqByKelas', 'Pembayaran::getInfaqByKelas');
+$routes->get('/pembayaran/getTagihanForPembayaran', 'Pembayaran::getTagihanForPembayaran');
 $routes->get('/pembayaran/detail/(:num)', 'Pembayaran::detailPembayaran/$1');
-$routes->post('/pembayaran/delete/(:num)', 'Pembayaran::delete/$1');
+$routes->get('/pembayaran/delete/(:num)', 'Pembayaran::delete/$1');
+$routes->post('/pembayaran/deleteall/(:num)', 'Pembayaran::deleteall/$1');
 
 $routes->get('/tagihan', 'Tagihan::index',['filter'=>'auth']);
 $routes->get('/tagihan/daftartagihan/(:num)', 'Tagihan::daftartagihan/$1');
 $routes->get('/tagihan/lihatkartu', 'Tagihan::lihatkartu');
 $routes->post('/tagihan/buattagihan', 'Tagihan::buatTagihan');
 $routes->post('/tagihan/checkbox', 'Tagihan::checkbox');
-$routes->get('/tagihan/detailtagihan/(:num)', 'Tagihan::detailTagihan/$1');
+$routes->get('/tagihan/detail/(:num)', 'Tagihan::detail/$1');
 
 $routes->get('/siswa', 'carisiswa::index');
 $routes->get('/infaq', 'cariinfaq::index');
@@ -55,4 +57,6 @@ $routes->get('/infaq', 'cariinfaq::index');
 $routes->get('/export-pdf', 'PdfController::exportToPdf');
 
 $routes->get('/export-pdf/infaq', 'PdfController::exportInfaq');
+
+$routes->get('/laporanbulanan', 'LaporanBulanan::index',['filter'=>'auth']);
 

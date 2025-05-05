@@ -5,19 +5,19 @@
             <div class="divider"></div>
             <span class="tombol green">DATA SISWA</span>
 
-    <form action="/aturinfaq/delete/<?= $infaq['id'] ?>" method="post">
+    <form action="/aturinfaq/delete/<?= $infaq[0]['id'] ?>" method="post">
     <table>
                     <tbody>
                         <tr>
                             <td>Nama Jenis Infaq</td>
-                            <td>: <?= $infaq['name'] ?></td>
+                            <td>: <?= $infaq[0]['name'] ?></td>
                         </tr>
                             <td>Kelas</td>
-                            <td>: <?= $infaq['kelas'] ?></td>
+                            <td>: <?= str_replace(['{', '}', '"'], '',$infaq[0]['kelas']) ?></td>
                         </tr>
                         <tr>
                             <td>Harga</td>
-                            <td>: <?= $infaq['harga'] ?></td>
+                            <td>: <?= $infaq[0]['harga'] ?></td>
                         </tr>
                     </tbody>
                 </table>

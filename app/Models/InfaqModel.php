@@ -52,6 +52,7 @@ class InfaqModel extends Model
         ->groupBy('infaq.id')
         ->orderBy('infaq.id', 'ASC')
         //->limit($limit, $offset)
+        ->where('infaq.id',$id)
         ->get()
         ->getResultArray();
     }
@@ -77,19 +78,36 @@ class InfaqModel extends Model
 
     public function saveInfaq($dataInfaq, $kelasId)
     {
+        $infaqKelasModel = new InfaqKelasModel();
+        $siswaModel = new SiswaModel();
+        $tagihanModel = new TagihanModel();
+
         $db = db_connect();
         $db->transStart();
         try {
             $this->insert($dataInfaq);
             $infaqId = $this->getInsertID();
-            $infaqKelasModel = new InfaqKelasModel();
+            
             foreach ($kelasId as $kelas) {
                 $dataInfaqKelas = [
                     'id_infaq' => $infaqId,
                     'id_kelas' => $kelas
                 ];
-            $infaqKelasModel->insert($dataInfaqKelas);
-            }
+                $infaqKelasModel->insert($dataInfaqKelas);
+                $siswa = $siswaModel->where('kelas', $kelas)->findAll();
+                if (!empty($siswa)) {                
+                    foreach ($siswa as $s) {
+                        $dataTagihan = [
+                            'id_siswa' => $s['nis'],
+                            'id_infaq' => $infaqId,
+                        ];                        
+                        $tagihanModel->insert($dataTagihan);
+                    };
+                };
+            };
+            
+            
+
             $db->transComplete();
             return true;
         } catch (\Exception $e){

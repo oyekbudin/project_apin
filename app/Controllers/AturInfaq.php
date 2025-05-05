@@ -168,7 +168,8 @@ class AturInfaq extends Controller
         $data = [
             'menu' => 'Perencanaan',
             'title' => 'Atur Jenis Infaq',
-            'infaq' => $this->infaqModel->find($id),
+            //'infaq' => $this->infaqModel->find($id),
+            'infaq' => $this->infaqModel->getInfaqById($id),
             'on' => true,
         ];
 

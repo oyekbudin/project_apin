@@ -31,4 +31,45 @@ class SiswaModel extends Model
     {
         return $this->select()->findAll();
     }
+
+    public function saveSiswa($data)
+    {
+        $this->insert($data);
+        $siswaId = $data['nis'];
+        $kelas = $data['kelas'];
+
+        $infaqKelasModel = new InfaqKelasModel();
+        //$siswaModel = new SiswaModel();
+        $tagihanModel = new TagihanModel();               
+        
+        $db = db_connect();
+        $db->transStart();
+
+        
+        try {
+            
+            /*foreach ($kelasId as $kelas) {
+                $dataInfaqKelas = [
+                    'id_infaq' => $infaqId,
+                    'id_kelas' => $kelas
+                ];
+                $infaqKelasModel->insert($dataInfaqKelas);*/
+            $infaqId = $infaqKelasModel->where('id_kelas', $kelas)->findAll();
+            if (!empty($infaqId)) {                
+                foreach ($infaqId as $i) {
+                    $dataTagihan = [
+                        'id_siswa' => $siswaId,
+                        'id_infaq' => $i['id_infaq'],
+                    ];                        
+                    $tagihanModel->insert($dataTagihan);
+                };
+            };
+
+            $db->transComplete();
+            return true;
+        } catch (\Exception $e){
+            $db->transRollback();
+            return false;
+        }
+    }
 }

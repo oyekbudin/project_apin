@@ -3,6 +3,7 @@
       use App\Models\InfaqModel;
       use App\Models\PembayaranModel;
       use App\Models\SiswaModel;
+      use App\Models\TagihanModel;
       use CodeIgniter\Controller;
 
 class Pembayaran extends Controller
@@ -10,12 +11,14 @@ class Pembayaran extends Controller
     protected $pembayaranModel;
     protected $siswaModel;
     protected $infaqModel;
+    protected $tagihanModel;
 
     public function __construct()
     {
         $this->pembayaranModel = new PembayaranModel();
         $this->siswaModel = new SiswaModel();
         $this->infaqModel = new InfaqModel();
+        $this->tagihanModel = new TagihanModel();
     }
 
     public function index()
@@ -33,16 +36,20 @@ class Pembayaran extends Controller
             'pembayaran' => $pembayaran,
         ];
 
+        //echo '<pre>';
+        //print_r($pembayaran);
+        //echo '</pre>';
+
         echo view('pembayaran', $data);
     }
 
     public function save()
     {
         helper(['form']);
-        $rules =
+        /*$rules =
         [
-            'idsiswa' => 'required',
-            'idinfaq' => 'required',
+            'id_siswa' => 'required',
+            'id_infaq' => 'required',
             'nominal' => 'required|min_length[4]|max_length[7]|numeric',
         ];
         $errors = [
@@ -58,23 +65,34 @@ class Pembayaran extends Controller
                 'max_length'=>'Maksimal 7 digit angka',
                 'numeric'=>'Harus berupa angka (0-9)'
             ],
-        ];
+        ]; 
 
         if($this->validate($rules, $errors))
-        {
+        { */
             $data =
             [
-                'idsiswa' => $this->request->getVar('idsiswa'),
-                'idinfaq' => $this->request->getVar('idinfaq'),
+                'id_siswa' => $this->request->getVar('id_siswa'),
+                'id_infaq' => $this->request->getVar('id_infaq'),
                 'nominal' => $this->request->getVar('nominal'),
             ];
-            $this->pembayaranModel->save($data);
+            
+            $id_siswa = $this->request->getVar('id_siswa');
+            $id_infaq = $this->request->getVar('id_infaq');
+            $nominal = $this->request->getVar('nominal');
+            $date = date('ymd');
+            $order_id = $date . $id_siswa;
+            $status = 'success';
+            $payment_method = 'manual';
+            //$this->pembayaranModel->save($data);
+            $this->pembayaranModel->savePembayaran($order_id, $id_siswa, $id_infaq, $nominal, $status, $payment_method);
+            //print_r($order_id);
             return redirect()->to('/pembayaran')->with('success', 'Data pembayaran berhasil ditambahkan.');
+            /*
         } else {
             session()->setFlashdata('errors', $this->validator->getErrors());
             session()->setFlashdata('show_modal',true);
             return redirect()->back()->withInput();
-        }
+        }*/
     }
 
     public function searchSiswa()
@@ -99,6 +117,13 @@ class Pembayaran extends Controller
         return $this->response->setJSON($result);
     }
 
+    public function getTagihanForPembayaran()
+    {
+        $id = $this->request->getGet('nis');
+        $result = $this->tagihanModel->getTagihanById($id);
+        return $this->response->setJSON($result);
+    }
+
     public function delete($id)
     {
         //$model = new PembayaranModel();
@@ -107,11 +132,19 @@ class Pembayaran extends Controller
         return redirect()->to('/pembayaran')->with('success', 'Data Pembayaran berhasil dihapus.');
     }
 
+    public function deleteall($order_id)
+    {
+        $id_pembayaran = $this->pembayaranModel->where('order_id',$order_id)->findColumn('id');
+        $this->pembayaranModel->delete($id_pembayaran);
+        return redirect()->to('/pembayaran')->with('success', 'Data Pembayaran berhasil dihapus.');
+    }
+
     public function detailPembayaran($id)
     {
         //$Model = new PembayaranModel();
         //$data['administrator'] = $model->find($id);
-        $pembayaran = $this->pembayaranModel->getPembayaranDelete($id);
+        //$pembayaran = $this->pembayaranModel->getPembayaranDelete($id);
+        $pembayaran = $this->pembayaranModel->getPembayaranDetail($id);
 
         $data = [
             'menu' => 'Pengelolaan',
@@ -119,6 +152,9 @@ class Pembayaran extends Controller
             'pembayaran' => $pembayaran,
             'on' => true,
         ];
+        //echo '<pre>';
+        //print_r($pembayaran);
+        //echo '</pre>';
 
         return view('detailpembayaran', $data);
     }

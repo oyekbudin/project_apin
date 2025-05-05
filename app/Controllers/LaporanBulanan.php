@@ -3,7 +3,7 @@
 use App\Models\SiswaModel;
 use CodeIgniter\Controller;
 
-class AturSiswa extends Controller
+class LaporanBulanan extends Controller
 {
     protected $siswaModel;
 
@@ -28,8 +28,8 @@ class AturSiswa extends Controller
         }
 
         $data = [
-            'menu' => 'Perencanaan',
-            'title' => 'Atur Siswa',
+            'menu' => 'Pelaporan',
+            'title' => 'Laporan Bulanan',
             'datasiswa' => $datasiswa,
             'total' => $total,
             'perpage' => $perPage,
@@ -38,7 +38,7 @@ class AturSiswa extends Controller
             'keyword' => $keyword,
         ];
 
-        return view('atursiswa', $data);
+        return view('laporanbulanan', $data);
     }
 
     public function save()

@@ -94,11 +94,16 @@ th, td, tr
     --gradient:linear-gradient(to bottom, #0060eb, #00c2fa);
     --gradientdark:linear-gradient(to right, #01397f, #0a87b5);
     --green:#12bf24;
+    --lightgreen:#bbecc0;
     --blue:#3361ff;
+    --lightblue:#d0dbfc;
     --red:#e72e2e;
+    --lightred:#e9b6b6;
     --black:#212529;
     --purple:#8932ff;
+    --lightpurple:#e4d0ff;
     --orange:#ff6632;
+    --lightorange:#ffd5c7;
     --darkpurple:#484776;
 }
 
@@ -337,6 +342,7 @@ aside ul li
     padding: 8px;
     font-size: 14px;
     cursor: pointer;
+    
 }
 
 .tombol img
@@ -352,6 +358,7 @@ aside ul li
     font-size: 14px;
     background-color: #fff;
     border: 1px solid var(--disable);
+    border-radius: 4px;
 }
 
 /* Format Warna*/
@@ -443,8 +450,8 @@ aside ul li
 
 .danger
 {
-    background-color: var(--danger);
-    color: var(--secondary);
+    background-color: var(--lightred);
+    color: var(--red);
 }
 
 .blue
@@ -456,6 +463,11 @@ aside ul li
 {
     background-color:var(--green) ;
     color: var(--secondary);
+}
+
+.txtgreen
+{
+    color: var(--green);
 }
 
 .red
@@ -506,14 +518,18 @@ aside ul li
     background-color: #fff;
     margin: 50px 150px;
     width: 100%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
 }
 
 .item-login1
 {
     grid-column: 1;
-    /*background-image: var(--gradientdark);*/
+    background-image: var(--gradientdark);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
     /*background-color: #12bf24;*/
-    background-image: linear-gradient(to bottom, #660adf, #04141a);
+    /*background-image: linear-gradient(to bottom, #660adf, #04141a);*/
 }
 
 .banner-login
@@ -526,6 +542,7 @@ aside ul li
 {
     grid-column: 2;
     display: flex;
+    
 }
 
 .wrap-login
@@ -599,6 +616,7 @@ aside ul li
 {
     padding: 20px 0;
     gap: 15px;
+    border-radius: 4px;
 }
 
 .bar
@@ -615,6 +633,7 @@ aside ul li
     display: flex;
     flex-direction: column;
     align-items: center;
+    
 }
 
 .card-3 span
@@ -664,6 +683,9 @@ aside ul li
     gap: 15px;
     flex-direction: column;
     display: flex;
+    /*border: 1px solid var(--disable);*/
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
 }
 
 .board-wrap
@@ -807,6 +829,12 @@ td input
     margin-bottom: 10px;
 }
 
+.overflow-content
+{
+    overflow-y: auto;
+    max-height: 500px;
+}
+
 .datacontent#cb
 {
     display: flex;
@@ -917,15 +945,16 @@ form .group-action
 
 #result-siswa
 {
-    max-height: 300px;
+    max-height: 500px;
     overflow-y: auto;
     position: absolute;
-    width: 100%;
+    width: 99%;
     z-index: 100;
-    border: 1px solid var(--dark);
-    border-radius: 10px;
-    margin-top: 5px;
-    background-color: var(--secondary);
+    border: 1px solid var(--disable);
+    border-radius: 4px;
+    margin-top: 0;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
 #result-siswa:empty{
@@ -968,8 +997,9 @@ form .group-action
     position: sticky;
     top: 0;
     z-index: 100;
-    background-color: var(--disable);
-    color: var(--secondary);
+    background-color: #fff;
+    color: var(--green);
+    border-bottom: 2px solid var(--green);
 }
 
 #result-siswa td
@@ -980,8 +1010,8 @@ form .group-action
 
 #result-siswa tbody tr:hover
 {
-    background-color: var(--primary);
-    color: var(--secondary);
+    background-color: var(--lightblue);
+    color: #000;
     cursor: pointer;
 }
 

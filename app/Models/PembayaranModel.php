@@ -6,13 +6,13 @@ class PembayaranModel extends Model
 {
     protected $table ='pembayaran';
     protected $primaryKey ='id';
-    protected $allowedFields = ['idsiswa','idinfaq','nominal','status'];
+    protected $allowedFields = ['id_siswa','id_infaq','nominal','status','order_id','payment_method','payment_type','transaction_time','fraud_status','snap_token'];
    
-    public function getPembayaran()
+    public function getPembayaranDetail($id)
     {
         return $this
-        ->join('siswa','pembayaran.idsiswa = siswa.nis') 
-        ->join('infaq','pembayaran.idinfaq = infaq.id')
+        ->join('siswa','pembayaran.id_siswa = siswa.nis') 
+        ->join('infaq','pembayaran.id_infaq = infaq.id')
         ->select('
             siswa.nis,
             siswa.name as nama_siswa,
@@ -20,14 +20,28 @@ class PembayaranModel extends Model
             infaq.name as nama_infaq,
             pembayaran.*
         ')
+        ->where('pembayaran.order_id', $id)
+        ->orderBy('pembayaran.date', 'DESC')
         ->findAll();
+    }
+
+    public function getPembayaran()
+    {
+        return $this
+        ->select('pembayaran.order_id, DATE(pembayaran.date) as tanggal, pembayaran.id_siswa as nis, siswa.name as nama_siswa, siswa.kelas as kelas, SUM(pembayaran.nominal) as total_nominal')
+        ->join('siswa', 'pembayaran.id_siswa = siswa.nis')
+        ->groupBy('pembayaran.order_id, pembayaran.date, pembayaran.id_siswa, siswa.name, siswa.kelas')
+        ->orderBy('pembayaran.date, pembayaran.id_siswa')
+        ->get()
+        ->getResultArray();
+        //->findAll();
     }
 
     public function getPembayaranDelete($id)
     {
         return $this
-        ->join('siswa','pembayaran.idsiswa = siswa.nis') 
-        ->join('infaq','pembayaran.idinfaq = infaq.id')
+        ->join('siswa','pembayaran.id_siswa = siswa.nis') 
+        ->join('infaq','pembayaran.id_infaq = infaq.id')
         ->select('
             siswa.nis,
             siswa.name as nama_siswa,
@@ -86,15 +100,58 @@ class PembayaranModel extends Model
         ])
         ->join('siswa s', 's.nis = ' . $nis, 'inner')
         ->join(
-            '(SELECT idinfaq, idsiswa, SUM(nominal) AS total_nominal, MAX(date) AS last_payment_date
+            '(SELECT id_infaq, id_siswa, SUM(nominal) AS total_nominal, MAX(date) AS last_payment_date
               FROM pembayaran
-              WHERE idsiswa = ' . $nis . ' 
-              GROUP BY idinfaq, idsiswa) p',
-            'p.idinfaq = i.id',
+              WHERE id_siswa = ' . $nis . ' 
+              GROUP BY id_infaq, id_siswa) p',
+            'p.id_infaq = i.id',
             'left'
         )
         ->where('i.kelas LIKE', "%{$kelas}%") // Hanya infaq untuk kelas siswa ini
         ->orderBy('i.id', 'ASC')
         ->findAll();
+    }
+
+    public function savePembayaran($order_id, $id_siswa, $id_infaq, $nominal, $status, $payment_method)
+    {
+        //$infaqKelasModel = new InfaqKelasModel();
+        //$siswaModel = new SiswaModel();
+        //$tagihanModel = new TagihanModel();
+
+        $db = db_connect();
+        $db->transStart();
+        try {     
+            //$dataPembayaran =[];    
+             
+            foreach ($id_infaq as $key => $value) {
+                if (isset($nominal[$key]) && !empty($nominal[$key])) {
+                /*foreach ($nominal as $nom) {*/
+                    $dataPembayaran[] = [
+                        'order_id' => $order_id,
+                        'id_siswa' => $id_siswa,
+                        'id_infaq' => $value,
+                        'nominal' => $nominal[$key],
+                        'status' => $status,
+                        'payment_method' => $payment_method
+                    ];
+                }
+                
+                
+                //echo '<pre>';
+                //print_r($dataPembayaran);
+                //echo '</pre>';
+                //$this->insert($dataPembayaran);
+            }
+            //echo '<pre>';
+            //print_r(value: $dataPembayaran);
+            //echo '</pre>';
+            $this->insertBatch($dataPembayaran);
+
+            $db->transComplete();
+            return true;
+        } catch (\Exception $e){
+            $db->transRollback();
+            return false;
+        }
     }
 }
