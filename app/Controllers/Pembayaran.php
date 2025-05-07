@@ -158,4 +158,5 @@ class Pembayaran extends Controller
 
         return view('detailpembayaran', $data);
     }
+    
 }

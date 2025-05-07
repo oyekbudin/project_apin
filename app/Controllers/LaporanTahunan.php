@@ -3,7 +3,7 @@
 use App\Models\SiswaModel;
 use CodeIgniter\Controller;
 
-class LaporanBulanan extends Controller
+class LaporanTahunan extends Controller
 {
     protected $siswaModel;
 
@@ -16,10 +16,10 @@ class LaporanBulanan extends Controller
     {
         $data = [
             'menu' => 'Pelaporan',
-            'title' => 'Laporan Bulanan',
+            'title' => 'Laporan Tahunan',
         ];
 
-        return view('laporanbulanan', $data);
+        return view('laporantahunan', $data);
     }
 
 }

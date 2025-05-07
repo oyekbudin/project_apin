@@ -9,18 +9,10 @@
             <div class="datacontent" id="pembayaran">
 
             <?php
-            //$string1 = ;
-            //$string1 = str_replace(['{','}'],'',$string1);
-            //$nama_infaq_Array= explode(',',$string1);
-
-            //$string2 = $tagihan['harga_infaq'];
-            //$string2 = str_replace(['{','}'],'',$string2);
-            //$harga_infaq_Array= explode(',',$string2);
             $total_tagihan = 0;
             foreach ($tagihan as $t) {
             $total_tagihan += $t['sisa_tagihan'];
             }
-
             ?>
 
             <table>

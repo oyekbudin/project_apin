@@ -37,6 +37,37 @@ class PembayaranModel extends Model
         //->findAll();
     }
 
+    public function getPembayaranByBulan($tglAwal, $tglAkhir)
+    {
+        //$tahun = '2025';
+        //$tglAwal = $tahun . '-' . $bulan . '-01';
+        //$tglAkhir = date('Y-m-t',strtotime($tglAwal));
+        return $this
+        ->select('pembayaran.order_id, DATE(pembayaran.date) as tanggal, pembayaran.id_siswa as nis, siswa.name as nama_siswa, siswa.kelas as kelas, SUM(pembayaran.nominal) as total_nominal')
+        
+        ->join('siswa', 'pembayaran.id_siswa = siswa.nis')
+        ->groupBy('pembayaran.order_id, pembayaran.date, pembayaran.id_siswa, siswa.name, siswa.kelas')
+        ->orderBy('pembayaran.date, pembayaran.id_siswa')
+        //->where("pembayaran.date <=",$tglAkhir)
+        ->where("pembayaran.date BETWEEN '$tglAwal' AND '$tglAkhir'")
+        //->where('pembayaran.date <=',$tglAkhir)
+        
+        ->get()
+        ->getResultArray();
+        //->findAll();
+    }
+
+    public function getPembayaranByTahun()
+    {
+        return $this
+        ->select("TO_CHAR(date, 'MM') as bulan, SUM(nominal) as total_nominal")
+        //->where('EXTRACT(YEAR FROM date)', $tahun)
+        ->groupBy('bulan')
+        ->orderBy('bulan', 'ASC')
+        ->get()
+        ->getResultArray();
+    }
+
     public function getPembayaranDelete($id)
     {
         return $this

@@ -59,4 +59,8 @@ $routes->get('/export-pdf', 'PdfController::exportToPdf');
 $routes->get('/export-pdf/infaq', 'PdfController::exportInfaq');
 
 $routes->get('/laporanbulanan', 'LaporanBulanan::index',['filter'=>'auth']);
+$routes->get('/pdf/laporanbulanan/(:segment)', 'PdfController::laporanBulanan/$1');
+$routes->get('/laporantahunan', 'LaporanTahunan::index',['filter'=>'auth']);
+
+$routes->get('/pdf/laporantahunan', 'PdfController::laporanTahunan');
 

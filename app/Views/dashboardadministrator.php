@@ -28,7 +28,7 @@
                 <li <?= ($menu == 'Pelaporan') ? 'class="on"' : 'class=""' ?>><i class="i">&#xE555</i><span class="t">Pelaporan</span><i class="i">&#xE313</i>
                 <ul <?= ($menu == 'Pelaporan') ? 'style="display:block;"' : 'style="display:none;"' ?>>
                     <a href="<?= base_url('laporanbulanan') ?>"><li <?= ($title == 'Laporan Bulanan') ? 'class="on"' : 'class=""' ?>><i class="i">&#xE5CC</i><span class="t">Laporan Bulanan</span></li></a>
-                    <li><i class="i">&#xE5CC</i><span class="t">Laporan Tahunan</span></li>
+                    <a href="<?= base_url('laporantahunan') ?>"><li <?= ($title == 'Laporan Tahunan') ? 'class="on"' : 'class=""' ?>><i class="i">&#xE5CC</i><span class="t">Laporan Tahunan</span></li></a>
                 </ul>
                 </li>
                 <?php if ($role != 'KepalaSekolah' && $role !='Bendahara') : ?>
