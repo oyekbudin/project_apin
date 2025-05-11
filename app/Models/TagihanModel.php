@@ -46,6 +46,46 @@ class TagihanModel extends Model
                         ->getResultArray();
     }
 
+    public function getTagihanByRequest($request)
+    {
+        return $this->db->table('tagihan t')
+                        ->join('siswa s', 't.id_siswa = s.nis')
+                        ->join('infaq i', 't.id_infaq = i.id')
+                        ->join('tagihan_infaq ti','t.id_infaq = ti.id_infaq')
+                        ->select('s.nis, s.name as nama_siswa, s.kelas, array_agg(i.name) as nama_infaq, array_agg(i.harga) as harga_infaq, ti.id_tagihan as id_tagihan')
+                        ->selectSum('i.harga','total_tagihan')
+                        ->where('ti.id_tagihan',$request)
+                        ->groupBy('s.nis, ti.id_tagihan')
+                        //->limit($limit, $offset)
+                        ->get()
+                        ->getResultArray();
+    }
+
+    public function getTagihanByRequestById($id, $request)
+    {
+        return $this->db->table('tagihan t')
+        ->join('siswa s', 't.id_siswa = s.nis')
+        ->join('infaq i', 't.id_infaq = i.id')
+        ->join('tagihan_infaq ti','t.id_infaq = ti.id_infaq')
+        ->join('pembayaran p', 't.id_siswa = p.id_siswa AND t.id_infaq = p.id_infaq', 'left')
+        ->select('
+            s.nis, 
+            s.name AS nama_siswa, 
+            s.kelas, 
+            i.id AS id_infaq, 
+            i.name AS nama_infaq, 
+            i.harga AS harga_infaq, 
+            COALESCE(SUM(p.nominal), 0) AS total_pembayaran,
+            i.harga - COALESCE(SUM(p.nominal), 0) AS sisa_tagihan,
+            ti.id_tagihan as id_tagihan
+        ')
+        ->where('t.id_siswa', $id)
+        ->where('ti.id_tagihan',$request)
+        ->groupBy('s.nis, s.name, s.kelas, i.id, i.name, i.harga, ti.id_tagihan')
+        ->get()
+        ->getResultArray();
+    }
+
     public function search($keyword)
     {
         return $this->table('tagihan')

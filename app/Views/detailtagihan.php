@@ -1,7 +1,7 @@
 <?= $this->include('dashboardadministrator') ?>
 <div id="modalTambah" class="black-board">
         <div class="pop">
-            <div class="group-action"><h2 class="data-title">Detail Tagihan</h2><a href="<?= base_url('tagihan') ?>"> <i class="i" onclick="offmodalTambah()">&#xe14c</i></a> </div>
+            <div class="group-action"><h2 class="data-title">Detail Tagihan</h2><a onclick="history.back()"> <i class="i" onclick="offmodalTambah()">&#xe14c</i></a> </div>
             <div class="divider"></div>
             <span class="tombol green">DATA TAGIHAN</span>
     
@@ -48,7 +48,7 @@
             </div>
                 <div class="divider"></div>
                 <div class="group-action">
-                <a class="tombol disable" href="<?= base_url('tagihan') ?>">Close</a>
+                <a class="tombol disable" onclick="history.back()">Close</a>
                 </div>
         </form>
     </div>

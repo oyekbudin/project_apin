@@ -37,10 +37,6 @@ class InfaqModel extends Model
         ->limit($limit, $offset)
         ->get()
         ->getResultArray();
-        //foreach ($infaq as &$i)
-        //{
-            //var_dump($i['kelas']);
-        //}
     }
 
     public function getInfaqById($id)
@@ -76,44 +72,90 @@ class InfaqModel extends Model
         return $this->select()->findAll();
     }
 
-    public function saveInfaq($dataInfaq, $kelasId)
+    public function saveInfaq($data)
     {
         $infaqKelasModel = new InfaqKelasModel();
-        $siswaModel = new SiswaModel();
+        $siswaModel = new SiswaModel();  
         $tagihanModel = new TagihanModel();
 
-        $db = db_connect();
+        $dataInfaq =
+        [
+            //'id' => $data['id'],
+            'name' => $data['name'],
+            'harga' => $data['harga'],
+        ];
+        $this->insert($dataInfaq);        
+        $infaqId =  $this->getInsertID(); 
+       
+        $kelas = $data['kelas'];
+        
+
+        
+
+        foreach ($kelas as $k) {
+            $dataInfaqKelas = [
+                'id_infaq' => $infaqId,
+                'id_kelas' => $k,
+            ];
+                          
+            $infaqKelasModel->insert($dataInfaqKelas);
+            $siswa = $siswaModel->where('kelas', $k)->findAll();
+             
+            foreach ($siswa as $s) {
+                $dataTagihan = [
+                    'id_siswa' => $s['nis'],
+                    'id_infaq' => $infaqId,
+                ];
+                                        
+                $tagihanModel->insert($dataTagihan);                        
+            };
+        }; 
+
+
+        //old di bawah
+        /*$db = db_connect();
         $db->transStart();
         try {
             $this->insert($dataInfaq);
-            $infaqId = $this->getInsertID();
+            $siswa = $siswaModel->where('kelas', '7')->findAll();
+                echo '<pre>';
+                print_r($siswa);
+                echo '</pre>';
             
-            foreach ($kelasId as $kelas) {
+            //foreach ($kelas as $k) {
                 $dataInfaqKelas = [
                     'id_infaq' => $infaqId,
                     'id_kelas' => $kelas
-                ];
+                ];                
                 $infaqKelasModel->insert($dataInfaqKelas);
-                $siswa = $siswaModel->where('kelas', $kelas)->findAll();
+
+                
+                //$arrayKelas [] = $kelas;
+                
+                              
+                //$siswa = $siswaModel->where('kelas', '7')->findAll();
+                
+                /*$siswa = $siswaModel->getSiswaByKelas($kelas);
                 if (!empty($siswa)) {                
                     foreach ($siswa as $s) {
                         $dataTagihan = [
                             'id_siswa' => $s['nis'],
                             'id_infaq' => $infaqId,
                         ];                        
-                        $tagihanModel->insert($dataTagihan);
+                        $tagihanModel->insert($dataTagihan);                        
                     };
                 };
-            };
+            //};
             
-            
-
             $db->transComplete();
             return true;
         } catch (\Exception $e){
             $db->transRollback();
+            echo '<pre>';
+            print_r($e);
+            echo '</pre>';
             return false;
-        }
+        }*/
     }
     
     public function updateInfaq($id, $dataInfaq, $kelasId)

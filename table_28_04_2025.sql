@@ -83,8 +83,25 @@ CREATE TABLE tagihan (
     FOREIGN KEY (id_siswa) REFERENCES siswa(nis) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (id_infaq) REFERENCES infaq(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
+DROP TABLE IF EXISTS "request_tagihan" CASCADE;
+CREATE TABLE request_tagihan (
+    id SERIAL,
+    title VARCHAR(50),
+    id_admin integer not null,
+    date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    status VARCHAR(15) NULL DEFAULT 'pending' CHECK (status IN ('accepted','pending', 'rejected')),
+    PRIMARY KEY (id),
+    FOREIGN KEY (id_admin) REFERENCES administrator(idadmin) ON DELETE CASCADE ON UPDATE CASCADE
+);
+DROP TABLE IF EXISTS "tagihan_infaq" CASCADE;
+CREATE TABLE tagihan_infaq (
+    id_tagihan integer not null,
+    id_infaq integer not null,
+    PRIMARY KEY (id_tagihan, id_infaq),
+    FOREIGN KEY (id_tagihan) REFERENCES request_tagihan(id) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (id_infaq) REFERENCES infaq(id) ON DELETE CASCADE ON UPDATE CASCADE
+);
 
-DROP TABLE IF EXISTS "tagihan_detail";
 
 DROP TABLE IF EXISTS "pesanwa";
 CREATE TABLE pesanwa (

@@ -72,4 +72,9 @@ class SiswaModel extends Model
             return false;
         }
     }
+
+    public function getSiswaByKelas($kelas)
+    {
+        return $this->where('kelas', $kelas)->findAll();
+    }
 }

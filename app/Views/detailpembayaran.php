@@ -1,7 +1,7 @@
 <?= $this->include('dashboardadministrator') ?>
 <div id="modalTambah" class="black-board">
         <div class="pop">
-            <div class="group-action"><h2 class="data-title">Detail Pembayaran</h2><a href="<?= base_url('pembayaran') ?>"> <i class="i" onclick="offmodalTambah()">&#xe14c</i></a> </div>
+            <div class="group-action"><h2 class="data-title">Detail Pembayaran</h2><a onclick="history.back()"> <i class="i" onclick="offmodalTambah()">&#xe14c</i></a> </div>
             <div class="divider"></div>
             <form action="/pembayaran/deleteall/<?= $pembayaran[0]['order_id'] ?>" method="post">
                 <div class="overflow-content">
@@ -74,7 +74,7 @@
                 </div>
                     <div class="divider"></div>
                     <div class="group-action">
-                    <a class="tombol disable" href="<?= base_url('pembayaran') ?>">Close</a>
+                    <a class="tombol disable" onclick="history.back()">Close</a>
                     <button class="tombol danger" type="submit" onclick="return confirm('Apakah anda yakin ingin menghapus semua pembayaran ini?')">Hapus Semua Pembayaran</button>
                     </div>
                 

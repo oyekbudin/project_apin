@@ -50,7 +50,7 @@ class AturInfaq extends Controller
         helper(['form']);
         $rules =
         [
-            'name' => 'required|min_length[3]|max_length[40]|alpha_numeric_space',
+            'name' => 'required|min_length[3]|max_length[40]|alpha_numeric_space|is_unique[infaq.name]',
             'kelas_id' => 'required',
             'harga' => 'required|min_length[4]|max_length[7]|numeric',
         ];
@@ -59,7 +59,8 @@ class AturInfaq extends Controller
                 'required'=>'Harus diisi',
                 'min_length'=>'Minimal 3 karakter',
                 'max_length'=>'Maksimal 40 karakter',
-                'alpha_numeric_space'=>'Karakter yang diizinkan (A-Z) (0-9)'
+                'alpha_numeric_space'=>'Karakter yang diizinkan (A-Z) (0-9)',
+                'is_unique'=>'Nama infaq sudah ada, coba nama lain'
             ],
             'kelas_id' => [
                 'required'=>'Pilih minimal 1 kelas'
@@ -74,14 +75,18 @@ class AturInfaq extends Controller
 
         if($this->validate($rules, $errors))
         {
-            $dataInfaq =
+            $maxId = $this->infaqModel->selectMax('id')->first();
+            //$nextId = $maxId['id'] + 1;
+            
+            $data =
             [
+                //'id' => $nextId,
                 'name' => $this->request->getVar('name'),
-                //'kelas' => $this->request->getVar('kelas'),
                 'harga' => $this->request->getVar('harga'),
+                'kelas' => $this->request->getVar('kelas_id'),
             ];
-            $kelasId = $this->request->getVar('kelas_id');
-            $this->infaqModel->saveInfaq($dataInfaq, $kelasId);
+            //$kelasId = $this->request->getVar('kelas_id');
+            $this->infaqModel->saveInfaq($data);
             return redirect()->to('/aturinfaq')->with('success', 'Data infaq berhasil ditambahkan.');
         } else {
             session()->setFlashdata('errors', $this->validator->getErrors());

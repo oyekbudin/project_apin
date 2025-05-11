@@ -25,11 +25,23 @@ input, textarea, select, button
     all: unset;
 }
 
-ul, ol
+ul
 {
     list-style: none;
     padding: 0;
     margin: 0;
+}
+
+ol
+{
+    
+    padding: 0;
+    margin: 0;
+}
+
+ol li
+{
+    margin-left: 30px;
 }
 
 a
@@ -86,7 +98,8 @@ th, td, tr
     --primarygrey:#35559d;
     --secondary:#fff;
     --secondarytrans: rgba(255, 255, 255, 0.2);
-    --warning:#ffce31;
+    --warning:#ffa600;
+    --lightwarning:#fff1c3;
     --danger:red;
     --disable:#afafaf;
     --light:#f7f8fa;
@@ -94,7 +107,7 @@ th, td, tr
     --gradient:linear-gradient(to bottom, #0060eb, #00c2fa);
     --gradientdark:linear-gradient(to right, #01397f, #0a87b5);
     --green:#12bf24;
-    --lightgreen:#bbecc0;
+    --lightgreen:#eaffed;
     --blue:#3361ff;
     --lightblue:#d0dbfc;
     --red:#e72e2e;
@@ -473,7 +486,10 @@ aside ul li
 .red
 {
     background-color: var(--red);
+    color: var(--secondary);
 }
+
+
 
 .black
 {
@@ -493,6 +509,33 @@ aside ul li
 .darkpurple
 {
     background-color: var(--darkpurple);
+}
+
+.lightred
+{
+    background-color: var(--lightred);
+    color: var(--red);
+    padding: 3px 10px;
+    border-radius: 10px;
+    font-size: 12px;
+}
+
+.lightgreen
+{
+    background-color: var(--lightgreen);
+    color: var(--green);
+    padding: 3px 10px;
+    border-radius: 10px;
+    font-size: 12px;
+}
+
+.lightwarning
+{
+    background-color: var(--lightwarning);
+    color: var(--warning);
+    padding: 3px 10px;
+    border-radius: 10px;
+    font-size: 12px;
 }
 
 /*End Format Warna*/
@@ -581,6 +624,11 @@ aside ul li
 .txtdanger
 {
     color: var(--danger);
+}
+
+.txtred
+{
+    color: var(--red);
 }
 
 .logo
@@ -763,7 +811,17 @@ aside ul li
 
 .board-wrap tbody .tombol
 {
-    padding: 5px 10px;
+    /*padding: 5px 10px;*/
+}
+
+.td-action
+{
+    text-align: right;
+}
+
+.td-action a 
+{
+    margin-left: 10px;
 }
 
 tbody tr:hover

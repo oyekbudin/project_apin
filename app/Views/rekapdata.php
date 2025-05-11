@@ -13,12 +13,12 @@
         <div class="wrap-rekap">
             <div class="card-3 green">
                 <div><i class="i">&#xEB70</i></div>
-                <span class="data-title">10.000.000</span>
+                <span class="data-title">8.238.000</span>
                 <span class="data-subtitle">Total Pembayaran</span>
             </div>
             <div class="card-3 blue">
                 <div><i class="i">&#xE916</i></div>
-                <span class="data-title">2.000.000</span>
+                <span class="data-title">1.928.000</span>
                 <span class="data-subtitle">Kredit Bulan Ini</span>
             </div>
             <div class="card-3 red">

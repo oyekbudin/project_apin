@@ -178,5 +178,34 @@ class Tagihan extends Controller
 
         //print_r ($data['tagihan']);
         return view('detailtagihan', $data);
-    }    
+    }
+    
+    public function request($id)
+    {
+        $datatagihan = $this->tagihanModel->getTagihanByRequest($id);
+        $data = [
+            'menu' => 'Pengelolaan',
+            'title' => 'Tagihan',
+            'datatagihan' => $datatagihan,
+        ];
+        //echo '<pre>';
+        //print_r($datatagihan);
+        //echo '</pre>';
+        return view('tagihan',$data);
+    }
+
+    public function requestdetail()
+    {
+        $id = $this->request->getVar('id');
+        $request = $this->request->getVar('request');
+        $data = [
+            'menu' => 'Pengelolaan',
+            'title' => 'Detail Tagihan',
+            'tagihan' => $this->tagihanModel->getTagihanByRequestById($id, $request),
+            'on' => true,
+        ];
+
+        //print_r ($data['tagihan']);
+        return view('detailtagihan', $data);
+    }
 }

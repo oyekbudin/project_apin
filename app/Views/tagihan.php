@@ -1,20 +1,9 @@
 <?= $this->include('dashboardadministrator') ?>
 <div class="board-wrap">
 <div class="group-action">
-<button class="tombol green" onclick="onmodalTambah()">Buat Tagihan</button>
-<a href="<?= base_url('/export-pdf'); ?>" class="tombol secondary" target="_blank">Export PDF</a>
-<div class="search">
-    
-    <form method="GET" action="<?= base_url('atursiswa'); ?>">
-        <span>Search :</span>
-    <div class="input">
-    <input class="search" type="text" id="search" name="keyword" placeholder="Cari NIS" value="<?= isset($_GET['keyword']) ? $_GET['keyword'] : '' ?>" >
-    <?php if ($keyword) : ?>
-    <a href="<?= base_url('atursiswa')?>"><i class="i">&#xE14C</i></a>
-    <?php endif; ?>
-    </div>
-</form>
-</div>
+<button class="tombol secondary" onclick="history.back()">Kembali</button>
+<a href="<?= base_url('/export-pdf'); ?>" class="tombol primary" target="_blank">Export PDF</a>
+
 
 </div>
 <div class="divider"></div>
@@ -26,15 +15,14 @@
                 <th>NIS</th>
                 <th>Nama</th>
                 <th>Kelas</th>
-                <th>Total Tagihan</th>
+                <!--th>Total Tagihan</th-->
                 <th>Opsi</th>
             </tr>
         </thead>
         <tbody>
             <?php if(!empty($datatagihan)) : ?>
             <?php
-            $startNumber = ($currentPage - 1) * $perpage + 1;
-            $i = $startNumber;
+            $i = 1;
             ?>
             <?php foreach ($datatagihan as $t) : ?>
             <tr>
@@ -44,19 +32,18 @@
                 <td><?= $t['kelas'] ?></td>
                 <!--td><//?= $t['total_tagihan'] ?></td-->
                 <td>
-                    <a class="tombol danger-outline" href="/tagihan/detail/<?= $t['nis'] ?>">Detail</a>
+                    <a class="tombol danger-outline" href="/tagihan/requestdetail?id=<?= $t['nis'] ?>&request=<?= $t['id_tagihan'] ?>">Detail</a>
                 </td>
             </tr>
             <?php endforeach; ?>
             <?php else : ?>
                 <tr>
-                    <td colspan="4">Tidak ada data</td>
+                    <td colspan="5">Tidak ada data</td>
                 </tr>
                 <?php endif; ?>
         </tbody>
     </table> 
     <!-- pagination -->
-    <?= $this->include('pagination') ?>
     </div>
 <!-- Modal -->
 

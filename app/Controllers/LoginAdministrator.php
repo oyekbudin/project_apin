@@ -28,6 +28,7 @@ class LoginAdministrator extends Controller
                 $ses_data =
                 [
                     'id' => $data['id'],
+                    'idadmin' =>$data['idadmin'],
                     'name' => $data['name'],
                     'adminname' => $data['adminname'],
                     'role' => $data['role'],

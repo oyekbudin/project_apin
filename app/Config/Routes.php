@@ -50,6 +50,14 @@ $routes->get('/tagihan/lihatkartu', 'Tagihan::lihatkartu');
 $routes->post('/tagihan/buattagihan', 'Tagihan::buatTagihan');
 $routes->post('/tagihan/checkbox', 'Tagihan::checkbox');
 $routes->get('/tagihan/detail/(:num)', 'Tagihan::detail/$1');
+$routes->get('/tagihan/request/(:num)', 'Tagihan::request/$1');
+$routes->get('/tagihan/requestdetail', 'Tagihan::requestdetail');
+
+$routes->get('/request_tagihan', 'RequestTagihan::index',['filter'=>'auth']);
+$routes->post('/request_tagihan/save','RequestTagihan::save');
+$routes->get('/request_tagihan/edit/(:num)', 'RequestTagihan::edit/$1');
+$routes->post('/request_tagihan/update/(:num)', 'RequestTagihan::update/$1');
+$routes->get('/request_tagihan/delete/(:num)', 'RequestTagihan::delete/$1');
 
 $routes->get('/siswa', 'carisiswa::index');
 $routes->get('/infaq', 'cariinfaq::index');
