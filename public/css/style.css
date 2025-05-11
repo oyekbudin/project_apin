@@ -764,6 +764,12 @@ aside ul li
     justify-content: space-between;
 }
 
+.group-action-tombol
+{
+    display: flex;
+    gap: 10px;
+}
+
 .group-action .search
 {
     margin-right: 0;

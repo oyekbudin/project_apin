@@ -52,6 +52,7 @@ $routes->post('/tagihan/checkbox', 'Tagihan::checkbox');
 $routes->get('/tagihan/detail/(:num)', 'Tagihan::detail/$1');
 $routes->get('/tagihan/request/(:num)', 'Tagihan::request/$1');
 $routes->get('/tagihan/requestdetail', 'Tagihan::requestdetail');
+$routes->get('/pdf/tagihan/(:num)', 'PdfController::tagihan/$1');
 
 $routes->get('/request_tagihan', 'RequestTagihan::index',['filter'=>'auth']);
 $routes->post('/request_tagihan/save','RequestTagihan::save');

@@ -1,8 +1,11 @@
 <?= $this->include('dashboardadministrator') ?>
 <div class="board-wrap">
-<div class="group-action">
+<div class="group-action-tombol">
 <button class="tombol secondary" onclick="history.back()">Kembali</button>
-<a href="<?= base_url('/export-pdf'); ?>" class="tombol primary" target="_blank">Export PDF</a>
+
+<a href="<?= base_url('/pdf/tagihan/' . $datatagihan[0]['id_tagihan'] ); ?>" class="tombol primary" target="_blank">Export PDF</a>
+<a href="<?= base_url('/export-pdf'); ?>" class="tombol green" target="_blank">Kirim Tagihan</a>
+
 
 
 </div>
@@ -15,7 +18,7 @@
                 <th>NIS</th>
                 <th>Nama</th>
                 <th>Kelas</th>
-                <!--th>Total Tagihan</th-->
+                <th>Total Tagihan</th>
                 <th>Opsi</th>
             </tr>
         </thead>
@@ -30,7 +33,7 @@
                 <td><?= $t['nis'] ?></td>
                 <td style="text-align:left"><?= $t['nama_siswa'] ?></td>
                 <td><?= $t['kelas'] ?></td>
-                <!--td><//?= $t['total_tagihan'] ?></td-->
+                <td><?= $t['total_tagihan'] ?></td>
                 <td>
                     <a class="tombol danger-outline" href="/tagihan/requestdetail?id=<?= $t['nis'] ?>&request=<?= $t['id_tagihan'] ?>">Detail</a>
                 </td>
@@ -38,7 +41,7 @@
             <?php endforeach; ?>
             <?php else : ?>
                 <tr>
-                    <td colspan="5">Tidak ada data</td>
+                    <td colspan="6">Tidak ada data</td>
                 </tr>
                 <?php endif; ?>
         </tbody>
