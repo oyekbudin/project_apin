@@ -53,6 +53,7 @@ $routes->get('/tagihan/detail/(:num)', 'Tagihan::detail/$1');
 $routes->get('/tagihan/request/(:num)', 'Tagihan::request/$1');
 $routes->get('/tagihan/requestdetail', 'Tagihan::requestdetail');
 $routes->get('/pdf/tagihan/(:num)', 'PdfController::tagihan/$1');
+$routes->get('/pdf/tagihan-siswa/(:num)', 'PdfController::tagihan_siswa/$1');
 
 $routes->get('/request_tagihan', 'RequestTagihan::index',['filter'=>'auth']);
 $routes->post('/request_tagihan/save','RequestTagihan::save');

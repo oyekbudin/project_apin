@@ -3,10 +3,9 @@
 <div class="group-action-tombol">
 <button class="tombol secondary" onclick="history.back()">Kembali</button>
 
-<a href="<?= base_url('/pdf/tagihan/' . $datatagihan[0]['id_tagihan'] ); ?>" class="tombol primary" target="_blank">Export PDF</a>
-<a href="<?= base_url('/export-pdf'); ?>" class="tombol green" target="_blank">Kirim Tagihan</a>
-
-
+<a href="<?= base_url('/pdf/tagihan/' . $datatagihan[0]['id_tagihan'] ); ?>" class="tombol primary" target="_blank">Export Tagihan</a>
+<a href="<?= base_url('/pdf/tagihan-siswa/' . $datatagihan[0]['id_tagihan'] ); ?>" class="tombol primary" target="_blank">Export Tagihan Per Siswa</a>
+<a href="<?= base_url('/#'); ?>" class="tombol green" target="_blank">Kirim Tagihan</a>
 
 </div>
 <div class="divider"></div>
@@ -18,7 +17,6 @@
                 <th>NIS</th>
                 <th>Nama</th>
                 <th>Kelas</th>
-                <th>Total Tagihan</th>
                 <th>Opsi</th>
             </tr>
         </thead>
@@ -33,9 +31,8 @@
                 <td><?= $t['nis'] ?></td>
                 <td style="text-align:left"><?= $t['nama_siswa'] ?></td>
                 <td><?= $t['kelas'] ?></td>
-                <td><?= $t['total_tagihan'] ?></td>
                 <td>
-                    <a class="tombol danger-outline" href="/tagihan/requestdetail?id=<?= $t['nis'] ?>&request=<?= $t['id_tagihan'] ?>">Detail</a>
+                    <a class="tombol danger-outline" href="/tagihan/requestdetail?id=<?= $t['nis'] ?>&request=<?= $t['id_tagihan'] ?>">Detail Tagihan</a>
                 </td>
             </tr>
             <?php endforeach; ?>

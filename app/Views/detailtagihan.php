@@ -14,6 +14,24 @@
             $total_tagihan += $t['sisa_tagihan'];
             }
             ?>
+            <?php if(isset($tagihan)) : ?>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>NIS</td>
+                                    <td>: <?= $tagihan[0]['nis'] ?></td>
+                                </tr>
+                                <tr>
+                                    <td>Nama Siswa</td>
+                                    <td>: <?= $tagihan[0]['nama_siswa'] ?></td>
+                                </tr>
+                                <tr>
+                                    <td>Kelas</td>
+                                    <td>: <?= $tagihan[0]['kelas'] ?></td>
+                                </tr>                                
+                            </tbody>
+                        </table>
+                    <?php endif; ?> 
 
             <table>
                     <thead>
@@ -28,15 +46,15 @@
                         <?php if(!empty($tagihan)) : ?>
                         <?php foreach ($tagihan as $t) : ?>
                         <tr>
-                            <td><?= $t['nama_infaq'] ?></td>
-                            <td><?= $t['harga_infaq'] ?></td>
-                            <td><?= $t['total_pembayaran'] ?></td>
-                            <td><?= $t['sisa_tagihan'] ?></td>
+                            <td style="text-align: center;"><?= $t['nama_infaq'] ?></td>
+                            <td style="text-align: right;"><?= number_format($t['harga_infaq']) ?></td>
+                            <td style="text-align: right;"><?= number_format($t['total_pembayaran']) ?></td>
+                            <td style="text-align: right;"><?= number_format($t['sisa_tagihan']) ?></td>
                         </tr>
                         <?php endforeach; ?>
-                        <tr class="danger">
-                            <td>Total Tagihan</td>
-                            <td><?= $total_tagihan ?></td>
+                        <tr class="tombol primary">
+                            <td colspan="3" style="text-align: center;">Total Tagihan</td>
+                            <td style="text-align: right;"><?= number_format($total_tagihan) ?></td>
                         </tr>
                         <?php else : ?>
                             <tr>

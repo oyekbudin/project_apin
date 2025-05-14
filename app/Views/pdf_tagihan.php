@@ -64,11 +64,24 @@
     <span class="arial" style="font-size:14pt;font-weight:bold;">DATA TAGIHAN ADMINISTRASI SMP MA'ARIF NU 01 WANAREJA</span>
 </div>
     <?php
-            $grand_total = 0;
-            foreach ($datatagihan as $d) {
-            $grand_total += $d['total_tagihan'];
-            }
-            ?>
+    $siswa = [];
+    $grand_total =0;
+    foreach ($datatagihan as $item) {
+        $nis = $item['nis'];
+        
+        if (!isset($siswa[$nis])) {
+            $siswa[$nis] = [
+                'nis' => $item['nis'],
+                'nama' => $item['nama_siswa'],
+                'kelas' => $item['kelas'],
+                'total_tagihan' => 0
+            ];
+        }
+
+        $siswa[$nis]['total_tagihan'] += $item['sisa_tagihan'];
+        $grand_total += $item['sisa_tagihan'];
+    } 
+    ?>
     <table class="tablearea">
         <thead>
             <tr>
@@ -82,11 +95,11 @@
         <tbody>
             <?php
             $no = 1; 
-            foreach ($datatagihan as $row): ?>
+            foreach ($siswa as $row): ?>
             <tr>
                 <td><?= $no++; ?></td>
                 <td><?= $row['nis']; ?></td>
-                <td><?= $row['nama_siswa']; ?></td>
+                <td><?= $row['nama']; ?></td>
                 <td><?= $row['kelas']; ?></td>                
                 <td style="text-align:right"><?= number_format($row['total_tagihan'], 0, ',', '.'); ?></td>
             </tr>

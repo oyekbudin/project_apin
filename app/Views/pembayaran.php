@@ -90,25 +90,6 @@
                         </tbody>
                 </table>
                 
-                <!--table>
-                    <tbody>
-                        <tr>
-                            <td>Jenis Infaq</td>
-                            <td><select class="input" name="idinfaq" id="jenis-infaq" required oninvalid="this.setCustomValidity('Pilih jenis infaq')" oninput="this.setCustomValidity('')">
-                                <option value="">Pilih Jenis Infaq</option>
-                            </select></td>
-                            
-                        </tr>
-                        <tr>
-                            <td>Nominal</td>
-                            <td>
-                                <input class="input" type="number" name="nominal" id="input#" value="<?= old('nominal') ?>" placeholder="Masukkan Nominal" required oninvalid="this.setCustomValidity('Nominal harus diisi')" oninput="this.setCustomValidity('')">
-                                <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['nominal'] ?? '' ?></span>
-                            </td>
-                        </tr>                        
-                    </tbody>
-                </table-->
-                
                 <table>
                     <thead>
                         <tr>

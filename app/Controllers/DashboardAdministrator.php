@@ -6,6 +6,7 @@
 
 class DashboardAdministrator extends Controller
 {
+    
     public function index()
     {
         $session = session();

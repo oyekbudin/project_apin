@@ -56,11 +56,36 @@ class TagihanModel extends Model
                         ->selectSum('i.harga','total_tagihan')
                         ->where('ti.id_tagihan',$request)
                         ->groupBy('s.nis, ti.id_tagihan')
+                        ->orderBy('s.nis')
                         //->limit($limit, $offset)
                         ->get()
                         ->getResultArray();
     }
 
+    public function getTagihanByRequestForExport($request)
+    {
+        return $this->db->table('tagihan t')
+        ->join('siswa s', 't.id_siswa = s.nis')
+        ->join('infaq i', 't.id_infaq = i.id')
+        ->join('tagihan_infaq ti','t.id_infaq = ti.id_infaq')
+        ->join('pembayaran p', 't.id_siswa = p.id_siswa AND t.id_infaq = p.id_infaq', 'left')
+        ->select('
+            s.nis, 
+            s.name AS nama_siswa, 
+            s.kelas, 
+            i.id AS id_infaq, 
+            i.name AS nama_infaq, 
+            i.harga AS harga_infaq, 
+            COALESCE(SUM(p.nominal), 0) AS total_pembayaran,
+            i.harga - COALESCE(SUM(p.nominal), 0) AS sisa_tagihan,
+            ti.id_tagihan as id_tagihan
+        ')
+        //->where('t.id_siswa', $id)
+        ->where('ti.id_tagihan',$request)
+        ->groupBy('s.nis, s.name, s.kelas, i.harga, i.id, i.name, ti.id_tagihan')
+        ->get()
+        ->getResultArray();
+    }
     public function getTagihanByRequestById($id, $request)
     {
         return $this->db->table('tagihan t')
