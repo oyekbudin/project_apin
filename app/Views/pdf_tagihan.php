@@ -41,7 +41,7 @@
             size: A4 portrait;
             margin: 15mm 15mm 15mm 15mm;       
         }
-        .mengetahui{margin-left: 420px;}
+        .mengetahui{margin-left: 420px;page-break-inside: avoid;break-inside: avoid;}
     </style>
 </head>
 <body>

@@ -41,7 +41,7 @@
             size: A4 portrait;
             margin: 15mm 15mm 15mm 15mm;       
         }
-        .mengetahui{margin-left: 420px;}
+        .mengetahui{margin-left: 420px;page-break-inside: avoid;break-inside: avoid;}
     </style>
 </head>
 <body>
@@ -77,19 +77,20 @@
             $no = 1; 
             foreach ($infaq as $row): ?>
             <tr>
-                <td><?= $no++; ?></td>
-                <td><?= $row['name']; ?></td>
-                <td><?= $row['kelas']; ?></td>                
-                <td><?= $row['harga']; ?></td>
+                <td><?= $no++ ; ?></td>
+                <td style="text-align:left"><?= $row['name'] ?></td>
+                <td><?= str_replace(['{', '}', '"'], '',$row['kelas']) ?></td>
+                <td><?= number_format($row['harga']) ?></td>
             </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
     <div class="mengetahui">
-    <br><span>Wanareja, <?= $tanggal; ?></span><br>
-    <span>Mengetahui,</span><br>
-    <span>Kepala Sekolah</span><br><br><br><br><br>
-    <span><?= $kepalasekolah ;?></span><br>
-    <span>NIM. <?= $nim ;?></span></div>
+        <br><span>Wanareja, <?= $tanggal; ?></span><br>
+        <span>Mengetahui,</span><br>
+        <span>Kepala Sekolah</span><br><br><br><br><br>
+        <span><?= $kepalasekolah ;?></span><br>
+        <span>NIM. <?= $nim ;?></span>
+    </div>
 </body>
 </html>

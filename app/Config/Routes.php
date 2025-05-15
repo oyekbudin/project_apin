@@ -17,6 +17,16 @@ $routes->post('/registeradministrator/update/(:num)', 'RegisterAdministrator::up
 $routes->get('/registeradministrator/confirmdeleteadministrator/(:num)', 'RegisterAdministrator::confirmdelete/$1');
 $routes->post('/registeradministrator/delete/(:num)', 'RegisterAdministrator::delete/$1');
 
+
+$routes->get('/aturrekening', 'AturRekening::index');
+$routes->get('/aturrekening/edit/(:num)', 'AturRekening::edit/$1');
+$routes->post('/aturrekening/update/(:num)', 'AturRekening::update/$1');
+
+
+$routes->get('/profil', 'Profil::index');
+$routes->get('/profil/edit/(:num)', 'Profil::edit/$1');
+$routes->post('/profil/update/(:num)', 'Profil::update/$1');
+
 $routes->get('/loginadministrator', 'LoginAdministrator::index');
 $routes->post('/loginadministrator/auth', 'LoginAdministrator::auth');
 $routes->get('/logout', 'LoginAdministrator::index');

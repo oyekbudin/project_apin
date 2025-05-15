@@ -35,7 +35,7 @@
                 <li <?= ($menu == 'Pengaturan') ? 'class="on"' : 'class=""' ?>><i class="i">&#xE8B8</i><span class="t">Pengaturan</span><i class="i">&#xE313</i>
                 <ul <?= ($menu == 'Pengaturan') ? 'style="display:block;"' : 'style="display:none;"' ?>>
                     <a href="<?= base_url('registeradministrator') ?>"><li <?= ($title == 'Atur User') ? 'class="on"' : 'class=""' ?>><i class="i">&#xE5CC</i><span class="t">Atur User</span></li></a>
-                    <li><i class="i">&#xE5CC</i><span class="t">Atur Rekening</span></li>
+                    <a href="<?= base_url('aturrekening') ?>"><li <?= ($title == 'Atur Rekening') ? 'class="on"' : 'class=""' ?>><i class="i">&#xE5CC</i><span class="t">Atur Rekening</span></li></a>
                 </ul>
                 </li>
                 <?php endif ?>
@@ -45,7 +45,16 @@
     <div class="grid-dashboard-3">
         <header class="header-desktop header-dashboard">
             <h1>Aplikasi Pengelola Infaq SMP Ma'arif NU 01 Wanareja</h1>
-            <button class="tombol secondary"><img src="<?= base_url('/assets/pic.webp') ?>" alt=""><?php echo $name ?></button>
+            <div>
+                <button id="profilButton" class="tombol secondary"><img src="<?= base_url('/assets/pic.webp') ?>" alt=""><?php echo $name ?></button>
+            <div id="profil">
+                <ul>
+                    <a href="/profil/edit/<?= session()->get('idadmin') ?>"><li><i class="i">&#xF02E</i><span class="t">Edit Profil</span></li></a>
+                    <a href="<?= base_url('logout') ?>"><li><i class="i">&#xE9BA</i><span class="t">Keluar</span></li></a>
+                </ul>
+            </div>
+            </div>
+            
         </header>
         <div class="content">
             <div class="breadcrumb">

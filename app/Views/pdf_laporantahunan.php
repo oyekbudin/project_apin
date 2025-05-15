@@ -36,7 +36,7 @@
         .mengetahui{padding-left: 700px;page-break-inside: avoid;break-inside: avoid;}
         .tablearea {margin: auto;}
         table, tr, td, th{
-            border: 1px solid #000;
+            border: 1px solid #000; 
             border-collapse: collapse;
             padding: 4px 20px 4px 4px;
         }
@@ -65,13 +65,23 @@
 <div class="heading">
     <span class="arial" style="font-size:14pt;font-weight:bold;">LAPORAN TAHUNAN ADMINISTRASI SMP MA'ARIF NU 01 WANAREJA</span>
 </div>
-            <?php
+<?php
+$nama_bulan = [
+    '01' => 'Januari', '02' => 'Februari', '03' => 'Maret',
+    '04' => 'April', '05' => 'Mei', '06' => 'Juni',
+    '07' => 'Juli', '08' => 'Agustus', '09' => 'September',
+    '10' => 'Oktober', '11' => 'November', '12' => 'Desember'
+];
+$total_pembayaran = 0;
+
+?>
+            <?php /*
             $total_pembayaran = 0;
             foreach ($datapembayaran as $d) {
             $total_pembayaran += $d['total_nominal'];
-            }
+            } */
             ?>
-    <table class="tablearea">
+    <!--table class="tablearea">
         <thead>
             <tr>
                 <th>No</th>
@@ -83,21 +93,48 @@
             <tr>
                 <td style="text-align: center;">1</td>
                 <td style="text-align: center;">April</td>
-                <td style="text-align: right;"><?= number_format($datapembayaran[0]['total_nominal'],0,',','.'); ?></td>
+                <td style="text-align: right;"><?//= number_format($datapembayaran[0]['total_nominal'],0,',','.'); ?></td>
             </tr>
             <tr>
                 <td style="text-align: center;">2</td>
                 <td style="text-align: center;">Mei</td>
-                <td style="text-align: right;"><?= number_format($datapembayaran[1]['total_nominal'],0,',','.'); ?></td>
+                <td style="text-align: right;"><?//= number_format($datapembayaran[1]['total_nominal'],0,',','.'); ?></td>
             </tr>
             </tbody>
             <tfoot>
                 <tr>
                     <td colspan="2" style="text-align: center;">Jumlah</td>
-                    <td style="text-align: right;"><?= number_format($total_pembayaran, 0, ',', '.'); ?></td>
+                    <td style="text-align: right;"><?//= number_format($total_pembayaran, 0, ',', '.'); ?></td>
                 </tr>
             </tfoot>
-    </table>
+    </table-->
+
+    <table class="tablearea">
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>Bulan</th>
+            <th>Total Pembayaran</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($datapembayaran as $i => $row): 
+            $total_pembayaran += $row['total_nominal'];
+        ?>
+        <tr>
+            <td style="text-align: center;"><?= $i + 1; ?></td>
+            <td style="text-align: center;"><?= $nama_bulan[$row['bulan']]; ?></td>
+            <td style="text-align: right;"><?= number_format($row['total_nominal'], 0, ',', '.'); ?></td>
+        </tr>
+        <?php endforeach; ?>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="2" style="text-align: center;">Jumlah</td>
+            <td style="text-align: right;"><?= number_format($total_pembayaran, 0, ',', '.'); ?></td>
+        </tr>
+    </tfoot>
+</table>
     <div class="mengetahui">
     <br><span>Wanareja, <?= $tanggal; ?></span><br>
     <span>Mengetahui,</span><br>

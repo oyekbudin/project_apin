@@ -4,6 +4,7 @@
     <div>
     <span>Pilih Bulan :</span>
     <select name="bulan" id="bulan" class="input">
+        <option value="">Pilih Bulan</option>
         <option value="01">Januari</option>
         <option value="02">Februari</option>
         <option value="03">Maret</option>

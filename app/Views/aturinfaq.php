@@ -44,7 +44,7 @@
                 <td><?= $i++ ; ?></td>
                 <td style="text-align:left"><?= $infaq['name'] ?></td>
                 <td><?= str_replace(['{', '}', '"'], '',$infaq['kelas']) ?></td>
-                <td><?= $infaq['harga'] ?></td>
+                <td><?= number_format($infaq['harga']) ?></td>
                 <td>
                     <a class="tombol warning-outline" href="/aturinfaq/edit/<?= $infaq['id'] ?>">Edit</a>
                     <a class="tombol danger-outline" href="/aturinfaq/confirmdeleteinfaq/<?= $infaq['id'] ?>">Hapus</a>

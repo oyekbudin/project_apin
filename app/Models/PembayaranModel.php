@@ -31,7 +31,7 @@ class PembayaranModel extends Model
         ->select('pembayaran.order_id, DATE(pembayaran.date) as tanggal, pembayaran.id_siswa as nis, siswa.name as nama_siswa, siswa.kelas as kelas, SUM(pembayaran.nominal) as total_nominal')
         ->join('siswa', 'pembayaran.id_siswa = siswa.nis')
         ->groupBy('pembayaran.order_id, pembayaran.date, pembayaran.id_siswa, siswa.name, siswa.kelas')
-        ->orderBy('pembayaran.date, pembayaran.id_siswa')
+        ->orderBy('pembayaran.date','DESC')
         ->get()
         ->getResultArray();
         //->findAll();

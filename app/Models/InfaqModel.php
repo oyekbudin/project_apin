@@ -33,8 +33,21 @@ class InfaqModel extends Model
         ->join('infaq_kelas ik', 'infaq.id = ik.id_infaq')
         ->join('kelas k', 'ik.id_kelas = k.id')
         ->groupBy('infaq.id')
-        ->orderBy('infaq.id', 'ASC')
+        ->orderBy('infaq.id', 'DESC')
         ->limit($limit, $offset)
+        ->get()
+        ->getResultArray();
+    }
+
+    public function exportInfaqPDF()
+    {
+        return $this->db->table('infaq')
+        ->select("infaq.*, array_agg(k.nama) as kelas")
+        ->join('infaq_kelas ik', 'infaq.id = ik.id_infaq')
+        ->join('kelas k', 'ik.id_kelas = k.id')
+        ->groupBy('infaq.id')
+        ->orderBy('infaq.id', 'DESC')
+        //->limit($limit, $offset)
         ->get()
         ->getResultArray();
     }

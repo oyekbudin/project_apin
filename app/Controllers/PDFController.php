@@ -1,6 +1,7 @@
 <?php namespace App\Controllers;
 
 use App\Models\InfaqModel;
+use App\Models\KelasModel;
 use App\Models\PembayaranModel;
 use App\Models\SiswaModel;
 use App\Models\TagihanModel;
@@ -82,7 +83,8 @@ public function exportInfaq()
     $formatTgl = $tgl->format('j') . ' ' . $bln[$tgl->format('F')] . ' ' . $tgl->format('Y');
 
     $Model = new InfaqModel();
-    $infaq = $Model->findAll(); 
+    $kelasModel = new KelasModel();
+    $infaq = $Model->exportInfaqPDF(); 
     $kepalasekolah = 'Ibnu Sadun Isngadi, S.Pd.';
     $nim = '113401118';
     $data = [
@@ -90,6 +92,7 @@ public function exportInfaq()
         'tanggal' => $formatTgl,
         'kepalasekolah' => $kepalasekolah,
         'nim' => $nim,
+        'kelas' => $kelasModel->getDataKelas(),
     ];
     $html = view('pdf_infaq', $data);
 
@@ -236,6 +239,10 @@ public function laporanTahunan()
         'kepalasekolah' => $kepalasekolah,
         'nim' => $nim,
     ];
+
+    //echo '<pre>';
+    //print_r($data['datapembayaran']);
+    //echo '</pre>';
     $html = view('pdf_laporantahunan', $data);
 
     $options = new Options();
@@ -259,7 +266,7 @@ public function laporanTahunan()
     header('Expires: 0');
 
     echo $dompdf->output();
-    exit;
+    exit; 
 }
 
 public function tagihan($id)

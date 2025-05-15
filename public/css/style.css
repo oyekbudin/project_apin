@@ -170,7 +170,7 @@ th, td, tr
     vertical-align: middle;
 }
 
-aside li .i
+aside li .i, #profil li .i
 {
     margin-left: 20px;
     margin-right: 10px;
@@ -239,7 +239,7 @@ aside
     padding: 0 10px;
 }
 
-aside ul li
+aside ul li, #profil ul li
 {
     display: flex;
     flex-wrap: wrap;
@@ -269,6 +269,36 @@ aside ul ul
 aside ul li a:focus ul
 {
     display: block;
+}
+
+#profil
+{
+    display: none;
+    position: absolute;
+    background-color: var(--secondary);
+    width: 150px;
+    border-radius: 8px;
+    color: var(--dark);
+    padding: 8px 0;    
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    margin-top: 4px;    
+}
+
+#profil ul
+{
+    flex-direction: column;
+    width: 100%;
+}
+
+#profil ul li
+{
+    margin: 0;
+    
+}
+
+#profil ul li:hover
+{
+    background-color: var(--lightblue);
 }
 
 .footer-dashboard
@@ -343,7 +373,7 @@ h1
     font-size: 14px;
 }
 
-aside ul li
+aside ul li, #profil ul li
 {
     font-size: 14px;
     cursor: pointer;
@@ -821,6 +851,16 @@ aside ul li
     background-color: var(--lightblue);
 }
 
+.dataonly tbody tr:hover
+{
+    background-color: var(--secondary);
+}
+
+.dataonly tbody tr td
+{
+    text-align: left;
+}
+
 .board-wrap tbody .tombol
 {
     /*padding: 5px 10px;*/
@@ -1058,10 +1098,8 @@ form .group-action
     color: var(--secondary);
 }
 
-#result-siswa table
-{
 
-}
+
 #result-siswa th
 {
     position: sticky;
@@ -1133,7 +1171,7 @@ form .group-action
     left: 50%;
     z-index: 99999;
     transform: translate(-50%, 96px);
-    transition: transform 0.3sease-in-out;
+    transition: transform 0.3s ease-in-out;
     /*box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);*/
 }
 

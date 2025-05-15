@@ -17,6 +17,12 @@
 </script>
 <?php endif; ?>
 
+<?php if (session()->getFlashdata('msg')) : ?>
+<script>
+    toastr.error("<?= session()->getFlashdata('msg') ?>");
+</script>
+<?php endif; ?>
+
 
 
 <script>
@@ -48,6 +54,71 @@
     }
     });
     }
+
+    function onmodalEdit() {
+        document.getElementById("modalTambah").style.display = "flex";
+    }
+
+    function offmodalEdit() {
+        document.getElementById("modalTambah").style.display = "none";
+    }
+</script>
+<script>
+    /*function onProfil()
+    {
+        document.getElementById("profil").style.display = "flex";        
+    }
+
+    function offProfil()
+    {
+        
+    }
+    if (document.getElementById("profil").style.display === "flex") {
+        document.body.addEventListener("click", function() {
+        document.getElementById("profil").style.display = "none";
+    });
+    }*/
+    
+
+    /*if (document.getElementById("profil").style.display === "flex")
+    {
+        document.addEventListener("click", function() {
+            offProfil();
+        });
+    }*/
+
+   /*const profilElement = document.getElementById("profil");
+
+   const observer = new MutationObserver((mutations) => {
+    if (profilElement.style.display === "flex") {
+        profilElement.addEventListener("click", offProfil);
+    } else {
+        profilElement.removeEventListener("click", offProfil);
+    }
+   });
+
+   observer.observe(profilElement, {
+    attributes: true,
+   }); */
+</script>
+
+<script>
+    document.getElementById("profilButton").addEventListener("click", function() {
+        const profilMenu = document.getElementById("profil");
+        if (profilMenu.style.display === 'flex') {
+            profilMenu.style.display = "none";
+        } else {
+            profilMenu.style.display = "flex";
+        }
+    });
+
+    document.addEventListener("click", function(event) {
+        const profilButton = document.getElementById("profilButton");
+        const profilMenu = document.getElementById("profil");
+        if (!profilButton.contains(event.target) && !profilMenu.contains(event.target)) {
+            profilMenu.style.display = "none";
+        }
+    });
 </script>
 
 <?php if (isset($on) && $on): ?>

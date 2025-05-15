@@ -1,46 +1,36 @@
 <?php namespace App\Controllers;
 
       use App\Models\AdministratorModel;
-      use CodeIgniter\Controller;
+use App\Models\RekeningModel;
+use CodeIgniter\Controller;
 
-class RegisterAdministrator extends Controller
+class Profil extends Controller
 {
     protected $administratorModel;
 
     public function __construct()
     {
-        $this->administratorModel = new AdministratorModel();
+        $this->administratorModel = new AdministratorModel;
     }
 
-    public function index()
+    /*public function index()
     {
-        $perPage = 10;
-        $page = (int) ($this->request->getGet('page') ?? 1);
-        $total = $this->administratorModel->countAll();
-        $offset = ($page - 1) * $perPage;
-        $keyword = $this->request->getGet('keyword');
-
-        if ($keyword) {
-            $dataadministrator = $this->administratorModel->search($keyword);
-        } else {
-            $dataadministrator = $this->administratorModel->getPaginated($perPage, $offset);
-        }
-
+        $session = session();
+        $id = $session->get('idadmin');
+        $dataprofil = $this->administratorModel->find($id);
         $data = [
-            'menu' => 'Pengaturan',
-            'title' => 'Atur User',
-            'dataadministrator' => $dataadministrator,
-            'total' => $total,
-            'perpage' => $perPage,
-            'currentPage' => $page,
-            'totalPages' => ($total > 0) ? ceil($total / $perPage) : 1,
-            'keyword' => $keyword,
+            'menu' => 'Profil',
+            'title' => 'Profil',
+            'dataprofil' => $dataprofil,
         ];
 
-        return view('registeradministrator', $data);
-    }
+        //echo '<pre>';
+        //print_r($data['datarekening']);
+        //echo '</pre>';
+        return view('profil', $data);
+    } */
 
-    public function save()
+    /*public function save()
     {
         helper(['form']);
         $rules =
@@ -75,25 +65,24 @@ class RegisterAdministrator extends Controller
                 'role' => $this->request->getVar('role'),
                 'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT)
             ];
-            $this->administratorModel->save($data);
+            $this->rekeningModel->save($data);
             return redirect()->to('/registeradministrator')->with('success', 'Data User berhasil ditambahkan.');;
         } else {
             session()->setFlashdata('errors', $this->validator->getErrors());
             session()->setFlashdata('show_modal',true);
             return redirect()->back()->withInput();
         }
-    }
+    } */
 
-    public function edit($id)
+    public function edit($id): string
     {
-
         $data = [
-            'menu' => 'Pengaturan',
-            'title' => 'Atur User',
+            'menu' => 'Profil',
+            'title' => 'Profil',
             'user' => $this->administratorModel->find($id),
-            'on' => true,
+            //'on' => true,
         ];
-        return view('editadministrator', $data);
+        return view('profil', $data);
     }
 
     public function update($id)
@@ -103,7 +92,6 @@ class RegisterAdministrator extends Controller
         [
             'name' => 'required|min_length[6]|max_length[40]|alpha_space',
             'adminname' => 'required|min_length[6]|max_length[40]',
-            'role' => 'required|min_length[6]|max_length[40]',
             'password' => 'permit_empty|min_length[6]|max_length[40]',
         ];
         $errors = [
@@ -127,35 +115,16 @@ class RegisterAdministrator extends Controller
             [
                 'name' => $this->request->getVar('name'),
                 'adminname' => $this->request->getVar('adminname'),
-                'role' => $this->request->getVar('role'),
                 'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT)
             ];
             $this->administratorModel->update($id, $data);
-            return redirect()->to('/registeradministrator')->with('success', 'Data User berhasil diperbarui');
+            return redirect()->to('/profil/edit/'.$id)->with('on','false')->with('success', 'Data profil berhasil diperbarui');
+
             //return redirect()->back()->with('success', 'Data User berhasil diperbarui');
         } else {
             session()->setFlashdata('errors', $this->validator->getErrors());
             session()->setFlashdata('show_modal',true);
             return redirect()->back()->withInput();
         }
-    }
-
-    public function delete($id)
-    {
-        $this->administratorModel->delete($id);
-
-        return redirect()->to('/registeradministrator')->with('success', 'Data user berhasil dihapus.');
-    }
-
-    public function confirmdelete($id)
-    {
-        $data = [
-            'menu' => 'Pengaturan',
-            'title' => 'Atur User',
-            'user' => $this->administratorModel->find($id),
-            'on' => true,
-        ];
-
-        return view('confirmdeleteadministrator', $data);
     }
 }
