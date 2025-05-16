@@ -2,21 +2,10 @@
 <div class="board-wrap">
 <div class="group-action">
 <button class="tombol green" onclick="onmodalTambah()">Tambah Pembayaran</button>
-<!--a href="<//?= base_url('/export-pdf/infaq'); ?>" class="tombol secondary" target="_blank">Export PDF</a-->
-<!--div class="search">
-    
-    <form method="GET" action="<//?= base_url('registeradministrator'); ?>">
-        <span>Search :</span>
-    <div class="input">
-    <input class="search" type="text" id="search" name="keyword" placeholder="Cari Administrator" value="<//?= isset($_GET['keyword']) ? $_GET['keyword'] : '' ?>" >
-    <//?php if ($keyword) : ?>
-    <a href="<//?= base_url('registeradministrator')?>"><i class="i">&#xE14C</i></a>
-    <//?php endif; ?>
-    </div>
-</form>
-</div-->
+
 </div>
 <div class="divider"></div>
+<div class="tablemobile">
     <table>
         <thead>
             <tr>
@@ -55,6 +44,7 @@
                 <?php endif; ?>
         </tbody>
     </table>
+    </div>
     <!-- pagination -->
     <!--?= $this->include('pagination') ?-->
     </div> <!-- end board wrap -->
@@ -90,7 +80,7 @@
                         </tbody>
                 </table>
                 
-                <table>
+                <table class="mini">
                     <thead>
                         <tr>
                             <th><div class="tombol green">Jenis Infaq</div></th>
@@ -133,7 +123,7 @@
                                 if (data == '' || data.length == 0 || $.trim(data) == '')
                                 {
                                     let resultHtml = `<tr><td colspan="3" style="text-align:center;">Tidak ada data</td></tr> `;
-                                    $("#result-siswa").html('<table><thead><th>NIS</th><th>Nama Siswa</th><th>Kelas</th></thead><tbody>'+resultHtml+'</tbody></table>');
+                                    $("#result-siswa").html('<table><thead><tr><th>NIS</th><th>Nama Siswa</th><th>Kelas</th></tr></thead><tbody>'+resultHtml+'</tbody></table>');
                                 } else
                                 {
                                     let resultHtml = ``;

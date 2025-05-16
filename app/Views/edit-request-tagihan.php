@@ -63,7 +63,7 @@
                         </tr>
                     </tbody>
                     </table>
-                </div>
+                
                 <div class="divider"></div>
                 <div class="group-action">
                 <?php
@@ -98,6 +98,7 @@
                     };
                     ?>
                 
+                </div>
                 </div>
             </form>
     </div>

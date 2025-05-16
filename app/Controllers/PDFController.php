@@ -111,7 +111,7 @@ public function exportInfaq()
     $canvas->page_text(270, 820, "Halaman {PAGE_NUM} dari {PAGE_COUNT}", $font, 10, array(0,0,0));
 
     header('Content-Type: application/pdf');
-    header('Content-Disposition: inline; filename="data_siswa.pdf"'); 
+    header('Content-Disposition: inline; filename="data_infaq.pdf"'); 
     header('Cache-Control: public, must-revalidate, max-age=0');
     header('Pragma: public');
     header('Expires: 0');
@@ -183,7 +183,7 @@ public function laporanBulanan($bulan)
     $canvas->page_text(270, 820, "Halaman {PAGE_NUM} dari {PAGE_COUNT}", $font, 10, array(0,0,0));
 
     header('Content-Type: application/pdf');
-    header('Content-Disposition: inline; filename="data_siswa.pdf"'); 
+    header('Content-Disposition: inline; filename="laporan_bulanan.pdf"'); 
     header('Cache-Control: public, must-revalidate, max-age=0');
     header('Pragma: public');
     header('Expires: 0');
@@ -260,7 +260,7 @@ public function laporanTahunan()
     $canvas->page_text(270, 820, "Halaman {PAGE_NUM} dari {PAGE_COUNT}", $font, 10, array(0,0,0));
 
     header('Content-Type: application/pdf');
-    header('Content-Disposition: inline; filename="data_siswa.pdf"'); 
+    header('Content-Disposition: inline; filename="laporan_tahunan.pdf"'); 
     header('Cache-Control: public, must-revalidate, max-age=0');
     header('Pragma: public');
     header('Expires: 0');
@@ -380,7 +380,7 @@ public function tagihan_siswa($id)
     $canvas->page_text(270, 820, "Halaman {PAGE_NUM} dari {PAGE_COUNT}", $font, 10, array(0,0,0));
 
     header('Content-Type: application/pdf');
-    header('Content-Disposition: inline; filename="data_tagihan.pdf"'); 
+    header('Content-Disposition: inline; filename="data_tagihan_siswa.pdf"'); 
     header('Cache-Control: public, must-revalidate, max-age=0');
     header('Pragma: public');
     header('Expires: 0');

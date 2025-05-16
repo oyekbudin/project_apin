@@ -50,7 +50,7 @@
                             </tbody>
                         </table>
                     <?php endif; ?>                    
-                        <table>
+                        <table class="mini">
                             <thead>
                                 <tr>
                                     <th><div class="tombol green">Jenis Infaq</div></th>

@@ -18,7 +18,7 @@
 
 </div>
 <div class="divider"></div>
-
+<div class="tablemobile">
     <table>
         <thead>
             <tr>
@@ -58,6 +58,7 @@
                 <?php endif; ?>
         </tbody>
     </table> 
+    </div>
     <!-- pagination -->
     <?= $this->include('pagination') ?>
     </div>
@@ -67,8 +68,10 @@
         <div class="pop">
             <div class="group-action"><h2 class="data-title">Tambah Siswa</h2><i class="i" onclick="offmodalTambah()">&#xe14c</i></div>
             <div class="divider"></div>
-            <span class="tombol green">DATA SISWA</span>
             <form action="/atursiswa/save" method="post">
+            <div class="overflow-content">
+            <div class="tombol green">DATA SISWA</div>
+            
                 <table>
                     <tbody>
                         <tr>
@@ -107,11 +110,13 @@
                         </tr>
                     </tbody>
                 </table>
+                
                 <div class="divider"></div>
                 <div class="group-action">
                 <a class="tombol disable" onclick="offmodalTambah()">Close</a>
                 <button class="tombol primary" type="submit">Simpan</button>
                 </div>
+            </div>
             </form>
         </div>
     </div>

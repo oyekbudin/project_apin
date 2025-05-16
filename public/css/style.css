@@ -87,6 +87,11 @@ th, td, tr
     font: inherit;
 }
 
+td, th
+{
+    white-space: nowrap;
+}
+
 /* End erase format css */
 /* start konfigurasi */
 :root
@@ -154,6 +159,7 @@ th, td, tr
     font-weight: 400;
     src: url(../assets/fonts/TIMES.TTF) format('truetype');
 }
+
 .i
 {
     font-family: Material Icons;
@@ -385,7 +391,10 @@ aside ul li, #profil ul li
     padding: 8px;
     font-size: 14px;
     cursor: pointer;
-    
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border-radius: 4px;
 }
 
 .tombol img
@@ -1184,3 +1193,338 @@ form .group-action
     margin-right: 8px;
     margin-left: 32px;
 }
+.dashboard-mobile {
+    display: none;
+}
+
+/*CSS Mobile */
+
+@media only screen and (max-width: 768px) {
+body
+{
+    background-image: var(--gradient);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.main-desktop
+{
+    background-color: transparent;
+    display: flex;
+}
+.header-login ul
+{
+    display: flex;
+    flex-direction: column;
+    margin-right:0;
+}
+.header-desktop h1
+{
+    text-align: center;
+    font-size: 18px;
+}
+.footer-desktop
+{
+    background-image: none;
+    color: var(--secondary);
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    padding: 18px 0 18px 16px;
+    align-items: center;
+}
+.container-login
+{
+    display: flex;
+    margin: 0 12px;
+    width: 100%;
+    box-shadow: none;
+    border-radius: 10px;
+    padding: 40px 0;
+}
+.item-login1
+{
+    display: none;
+}
+.header-desktop ul
+{
+    display: none;
+}
+.wrap-login
+{
+    margin: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+.item-login2
+{
+    display: flex;
+    width: 100%;
+}
+.tombol
+{
+    padding: 14px;
+    font-size: 14px;
+    cursor: pointer;
+    
+}
+.form-login
+{
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+    font-size: 14px;
+}
+.input
+{
+    padding: 14px;
+    font-size: 14px;
+    background-color: #fff;
+    border: 1px solid var(--disable);
+    border-radius: 4px;
+}
+.grid-dashboard-2
+{
+    display: flex;
+    flex-direction: column;
+}
+.grid-dashboard-3
+{
+    display: flex;
+    flex-direction: column;
+}
+.aside-dashboard
+{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--primarydark);
+    color: #fff;
+    margin:0;
+}
+aside {
+    padding: 0;
+}
+
+aside li .i {
+    margin: 0 20px;
+}
+aside ul
+{
+    display: flex;
+    overflow-x: auto;
+    justify-content: center;
+}
+aside ul li
+{
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    width: 100%;
+}
+aside ul li .t
+{
+    display: none;
+}
+aside ul li ul
+{
+    position: absolute;
+    top: 120px;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+}
+aside ul li ul li
+{
+    padding: 0;
+}
+aside ul ul
+{
+    display: none;
+    width: auto;
+    background-color: var(--primaryxd);
+    transition: background-color 0.5s;
+}
+aside li ul li .i
+{
+    display: none;
+}
+aside li ul li .t
+{
+    display: block;
+    margin: 0 10px;
+}
+aside .logo
+{
+    display: none;
+    margin: 0;
+    justify-content: flex-start;
+}
+
+header.mobile
+{
+    display: none;
+}
+.grid-board
+{
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+.wrap-rekap, .wrap-manual
+{
+    color: var(--secondary);
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    justify-content: space-between;
+    gap: 15px;
+}
+.bar
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    flex-wrap: wrap;
+}
+
+.bar .i, .bar .data-subtitle
+{
+    display: none;
+}
+
+.card-3
+{
+    width: 100%;
+    display: flex;
+    /*flex-direction: row-reverse;*/
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    
+}
+.data-info
+{
+    display: flex;
+    padding: 20px;
+    flex-direction: column-reverse;
+}
+
+footer.mobile
+{
+    display: none;
+}
+
+.tablemobile
+{
+    overflow-x: auto;
+}
+
+.tablemobile td, .tablemobile th, .mini td, .mini th, #result-siswa td, #result-siswa th
+{
+    height: 60px;
+    vertical-align: middle;
+}
+
+.tablemobile td, .mini td, #result-siswa td
+{    
+    border-bottom: 1px solid var(--disable);
+}
+.group-action
+{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.pop
+{
+    width: 100%;
+}
+.pop tr
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.mini tr
+{
+    display: table-row;
+}
+
+td .tombol
+{
+    padding: 0 20px;
+    border: none;
+    background-color: transparent;
+}
+
+.board-wrap, .pop
+{
+    background-color: var(--secondary);
+    padding: 15px;
+    gap: 15px;
+    flex-direction: column;
+    display: flex;
+    /*border: 1px solid var(--disable);*/
+    box-shadow: none;
+    border-radius: 0;
+}
+.content
+{
+    padding: 0;
+    overflow-y: auto;
+    max-height: calc(100vh - 160px);
+}
+.breadcrumb
+{
+    margin: 10px 20px;
+}
+#result-siswa tr
+{
+    display: table-row;
+    text-align: center;
+    line-height: 2;
+}
+.dashboard-mobile {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5px;
+}
+.logo, .profil-mobile
+{
+    display: flex;
+    height: 52px;
+    margin-bottom: 0;
+}
+
+.logo {
+    margin-left: 10px;
+}
+.profil-mobile {
+    margin-right: 10px;
+}
+
+#profilButton {
+    width: 52px;
+    background: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 50%;
+    border: 3px solid var(--secondary);
+}
+
+#profilButton img {
+    height: 52px;
+    width: auto;
+    object-fit: contain;
+}
+
+
+} /* end css mobile */

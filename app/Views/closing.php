@@ -8,5 +8,5 @@
         });
     });
 </script>
-    <footer class="footer-desktop footer-dashboard">
+    <footer class="footer-desktop footer-dashboard mobile">
 <?= $this->include('footer') ?>

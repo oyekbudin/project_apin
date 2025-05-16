@@ -3,9 +3,11 @@
         <div class="pop">
             <div class="group-action"><h2 class="data-title">Ubah Data Siswa</h2><a onclick="history.back()"> <i class="i" onclick="offmodalTambah()">&#xe14c</i></a> </div>
             <div class="divider"></div>
-            <span class="tombol green">DATA SISWA</span>
+            <form action="/atursiswa/update/<?= $siswa['id']?>" method="post">
+                <div class="overflow-content">
+            <div class="tombol green">DATA SISWA</div>
 
-    <form action="/atursiswa/update/<?= $siswa['id']?>" method="post">
+    
     <table>
                     <tbody>
                         <tr>
@@ -45,6 +47,7 @@
                 <div class="group-action">
                 <a class="tombol disable" onclick="history.back()">Close</a>
                 <button class="tombol primary" type="submit">Simpan</button>
+                </div>
                 </div>
     </form>
     </div>

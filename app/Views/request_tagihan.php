@@ -20,6 +20,7 @@
 <button class="tombol green" onclick="onmodalTambah()">Buat Tagihan</button>
 </div>
 <div class="divider"></div>
+<div class="tablemobile">
     <table>
         <thead>
             <tr>
@@ -104,6 +105,7 @@
                 <?php endif; ?>
         </tbody>
     </table>
+    </div>
     <!-- pagination -->
     <?= $this->include('pagination') ?>
     </div>

@@ -32,8 +32,8 @@
                             </tbody>
                         </table>
                     <?php endif; ?> 
-
-            <table>
+<div class="tablemobile">
+            <table class="mini">
                     <thead>
                         <tr>
                             <th>Jenis Infaq</th>
@@ -63,6 +63,7 @@
                         <?php endif; ?>
                     </tbody>   
                     </table>
+                    </div>
             </div>
                 <div class="divider"></div>
                 <div class="group-action">

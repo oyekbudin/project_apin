@@ -3,7 +3,7 @@
         <div class="pop">
             <div class="group-action"><h2 class="data-title">Apakah anda yakin ingin menghapus data berikut?</h2><a onclick="history.back()"> <i class="i" onclick="offmodalTambah()">&#xe14c</i></a> </div>
             <div class="divider"></div>
-            <span class="tombol green">DATA SISWA</span>
+            <span class="tombol green">DATA INFAQ</span>
 
     <form action="/aturinfaq/delete/<?= $infaq[0]['id'] ?>" method="post">
     <table>

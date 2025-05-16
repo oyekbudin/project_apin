@@ -9,7 +9,7 @@
 
 </div>
 <div class="divider"></div>
-
+<div class="tablemobile">
     <table>
         <thead>
             <tr>
@@ -43,6 +43,7 @@
                 <?php endif; ?>
         </tbody>
     </table> 
+    </div>
     <!-- pagination -->
     </div>
 <!-- Modal -->

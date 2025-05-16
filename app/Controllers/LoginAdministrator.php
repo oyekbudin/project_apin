@@ -50,6 +50,6 @@ class LoginAdministrator extends Controller
     {
         $session = session();
         $session->destroy();
-        return redirect()->to('/loginadministrator');
+        return redirect()->to('/');
     }
 }

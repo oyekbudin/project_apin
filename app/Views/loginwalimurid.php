@@ -17,19 +17,19 @@
                 <div class="wrap-login">
                     <h2>MASUK</h2>
                     <div class="divider"></div>
-                    <h5>Silahkan Masuk Untuk Memulai Aplikasi</h5>
+                    <h5>Selamat Datang Bapak/Ibu Wali Murid! <br>Silahkan masukkan NIS dan Nomor Whatsapp untuk mulai menjalankan aplikasi</h5>
                     
-                    <form action="/loginadministrator/auth" method="post" class="form-login">
-                        <label for="adminname">User Name</label>
-                        <input class="input" type="text" name="adminname" id="inputadminname" value="<?= set_value('adminname') ?>" placeholder="User Name">
-                        <label for="Password">Password</label>
-                        <input class='input' type="password" name="password" id="inputpassword" placeholder="Password">
+                    <form action="/loginwalimurid/auth" method="post" class="form-login">
+                        <label for="nis">Nomor Induk Siswa / NIS</label>
+                        <input class="input" type="text" name="nis" id="" value="<?= set_value('nis') ?>" placeholder="Masukkan NIS">
+                        <label for="phonenumber">Nomor Whatsapp</label>
+                        <input class='input' type="text" name="phonenumber" id="" placeholder="Masukkan Nomor Whatsapp">
                         <?php if(session()->getFlashdata('msg')):?>
                         <span class="txtdanger"><?= session()->getFlashdata('msg') ?></span>
                         <?php endif;?>
                         <button type="submit" class="tombol primary">Masuk</button>
                     </form>
-                    <a class="tombol primary-outline" href="<?= base_url('/') ?>">Masuk Sebagai Wali Murid</a>
+                    <a class="tombol primary-outline" href="<?= base_url('loginadministrator') ?>">Masuk Sebagai Guru</a>
                 </div>
             </div>
         </div>

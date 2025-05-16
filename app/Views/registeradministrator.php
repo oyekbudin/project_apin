@@ -17,6 +17,7 @@
 </div>
 </div>
 <div class="divider"></div>
+<div class="tablemobile">
     <table>
         <thead>
             <tr>
@@ -53,6 +54,7 @@
                 <?php endif; ?>
         </tbody>
     </table>
+    </div>
     <!-- pagination -->
     <?= $this->include('pagination') ?>
     </div>
@@ -61,8 +63,10 @@
     <div class="pop">
         <div class="group-action"><h2 class="data-title">Tambah User</h2><i class="i" onclick="offmodalTambah()">&#xe14c</i></div>
         <div class="divider"></div>
-        <span class="tombol green">DATA USER</span>
-    <form action="/registeradministrator/save" method="post">
+        <form action="/registeradministrator/save" method="post">
+            <div class="overflow-content">
+        <div class="tombol green">DATA USER</div>
+    
             <table>
                     <tbody>
                         <tr>
@@ -99,6 +103,7 @@
                 <div class="group-action">
                 <a class="tombol disable" onclick="offmodalTambah()">Close</a>
                 <button class="tombol primary" type="submit">Simpan</button>
+                </div>
                 </div>
     </form>
     </div>

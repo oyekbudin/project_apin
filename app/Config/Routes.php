@@ -5,10 +5,11 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
-$routes->get('/', 'LoginAdministrator::index');
+$routes->get('/', 'LoginWalimurid::index');
 $routes->get('/dbtest', 'DBTest::index');
 
 $routes->get('/dashboardadministrator', 'DashboardAdministrator::index',['filter'=>'auth']);
+$routes->get('/dashboard-walimurid', 'DashboardWalimurid::index',['filter'=>'auth']);
 
 $routes->get('/registeradministrator', 'RegisterAdministrator::index');
 $routes->post('/registeradministrator/save', 'RegisterAdministrator::save');
@@ -30,6 +31,8 @@ $routes->post('/profil/update/(:num)', 'Profil::update/$1');
 $routes->get('/loginadministrator', 'LoginAdministrator::index');
 $routes->post('/loginadministrator/auth', 'LoginAdministrator::auth');
 $routes->get('/logout', 'LoginAdministrator::index');
+
+$routes->post('/loginwalimurid/auth', 'LoginWalimurid::auth');
 
 $routes->get('/atursiswa', 'AturSiswa::index',['filter'=>'auth']);
 $routes->post('/atursiswa/save', 'AturSiswa::save');
