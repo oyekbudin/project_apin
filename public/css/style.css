@@ -425,9 +425,18 @@ aside ul li, #profil ul li
     color: var(--primary);
 }
 
+.txtbold {
+    font-weight: bold;
+}
+
 .primarylight
 {
     background-color: var(--primarylight);
+    color: var(--secondary);
+}
+.primarydark
+{
+    background-color: var(--primarydark);
     color: var(--secondary);
 }
 
@@ -664,6 +673,10 @@ aside ul li, #profil ul li
 {
     color: var(--danger);
 }
+.txtdisable
+{
+    color: var(--disable);
+}
 
 .txtred
 {
@@ -878,11 +891,15 @@ aside ul li, #profil ul li
 .td-action
 {
     text-align: right;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
 }
 
 .td-action a 
 {
-    margin-left: 10px;
+    line-height: 1;
+    width: fit-content;
 }
 
 tbody tr:hover
@@ -1202,7 +1219,6 @@ form .group-action
 @media only screen and (max-width: 768px) {
 body
 {
-    background-image: var(--gradient);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -1225,8 +1241,6 @@ body
 }
 .footer-desktop
 {
-    background-image: none;
-    color: var(--secondary);
     display: flex;
     flex-wrap: wrap;
     text-align: center;
@@ -1237,11 +1251,11 @@ body
 .container-login
 {
     display: flex;
-    margin: 0 12px;
+    margin: 0;
     width: 100%;
     box-shadow: none;
-    border-radius: 10px;
-    padding: 40px 0;
+    border-radius: 0;
+    padding: 0;
 }
 .item-login1
 {
@@ -1289,7 +1303,7 @@ body
 .grid-dashboard-2
 {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
 }
 .grid-dashboard-3
 {
@@ -1300,9 +1314,18 @@ body
 {
     display: flex;
     flex-direction: column;
-    background-color: var(--primarydark);
-    color: #fff;
+    background-color: var(--secondary);
+    color: var(--disable);
     margin:0;
+    position: fixed;
+    width:100%;
+    bottom: 0;
+    left: 0;
+}
+.on
+{
+    background-color: var(--secondarytrans);
+    color: var(--primarydark);
 }
 aside {
     padding: 0;
@@ -1315,46 +1338,63 @@ aside ul
 {
     display: flex;
     overflow-x: auto;
-    justify-content: center;
+    justify-content: space-around;
+    border-top: 1px solid var(--primarydark);
 }
 aside ul li
 {
     display: flex;
     flex-direction: column;
-    padding-top: 10px;
+    padding: 7px 0;
     width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
 }
 aside ul li .t
+{
+    font-size: 10px;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    line-height: 2;
+}
+aside ul li i:nth-of-type(2)
 {
     display: none;
 }
 aside ul li ul
 {
     position: absolute;
-    top: 120px;
+    bottom: 64px;
     display: flex;
     flex-direction: column;
     padding: 0;
+    
 }
 aside ul li ul li
 {
     padding: 0;
+    border: 1px solid var(--secondary);
+    box-sizing: border-box;
 }
 aside ul ul
 {
     display: none;
     width: auto;
-    background-color: var(--primaryxd);
-    transition: background-color 0.5s;
+    background:none;   
+    background-color: var(--primarydark);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 aside li ul li .i
 {
     display: none;
 }
-aside li ul li .t
+aside ul li ul li .t
 {
-    display: block;
-    margin: 0 10px;
+    font-size: 14px;
+    color: var(--secondary);
+    padding: 12px;
 }
 aside .logo
 {
@@ -1372,7 +1412,7 @@ header.mobile
     display: flex;
     flex-direction: column;
     grid-template-columns: 1fr 1fr;
-    gap: 30px;
+    gap: 0;
 }
 .wrap-rekap, .wrap-manual
 {
@@ -1403,7 +1443,7 @@ header.mobile
     display: flex;
     /*flex-direction: row-reverse;*/
     flex-wrap: wrap;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-around;
     
 }
@@ -1444,7 +1484,7 @@ footer.mobile
 {
     width: 100%;
 }
-.pop tr
+.pop tr, .dataonly tr
 {
     display: flex;
     flex-direction: column;
@@ -1464,7 +1504,7 @@ td .tombol
 
 .board-wrap, .pop
 {
-    background-color: var(--secondary);
+    /*background-color: var(--secondary);*/
     padding: 15px;
     gap: 15px;
     flex-direction: column;
@@ -1473,11 +1513,17 @@ td .tombol
     box-shadow: none;
     border-radius: 0;
 }
+
+.board-wrap.primarylight {
+    background-color: var(--primarylight);
+}
 .content
 {
     padding: 0;
     overflow-y: auto;
-    max-height: calc(100vh - 160px);
+    min-height: calc(100vh - 116px);
+    max-height: calc(100vh - 116px);
+    margin: 58px 0;        
 }
 .breadcrumb
 {
@@ -1494,11 +1540,15 @@ td .tombol
     flex-direction: row;
     justify-content: space-between;
     padding: 5px;
+    position: fixed;
+    background-color: var(--primarydark);
+    top: 0;
+    width: 100%;
 }
 .logo, .profil-mobile
 {
     display: flex;
-    height: 52px;
+    height: 48px;
     margin-bottom: 0;
 }
 
@@ -1510,7 +1560,7 @@ td .tombol
 }
 
 #profilButton {
-    width: 52px;
+    width: 48px;
     background: none;
     display: flex;
     align-items: center;
@@ -1525,6 +1575,95 @@ td .tombol
     width: auto;
     object-fit: contain;
 }
+#Home.dashboard-mobile {
+    background-color: var(--primarylight);
+}
+#Pembayaran.dashboard-mobile, #Profil.dashboard-mobile {
+    background-color: var(--secondary);
+    padding: 17px 12px;
+}
+.nama-mobile {
+    display: flex;
+    color: var(--secondary);
+    justify-content: flex-start;
+    align-items: center;
+}
+.nama-mobile .t{
+    max-width: 200px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.bantuan-mobile {
+    background-color: var(--primarydark);
+    color: var(--secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    gap: 5px;
+    border-radius: 4px;
+    margin-right: 8px;
+}
+.bantuan-mobile .t {
+    font-size: 10px;
+    
+}
+.card-3.primarydark span {
+    margin-left: 20px;
+}
+.list-tagihan ul {
+    margin-top: 10px;
+    margin-bottom: 58px;
+}
+.list-tagihan ul li {
+    background-color: var(--secondary);
+    margin-bottom: 5px;
+    display: flex;
+    padding: 0 20px;
+    gap: 20px;
+    line-height: 58px;
+}
+.list-tagihan ul li label {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.checkout {
+    position: fixed;
+    bottom: 58px;
+    margin-bottom: 0;
+    width: 100%;
+    background-color: var(--secondary);
+    display: flex;
+    height: 58px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    border-top: 1px solid var(--primarylight);
+    border-bottom: 1px solid var(--primarylight);
+}
+
+#selectAll {
+    margin-left: 20px;
+}
+#bayar {
+    margin-right: 20px;
+    display: flex;
+    gap: 20px;
+}
+#bayar span {
+    text-align: right;
+}
+
+
+
+
+
+
+
+
 
 
 } /* end css mobile */

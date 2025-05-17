@@ -16,8 +16,7 @@
             <td>: *****</td>
         </tr>        
         <tr>
-            <td></td>
-            <td><a class="tombol primary-outline" onclick="onmodalEdit()">Edit Profil</a></td>
+            <td colspan="2"><div class="td-action"><a class="tombol primary-outline" onclick="onmodalEdit()">Edit Profil</a></div></td>
         </tr>        
     </table>
     <?php endif; ?>

@@ -5,7 +5,7 @@ use CodeIgniter\Model;
 class SiswaModel extends Model
 {
     protected $table = 'siswa';
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'nis';
     protected $allowedFields = ['nis', 'name', 'phonenumber', 'gender', 'kelas'];
 
     public function getTotalSiswa()

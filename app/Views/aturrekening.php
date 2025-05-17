@@ -36,9 +36,10 @@
             <td>: <?= $rekening[0]['phonenumber']?></td>
         </tr>
         <tr>
-            <td></td>
-            <td><a class="tombol primary-outline" href="/aturrekening/edit/<?= $rekening[0]['id']?>">Edit Data</a></td>
-        </tr>        
+            <td colspan="2">
+                <div class="td-action">
+                <a class="tombol primary-outline" href="/aturrekening/edit/<?= $rekening[0]['id']?>">Edit Data</a></td>
+        </div></tr>        
     </table>
     <?php endif; ?>
     </div>

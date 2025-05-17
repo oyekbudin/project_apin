@@ -5,6 +5,7 @@
 
 <a href="<?= base_url('/pdf/tagihan/' . $datatagihan[0]['id_tagihan'] ); ?>" class="tombol primary" target="_blank">Export Tagihan</a>
 <a href="<?= base_url('/pdf/tagihan-siswa/' . $datatagihan[0]['id_tagihan'] ); ?>" class="tombol primary" target="_blank">Export Tagihan Per Siswa</a>
+<a href="<?= base_url('/tagihan/aktif/'. $datatagihan[0]['id_tagihan'] );?>" class="tombol green">Aktifkan Tagihan</a>
 <a href="<?= base_url('/#'); ?>" class="tombol green" target="_blank">Kirim Tagihan</a>
 
 </div>
@@ -32,7 +33,9 @@
                 <td style="text-align:left"><?= $t['nama_siswa'] ?></td>
                 <td><?= $t['kelas'] ?></td>
                 <td>
+                    <div class="td-action">
                     <a class="tombol danger-outline" href="/tagihan/requestdetail?id=<?= $t['nis'] ?>&request=<?= $t['id_tagihan'] ?>">Detail Tagihan</a>
+                    </div>
                 </td>
             </tr>
             <?php endforeach; ?>

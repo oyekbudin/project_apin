@@ -56,7 +56,7 @@
         <header class="header-desktop header-dashboard mobile">
             <h1>Aplikasi Pengelola Infaq SMP Ma'arif NU 01 Wanareja</h1>
             <div>
-                <button id="profilButton" class="tombol secondary"><img src="<?= base_url('/assets/pic.webp') ?>" alt=""><span class="t"><?php echo $name ?></span></button>
+                <button id="profilButtonDesktop" class="tombol secondary"><img src="<?= base_url('/assets/pic.webp') ?>" alt=""><span class="t"><?php echo $name ?></span></button>
             <div id="profil">
                 <ul>
                     <a href="/profil/edit/<?= session()->get('idadmin') ?>"><li><i class="i">&#xF02E</i><span class="t">Edit Profil</span></li></a>

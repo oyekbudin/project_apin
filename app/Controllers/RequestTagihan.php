@@ -4,6 +4,7 @@
 use App\Models\InfaqModel;
 use App\Models\KelasModel;
 use App\Models\RequestTagihanModel;
+use App\Models\TagihanAktifModel;
 use App\Models\TagihanInfaqModel;
 use CodeIgniter\Controller;
 
@@ -14,6 +15,7 @@ class RequestTagihan extends Controller
     protected $requestTagihanModel;
     //protected $tagihanInfaqModel;
     protected $administratorModel;
+    protected $tagihanAktifModel;
 
     public function __construct()
     {
@@ -22,6 +24,7 @@ class RequestTagihan extends Controller
         $this->requestTagihanModel = new RequestTagihanModel();
         //$this->tagihanInfaqModel = new TagihanInfaqModel();
         $this->administratorModel = new AdministratorModel();
+        $this->tagihanAktifModel = new TagihanAktifModel();
     }
 
     public function index()
@@ -40,6 +43,9 @@ class RequestTagihan extends Controller
             $datarequest = $this->requestTagihanModel->getPaginated($perPage, $offset);
         }
 
+        $tagihan_aktif = $this->tagihanAktifModel->orderBy('id','desc')->first();
+
+
         $data = [
             'menu' => 'Pengelolaan',
             'title' => 'Tagihan',
@@ -51,8 +57,12 @@ class RequestTagihan extends Controller
             'keyword' => $keyword,
             'infaq' => $this->infaqModel->getDataInfaq(),
             'session' => $session->get(),
+            'tagihan_aktif' => $tagihan_aktif['id_tagihan'],
         ];
 
+        //echo '<pre>';
+        //print_r($data);
+        //echo '</pre>';
         return view('request_tagihan', $data);
     }
 

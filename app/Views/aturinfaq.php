@@ -47,8 +47,10 @@
                 <td><?= str_replace(['{', '}', '"'], '',$infaq['kelas']) ?></td>
                 <td><?= number_format($infaq['harga']) ?></td>
                 <td>
+                    <div class="td-action">
                     <a class="tombol warning-outline" href="/aturinfaq/edit/<?= $infaq['id'] ?>">Edit</a>
                     <a class="tombol danger-outline" href="/aturinfaq/confirmdeleteinfaq/<?= $infaq['id'] ?>">Hapus</a>
+                    </div>
                 </td>
             </tr>
             <?php endforeach; ?>

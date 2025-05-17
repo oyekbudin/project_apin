@@ -15,13 +15,13 @@ class DashboardWalimurid extends Controller
         $infaqModel = new InfaqModel();
 
         $data = [
-            'menu' => 'Dashboard',
-            'title' => 'Dashboard',
+            'menu' => 'Home',
+            'title' => 'Home',
             'totalsiswa' => $siswaModel->getTotalSiswa(),
             'totalinfaq' => $infaqModel->getTotalInfaq(),
         ];
         //echo "Selamat datang. ".$session->get('name')." Sebagai :".$session->get('role');
-        echo view('rekapdata', $data);
+        echo view('riwayat-pembayaran', $data);
     }
 
     public function logout()

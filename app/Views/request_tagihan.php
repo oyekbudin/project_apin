@@ -25,10 +25,11 @@
         <thead>
             <tr>
                 <th>No</th>
+                <th>Status</th>
                 <th>Judul Tagihan</th>
                 <th>Tanggal</th>
                 <th>Dibuat oleh</th>
-                <th>Status</th>
+                <th>Persetujuan</th>
                 <th>Opsi</th>
             </tr>
         </thead>
@@ -42,6 +43,7 @@
             ?>
             <!--?php $i = 1; ?-->
             <?php
+            //$tagihan_aktif = $datarequest('tagihan_aktif');
             foreach ($datarequest as $dr) : 
                 switch ($dr['status']) {
                     case 'pending' :
@@ -60,9 +62,18 @@
                         $view = '';
                         break;
                 };
+                
+                if($dr['id'] === $tagihan_aktif) {
+                    $aktif = 'Aktif';
+                    $coloraktif = 'txtgreen';
+                } else {
+                    $aktif = 'Nonaktif';
+                    $coloraktif = 'txtdisable';
+                };
             ?>
             <tr>
                 <td><?= $i++ ; ?></td>
+                <td><span class="<?= $coloraktif ?>"><?= $aktif ?></span></td>
                 <td style="text-align:left"><?= $dr['title'] ?></td>
                 <td><?= $dr['date'] ?></td>
                 <td><?= $dr['nama_admin'] ?></td>

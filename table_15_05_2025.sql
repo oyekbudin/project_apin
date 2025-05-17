@@ -118,6 +118,13 @@ CREATE TABLE rekening (
     phonenumber VARCHAR(15)
 );
 
+DROP TABLE IF EXISTS "tagihan_aktif";
+CREATE TABLE tagihan_aktif (
+    id SERIAL PRIMARY KEY,
+    id_tagihan int,
+    FOREIGN KEY (id_tagihan) REFERENCES request_tagihan(id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
 INSERT INTO "administrator" ("id", "name", "registerdate", "loginstatus", "idadmin", "adminname", "role", "password") VALUES
 (2,	'Ibnu Sadun Isngadi',	'2025-05-15 09:55:06.79747',	'f',	2,	'ibnusadun',	'KepalaSekolah',	'$2y$10$LV0zFrAD4tjefm1L0bnaLO2BvDV3lzm337TQ/CbioTr6MAmixdu1K'),
 (1,	'Arvin Noer Hakim',	'2025-05-14 12:55:36.515887',	'f',	1,	'hakimarvinnoer',	'SistemAdmin',	'$2y$10$/BEeOSwgZdic8Zd1oY8piOSPf3TRkL/4JIeoi55GlvF/FIn//.FkG'),

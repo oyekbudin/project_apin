@@ -9,7 +9,13 @@ $routes->get('/', 'LoginWalimurid::index');
 $routes->get('/dbtest', 'DBTest::index');
 
 $routes->get('/dashboardadministrator', 'DashboardAdministrator::index',['filter'=>'auth']);
+
 $routes->get('/dashboard-walimurid', 'DashboardWalimurid::index',['filter'=>'auth']);
+$routes->get('/m-pembayaran', 'MPembayaran::tagihan');
+
+$routes->get('/m-profil', 'MProfil::index');
+$routes->get('/m-profil/edit/(:num)', 'MProfil::edit/$1');
+$routes->post('/m-profil/update/(:num)', 'MProfil::update/$1');
 
 $routes->get('/registeradministrator', 'RegisterAdministrator::index');
 $routes->post('/registeradministrator/save', 'RegisterAdministrator::save');
@@ -30,7 +36,7 @@ $routes->post('/profil/update/(:num)', 'Profil::update/$1');
 
 $routes->get('/loginadministrator', 'LoginAdministrator::index');
 $routes->post('/loginadministrator/auth', 'LoginAdministrator::auth');
-$routes->get('/logout', 'LoginAdministrator::index');
+$routes->get('/logout', 'LoginWaliMurid::index');
 
 $routes->post('/loginwalimurid/auth', 'LoginWalimurid::auth');
 
@@ -65,6 +71,7 @@ $routes->post('/tagihan/checkbox', 'Tagihan::checkbox');
 $routes->get('/tagihan/detail/(:num)', 'Tagihan::detail/$1');
 $routes->get('/tagihan/request/(:num)', 'Tagihan::request/$1');
 $routes->get('/tagihan/requestdetail', 'Tagihan::requestdetail');
+$routes->get('/tagihan/aktif/(:num)', 'Tagihan::aktif/$1');
 $routes->get('/pdf/tagihan/(:num)', 'PdfController::tagihan/$1');
 $routes->get('/pdf/tagihan-siswa/(:num)', 'PdfController::tagihan_siswa/$1');
 

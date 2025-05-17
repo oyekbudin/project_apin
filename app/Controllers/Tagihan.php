@@ -1,21 +1,27 @@
 <?php namespace App\Controllers;
 
 use App\Models\InfaqModel;
+use App\Models\KelasModel;
 use App\Models\SiswaModel;
+use App\Models\TagihanAktifModel;
 use App\Models\TagihanModel;
 use CodeIgniter\Controller;
 
 class Tagihan extends Controller
 {
-    //protected $siswaModel = new SiswaModel();
-    //protected $infaqModel = new InfaqModel();
-    //protected $tagihanModel = new TagihanModel();
+    protected $siswaModel;
+    protected $infaqModel;
+    protected $tagihanModel;
+    protected $tagihanAktifModel;
+    protected $kelasModel;
 
     public function __construct()
     {
         $this->infaqModel = new InfaqModel();
         $this->siswaModel = new SiswaModel();
         $this->tagihanModel = new TagihanModel();
+        $this->tagihanAktifModel = new TagihanAktifModel();        
+        $this->kelasModel = new KelasModel();
     }
 
     public function index()
@@ -183,10 +189,13 @@ class Tagihan extends Controller
     public function request($id)
     {
         $datatagihan = $this->tagihanModel->getTagihanByRequest($id);
+        $tagihan_aktif = $this->tagihanAktifModel->orderBy('id','desc')->first();
+        
         $data = [
             'menu' => 'Pengelolaan',
             'title' => 'Tagihan',
             'datatagihan' => $datatagihan,
+            'tagihan_aktif' => $tagihan_aktif['id_tagihan'],
         ];
         //echo '<pre>';
         //print_r($datatagihan);
@@ -207,5 +216,16 @@ class Tagihan extends Controller
 
         //print_r ($data['tagihan']);
         return view('detailtagihan', $data);
+    }
+
+    public function aktif($id)
+    {
+            $data =
+            [
+                'id_tagihan' => $id,
+            ];
+            
+            $this->tagihanAktifModel->insert($data);
+            return redirect()->back()->with('success', 'Tagihan berhasil diaktifkan.');
     }
 }

@@ -4,6 +4,7 @@
         <div class="pop">
             <div class="group-action"><h2 class="data-title">Edit Data Rekening</h2><a href="/aturrekening"><i class="i">&#xe14c</i></a></div>
             <div class="divider"></div>
+            <div class="overflow-content">
             <span class="tombol green">DATA REKENING</span>
             <?php
             if (isset($rekening)) :
@@ -120,6 +121,7 @@
                 <button class="tombol primary" type="submit">Simpan</button>
                 </div>
             </form>
+            </div>
         </div>
     </div>
 

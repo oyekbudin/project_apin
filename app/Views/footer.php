@@ -1,13 +1,6 @@
     
         <span>Aplikasi Pengelola Infaq </span><span class="txtwarning">Versi 0.2.0-alpha.1 </span><span>, Arvin Noer Hakim | 215720010 STMIK KOMPUTAMA MAJENANG 2025</span>
     </footer>
-    
-    <!--div class="toaster">
-        <p class="txtsecondary txttoaster">Pemberitahuan</p>
-        <button class="btn-toaster">
-            <p class="txtsecondary">OK</p>
-        </button>
-    </div-->
 </body>
 </html>
 
@@ -103,7 +96,7 @@
 </script>
 
 <script>
-    document.getElementById("profilButton").addEventListener("click", function() {
+    document.getElementById("profilButtonDesktop").addEventListener("click", function() {
         const profilMenu = document.getElementById("profil");
         if (profilMenu.style.display === 'flex') {
             profilMenu.style.display = "none";
@@ -113,7 +106,7 @@
     });
 
     document.addEventListener("click", function(event) {
-        const profilButton = document.getElementById("profilButton");
+        const profilButton = document.getElementById("profilButtonDesktop");
         const profilMenu = document.getElementById("profil");
         if (!profilButton.contains(event.target) && !profilMenu.contains(event.target)) {
             profilMenu.style.display = "none";

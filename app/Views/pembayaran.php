@@ -32,8 +32,10 @@
                 <td><?= number_format($row['total_nominal'])  ?></td>
                 <!--td><//?= $row['status'] ?></td-->
                 <td>
+                    <div class="td-action">
                     <!--a class="tombol primary-outline" href="/pembayaran/detail/<//?= $row['order_id'] ?>">Detail Pembayaran</a-->
                     <a class="tombol primary-outline" href="/pembayaran/detail/<?= $row['order_id'] ?>">Detail Pembayaran</a>
+                    </div>
                 </td>
             </tr>
             <?php endforeach; ?>

@@ -42,9 +42,10 @@
                 <td><?= $user['adminname'] ?></td>
                 <td><?= $user['role'] ?></td>
                 <td>
+                    <div class="td-action">
                     <a class="tombol warning-outline" href="/registeradministrator/edit/<?= $user['idadmin'] ?>">Edit</a>
                     <a class="tombol danger-outline" href="/registeradministrator/confirmdeleteadministrator/<?= $user['idadmin'] ?>">Hapus</a>
-                </td>
+                </div></td>
             </tr>
             <?php endforeach; ?>
             <?php else : ?>
