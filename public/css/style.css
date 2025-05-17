@@ -1489,6 +1489,12 @@ footer.mobile
     display: flex;
     flex-direction: column;
 }
+.dataonly {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    gap:10px
+}
 
 .mini tr
 {
@@ -1664,7 +1670,7 @@ span.no-tagihan {
 {
     background-color: var(--secondary);
     color: var(--primarydark);
-    border: none;
+    border: 1px solid var(--primarydark);
 }
 
 

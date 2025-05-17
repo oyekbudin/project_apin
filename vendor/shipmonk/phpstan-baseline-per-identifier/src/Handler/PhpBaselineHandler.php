@@ -28,11 +28,15 @@ class PhpBaselineHandler implements BaselineHandler
         }
     }
 
-    public function encodeBaseline(string $comment, array $errors, string $indent): string
+    public function encodeBaseline(?string $comment, array $errors, string $indent): string
     {
         $php = '<?php declare(strict_types = 1);';
-        $php .= "\n\n";
-        $php .= "// $comment";
+
+        if ($comment !== null) {
+            $php .= "\n\n";
+            $php .= "// $comment";
+        }
+
         $php .= "\n\n";
         $php .= "\$ignoreErrors = [];\n";
 
@@ -52,9 +56,14 @@ class PhpBaselineHandler implements BaselineHandler
         return $php;
     }
 
-    public function encodeBaselineLoader(array $filePaths, string $indent): string
+    public function encodeBaselineLoader(?string $comment, array $filePaths, string $indent): string
     {
         $php = "<?php declare(strict_types = 1);\n\n";
+
+        if ($comment !== null) {
+            $php .= "// $comment\n";
+        }
+
         $php .= "return ['includes' => [\n";
 
         foreach ($filePaths as $filePath) {

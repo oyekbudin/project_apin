@@ -20,9 +20,12 @@ class BaselineSplitter
 
     private string $indent;
 
-    public function __construct(string $indent)
+    private bool $includeCount;
+
+    public function __construct(string $indent, bool $includeCount)
     {
         $this->indent = $indent;
+        $this->includeCount = $includeCount;
     }
 
     /**
@@ -58,23 +61,27 @@ class BaselineSplitter
 
         $outputInfo = [];
         $baselineFiles = [];
+        $totalErrorCount = 0;
 
         foreach ($groupedErrors as $identifier => $errors) {
             $fileName = $identifier . '.' . $extension;
             $filePath = $folder . '/' . $fileName;
             $errorsCount = array_reduce($errors, static fn(int $carry, array $item): int => $carry + $item['count'], 0);
+            $totalErrorCount += $errorsCount;
 
             $outputInfo[$filePath] = $errorsCount;
             $baselineFiles[] = $fileName;
 
             $plural = $errorsCount === 1 ? '' : 's';
-            $prefix = "total $errorsCount error$plural";
+            $prefix = $this->includeCount ? "total $errorsCount error$plural" : null;
 
             $encodedData = $handler->encodeBaseline($prefix, $errors, $this->indent);
             $this->writeFile($filePath, $encodedData);
         }
 
-        $baselineLoaderData = $handler->encodeBaselineLoader($baselineFiles, $this->indent);
+        $plural = $totalErrorCount === 1 ? '' : 's';
+        $prefix = $this->includeCount ? "total $totalErrorCount error$plural" : null;
+        $baselineLoaderData = $handler->encodeBaselineLoader($prefix, $baselineFiles, $this->indent);
         $this->writeFile($realPath, $baselineLoaderData);
 
         $outputInfo[$realPath] = null;

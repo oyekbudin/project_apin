@@ -16,6 +16,7 @@
         "dompdf/dompdf": "*",
         "guzzlehttp/guzzle": "*",
         "laminas/laminas-escaper": "^2.14",
+        "midtrans/midtrans-php": "*",
         "psr/log": "^3.0"
     },
     "require-dev": {

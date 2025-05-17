@@ -12,6 +12,8 @@ $routes->get('/dashboardadministrator', 'DashboardAdministrator::index',['filter
 
 $routes->get('/dashboard-walimurid', 'DashboardWalimurid::index',['filter'=>'auth']);
 $routes->get('/m-pembayaran', 'MPembayaran::tagihan');
+$routes->get('/m-pembayaran/snap_token', 'MPembayaran::snap_token');
+$routes->get('/m-pembayaran/checkout', 'MPembayaran::checkout');
 
 $routes->get('/m-profil', 'MProfil::index');
 $routes->get('/m-help', 'MProfil::help');
@@ -95,3 +97,5 @@ $routes->get('/laporantahunan', 'LaporanTahunan::index',['filter'=>'auth']);
 
 $routes->get('/pdf/laporantahunan', 'PdfController::laporanTahunan');
 
+$routes->get('/midtrans', 'MidtransController::index');
+$routes->post('/midtrans/callback', 'MidtransController::callback');
