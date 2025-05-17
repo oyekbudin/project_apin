@@ -37,6 +37,23 @@ class PembayaranModel extends Model
         //->findAll();
     }
 
+    public function getPembayaranBySiswa($id)
+    {
+        return $this
+        ->join('siswa','pembayaran.id_siswa = siswa.nis') 
+        ->join('infaq','pembayaran.id_infaq = infaq.id')
+        ->select('
+            siswa.nis,
+            siswa.name as nama_siswa,
+            siswa.kelas,
+            infaq.name as nama_infaq,
+            pembayaran.*
+        ')
+        ->where('pembayaran.id_siswa', $id)
+        ->orderBy('pembayaran.date', 'DESC')
+        ->findAll();
+    }
+
     public function getPembayaranByBulan($tglAwal, $tglAkhir)
     {
         //$tahun = '2025';
@@ -86,36 +103,6 @@ class PembayaranModel extends Model
     public function getTagihan($nis, $kelas)
     {
         return $this
-        //->join('siswa','pembayaran.idsiswa = siswa.nis')
-        //->join('infaq','pembayaran.idinfaq = infaq.id')
-        //->select('
-        //    siswa.nis,
-        //    siswa.name as nama_siswa,
-        //    siswa.kelas,
-        //    infaq.id as id_infaq,
-        //    infaq.name as nama_infaq,
-        //    pembayaran.*
-        //')        
-        //->where('pembayaran.idsiswa', $nis)
-        //->orderBy('infaq.id', 'ASC')
-        //->findAll();
-
-        //->from('infaq i')
-        //->select([
-        //    'DISTINCT ON (i.id, s.nis) i.id AS id_infaq',
-        //    's.nis',
-        //    's.name AS nama_siswa',
-        //    's.kelas',
-        //    'i.name AS nama_infaq',
-        //    'i.harga',
-        //    'COALESCE(p.nominal, 0) AS nominal',
-        //    'p.id AS id_pembayaran',
-        //])
-        //->join('siswa s', 's.nis = ' . $nis, 'inner')
-        //->join('pembayaran p', 'p.idinfaq = i.id AND p.idsiswa = s.nis', 'left')
-        //->where('i.kelas LIKE', '%7%')
-        //->orderBy('i.id', 'ASC') // Urutkan berdasarkan ID infaq
-        //->findAll();
 
         ->from('infaq i')
         ->select([

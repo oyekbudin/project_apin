@@ -5,18 +5,19 @@
 <?= $this->include('header') ?>
 <body class="grid-dashboard-1">
     <main class="grid-dashboard-2">
-        <div class="dashboard-mobile" id="<?= $title ?>">
-            <?php if($title === 'Home') : ?>
+        <div class="dashboard-mobile" id="<?= $menu ?>">
+            <?php if($menu === 'Home') : ?>
             <div class="logo">
                 <img src="<?= base_url('/assets/pic.webp') ?>" alt="">
             </div>            
             <div class="nama-mobile">
                 <span class="t"><?php echo $name ?></span>
             </div>
-            <div class="bantuan-mobile">
+            
+            <a class="bantuan-mobile" href="<?= base_url('m-help'); ?>">
                 <i class="i">&#xE24C</i>
                 <span class="t">Pusat<br>bantuan</span>
-            </div>
+            </a>
             <?php else : ?>
                 <div class="group-action">
                     <a onclick="history.back()">

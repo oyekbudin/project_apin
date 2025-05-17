@@ -1,26 +1,40 @@
 <?php namespace App\Controllers;
 
       use App\Models\InfaqModel;
+      use App\Models\PembayaranModel;
       use App\Models\SiswaModel;
-      use CodeIgniter\Controller;
+use App\Models\TagihanAktifModel;
+use App\Models\TagihanModel;
+use CodeIgniter\Controller;
 
 class DashboardWalimurid extends Controller
 {
-    
+    protected $pembayaranModel;
+    protected $tagihanModel;
+    protected $tagihanAktifModel;
+    public function __construct()
+    {
+        $this->pembayaranModel = new PembayaranModel();
+        $this->tagihanModel = new TagihanModel();
+        $this->tagihanAktifModel = new TagihanAktifModel;
+    }
     public function index()
     {
         $session = session();
-
-        $siswaModel = new SiswaModel();
-        $infaqModel = new InfaqModel();
+        $id = $session->get('nis');
+        $tagihan_aktif = $this->tagihanAktifModel->orderBy('id','desc')->first();
+        $request = $tagihan_aktif['id_tagihan'];
 
         $data = [
             'menu' => 'Home',
             'title' => 'Home',
-            'totalsiswa' => $siswaModel->getTotalSiswa(),
-            'totalinfaq' => $infaqModel->getTotalInfaq(),
+            'pembayaran' => $this->pembayaranModel->getPembayaranBySiswa($id),
+            'tagihan' => $this->tagihanModel->getTagihanByRequestById($id, $request),
         ];
         //echo "Selamat datang. ".$session->get('name')." Sebagai :".$session->get('role');
+        //echo '<pre>';
+        //print_r($data['pembayaran']);
+        //echo '</pre>';
         echo view('riwayat-pembayaran', $data);
     }
 
@@ -29,4 +43,6 @@ class DashboardWalimurid extends Controller
         session()->destroy();
         return redirect()->to('loginadministrator');
     }
+
+    
 }

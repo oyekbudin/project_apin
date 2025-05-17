@@ -28,8 +28,8 @@
     <?php endif; ?>
     </div>
 </div>
-<a class="tombol primary-outline" onclick="onmodalEdit()">Edit Nomor Whatsapp</a>
-<a class="tombol primary-outline" href="<?= base_url('logout') ?>"><i class="i">&#xE9BA</i>Keluar</a>
+<a class="tombol primary-outline" onclick="onmodalEdit()"><i class="i">&#xF097</i>Edit Nomor Whatsapp</a>
+<a class="tombol primary-outline" href="<?= base_url('logout') ?>"><i class="i">&#xE9BA</i>Keluar dari aplikasi</a>
 <!-- modal -->
  <div id="modalTambah" class="black-board">
         <div class="pop">

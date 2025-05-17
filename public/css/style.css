@@ -1656,6 +1656,16 @@ td .tombol
 #bayar span {
     text-align: right;
 }
+span.no-tagihan {
+    width: 100%;
+    text-align: center;
+}
+.primary-outline
+{
+    background-color: var(--secondary);
+    color: var(--primarydark);
+    border: none;
+}
 
 
 

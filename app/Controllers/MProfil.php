@@ -75,4 +75,15 @@ class MProfil extends Controller
         }
     }
 
+    public function help()
+    {
+        $data = [
+            'menu' => 'Profil',
+            'title' => 'Pusat Bantuan',
+            //'user' => $this->siswaModel->find($id),
+            //'on' => true,
+        ];
+        return view('m-help', $data);
+    }
+
 }

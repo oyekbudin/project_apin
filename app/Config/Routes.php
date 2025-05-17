@@ -14,6 +14,7 @@ $routes->get('/dashboard-walimurid', 'DashboardWalimurid::index',['filter'=>'aut
 $routes->get('/m-pembayaran', 'MPembayaran::tagihan');
 
 $routes->get('/m-profil', 'MProfil::index');
+$routes->get('/m-help', 'MProfil::help');
 $routes->get('/m-profil/edit/(:num)', 'MProfil::edit/$1');
 $routes->post('/m-profil/update/(:num)', 'MProfil::update/$1');
 
