@@ -132,3 +132,72 @@
     </script>
 <?php endif ?>
 
+
+<script>/*
+    document.addEventListener('DOMContentLoaded', function () {
+        const checkboxes = document.querySelectorAll('.cek-tagihan');
+        const totalDisplay = document.getElementById('totalBayar');
+
+        function hitungTotal() {
+            let total = 0;
+            checkboxes.forEach(cb => {
+                if (cb.checked) {
+                    total += parseInt(cb.dataset.sisa);
+                }
+            });
+            totalDisplay.textContent = 'Rp ' + total.toLocaleString('id-ID');
+        }
+
+        checkboxes.forEach(cb => {
+            cb.addEventListener('change', hitungTotal);
+        });
+    });*/
+</script>
+
+<script> /*
+    const checkAll = document.getElementById('checkAll');
+checkAll.addEventListener('change', function () {
+    checkboxes.forEach(cb => cb.checked = this.checked);
+    hitungTotal();
+}); */
+
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const checkboxes = document.querySelectorAll('.cek-tagihan');
+        const totalDisplay = document.getElementById('totalBayar');
+        const checkAll = document.getElementById('checkAll');
+
+        // Fungsi untuk menghitung total
+        function hitungTotal() {
+            let total = 0;
+            checkboxes.forEach(cb => {
+                if (cb.checked) {
+                    total += parseInt(cb.dataset.sisa);
+                }
+            });
+            totalDisplay.textContent = 'Rp ' + total.toLocaleString('id-ID');
+        }
+
+        // Event setiap checkbox berubah
+        checkboxes.forEach(cb => {
+            cb.addEventListener('change', function () {
+                // Update total
+                hitungTotal();
+
+                // Jika semua dicentang, otomatis centang "Pilih Semua"
+                checkAll.checked = [...checkboxes].every(c => c.checked);
+            });
+        });
+
+        // Event untuk "Pilih Semua"
+        checkAll.addEventListener('change', function () {
+            checkboxes.forEach(cb => cb.checked = this.checked);
+            hitungTotal();
+        });
+    });
+</script>
+
+
+

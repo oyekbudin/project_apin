@@ -49,9 +49,7 @@ class MPembayaran extends Controller
             'tagihan' => $this->tagihanModel->getTagihanByRequestById($id, $request),
         ];
         //echo "Selamat datang. ".$session->get('name')." Sebagai :".$session->get('role');
-        //echo '<pre>';
-        //print_r($data['tagihan']);
-        //echo '</pre>';
+        
         echo view('m-pembayaran', $data);
     }
 }
