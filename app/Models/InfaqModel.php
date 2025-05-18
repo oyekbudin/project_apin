@@ -87,6 +87,10 @@ class InfaqModel extends Model
 
     public function saveInfaq($data)
     {
+        $db = db_connect();
+        $db->query("SELECT setval('infaq_id_seq', coalesce(max(id), 0) + 1, false) FROM infaq");
+        $db->query("SELECT setval('tagihan_id_seq', coalesce(max(id), 0) + 1, false) FROM tagihan");
+
         $infaqKelasModel = new InfaqKelasModel();
         $siswaModel = new SiswaModel();  
         $tagihanModel = new TagihanModel();

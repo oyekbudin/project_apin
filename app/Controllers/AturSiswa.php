@@ -98,8 +98,13 @@ class AturSiswa extends Controller
             'menu' => 'Perencanaan',
             'title' => 'Atur Siswa',
             'siswa' => $this->siswaModel->find($id),
+            //'siswa' => $this->siswaModel->findSiswa($id),
             'on' => true,
         ];
+
+        //echo '<pre>';
+        //print_r($data);
+        //echo '</pre>';
         return view('editsiswa', $data);
     }
 
@@ -149,7 +154,7 @@ class AturSiswa extends Controller
                 'gender' => $this->request->getVar('gender'),
                 'kelas' => $this->request->getVar('kelas'),
             ];
-            $this->siswaModel->update($id, $data);
+            $this->siswaModel->updateSiswa($id, $data);
             return redirect()->to('/atursiswa')->with('success', 'Data siswa berhasil diperbarui');
         } else {
             session()->setFlashdata('errors', $this->validator->getErrors());

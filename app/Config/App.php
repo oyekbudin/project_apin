@@ -18,7 +18,7 @@ class App extends BaseConfig
      */
     public string $baseURL = 'http://192.168.162.76:8080/'; //hotspot hp
     //public string $baseURL = 'http://192.168.1.13:8080/'; //wifi smp
-    //public string $baseURL = 'http://localhost:8080/'; //wifi smp
+    //public string $baseURL = 'http://localhost:8080/'; //localhost
 
     /**
      * Allowed Hostnames in the Site URL other than the hostname in the baseURL.

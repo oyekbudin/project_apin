@@ -225,7 +225,7 @@ class Tagihan extends Controller
                 'id_tagihan' => $id,
             ];
             
-            $this->tagihanAktifModel->insert($data);
+            $this->tagihanAktifModel->aktif($data);
             return redirect()->back()->with('success', 'Tagihan berhasil diaktifkan.');
     }
 }

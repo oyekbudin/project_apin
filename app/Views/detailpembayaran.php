@@ -3,8 +3,9 @@
         <div class="pop">
             <div class="group-action"><h2 class="data-title">Detail Pembayaran</h2><a onclick="history.back()"> <i class="i" onclick="offmodalTambah()">&#xe14c</i></a> </div>
             <div class="divider"></div>
+            <div class="overflow-content">
             <form action="/pembayaran/deleteall/<?= $pembayaran[0]['order_id'] ?>" method="post">
-                <div class="overflow-content">
+                
                     <div class="tombol green">Data Pembayaran</div>
                     <?php if(isset($pembayaran)) : ?>
                         <table>
@@ -52,10 +53,10 @@
                     <?php endif; ?>                    
                         <table class="mini">
                             <thead>
-                                <tr>
-                                    <th><div class="tombol green">Jenis Infaq</div></th>
-                                    <th><div class="tombol green">Nominal</div></th>
-                                    <th><div class="tombol green">Opsi</div></th>
+                                <tr class="green">
+                                    <th><div>Jenis Infaq</div></th>
+                                    <th><div>Nominal</div></th>
+                                    <th><div>Opsi</div></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -64,14 +65,16 @@
                                     <td style="text-align: center;"><?= $p['nama_infaq'] ?></td>
                                     <td class="txtgreen" style="text-align: center;"><?= $p['nominal'] ?></td>
                                     <td style="text-align: center;">
-                                    <a class="tombol danger-outline" href="/pembayaran/delete/<?= $p['id'] ?>" onclick="return confirm('Apakah anda yakin ingin menghapus data pembayaran ini?')">Hapus</a>
+                                        <div class="group-action">
+                                            <a class="tombol danger-outline" href="/pembayaran/delete/<?= $p['id'] ?>" onclick="return confirm('Apakah anda yakin ingin menghapus data pembayaran ini?')">Hapus</a>
+                                        </div>
                                     </td>
                                 </tr>
                                 <?php endforeach; ?>
                             </tbody>
                         </table>
                     
-                </div>
+                
                     <div class="divider"></div>
                     <div class="group-action">
                     <a class="tombol disable" onclick="history.back()">Close</a>
@@ -79,6 +82,7 @@
                     </div>
                 
             </form>
+        </div>
     </div>
 </div>
 

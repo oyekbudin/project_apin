@@ -34,7 +34,7 @@
                 <td><?= $t['kelas'] ?></td>
                 <td>
                     <div class="td-action">
-                    <a class="tombol danger-outline" href="/tagihan/requestdetail?id=<?= $t['nis'] ?>&request=<?= $t['id_tagihan'] ?>">Detail Tagihan</a>
+                    <a class="tombol primary-outline" href="/tagihan/requestdetail?id=<?= $t['nis'] ?>&request=<?= $t['id_tagihan'] ?>">Detail Tagihan</a>
                     </div>
                 </td>
             </tr>

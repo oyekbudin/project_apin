@@ -34,6 +34,9 @@ class SiswaModel extends Model
 
     public function saveSiswa($data)
     {
+        $db = db_connect();
+        $db->query("SELECT setval('users_id_seq', coalesce(max(id), 0) + 1, false) FROM users");
+        $db->query("SELECT setval('tagihan_id_seq', coalesce(max(id), 0) + 1, false) FROM tagihan");
         $this->insert($data);
         $siswaId = $data['nis'];
         $kelas = $data['kelas'];
@@ -76,5 +79,16 @@ class SiswaModel extends Model
     public function getSiswaByKelas($kelas)
     {
         return $this->where('kelas', $kelas)->findAll();
+    }
+
+    public function findSiswa($id)
+    {
+        return $this->where('id', $id)->first();
+        //return $this->find($id);
+    }
+
+    public function updateSiswa($id, $data)
+    {
+        $this->update($id, $data);
     }
 }

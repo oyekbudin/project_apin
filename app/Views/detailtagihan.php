@@ -52,7 +52,7 @@
                             <td style="text-align: right;"><?= number_format($t['sisa_tagihan']) ?></td>
                         </tr>
                         <?php endforeach; ?>
-                        <tr class="tombol primary">
+                        <tr class="primary">
                             <td colspan="3" style="text-align: center;">Total Tagihan</td>
                             <td style="text-align: right;"><?= number_format($total_tagihan) ?></td>
                         </tr>

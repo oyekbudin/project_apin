@@ -75,7 +75,8 @@ class RegisterAdministrator extends Controller
                 'role' => $this->request->getVar('role'),
                 'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT)
             ];
-            $this->administratorModel->save($data);
+            //$this->administratorModel->save($data);
+            $this->administratorModel->saveAdministrator($data);
             return redirect()->to('/registeradministrator')->with('success', 'Data User berhasil ditambahkan.');;
         } else {
             session()->setFlashdata('errors', $this->validator->getErrors());

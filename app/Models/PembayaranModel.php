@@ -8,6 +8,16 @@ class PembayaranModel extends Model
     protected $primaryKey ='id';
     protected $allowedFields = ['id_siswa','id_infaq','nominal','status','order_id','payment_method','payment_type','transaction_time','fraud_status','snap_token'];
    
+    protected $allowCallbacks = true;
+    //protected $beforeInsert = ['updateSequence'];
+
+    /*public function updateSequence($data)
+    {
+        $db = db_connect();
+        $db->query("SELECT setval('pembayaran_id_seq', coalesce(max(id), 0) + 1, false) FROM pembayaran");
+        return $data;
+    }*/
+
     public function getPembayaranDetail($id)
     {
         return $this
@@ -35,6 +45,13 @@ class PembayaranModel extends Model
         ->get()
         ->getResultArray();
         //->findAll();
+    }
+
+    public function getTotalPembayaran()
+    {
+        return $this->select('SUM(pembayaran.nominal) as total_nominal')
+        ->get()
+        ->getResultArray();
     }
 
     public function getPembayaranBySiswa($id)
@@ -81,6 +98,19 @@ class PembayaranModel extends Model
         //->where('EXTRACT(YEAR FROM date)', $tahun)
         ->groupBy('bulan')
         ->orderBy('bulan', 'ASC')
+        ->get()
+        ->getResultArray();
+    }
+
+    public function getPembayaranBulanIni($bulan)
+    {
+        return $this
+        ->select("TO_CHAR(date, 'MM') as bulan, SUM(nominal) as total_nominal")
+        //->where('EXTRACT(YEAR FROM date)', $tahun)
+        ->where("TO_CHAR(date, 'MM')",$bulan)
+        ->groupBy('bulan')
+        //->orderBy('bulan', 'ASC')
+        
         ->get()
         ->getResultArray();
     }
@@ -135,8 +165,10 @@ class PembayaranModel extends Model
         //$infaqKelasModel = new InfaqKelasModel();
         //$siswaModel = new SiswaModel();
         //$tagihanModel = new TagihanModel();
+        
 
         $db = db_connect();
+        $db->query("SELECT setval('pembayaran_id_seq', coalesce(max(id), 0) + 1, false) FROM pembayaran");
         $db->transStart();
         try {     
             //$dataPembayaran =[];    

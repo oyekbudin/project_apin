@@ -21,9 +21,9 @@
                     
                     <form action="/loginwalimurid/auth" method="post" class="form-login">
                         <label for="nis">Nomor Induk Siswa / NIS</label>
-                        <input class="input" type="text" name="nis" id="" value="<?= set_value('nis') ?>" placeholder="Masukkan NIS">
+                        <input class="input" type="text" name="nis" id="" value="<?= set_value('nis') ?>" placeholder="Masukkan NIS" required oninvalid="this.setCustomValidity('Masukkan NIS')" oninput="this.setCustomValidity('')">
                         <label for="phonenumber">Nomor Whatsapp</label>
-                        <input class='input' type="text" name="phonenumber" id="" placeholder="Masukkan Nomor Whatsapp">
+                        <input class='input' type="text" name="phonenumber" id="" placeholder="Masukkan Nomor Whatsapp" required oninvalid="this.setCustomValidity('Masukkan Nomor Whatsapp')" oninput="this.setCustomValidity('')">
                         <?php if(session()->getFlashdata('msg')):?>
                         <span class="txtdanger"><?= session()->getFlashdata('msg') ?></span>
                         <?php endif;?>

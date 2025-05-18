@@ -3,11 +3,10 @@
         <div class="pop">
             <div class="group-action"><h2 class="data-title">Ubah Data Siswa</h2><a onclick="history.back()"> <i class="i" onclick="offmodalTambah()">&#xe14c</i></a> </div>
             <div class="divider"></div>
-            <form action="/atursiswa/update/<?= $siswa['id']?>" method="post">
+            <form action="/atursiswa/update/<?= $siswa['nis']?>" method="post">
                 <div class="overflow-content">
             <div class="tombol green">DATA SISWA</div>
-
-    
+   
     <table>
                     <tbody>
                         <tr>

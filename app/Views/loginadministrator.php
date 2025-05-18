@@ -21,9 +21,9 @@
                     
                     <form action="/loginadministrator/auth" method="post" class="form-login">
                         <label for="adminname">User Name</label>
-                        <input class="input" type="text" name="adminname" id="inputadminname" value="<?= set_value('adminname') ?>" placeholder="User Name">
+                        <input class="input" type="text" name="adminname" id="inputadminname" value="<?= set_value('adminname') ?>" placeholder="User Name" required oninvalid="this.setCustomValidity('Masukkan Username')" oninput="this.setCustomValidity('')">
                         <label for="Password">Password</label>
-                        <input class='input' type="password" name="password" id="inputpassword" placeholder="Password">
+                        <input class='input' type="password" name="password" id="inputpassword" placeholder="Password" required oninvalid="this.setCustomValidity('Masukkan Password')" oninput="this.setCustomValidity('')">
                         <?php if(session()->getFlashdata('msg')):?>
                         <span class="txtdanger"><?= session()->getFlashdata('msg') ?></span>
                         <?php endif;?>

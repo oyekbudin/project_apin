@@ -27,4 +27,12 @@ class AdministratorModel extends Model
                     ->findAll();
         
     }
+
+    public function saveAdministrator($data)
+    {
+        $db = db_connect();
+        $db->query("SELECT setval('users_id_seq', coalesce(max(id), 0) + 1, false) FROM users");
+        $db->query("SELECT setval('administrator_idadmin_seq', coalesce(max(id), 0) + 1, false) FROM administrator");
+        return $this->insert($data);
+    }
 }

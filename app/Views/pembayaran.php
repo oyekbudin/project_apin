@@ -1,7 +1,8 @@
 <?= $this->include('dashboardadministrator') ?>
 <div class="board-wrap">
-<div class="group-action">
+<div class="group-action-tombol">
 <button class="tombol green" onclick="onmodalTambah()">Tambah Pembayaran</button>
+<a class="tombol primary" href="<?= base_url('pembayaran/notifikasi'); ?>">Notifikasi<div class="balon">2</div></a>
 
 </div>
 <div class="divider"></div>
@@ -55,8 +56,9 @@
     <div class="pop">
         <div class="group-action"><h2 class="data-title">Tambah Pembayaran</h2><i class="i" onclick="offmodalTambah()">&#xe14c</i></div>
         <div class="divider"></div>
-        <form action="/pembayaran/save" method="post">
         <div class="overflow-content">
+        <form action="/pembayaran/save" method="post">
+        
         <div class="tombol green">IDENTITAS SISWA</div>
     
                 <table>
@@ -94,13 +96,14 @@
                         <tr><td colspan="3" style="text-align: center;">Data Akan Ditampilkan disini</td></tr>                        
                     </tbody>
                 </table>
-                </div>
+                
                 <div class="divider"></div>
                 <div class="group-action">
                     <a class="tombol disable" onclick="offmodalTambah()">Close</a>
                     <button class="tombol primary" type="submit">Simpan</button>
                 </div>
     </form>
+    </div> <!-- end overflow -->
     </div> <!-- end pop -->
     </div> <!-- end modalTambah -->
 

@@ -47,8 +47,8 @@
                 <td><?= $siswa['phonenumber'] ?></td>
                 <td>
                     <div class="td-action">
-                    <a class="tombol warning-outline" href="/atursiswa/edit/<?= $siswa['id'] ?>">Edit</a>
-                    <a class="tombol danger-outline" href="/atursiswa/confirmdelete/<?= $siswa['id'] ?>">Hapus</a>
+                    <a class="tombol warning-outline" href="/atursiswa/edit/<?= $siswa['nis'] ?>">Edit</a>
+                    <a class="tombol danger-outline" href="/atursiswa/confirmdelete/<?= $siswa['nis'] ?>">Hapus</a>
                     </div>
                 </td>
             </tr>

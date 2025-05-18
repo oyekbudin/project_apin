@@ -68,19 +68,19 @@ class Pembayaran extends Controller
         ]; 
 
         if($this->validate($rules, $errors))
-        { */
+        { 
             $data =
             [
                 'id_siswa' => $this->request->getVar('id_siswa'),
                 'id_infaq' => $this->request->getVar('id_infaq'),
                 'nominal' => $this->request->getVar('nominal'),
             ];
-            
+            */
             $id_siswa = $this->request->getVar('id_siswa');
             $id_infaq = $this->request->getVar('id_infaq');
             $nominal = $this->request->getVar('nominal');
-            $date = date('ymd');
-            $order_id = $date . $id_siswa;
+            $date = date('md');
+            $order_id = $date . $id_siswa . random_int(0,9);
             $status = 'success';
             $payment_method = 'manual';
             //$this->pembayaranModel->save($data);
@@ -157,6 +157,15 @@ class Pembayaran extends Controller
         //echo '</pre>';
 
         return view('detailpembayaran', $data);
+    }
+
+    public function notifikasi()
+    {
+        $data = [
+            'menu' => 'Pengelolaan',
+            'title' => 'Notifikasi'
+        ];
+        return view('notifikasi', $data);
     }
     
 }

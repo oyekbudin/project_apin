@@ -13,17 +13,17 @@
         <div class="wrap-rekap">
             <div class="card-3 green">
                 <div><i class="i">&#xEB70</i></div>
-                <span class="data-title">8.238.000</span>
+                <span class="data-title"><?= 'Rp ' . number_format($total_pembayaran, 0, ',', '.') ?></span>
                 <span class="data-subtitle">Total Pembayaran</span>
             </div>
             <div class="card-3 blue">
                 <div><i class="i">&#xE916</i></div>
-                <span class="data-title">1.928.000</span>
+                <span class="data-title"><?= 'Rp ' . number_format($kredit_bulan_ini, 0, ',', '.') ?></span>
                 <span class="data-subtitle">Kredit Bulan Ini</span>
             </div>
             <div class="card-3 red">
                 <div><i class="i">&#xF187</i></div>
-                <span class="data-title">1.500.000</span>
+                <span class="data-title"><?= 'Rp ' . number_format($sisa_tagihan, 0, ',', '.') ?></span>
                 <span class="data-subtitle">Sisa Tagihan</span>
             </div>
             <div class="card-3 black">

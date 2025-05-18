@@ -80,7 +80,7 @@ class MPembayaran extends Controller
         echo view('m-pembayaran', $data);
     }
 
-    public function snap_token()
+    /*public function snap_token()
 {
     Config::$serverKey = config('Midtrans')->serverKey;
     Config::$isProduction = config('Midtrans')->isProduction;
@@ -105,15 +105,18 @@ class MPembayaran extends Controller
     $snapToken = Snap::getSnapToken($params);
     return $this->response->setJSON($snapToken);
     //print_r($total);
-}
+}*/
 
 public function checkout()
     {
         $session = session();
         $id = $session->get('nis');
-        $nama = $session->get('name');
-        $kelas = $session->get('kelas');
+        $first_name = $session->get('name');
+        $last_name = $session->get('kelas');
         $phone = $session->get('phonenumber');
+        $gross_amount = $this->request->getVar('nilaiTotal');
+        $date = date('md');
+        $order_id = $date . $id . random_int(0,9);
         //$tagihan_aktif = $this->tagihanAktifModel->orderBy('id','desc')->first();
         //$request = $tagihan_aktif['id_tagihan'];
         //$nis = $id;
@@ -128,14 +131,14 @@ public function checkout()
         [
             'transaction_details' =>
             [
-                'order_id' => uniqid(),
-                'gross_amount' => $this->request->getVar('nilaiTotal'),
+                'order_id' => $order_id,
+                'gross_amount' => $gross_amount,
             ],
             'customer_details' =>
             [
-                'first_name' => $nama,
-                'last_name' => $kelas,
-                'email' => 'john@example.com',
+                'first_name' => $first_name,
+                'last_name' => $last_name,
+                'email' => 'hakimarvinnoer@gmail.com',
                 'phone' => $phone,
             ],
             'locale' => 'id',
@@ -148,8 +151,8 @@ public function checkout()
             'title' => 'Checkout',
             'infaq_id' => $this->request->getVar('infaq_id[]'),
             'total_pembayaran' => $this->request->getVar('nilaiTotal'),
-            'nama' => $nama,
-            'kelas' => $kelas,
+            'nama' => $first_name,
+            'kelas' => $last_name,
             //'tagihan' => $this->tagihanModel->getTagihanByRequestById($id, $request),
             'snapToken' => $snapToken,
         ];

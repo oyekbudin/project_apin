@@ -34,7 +34,8 @@ class RequestTagihanModel extends Model
         //$tagihanModel = new TagihanModel();
         $tagihanInfaqModel = new TagihanInfaqModel();
 
-        $db = db_connect();
+        $db = db_connect();        
+        $db->query("SELECT setval('request_tagihan_id_seq', coalesce(max(id), 0) + 1, false) FROM request_tagihan");
         $db->transStart();
         try {
             $this->insert($dataRequest);

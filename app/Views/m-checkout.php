@@ -26,6 +26,7 @@
 <script>
     document.getElementById('pay-button').onclick = function() {
         snap.pay('<?= $snapToken ?>', {
+            language: 'id',
             onSuccess: function(result) {
                 console.log(result);
             },

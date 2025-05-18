@@ -59,6 +59,7 @@ $routes->post('/aturinfaq/delete/(:num)', 'AturInfaq::delete/$1');
 
 $routes->get('/pembayaran', 'Pembayaran::index',['filter'=>'auth']);
 $routes->post('/pembayaran/save', 'Pembayaran::save');
+$routes->get('/pembayaran/notifikasi', 'Pembayaran::notifikasi');
 $routes->get('/pembayaran/searchSiswa', 'Pembayaran::searchSiswa');
 $routes->get('/pembayaran/getInfaqByKelas', 'Pembayaran::getInfaqByKelas');
 $routes->get('/pembayaran/getTagihanForPembayaran', 'Pembayaran::getTagihanForPembayaran');
@@ -99,3 +100,6 @@ $routes->get('/pdf/laporantahunan', 'PdfController::laporanTahunan');
 
 $routes->get('/midtrans', 'MidtransController::index');
 $routes->post('/midtrans/callback', 'MidtransController::callback');
+$routes->post('notification/handling', 'MidtransController::notification');
+$routes->post('payment/finish', 'MidtransController::finish');
+$routes->post('payment/unfinish', 'MidtransController::unfinish');
