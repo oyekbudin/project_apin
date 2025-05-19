@@ -6,7 +6,7 @@ class PembayaranModel extends Model
 {
     protected $table ='pembayaran';
     protected $primaryKey ='id';
-    protected $allowedFields = ['id_siswa','id_infaq','nominal','status','order_id','payment_method','payment_type','transaction_time','fraud_status','snap_token'];
+    protected $allowedFields = ['id_siswa','id_infaq','nominal','status','order_id','payment_method'];
    
     protected $allowCallbacks = true;
     //protected $beforeInsert = ['updateSequence'];

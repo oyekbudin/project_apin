@@ -25,24 +25,43 @@ class DashboardAdministrator extends Controller
 
         $siswaModel = new SiswaModel();
         $infaqModel = new InfaqModel();
-        $total_pembayaran = $this->pembayaranModel->getTotalPembayaran();
-        $bulan = date('m');        
+        
+        $bulan = date('m');    
+
+        $total_pembayaran = 0;
+        $all_pembayaran = $this->pembayaranModel->getTotalPembayaran();  
+        if ($all_pembayaran) {
+            $total_pembayaran += $all_pembayaran[0]['total_nominal'];
+        }  
+
+        $total_bulan_ini = 0;
         $kredit_bulan_ini = $this->pembayaranModel->getPembayaranBulanIni($bulan); 
-        $tagihan_aktif = $this->tagihanAktifModel->orderBy('id','desc')->first();
-        $request = $tagihan_aktif['id_tagihan'];
-        $sisa_tagihan = $this->tagihanModel->getSisaTagihan($request);
+        if ($kredit_bulan_ini) {
+            $total_bulan_ini += $kredit_bulan_ini[0]['total_nominal'];
+        }
+
+
+        
         $total_sisa_tagihan = 0;
+        $tagihan_aktif = $this->tagihanAktifModel->orderBy('id','desc')->first();
+        if ($tagihan_aktif) {
+            $request = $tagihan_aktif['id_tagihan'];
+        $sisa_tagihan = $this->tagihanModel->getSisaTagihan($request);
+        
         foreach ($sisa_tagihan as $s) {
             $total_sisa_tagihan += $s['sisa_tagihan'];
         };
+        }
 
         $data = [
             'menu' => 'Dashboard',
             'title' => 'Dashboard',
             'totalsiswa' => $siswaModel->getTotalSiswa(),
             'totalinfaq' => $infaqModel->getTotalInfaq(),
-            'total_pembayaran' => $total_pembayaran[0]['total_nominal'],
-            'kredit_bulan_ini' => $kredit_bulan_ini[0]['total_nominal'],
+            //'total_pembayaran' => $total_pembayaran[0]['total_nominal'],
+            //'kredit_bulan_ini' => $kredit_bulan_ini[0]['total_nominal'],
+            'total_pembayaran' => $total_pembayaran,
+            'kredit_bulan_ini' => $total_bulan_ini,
             'sisa_tagihan' => $total_sisa_tagihan,
         ];
         //echo "Selamat datang. ".$session->get('name')." Sebagai :".$session->get('role');

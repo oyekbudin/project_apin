@@ -44,7 +44,11 @@ class RequestTagihan extends Controller
         }
 
         $tagihan_aktif = $this->tagihanAktifModel->orderBy('id','desc')->first();
-
+        if ($tagihan_aktif) {
+            $aktif = $tagihan_aktif['id_tagihan'];
+        } else {
+            $aktif = '';
+        }
 
         $data = [
             'menu' => 'Pengelolaan',
@@ -57,7 +61,8 @@ class RequestTagihan extends Controller
             'keyword' => $keyword,
             'infaq' => $this->infaqModel->getDataInfaq(),
             'session' => $session->get(),
-            'tagihan_aktif' => $tagihan_aktif['id_tagihan'],
+            //'tagihan_aktif' => $tagihan_aktif['id_tagihan'],
+            'tagihan_aktif' => $aktif,
         ];
 
         //echo '<pre>';

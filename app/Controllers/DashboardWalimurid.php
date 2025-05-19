@@ -23,13 +23,22 @@ class DashboardWalimurid extends Controller
         $session = session();
         $id = $session->get('nis');
         $tagihan_aktif = $this->tagihanAktifModel->orderBy('id','desc')->first();
-        $request = $tagihan_aktif['id_tagihan'];
+        if ($tagihan_aktif) {
+            $aktif = $tagihan_aktif['id_tagihan'];
+            $tagihan = $this->tagihanModel->getTagihanByRequestById($id, $aktif);
+        } else {
+            $aktif = '';
+            $tagihan = '';
+        }
+        //$request = $tagihan_aktif['id_tagihan'];
+        $request = $aktif;
 
         $data = [
             'menu' => 'Home',
             'title' => 'Home',
             'pembayaran' => $this->pembayaranModel->getPembayaranBySiswa($id),
-            'tagihan' => $this->tagihanModel->getTagihanByRequestById($id, $request),
+            //'tagihan' => $this->tagihanModel->getTagihanByRequestById($id, $request),
+            'tagihan' => $tagihan,
         ];
         //echo "Selamat datang. ".$session->get('name')." Sebagai :".$session->get('role');
         //echo '<pre>';

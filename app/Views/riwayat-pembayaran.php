@@ -5,11 +5,13 @@
             ?>
 <?php 
 $total_tagihan = 0;
+if ($tagihan) {
 foreach($tagihan as $t) {
     if($t['sisa_tagihan'] != 0) {
         $total_tagihan += $t['sisa_tagihan'];
     };
 };
+}
     ?>
 
 <div class="grid-board">

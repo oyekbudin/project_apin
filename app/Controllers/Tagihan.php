@@ -190,12 +190,17 @@ class Tagihan extends Controller
     {
         $datatagihan = $this->tagihanModel->getTagihanByRequest($id);
         $tagihan_aktif = $this->tagihanAktifModel->orderBy('id','desc')->first();
+        if ($tagihan_aktif) {
+            $aktif = $tagihan_aktif['id_tagihan'];
+        } else {
+            $aktif = '';
+        }
         
         $data = [
             'menu' => 'Pengelolaan',
             'title' => 'Tagihan',
             'datatagihan' => $datatagihan,
-            'tagihan_aktif' => $tagihan_aktif['id_tagihan'],
+            'tagihan_aktif' => $aktif,
         ];
         //echo '<pre>';
         //print_r($datatagihan);

@@ -41,8 +41,15 @@ class MPembayaran extends Controller
     {
         $session = session();
         $id = $session->get('nis');
+
         $tagihan_aktif = $this->tagihanAktifModel->orderBy('id','desc')->first();
-        $request = $tagihan_aktif['id_tagihan'];
+        if ($tagihan_aktif) {
+            $request = $tagihan_aktif['id_tagihan'];
+            $tagihan = $this->tagihanModel->getTagihanByRequestById($id, $request);
+        } else {
+            $tagihan = '';
+        }
+        
         //$nis = $id;
 
         /*midtrans
@@ -72,7 +79,8 @@ class MPembayaran extends Controller
         $data = [
             'menu' => 'Pembayaran',
             'title' => 'Pembayaran',
-            'tagihan' => $this->tagihanModel->getTagihanByRequestById($id, $request),
+            'tagihan' => $tagihan,
+            //'tagihan' => $this->tagihanModel->getTagihanByRequestById($id, $request),
             //'snapToken' => $snapToken,
         ];
         //echo "Selamat datang. ".$session->get('name')." Sebagai :".$session->get('role');
@@ -157,8 +165,8 @@ public function checkout()
             'snapToken' => $snapToken,
         ];
         //echo "Selamat datang. ".$session->get('name')." Sebagai :".$session->get('role');
-        //print_r($data);
-        echo view('m-checkout', $data);
+        print_r($data);
+        //echo view('m-checkout', $data);
     }
 
 }
