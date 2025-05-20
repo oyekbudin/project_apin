@@ -14,6 +14,7 @@ $routes->get('/dashboard-walimurid', 'DashboardWalimurid::index',['filter'=>'aut
 $routes->get('/m-pembayaran', 'MPembayaran::tagihan');
 $routes->get('/m-pembayaran/snap_token', 'MPembayaran::snap_token');
 $routes->get('/m-pembayaran/checkout', 'MPembayaran::checkout');
+$routes->get('/m-pembayaran/checkout/cancel/(:segment)', 'MPembayaran::cancel/$1');
 
 $routes->get('/m-profil', 'MProfil::index');
 $routes->get('/m-help', 'MProfil::help');
@@ -63,9 +64,9 @@ $routes->get('/pembayaran/notifikasi', 'Pembayaran::notifikasi');
 $routes->get('/pembayaran/searchSiswa', 'Pembayaran::searchSiswa');
 $routes->get('/pembayaran/getInfaqByKelas', 'Pembayaran::getInfaqByKelas');
 $routes->get('/pembayaran/getTagihanForPembayaran', 'Pembayaran::getTagihanForPembayaran');
-$routes->get('/pembayaran/detail/(:num)', 'Pembayaran::detailPembayaran/$1');
+$routes->get('/pembayaran/detail/(:segment)', 'Pembayaran::detailPembayaran/$1');
 $routes->get('/pembayaran/delete/(:num)', 'Pembayaran::delete/$1');
-$routes->post('/pembayaran/deleteall/(:num)', 'Pembayaran::deleteall/$1');
+$routes->post('/pembayaran/deleteall/(:segment)', 'Pembayaran::deleteall/$1');
 
 $routes->get('/tagihan', 'Tagihan::index',['filter'=>'auth']);
 $routes->get('/tagihan/daftartagihan/(:num)', 'Tagihan::daftartagihan/$1');

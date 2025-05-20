@@ -18,7 +18,8 @@
         </tr> 
         </tbody>         
     </table>
-     <button class="tombol primarydark" id="pay-button">Bayar Sekarang</button>       
+     <button class="tombol primarydark" id="pay-button">Bayar Sekarang</button>
+     <a href="<?= base_url('m-pembayaran/checkout/cancel/' . $order_id) ?>" class="tombol primary-outline">Batalkan Transaksi</a>   
     </div>
 </div>
 

@@ -1,7 +1,8 @@
 <?php namespace App\Controllers;
 
       use App\Models\InfaqModel;
-      use App\Models\PembayaranModel;
+use App\Models\NotificationModel;
+use App\Models\PembayaranModel;
       use App\Models\SiswaModel;
       use App\Models\TagihanModel;
       use CodeIgniter\Controller;
@@ -12,6 +13,7 @@ class Pembayaran extends Controller
     protected $siswaModel;
     protected $infaqModel;
     protected $tagihanModel;
+    protected $notificationModel;
 
     public function __construct()
     {
@@ -19,6 +21,7 @@ class Pembayaran extends Controller
         $this->siswaModel = new SiswaModel();
         $this->infaqModel = new InfaqModel();
         $this->tagihanModel = new TagihanModel();
+        $this->notificationModel = new NotificationModel();
     }
 
     public function index()
@@ -76,13 +79,13 @@ class Pembayaran extends Controller
                 'nominal' => $this->request->getVar('nominal'),
             ];
             */
-            $id_siswa = $this->request->getVar('id_siswa');
-            $id_infaq = $this->request->getVar('id_infaq');
-            $nominal = $this->request->getVar('nominal');
+            $id_siswa = $this->request->getVar('id_siswa');   //1
+            $id_infaq = $this->request->getVar('id_infaq');   //2
+            $nominal = $this->request->getVar('nominal');     //3
             $date = date('md');
-            $order_id = $date . $id_siswa . random_int(0,9);
-            $status = 'success';
-            $payment_method = 'manual';
+            $order_id = $date . $id_siswa . uniqid(); //4
+            $status = 'success';                                       //5
+            $payment_method = 'manual';                                //6
             //$this->pembayaranModel->save($data);
             $this->pembayaranModel->savePembayaran($order_id, $id_siswa, $id_infaq, $nominal, $status, $payment_method);
             //print_r($order_id);
@@ -163,8 +166,13 @@ class Pembayaran extends Controller
     {
         $data = [
             'menu' => 'Pengelolaan',
-            'title' => 'Notifikasi'
+            'title' => 'Notifikasi',
+            'notifikasi' => $this->notificationModel->getNotification(),
         ];
+
+        //echo '<pre>';
+        //print_r($data);
+        //echo '</pre>';
         return view('notifikasi', $data);
     }
     

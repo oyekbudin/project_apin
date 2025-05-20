@@ -17,8 +17,9 @@ class App extends BaseConfig
      * E.g., http://example.com/
      */
     //public string $baseURL = 'http://192.168.162.76:8080/'; //hotspot hp
-    //public string $baseURL = 'http://192.168.1.13:8080/'; //wifi smp
-    public string $baseURL = 'http://localhost:8080/'; //localhost
+    public string $baseURL = 'https://33bc-114-122-111-46.ngrok-free.app'; //wifi smp
+    //public string $baseURL = 'http://192.168.1.18:8080/'; //wifi smp
+    //public string $baseURL = 'http://localhost:8080/'; //localhost
 
     /**
      * Allowed Hostnames in the Site URL other than the hostname in the baseURL.

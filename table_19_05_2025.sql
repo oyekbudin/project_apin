@@ -51,15 +51,16 @@ CREATE TABLE notification (
     gross_amount numeric,
     payment_type varchar(50),
     transaction_status varchar(50),
-    transaction_time TIMESTAMP,
+    transaction_time TIMESTAMP WITHOUT TIME ZONE,
     status_code int,
     fraud_status varchar(50),
     /*created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, */
-    order_id int,
+    order_id text,
     id_siswa int,
     id_infaq int,
     nominal numeric,
-    payment_method varchar(10) NOT NULL DEFAULT 'midtrans'
+    payment_method varchar(10) NOT NULL DEFAULT 'midtrans',
+    snapToken text
 );
 
 DROP TABLE IF EXISTS "pembayaran";
@@ -70,9 +71,9 @@ CREATE TABLE pembayaran (
     id_infaq int not null,
     nominal numeric CHECK (nominal >= 0),
     payment_method VARCHAR(10) NOT NULL DEFAULT 'manual' CHECK (payment_method IN ('manual', 'midtrans')),
-    order_id int not NULL, 
+    order_id text not NULL, 
     /*payment_type VARCHAR(50) NULL, */
-    status VARCHAR(15) NULL DEFAULT 'pending' CHECK (status IN ('success','pending', 'settlement', 'expire', 'cancel', 'deny', 'refund')),
+    status VARCHAR(15) NULL DEFAULT 'pending' /*CHECK (status IN ('success','pending', 'settlement', 'expire', 'cancel', 'deny', 'refund'))*/,
     /*transaction_time TIMESTAMP NULL,
     fraud_status VARCHAR(20) NULL,
     snap_token TEXT NULL,*/

@@ -44,7 +44,15 @@ class MidtransController extends BaseController
 
     public function callback()
     {
-        //handle callback
+        echo 'berhasil';
+    }
+    public function finish(): void
+    {
+        echo 'finish';
+    }
+    public function unfinish()
+    {
+        echo 'unfinish';
     }
 
     /*public function notification()

@@ -1236,6 +1236,63 @@ td .group-action a {
     margin-left: 5px;
 }
 
+#profilButton {
+    width: 200px;
+}
+
+#profilButton .t {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.list-tagihan ul {
+    margin-top: 10px;
+    margin-bottom: 58px;
+}
+.list-tagihan ul li {
+    background-color: var(--secondary);
+    margin-bottom: 5px;
+    display: flex;
+    padding: 0 20px;
+    gap: 20px;
+    line-height: 58px;
+}
+.list-tagihan ul li label {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.checkout {
+    /*position: fixed;*/
+    bottom: 58px;
+    margin-bottom: 0;
+    width: 100%;
+    background-color: var(--secondary);
+    display: flex;
+    height: 58px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    border-top: 1px solid var(--primarylight);
+    border-bottom: 1px solid var(--primarylight);
+}
+
+#selectAll {
+    margin-left: 20px;
+}
+#bayar {
+    margin-right: 20px;
+    display: flex;
+    gap: 20px;
+}
+#bayar span {
+    text-align: right;
+}
+span.no-tagihan {
+    width: 100%;
+    text-align: center;
+}
 
 
 
