@@ -24,6 +24,46 @@ class Database extends Config
      *
      * @var array<string, mixed>
      */
+    public array $default;
+    public function __construct()
+    {
+        $this->default = [
+    'DSN'          => '',
+    'hostname'     => env('database.hostname'),
+    'username'     => env('database.username'),
+    'password'     => env('database.password'),
+    'database'     => env('database.database'),
+    'DBDriver'     => env('database.DBDriver'),
+    'DBPrefix'     => '',
+    'pConnect'     => false,
+    'DBDebug'      => env('CI_ENVIRONMENT'),
+    'charset'      => 'utf8',
+    'DBCollat'     => 'utf8_general_ci',
+    'swapPre'      => '',
+    'encrypt'      => false,
+    'compress'     => false,
+    'strictOn'     => false,
+    'failover'     => [],
+    'port'         => env('database.port', 5432),
+    'numberNative' => false,
+    'foundRows'    => false,
+    'dateFormat'   => [
+        'date'     => 'Y-m-d',
+        'datetime' => 'Y-m-d H:i:s',
+        'time'     => 'H:i:s',
+        ],
+    ];
+
+        parent::__construct();
+
+        // Ensure that we always set the database group to 'tests' if
+        // we are currently running an automated test suite, so that
+        // we don't overwrite live data on accident.
+        if (ENVIRONMENT === 'testing') {
+            $this->defaultGroup = 'tests';
+        }
+    }
+    /*
     public array $default = [
     'DSN'          => '',
     'hostname'     => env('database.hostname'),
@@ -49,9 +89,7 @@ class Database extends Config
         'datetime' => 'Y-m-d H:i:s',
         'time'     => 'H:i:s',
     ],
-];
-
-    ];
+]; */
 
     //    /**
     //     * Sample database connection for SQLite3.
@@ -189,17 +227,5 @@ class Database extends Config
             'datetime' => 'Y-m-d H:i:s',
             'time'     => 'H:i:s',
         ],
-    ];
-
-    public function __construct()
-    {
-        parent::__construct();
-
-        // Ensure that we always set the database group to 'tests' if
-        // we are currently running an automated test suite, so that
-        // we don't overwrite live data on accident.
-        if (ENVIRONMENT === 'testing') {
-            $this->defaultGroup = 'tests';
-        }
-    }
+    ];    
 }

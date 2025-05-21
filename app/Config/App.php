@@ -17,9 +17,17 @@ class App extends BaseConfig
      * E.g., http://example.com/
      */
     //public string $baseURL = 'http://192.168.162.76:8080/'; //hotspot hp
-    public string $baseURL = env('app_baseURL'); //wifi smp
+    //public $baseURL = env('app_baseURL'); //wifi smp
     //public string $baseURL = 'http://192.168.1.18:8080/'; //wifi smp
     //public string $baseURL = 'http://localhost:8080/'; //localhost
+
+    public $baseURL;
+
+    public function __construct()
+    {
+        $this->baseURL = env('app_baseURL');
+    }
+
 
     /**
      * Allowed Hostnames in the Site URL other than the hostname in the baseURL.
