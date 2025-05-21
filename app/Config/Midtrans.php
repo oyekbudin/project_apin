@@ -4,8 +4,8 @@ namespace Config;
 
 class Midtrans
 {
-    public $serverKey = 'SB-Mid-server-FAApl-8Ly-1AfujlVujvL17x';
-    public $clientKey = 'SB-Mid-client-4KnZmUZzJmOZvliV';
-    public $isProduction = false;
+    public $serverKey = env('midtrans.serverKey');
+    public $clientKey = env('midtrans.clientKey');
+    public $isProduction = env('midtrans.isProduction');
     public $snapUrl = 'https://app.sandbox.midtrans.com/snap/v2';
 }

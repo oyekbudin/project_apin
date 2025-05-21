@@ -25,30 +25,32 @@ class Database extends Config
      * @var array<string, mixed>
      */
     public array $default = [
-        'DSN'          => '',
-        'hostname'     => 'localhost',
-        'username'     => 'postgres',
-        'password'     => '123456',
-        'database'     => 'project_apin',
-        'DBDriver'     => 'Postgre',
-        'DBPrefix'     => '',
-        'pConnect'     => false,
-        'DBDebug'      => true,
-        'charset'      => 'utf8',
-        'DBCollat'     => 'utf8_general_ci',
-        'swapPre'      => '',
-        'encrypt'      => false,
-        'compress'     => false,
-        'strictOn'     => false,
-        'failover'     => [],
-        'port'         => 5432,
-        'numberNative' => false,
-        'foundRows'    => false,
-        'dateFormat'   => [
-            'date'     => 'Y-m-d',
-            'datetime' => 'Y-m-d H:i:s',
-            'time'     => 'H:i:s',
-        ],
+    'DSN'          => '',
+    'hostname'     => env('database.hostname'),
+    'username'     => env('database.username'),
+    'password'     => env('database.password'),
+    'database'     => env('database.database'),
+    'DBDriver'     => env('database.DBDriver'),
+    'DBPrefix'     => '',
+    'pConnect'     => false,
+    'DBDebug'      => env('CI_ENVIRONMENT'),
+    'charset'      => 'utf8',
+    'DBCollat'     => 'utf8_general_ci',
+    'swapPre'      => '',
+    'encrypt'      => false,
+    'compress'     => false,
+    'strictOn'     => false,
+    'failover'     => [],
+    'port'         => env('database.port', 5432),
+    'numberNative' => false,
+    'foundRows'    => false,
+    'dateFormat'   => [
+        'date'     => 'Y-m-d',
+        'datetime' => 'Y-m-d H:i:s',
+        'time'     => 'H:i:s',
+    ],
+];
+
     ];
 
     //    /**
