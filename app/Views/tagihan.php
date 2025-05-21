@@ -6,7 +6,8 @@
 <a href="<?= base_url('/pdf/tagihan/' . $datatagihan[0]['id_tagihan'] ); ?>" class="tombol primary" target="_blank">Export Tagihan</a>
 <a href="<?= base_url('/pdf/tagihan-siswa/' . $datatagihan[0]['id_tagihan'] ); ?>" class="tombol primary" target="_blank">Export Tagihan Per Siswa</a>
 <a href="<?= base_url('/tagihan/aktif/'. $datatagihan[0]['id_tagihan'] );?>" class="tombol green">Aktifkan Tagihan</a>
-<a href="<?= base_url('/#'); ?>" class="tombol green" target="_blank">Kirim Tagihan</a>
+<button class="tombol green" onclick="onmodalTambah()">Kirim Tagihan</button>
+<a href="<?= base_url('tagihan/riwayat_pengiriman') ?>" class="tombol secondary">Riwayat Pengiriman</a>
 
 </div>
 <div class="divider"></div>
@@ -53,54 +54,49 @@
 
     <div id="modalTambah" class="black-board">
         <div class="pop">
-            <div class="group-action"><h2 class="data-title">Tambah Tagihan</h2><i class="i" onclick="offmodalTambah()">&#xe14c</i></div>
+            <div class="group-action"><h2 class="data-title">Kirim Tagihan</h2><a onclick="offmodalTambah()"> <i class="i" onclick="offmodalTambah()">&#xe14c</i></a> </div>
             <div class="divider"></div>
-            <span class="tombol green">DATA TAGIHAN</span>
-            <form action="/tagihan/save" method="post">
-                <table>
+            <div class="overflow-content">
+            <form action="/tagihan/kirim_tagihan" method="post">
+                
+            <div class="tombol green">DATA PESAN</div>
+   
+    <table id="">
                     <tbody>
                         <tr>
-                            <td>Nama Siswa</td>
-                            <td>
-                                <input class="input" type="text" name="name" id="inputname" value="<?= old('name') ?>" placeholder="Nama Siswa" required oninvalid="this.setCustomValidity('Nama Siswa harus diisi')" oninput="this.setCustomValidity('')">
-                                <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['name'] ?? '' ?></span>
+                            <td>Kalimat Pembuka</td>
+                            <td id="textArea">
+                                <textarea name="header" id=""></textarea>
                             </td>
                         </tr>
                         <tr>
-                            <td>NIS</td>
-                            <td><input class="input" type="text" name="nis" id="inputnis" value="<?= old('nis') ?>" placeholder="NIS" required oninvalid="this.setCustomValidity('NIS harus diisi')" oninput="this.setCustomValidity('')">
-                            <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['nis'] ?? '' ?></span></td>
-                        </tr>
-                            <td>Kelas</td>
-                            <td><select class="input" name="kelas" required oninvalid="this.setCustomValidity('Pilih kelas')" oninput="this.setCustomValidity('')">
-                                <option value="">Pilih Kelas</option>
-                                <option value="7" <?= old('kelas') == '7' ? 'selected' : '' ?>>7</option>
-                                <option value="8" <?= old('kelas') == '8' ? 'selected' : '' ?>>8</option>
-                                <option value="9" <?= old('kelas') == '9' ? 'selected' : '' ?>>9</option>
-                            </select>
+                            <td>Kalimat Penutup</td>
+                            <td id="textArea">
+                                <textarea name="footer" id=""></textarea>
                             </td>
                         </tr>
                         <tr>
-                            <td>Jenis Kelamin</td>
-                            <td><select class="input" name="gender" id="inputgender" required oninvalid="this.setCustomValidity('Pilih jenis kelamin')" oninput="this.setCustomValidity('')">
-                                <option value="">Pilih Jenis Kelamin</option>
-                                <option value="L" <?= old('gender') == 'L' ? 'selected' : '' ?>>Laki-laki</option>
-                                <option value="P" <?= old('gender') == 'P' ? 'selected' : '' ?>>Perempuan</option>
-                            </select></td>
+                            <td>Pilih Penerima</td>
+                            <td>                           
+                            <?php foreach ($penerima as $p) : ?>
+                                <div class="cbkelas">
+                                    <input class="" type="checkbox" name="siswa_id[]" id="<?= $p['id'] ?>" value="<?= $p['id'] ?>">
+                                    <label for="<?= $p['id'] ?>"><?= $p['name'] ?> - <?= $p['phonenumber'] ?></label><br>
+                                </div>
+                            <?php endforeach ?>                           
+                           </td>
                         </tr>
-                        <tr>
-                            <td>No Whatsapp</td>
-                            <td><input class="input" type="text" name="phonenumber" id="inputphonenumber" value="<?= old('phonenumber') ?>" placeholder="Nomor Whatsapp" required oninvalid="this.setCustomValidity('Nomor Whatsapp harus diisi')" oninput="this.setCustomValidity('')">
-                            <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['phonenumber'] ?? '' ?></span></td>
-                        </tr>
+                        
                     </tbody>
                 </table>
                 <div class="divider"></div>
                 <div class="group-action">
                 <a class="tombol disable" onclick="offmodalTambah()">Close</a>
-                <button class="tombol primary" type="submit">Simpan</button>
+                <button class="tombol primary" type="submit">Kirim</button>
                 </div>
-            </form>
-        </div>
+                
+    </form>
     </div>
+    </div>
+</div>
 <?= $this->include('closing') ?>

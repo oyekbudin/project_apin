@@ -72,6 +72,8 @@ $routes->get('/pembayaran/notifikasi/error', 'Pembayaran::log_error');
 $routes->get('/tagihan', 'Tagihan::index',['filter'=>'auth']);
 $routes->get('/tagihan/daftartagihan/(:num)', 'Tagihan::daftartagihan/$1');
 $routes->get('/tagihan/lihatkartu', 'Tagihan::lihatkartu');
+$routes->post('/tagihan/kirim_tagihan', 'Tagihan::kirim_tagihan');
+$routes->get('/tagihan/riwayat_pengiriman', 'Tagihan::riwayat_pengiriman');
 $routes->post('/tagihan/buattagihan', 'Tagihan::buatTagihan');
 $routes->post('/tagihan/checkbox', 'Tagihan::checkbox');
 $routes->get('/tagihan/detail/(:num)', 'Tagihan::detail/$1');

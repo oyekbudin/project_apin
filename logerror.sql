@@ -1,10 +1,10 @@
-CREATE TABLE log_error_pembayaran (
+DROP TABLE IF EXISTS "pesanwa";
+CREATE TABLE pesanwa (
     id SERIAL PRIMARY KEY,
-    order_id VARCHAR(100),
-    status_message TEXT,
-    status_code VARCHAR(10),
-    transaction_status VARCHAR(50),
-    payment_type VARCHAR(50),
-    raw_response TEXT,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    nomor_penerima VARCHAR(20) NOT NULL,
+    nama_penerima VARCHAR(100),
+    pesan TEXT NOT NULL,
+    status VARCHAR(20),
+    response_json JSONB,
+    waktu_kirim TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

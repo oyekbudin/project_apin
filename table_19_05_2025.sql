@@ -114,10 +114,14 @@ CREATE TABLE tagihan_infaq (
 DROP TABLE IF EXISTS "pesanwa";
 CREATE TABLE pesanwa (
     id SERIAL PRIMARY KEY,
-    jenis VARCHAR(50) UNIQUE NOT NULL,
+    nomor_penerima VARCHAR(20) NOT NULL,
+    nama_penerima VARCHAR(100),
     pesan TEXT NOT NULL,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    status VARCHAR(20),
+    response_json JSONB,
+    waktu_kirim TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
 
 DROP TABLE IF EXISTS "rekening";
 CREATE TABLE rekening (

@@ -2,6 +2,7 @@
 
 use App\Models\InfaqModel;
 use App\Models\KelasModel;
+use App\Models\PesanWaModel;
 use App\Models\SiswaModel;
 use App\Models\TagihanAktifModel;
 use App\Models\TagihanModel;
@@ -14,6 +15,7 @@ class Tagihan extends Controller
     protected $tagihanModel;
     protected $tagihanAktifModel;
     protected $kelasModel;
+    protected $pesanWaModel;
 
     public function __construct()
     {
@@ -22,6 +24,7 @@ class Tagihan extends Controller
         $this->tagihanModel = new TagihanModel();
         $this->tagihanAktifModel = new TagihanAktifModel();        
         $this->kelasModel = new KelasModel();
+        $this->pesanWaModel = new PesanWaModel();
     }
 
     public function index()
@@ -195,12 +198,15 @@ class Tagihan extends Controller
         } else {
             $aktif = '';
         }
+
+        $penerima = $this->siswaModel->findAll();
         
         $data = [
             'menu' => 'Pengelolaan',
             'title' => 'Tagihan',
             'datatagihan' => $datatagihan,
             'tagihan_aktif' => $aktif,
+            'penerima' => $penerima,
         ];
         //echo '<pre>';
         //print_r($datatagihan);
@@ -232,5 +238,94 @@ class Tagihan extends Controller
             
             $this->tagihanAktifModel->aktif($data);
             return redirect()->back()->with('success', 'Tagihan berhasil diaktifkan.');
+    }
+    public function kirim_tagihan()
+    {
+        $siswa_id = $this->request->getPost('siswa_id');
+        $header = $this->request->getPost('header');
+        $footer = $this->request->getPost('footer');
+
+        //print_r($siswa_id);   
+        //print_r($header);   
+        //print_r($footer);   
+
+        $tagihan_aktif = $this->tagihanAktifModel->orderBy('id','desc')->first();
+        if ($tagihan_aktif) {
+            $request = $tagihan_aktif['id_tagihan'];
+        } else {
+            $request = '';
+        }
+
+        //print_r($request); 
+        
+
+        foreach ($siswa_id as $id) {
+            $siswa = $this->siswaModel->findSiswa($id);
+            $nis = $siswa['nis'];
+            $tagihan = $this->tagihanModel->getTagihanByRequestById($nis, $request);
+            $nomor = preg_replace('/^0/', '62', $siswa['phonenumber']);
+
+            $body = '';
+            $total_tagihan = 0;             
+            
+            foreach($tagihan as $t) {
+                $body .= $t['nama_infaq'] . ' --- Rp' . number_format($t['sisa_tagihan'], 0, ',', '.') . "\n";
+                $total_tagihan += $t['sisa_tagihan'];                
+            }
+            $body .= '----------' . "\n" . 'Jumlah --- Rp' . number_format($total_tagihan, 0, ',', '.') . "\n";
+
+            $pesan = 'Yth. ' . $siswa['name'] . ",\n\n" . $header . "\n\n" .  $body . "\n" . $footer;
+
+            //echo '<pre>';
+            //print_r($pesan); 
+            //echo '</pre>';
+            
+            
+            
+            //Api SaungWA
+            $curl = curl_init();
+            curl_setopt_array($curl, array(
+                CURLOPT_URL => 'https://app.saungwa.com/api/create-message',
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_CUSTOMREQUEST => 'POST',
+                CURLOPT_POSTFIELDS => array(
+                    'appkey' => '64dfa16d-cd35-4fa8-bf21-9e93d24ed5c5',
+                    'authkey' => 'vu9aMiZvSaC5kblVBQtq3eE9q2XuxJaO1nUsROVrHHJYg5U5ru',
+                    'to' => $nomor,
+                    'message' => $pesan,
+                    'sandbox' => 'true'
+                ),
+            ));
+            $response = curl_exec($curl);
+            curl_close($curl);
+            
+            
+
+            $this->pesanWaModel->insert([
+                'nomor_penerima' => $nomor,
+                'nama_penerima' => $siswa['name'],
+                'pesan' => $pesan,
+                'status' => 'Terkirim',
+                'response_json' => $response,
+            ]);
+        }
+
+        return redirect()->back()->with('success', 'Pesan berhasil dikirim');
+    }
+        
+        
+    
+
+    public function riwayat_pengiriman()
+    {
+        //$id = $this->request->getVar('id');
+        //$request = $this->request->getVar('request');
+        $data = [
+            'menu' => 'Pengelolaan',
+            'title' => 'Riwayat Pengiriman',
+            'pesanwa' => $this->pesanWaModel->findAll(),
+        ];
+
+        return view('riwayat_pengiriman', $data);
     }
 }

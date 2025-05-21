@@ -9,27 +9,27 @@
         <thead>
             <tr>
                 <th>#</th>
-                <th>Order ID</th>
+                <th>Waktu Pengiriman</th>
+                <th>Nama Penerima</th>
+                <th>Nomor Penerima</th>
                 <th>Status</th>
-                <th>Code</th>
-                <th>Tanggal</th>
             </tr>
         </thead>
         <tbody>
-            <?php if($error) :
+            <?php if($pesanwa) :
                 $i = 1;
-                foreach($error as $e) : ?>
+                foreach($pesanwa as $p) : ?>
                     <tr>
-                        <td><?= $i + 1 ?></td>
-                        <td><?= $e['order_id'] ?></td>
-                        <td><?= $e['status_message'] ?></td>
-                        <td><?= $e['status_code'] ?></td>
-                        <td><?= date('d-m-Y H:i', strtotime($e['created_at'])) ?></td>
+                        <td><?= $i ++ ?></td>
+                        <td><?= $p['waktu_kirim'] ?></td>
+                        <td><?= $p['nama_penerima'] ?></td>
+                        <td><?= $p['nomor_penerima'] ?></td>
+                        <td><?= $p['status'] ?></td>
                     </tr>
                 <?php endforeach; ?>
             <?php else : ?>
             <tr>
-                <td colspan="5">Log Error akan ditampilkan di sini</td>
+                <td colspan="5">Riwayat Pengiriman akan ditampilkan di sini</td>
             </tr>
             <?php endif; ?>
         </tbody>
