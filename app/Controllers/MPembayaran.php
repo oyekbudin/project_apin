@@ -39,12 +39,12 @@ class MPembayaran extends Controller
             'total_pembayaran' => $pendingNotif['gross_amount'],
             'nama' => $nama,
             'kelas' => $kelas,
-            'snapToken' => $pendingNotif['snapToken'],
+            'snaptoken' => $pendingNotif['snaptoken'],
             'order_id' => $pendingNotif['order_id'],
             ];
 
-            print_r($data);
-            //echo view('m-checkout', $data);
+            //print_r($data);
+            echo view('m-checkout', $data);
         } else {
             $tagihan_aktif = $this->tagihanAktifModel->orderBy('id','desc')->first();
             if ($tagihan_aktif) {
@@ -107,9 +107,14 @@ class MPembayaran extends Controller
                 'phone' => $phone,
             ],
             'locale' => 'id',
+            'callbacks' => [
+                'finish' => base_url('payment/finish'),
+                'unfinish' => base_url('payment/unfinish'),
+                'error' => base_url('payment/error'),
+            ]
         ];
 
-        $snapToken = Snap::getSnapToken($params);         //aktifkan lagi nanti
+        $snaptoken = Snap::getSnapToken($params);         //aktifkan lagi nanti
 
         $data = [
             'menu' => 'Pembayaran',
@@ -119,7 +124,7 @@ class MPembayaran extends Controller
             'nama' => $first_name,
             'kelas' => $last_name,
             //'tagihan' => $this->tagihanModel->getTagihanByRequestById($id, $request),
-            'snapToken' => $snapToken,   //aktifkan lagi nanti
+            'snaptoken' => $snaptoken,   //aktifkan lagi nanti
             //'tagihan' => $tagihan,   //ada nis, id_infaq, sisa_tagihan
             //'id_siswa' => array_column($tagihan, 'nis'),
             'id_siswa' => $id,
@@ -188,29 +193,25 @@ class MPembayaran extends Controller
             return redirect()->back()->with('error', 'Transaksi tidak ditemukan.');
         }
 
-        $snapToken = array_column($order_data, 'snapToken');
+        $payment_type = array_column($order_data, 'payment_type');
         $row_ids = array_column($order_data, 'id');
 
-        // Hanya jika transaksi di Midtrans pernah dibuat (ada snap_token)
-        if (!empty($snapToken[0])) {
+        if (!empty($payment_type[0])) {
             try {
                 $cancel = \Midtrans\Transaction::cancel($id);
 
-                /* Update semua entri di database
-                foreach ($row_ids as $rid) {
-                    $this->notificationModel->update($rid, [
-                        'transaction_status' => 'cancel'
-                    ]);
-                }*/
-
-                return $this->response->setJSON([
-                    'message' => 'Transaksi berhasil dibatalkan di Midtrans dan database.',
+                /*return $this->response->setJSON([
+                    'message' => 'Transaksi dibatalkan',
                     'midtrans' => $cancel
-                ]);
+                ]);*/
+                return redirect()->to('/dashboard-walimurid')->with('success', 'Transaksi dibatalkan');
+
             } catch (\Exception $e) {
-                return $this->response->setJSON([
+                /*return $this->response->setJSON([
                     'error' => 'Gagal membatalkan di Midtrans: ' . $e->getMessage()
-                ]);
+                ]);*/
+                return redirect()->to('/dashboard-walimurid')->with('error', 'Gagal membatalkan di Midtrans: ' . $e->getMessage());
+
             }
         } else {
             // Jika belum pernah dibayar atau snap_token belum ada
@@ -222,7 +223,7 @@ class MPembayaran extends Controller
 
             }
 
-            return redirect()->to('/dashboard-walimurid')->with('success', 'Transaksi dibatalkan secara lokal.');
+            return redirect()->to('/dashboard-walimurid')->with('success', 'Transaksi dibatalkan');
         }
     }
 

@@ -26,16 +26,30 @@
 <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="<?= config('Midtrans')->clientKey ?>"></script>
 <script>
     document.getElementById('pay-button').onclick = function() {
-        snap.pay('<?= $snapToken ?>', {
+        snap.pay('<?= $snaptoken ?>', {
             language: 'id',
             onSuccess: function(result) {
-                console.log(result);
+                //console.log(result);
+                window.location.href = '<?= base_url('dashboard-walimurid') ?>';
             },
             onPending: function(result) {
                 console.log(result);
             },
             onError: function(result) {
-                console.log(result);
+                fetch('<?= base_url('midtrans/log-error') ?>', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest'
+                },
+                body: JSON.stringify(result)
+                })
+                .then(response => response.text())
+                .then(data => {
+                    alert("Terjadi kesalahan saat pembayaran. Silakan coba lagi.");
+                    console.log("Server response:", data);
+                })
+                .catch(err => console.error("Fetch error:", err));
             }
         });
     };

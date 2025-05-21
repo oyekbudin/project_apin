@@ -51,7 +51,7 @@ CREATE TABLE notification (
     gross_amount numeric,
     payment_type varchar(50),
     transaction_status varchar(50),
-    transaction_time TIMESTAMP WITHOUT TIME ZONE,
+    transaction_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     status_code int,
     fraud_status varchar(50),
     /*created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, */
@@ -60,7 +60,7 @@ CREATE TABLE notification (
     id_infaq int,
     nominal numeric,
     payment_method varchar(10) NOT NULL DEFAULT 'midtrans',
-    snapToken text
+    snaptoken text
 );
 
 DROP TABLE IF EXISTS "pembayaran";
@@ -137,4 +137,16 @@ CREATE TABLE tagihan_aktif (
     id SERIAL PRIMARY KEY,
     id_tagihan int,
     FOREIGN KEY (id_tagihan) REFERENCES request_tagihan(id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+DROP TABLE IF EXISTS "log_error_pembayaran";
+CREATE TABLE log_error_pembayaran (
+    id SERIAL PRIMARY KEY,
+    order_id VARCHAR(100),
+    status_message TEXT,
+    status_code VARCHAR(10),
+    transaction_status VARCHAR(50),
+    payment_type VARCHAR(50),
+    raw_response TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

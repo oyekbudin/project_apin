@@ -4,8 +4,15 @@ namespace Config;
 
 class Midtrans
 {
-    public $serverKey = env('midtrans.serverKey');
-    public $clientKey = env('midtrans.clientKey');
-    public $isProduction = env('midtrans.isProduction');
+    public $serverKey;
+    public $clientKey;
+    public $isProduction;
     public $snapUrl = 'https://app.sandbox.midtrans.com/snap/v2';
+
+    public function __construct()
+    {
+        $this->serverKey = env('midtrans.serverKey');
+        $this->clientKey = env('midtrans.clientKey');
+        $this->isProduction = env('midtrans.isProduction');
+    }
 }

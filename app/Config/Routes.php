@@ -67,6 +67,7 @@ $routes->get('/pembayaran/getTagihanForPembayaran', 'Pembayaran::getTagihanForPe
 $routes->get('/pembayaran/detail/(:segment)', 'Pembayaran::detailPembayaran/$1');
 $routes->get('/pembayaran/delete/(:num)', 'Pembayaran::delete/$1');
 $routes->post('/pembayaran/deleteall/(:segment)', 'Pembayaran::deleteall/$1');
+$routes->get('/pembayaran/notifikasi/error', 'Pembayaran::log_error');
 
 $routes->get('/tagihan', 'Tagihan::index',['filter'=>'auth']);
 $routes->get('/tagihan/daftartagihan/(:num)', 'Tagihan::daftartagihan/$1');
@@ -102,5 +103,8 @@ $routes->get('/pdf/laporantahunan', 'PdfController::laporanTahunan');
 $routes->get('/midtrans', 'MidtransController::index');
 $routes->post('/midtrans/callback', 'MidtransController::callback');
 $routes->post('notification/handling', 'MidtransController::notification');
-$routes->post('payment/finish', 'MidtransController::finish');
-$routes->post('payment/unfinish', 'MidtransController::unfinish');
+$routes->get('payment/finish', 'MidtransController::finish');
+$routes->get('payment/unfinish', 'MidtransController::unfinish');
+//$routes->get('payment/error', 'MidtransController::error');
+$routes->post('midtrans/log-error', 'MidtransController::logError');
+

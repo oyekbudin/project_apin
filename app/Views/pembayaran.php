@@ -2,7 +2,7 @@
 <div class="board-wrap">
 <div class="group-action-tombol">
 <button class="tombol green" onclick="onmodalTambah()">Tambah Pembayaran</button>
-<a class="tombol primary" href="<?= base_url('pembayaran/notifikasi'); ?>">Notifikasi<div class="balon">2</div></a>
+<a class="tombol primary" href="<?= base_url('pembayaran/notifikasi'); ?>">Notifikasi</a>
 
 </div>
 <div class="divider"></div>

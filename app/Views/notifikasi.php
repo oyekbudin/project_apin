@@ -2,6 +2,7 @@
 <div class="board-wrap">
 <div class="group-action-tombol">
 <button class="tombol secondary" onclick="history.back()">Kembali</button>
+<a class="tombol red" href="<?= base_url('pembayaran/notifikasi/error') ?>" >Log Error Pembayaran</a>
 </div>
 <div class="divider"></div>
 <div class="tablemobile">
@@ -16,8 +17,7 @@
                 <th>Kelas</th>
                 <th>Total pembayaran</th>
                 <th>Status</th>                
-                <th>Jenis pembayaran</th>                
-                <th>Opsi</th>
+                <th>Jenis pembayaran</th>     
             </tr>
         </thead>
         <tbody>
@@ -34,16 +34,11 @@
                 <td><?= $n['total_nominal'] ?></td>
                 <td><?= $n['status'] ?></td>
                 <td><?= $n['metode_pembayaran'] ?></td>
-                <td>
-                    <div class="td-action">
-                        <a class="tombol primary-outline" href="pembayaran/notification/detail/<?= $n['order_id'] ?>">Detail</a>
-                    </div>
-                </td>
             </tr>
                 <?php endforeach; ?>
             <?php else : ?>
             <tr>
-                <td colspan="7">Notifikasi akan ditampilkan di sini</td>
+                <td colspan="9">Notifikasi akan ditampilkan di sini</td>
             </tr>
             <?php endif; ?>
         </tbody>

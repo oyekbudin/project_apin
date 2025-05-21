@@ -1,6 +1,7 @@
 <?php namespace App\Controllers;
 
       use App\Models\InfaqModel;
+use App\Models\LogErrorModel;
 use App\Models\NotificationModel;
 use App\Models\PembayaranModel;
       use App\Models\SiswaModel;
@@ -14,6 +15,7 @@ class Pembayaran extends Controller
     protected $infaqModel;
     protected $tagihanModel;
     protected $notificationModel;
+    protected $logErrorModel;
 
     public function __construct()
     {
@@ -22,6 +24,7 @@ class Pembayaran extends Controller
         $this->infaqModel = new InfaqModel();
         $this->tagihanModel = new TagihanModel();
         $this->notificationModel = new NotificationModel();
+        $this->logErrorModel = new LogErrorModel();
     }
 
     public function index()
@@ -174,6 +177,20 @@ class Pembayaran extends Controller
         //print_r($data);
         //echo '</pre>';
         return view('notifikasi', $data);
+    }
+
+    public function log_error()
+    {
+        $data = [
+            'menu' => 'Pengelolaan',
+            'title' => 'Log Error Pembayaran',
+            'error' => $this->logErrorModel->findAll(),
+        ];
+
+        //echo '<pre>';
+        //print_r($data);
+        //echo '</pre>';
+        return view('log_error_pembayaran', $data);
     }
     
 }

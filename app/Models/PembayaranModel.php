@@ -162,11 +162,6 @@ class PembayaranModel extends Model
 
     public function savePembayaran($order_id, $id_siswa, $id_infaq, $nominal, $status, $payment_method)
     {
-        //$infaqKelasModel = new InfaqKelasModel();
-        //$siswaModel = new SiswaModel();
-        //$tagihanModel = new TagihanModel();
-        
-
         $db = db_connect();
         $db->query("SELECT setval('pembayaran_id_seq', coalesce(max(id), 0) + 1, false) FROM pembayaran");
         $db->transStart();
@@ -185,16 +180,7 @@ class PembayaranModel extends Model
                         'payment_method' => $payment_method
                     ];
                 }
-                
-                
-                //echo '<pre>';
-                //print_r($dataPembayaran);
-                //echo '</pre>';
-                //$this->insert($dataPembayaran);
             }
-            //echo '<pre>';
-            //print_r(value: $dataPembayaran);
-            //echo '</pre>';
             $this->insertBatch($dataPembayaran);
 
             $db->transComplete();

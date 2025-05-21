@@ -7,10 +7,11 @@
 <div class="grid-board">
     <div class="board-1">
         <form action="m-pembayaran/checkout">
-            <?php $adaTagihan = false; //inisiasi
-                if ($tagihan) : ?>
+            <?php $adaTagihan = false;?>
+                
                     <div class="list-tagihan">
-                        <ul>                    
+                        <ul>      
+                            <?php if ($tagihan): ?>              
                             <?php foreach($tagihan as $t) :
                                 if($t['sisa_tagihan'] != 0) :
                                     $adaTagihan = true; ?>                    
@@ -18,18 +19,19 @@
                                         <input class="cek-tagihan" type="checkbox" name="infaq_id[]" id="<?= $t['id_infaq'] ?>" value="<?= $t['id_infaq'] ?>" data-sisa="<?= $t['sisa_tagihan'] ?>">
                                         <label for="<?= $t['id_infaq'] ?>"><span><?= $t['nama_infaq'] ?></span><span class="txtbold"><?= 'Rp ' . number_format($t['sisa_tagihan'], 0, ',', '.') ?></span></label>
                                     </li>
-                                <?php endif;
-                            endforeach; ?>                        
+                                <?php endif;?>
+                            <?php endforeach; ?>
+                            <?php if (!$adaTagihan): ?>
+                            <li><span class="txtdisable no-tagihan">Belum ada tagihan terbaru</span></li>
+                            <?php endif; ?>
+                        <?php else: ?>
+                            <li><span class="txtdisable no-tagihan">Belum ada tagihan terbaru</span></li>
+                        <?php endif; ?>                
                         </ul>       
                     </div>
-                <?php else : ?> <!-- jika tidak ada tagihan -->
-                    <div class="list-tagihan">
-                    <ul>
-                        <li><span class="txtdisable no-tagihan">Belum ada tagihan terbaru</span></li>
-                    </ul>            
-                <?php endif; ?>
+                
 
-            <?php if($adaTagihan == true) : ?>  <!-- jika ada tagihan -->
+            <?php if($adaTagihan) : ?>  <!-- jika ada tagihan -->
                 <div class="checkout">
                     <div id="selectAll">
                         <input class="" type="checkbox" name="#" id="checkAll" value="#">

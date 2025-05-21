@@ -6,7 +6,7 @@ class NotificationModel extends Model
 {
     protected $table ='notification';
     protected $primaryKey ='id';
-    protected $allowedFields = ['gross_amount','payment_type','transaction_status','created_at','order_id','id_siswa','id_infaq','nominal','payment_method','snapToken'];
+    protected $allowedFields = ['gross_amount','payment_type','transaction_status','created_at','order_id','id_siswa','id_infaq','nominal','payment_method','snaptoken'];
 
     /*public function oldsaveNotification($order_id, $id_siswa, $id_infaq, $nominal, $transaction_status, $payment_method, $gross_amount)
     {
@@ -59,7 +59,7 @@ class NotificationModel extends Model
                         'transaction_status' => $data['transaction_status'],
                         'payment_method' => $data['payment_method'],
                         'gross_amount' => $data['gross_amount'],
-                        'snapToken' => $data['snapToken'],
+                        'snaptoken' => $data['snaptoken'],
                     ];
                 }
             }
@@ -84,7 +84,7 @@ class NotificationModel extends Model
         ->select('notification.order_id, DATE(notification.transaction_time) as waktu_transaksi, notification.id_siswa as nis, siswa.name as nama_siswa, siswa.kelas as kelas, notification.gross_amount as total_nominal, notification.transaction_status as status, notification.payment_method as metode_pembayaran')
         ->join('siswa', 'notification.id_siswa = siswa.nis')
         ->groupBy('notification.order_id, notification.transaction_time, notification.id_siswa, siswa.name, siswa.kelas, notification.gross_amount, notification.transaction_status, notification.payment_method')
-        //->orderBy('pembayaran.date','DESC')
+        ->orderBy('notification.transaction_time','DESC')
         ->get()
         ->getResultArray();
     }
@@ -92,9 +92,9 @@ class NotificationModel extends Model
     public function getPendingNotifById($id)
     {
         return $this
-        ->select('notification.order_id, DATE(notification.transaction_time) as waktu_transaksi, notification.id_siswa as nis, siswa.name as nama_siswa, siswa.kelas as kelas, notification.gross_amount as total_nominal, notification.transaction_status as status, notification.payment_method as metode_pembayaran, notification.snapToken')
+        ->select('notification.order_id, DATE(notification.transaction_time) as waktu_transaksi, notification.id_siswa as nis, siswa.name as nama_siswa, siswa.kelas as kelas, notification.gross_amount as total_nominal, notification.transaction_status as status, notification.payment_method as metode_pembayaran, notification.snaptoken')
         ->join('siswa', 'notification.id_siswa = siswa.nis')
-        ->groupBy('notification.order_id, notification.transaction_time, notification.id_siswa, siswa.name, siswa.kelas, notification.gross_amount, notification.transaction_status, notification.payment_method, notification.snapToken')
+        ->groupBy('notification.order_id, notification.transaction_time, notification.id_siswa, siswa.name, siswa.kelas, notification.gross_amount, notification.transaction_status, notification.payment_method, notification.snaptoken')
         //->orderBy('pembayaran.date','DESC')
         ->where('id_siswa', $id)
         ->where('transaction_status','pending')

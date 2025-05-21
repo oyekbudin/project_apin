@@ -18,7 +18,7 @@ foreach($tagihan as $t) {
     <div class="board-1">
         <div class="board-wrap primarylight">
         <div class="wrap-rekap">
-            <div class="card-3 primarydark">
+            <div class="card-3 primarydark" id="sisa_tagihan">
                 <span class="data-subtitle">Sisa tagihan</span>
                 <span class="data-title"> Rp <?= number_format($total_tagihan, 0, ',', '.') ?></span>                
             </div>
