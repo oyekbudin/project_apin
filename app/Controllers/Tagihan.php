@@ -293,7 +293,7 @@ class Tagihan extends Controller
                     'authkey' => 'vu9aMiZvSaC5kblVBQtq3eE9q2XuxJaO1nUsROVrHHJYg5U5ru',
                     'to' => $nomor,
                     'message' => $pesan,
-                    'sandbox' => 'true'
+                    'sandbox' => 'false'
                 ),
             ));
             $response = curl_exec($curl);
