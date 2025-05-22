@@ -74,6 +74,8 @@ $routes->get('/tagihan/daftartagihan/(:num)', 'Tagihan::daftartagihan/$1');
 $routes->get('/tagihan/lihatkartu', 'Tagihan::lihatkartu');
 $routes->post('/tagihan/kirim_tagihan', 'Tagihan::kirim_tagihan');
 $routes->get('/tagihan/riwayat_pengiriman', 'Tagihan::riwayat_pengiriman');
+$routes->get('/riwayat_pengiriman/detail/(:num)', 'Tagihan::detail_pengiriman/$1');
+$routes->get('/riwayat_pengiriman/delete/(:num)', 'Tagihan::delete_pengiriman/$1');
 $routes->post('/tagihan/buattagihan', 'Tagihan::buatTagihan');
 $routes->post('/tagihan/checkbox', 'Tagihan::checkbox');
 $routes->get('/tagihan/detail/(:num)', 'Tagihan::detail/$1');

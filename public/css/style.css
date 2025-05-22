@@ -1303,6 +1303,9 @@ span.no-tagihan {
     line-height: normal;
     padding: 8px;
 }
+td#detailpesan {
+    white-space: wrap;
+}
 
 
 

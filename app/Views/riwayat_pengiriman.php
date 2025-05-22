@@ -13,6 +13,7 @@
                 <th>Nama Penerima</th>
                 <th>Nomor Penerima</th>
                 <th>Status</th>
+                <th>Opsi</th>
             </tr>
         </thead>
         <tbody>
@@ -25,11 +26,17 @@
                         <td><?= $p['nama_penerima'] ?></td>
                         <td><?= $p['nomor_penerima'] ?></td>
                         <td><?= $p['status'] ?></td>
+                        <td>
+                            <div class="td-action">
+                                <a class="tombol warning-outline" href="/riwayat_pengiriman/detail/<?= $p['id'] ?>">Detail</a>
+                                <a class="tombol danger-outline" href="/riwayat_pengiriman/delete/<?= $p['id'] ?>" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')">Hapus</a>
+                            </div>
+                        </td>
                     </tr>
                 <?php endforeach; ?>
             <?php else : ?>
             <tr>
-                <td colspan="5">Riwayat Pengiriman akan ditampilkan di sini</td>
+                <td colspan="6">Riwayat Pengiriman akan ditampilkan di sini</td>
             </tr>
             <?php endif; ?>
         </tbody>

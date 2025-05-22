@@ -241,76 +241,93 @@ class Tagihan extends Controller
     }
     public function kirim_tagihan()
     {
-        $siswa_id = $this->request->getPost('siswa_id');
-        $header = $this->request->getPost('header');
-        $footer = $this->request->getPost('footer');
-
-        //print_r($siswa_id);   
-        //print_r($header);   
-        //print_r($footer);   
-
-        $tagihan_aktif = $this->tagihanAktifModel->orderBy('id','desc')->first();
-        if ($tagihan_aktif) {
-            $request = $tagihan_aktif['id_tagihan'];
-        } else {
-            $request = '';
-        }
-
-        //print_r($request); 
-        
-
-        foreach ($siswa_id as $id) {
-            $siswa = $this->siswaModel->findSiswa($id);
-            $nis = $siswa['nis'];
-            $tagihan = $this->tagihanModel->getTagihanByRequestById($nis, $request);
-            $nomor = preg_replace('/^0/', '62', $siswa['phonenumber']);
-
-            $body = '';
-            $total_tagihan = 0;             
+        $rules = [
+            'siswa_id' => 'required',
+            'header' => 'required|min_length[4]|max_length[100]|alpha_numeric_space',
+            'footer' => 'required|min_length[4]|max_length[100]|alpha_numeric_space',
+        ];
+        $errors = [
+            'siswa_id' => [
+                'required'=>'Pilih minimal 1 siswa',
+            ],
+            'header' => [
+                'required'=>'Harus diisi',
+                'alpha_numeric_space'=>'Tidak boleh mengandung karakter khusus',
+                'min_length'=>'Setidaknya 4 karakter',
+                'max_length'=>'Maksimal 100 karakter'
+            ],
+            'footer' => [
+                'required'=>'Harus diisi',
+                'alpha_numeric_space'=>'Tidak boleh mengandung karakter khusus',
+                'min_length'=>'Setidaknya 4 karakter',
+                'max_length'=>'Maksimal 100 karakter'
+            ],
             
-            foreach($tagihan as $t) {
-                $body .= $t['nama_infaq'] . ' --- Rp' . number_format($t['sisa_tagihan'], 0, ',', '.') . "\n";
-                $total_tagihan += $t['sisa_tagihan'];                
+        ];
+
+        if ($this->validate($rules, $errors))
+        {
+            
+            $siswa_id = $this->request->getPost('siswa_id');
+            $header = $this->request->getPost('header');
+            $footer = $this->request->getPost('footer');
+
+            $tagihan_aktif = $this->tagihanAktifModel->orderBy('id','desc')->first();
+            if ($tagihan_aktif) {
+                $request = $tagihan_aktif['id_tagihan'];
+            } else {
+                $request = '';
+            }        
+
+            foreach ($siswa_id as $id) {
+                $siswa = $this->siswaModel->findSiswa($id);
+                $nis = $siswa['nis'];
+                $tagihan = $this->tagihanModel->getTagihanByRequestById($nis, $request);
+                $nomor = preg_replace('/^0/', '62', $siswa['phonenumber']);
+
+                $body = '';
+                $total_tagihan = 0;             
+                
+                foreach($tagihan as $t) {
+                    $body .= $t['nama_infaq'] . ' --- Rp' . number_format($t['sisa_tagihan'], 0, ',', '.') . "\n";
+                    $total_tagihan += $t['sisa_tagihan'];                
+                }
+                $body .= '----------' . "\n" . 'Jumlah --- Rp' . number_format($total_tagihan, 0, ',', '.') . "\n";
+
+                $pesan = 'Yth. ' . $siswa['name'] . ",\n\n" . $header . "\n\n" .  $body . "\n" . $footer;
+
+                //Api SaungWA
+                $curl = curl_init();
+                curl_setopt_array($curl, array(
+                    CURLOPT_URL => 'https://app.saungwa.com/api/create-message',
+                    CURLOPT_RETURNTRANSFER => true,
+                    CURLOPT_CUSTOMREQUEST => 'POST',
+                    CURLOPT_POSTFIELDS => array(
+                        'appkey' => '64dfa16d-cd35-4fa8-bf21-9e93d24ed5c5',
+                        'authkey' => 'vu9aMiZvSaC5kblVBQtq3eE9q2XuxJaO1nUsROVrHHJYg5U5ru',
+                        'to' => $nomor,
+                        'message' => $pesan,
+                        'sandbox' => 'false'
+                    ),
+                ));
+                $response = curl_exec($curl);
+                curl_close($curl);
+                
+                $this->pesanWaModel->insert([
+                    'nomor_penerima' => $nomor,
+                    'nama_penerima' => $siswa['name'],
+                    'pesan' => $pesan,
+                    'status' => 'Terkirim',
+                    'response_json' => $response,
+                ]);
             }
-            $body .= '----------' . "\n" . 'Jumlah --- Rp' . number_format($total_tagihan, 0, ',', '.') . "\n";
 
-            $pesan = 'Yth. ' . $siswa['name'] . ",\n\n" . $header . "\n\n" .  $body . "\n" . $footer;
-
-            //echo '<pre>';
-            //print_r($pesan); 
-            //echo '</pre>';
-            
-            
-            
-            //Api SaungWA
-            $curl = curl_init();
-            curl_setopt_array($curl, array(
-                CURLOPT_URL => 'https://app.saungwa.com/api/create-message',
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_CUSTOMREQUEST => 'POST',
-                CURLOPT_POSTFIELDS => array(
-                    'appkey' => '64dfa16d-cd35-4fa8-bf21-9e93d24ed5c5',
-                    'authkey' => 'vu9aMiZvSaC5kblVBQtq3eE9q2XuxJaO1nUsROVrHHJYg5U5ru',
-                    'to' => $nomor,
-                    'message' => $pesan,
-                    'sandbox' => 'false'
-                ),
-            ));
-            $response = curl_exec($curl);
-            curl_close($curl);
-            
-            
-
-            $this->pesanWaModel->insert([
-                'nomor_penerima' => $nomor,
-                'nama_penerima' => $siswa['name'],
-                'pesan' => $pesan,
-                'status' => 'Terkirim',
-                'response_json' => $response,
-            ]);
-        }
-
-        return redirect()->back()->with('success', 'Pesan berhasil dikirim');
+            return redirect()->back()->with('success', 'Pesan berhasil dikirim');
+        } else {
+            session()->setFlashdata('errors', $this->validator->getErrors());
+            session()->setFlashdata('show_modal',true);
+            return redirect()->back()->withInput();
+        }        
     }
         
         
@@ -327,5 +344,22 @@ class Tagihan extends Controller
         ];
 
         return view('riwayat_pengiriman', $data);
+    }
+    public function detail_pengiriman($id)
+    {
+        $data = [
+            'menu' => 'Pengelolaan',
+            'title' => 'Riwayat Pengiriman',
+            'pesanwa' => $this->pesanWaModel->find($id),
+            'on' => true,
+        ];
+
+        return view('detail_pengiriman', $data);
+    }
+    public function delete_pengiriman($id)
+    {
+        $this->pesanWaModel->delete($id);       
+
+        return redirect()->to('riwayat_pembayaran');
     }
 }

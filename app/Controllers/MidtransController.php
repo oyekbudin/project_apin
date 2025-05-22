@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\LogErrorModel;
 use App\Models\NotificationModel;
 use App\Models\PembayaranModel;
 use App\Models\PesanWaModel;
@@ -16,12 +17,14 @@ class MidtransController extends BaseController
     protected $pembayaranModel;
     protected $siswaModel;
     protected $pesanWaModel;
+    protected $logErrorModel;
     public function __construct()
     {
         $this->notificationModel = new NotificationModel();
         $this->pembayaranModel = new PembayaranModel();
         $this->siswaModel = new SiswaModel();
         $this->pesanWaModel = new PesanWaModel();
+        $this->logErrorModel = new LogErrorModel();
     }
     
     public function callback()
@@ -98,7 +101,7 @@ class MidtransController extends BaseController
             //$siswa_id = $this->request->getPost('siswa_id');
             //$header = $this->request->getPost('header');
             //$footer = $this->request->getPost('footer');          
-            $siswa = $this->siswaModel->findSiswa($id_siswa);
+            $siswa = $this->siswaModel->findSiswaByNis($id_siswa);
                 //$nis = $siswa['nis'];
                 //$tagihan = $this->tagihanModel->getTagihanByRequestById($nis, $request);
             $nomor = preg_replace('/^0/', '62', $siswa['phonenumber']);
@@ -106,7 +109,7 @@ class MidtransController extends BaseController
 
             $body = '';
             $header = 'SMP Maarif NU 01 Wanareja' . "\n" . 'Jl. KH Hasyim Asyari No. 09, Wanareja' . "\n" . 'Telp. 08121475939' ;
-            $body .= 'Nama : ' . $siswa[0]['name'] . "\n" . 'Waktu Transaksi : ' . $transaction_time . 'Nomor Transaksi : ' . $order_id . "\n\n";
+            $body .= 'Nama : ' . $siswa['name'] . "\n" . 'Waktu Transaksi : ' . $transaction_time . "\n" . 'Nomor Transaksi : ' . $order_id . "\n\n";
             $body .= 'Deskripsi : Pembayaran Tagihan' . "\n" . 'Total pembayaran : Rp ' . number_format($gross_amount, 0, ',', '.') . "\n" . 'Metode Pembayaran : ' . $payment_type . "\n" . 'Status : Berhasil' . "\n\n" ;                
                 
            // $body .= '----------' . "\n" . 'Jumlah --- Rp' . number_format($total_tagihan, 0, ',', '.') . "\n";
@@ -115,7 +118,7 @@ class MidtransController extends BaseController
             
             $pesan = $header . "\n\n" .  $body . "\n" . $footer;
 
-            //Api SaungWA
+            //Api SaungWA            
                 $curl = curl_init();
                 curl_setopt_array($curl, array(
                     CURLOPT_URL => 'https://app.saungwa.com/api/create-message',
@@ -126,13 +129,11 @@ class MidtransController extends BaseController
                         'authkey' => 'vu9aMiZvSaC5kblVBQtq3eE9q2XuxJaO1nUsROVrHHJYg5U5ru',
                         'to' => $nomor,
                         'message' => $pesan,
-                        'sandbox' => 'false'
+                        'sandbox' => 'true'
                     ),
                 ));
                 $response = curl_exec($curl);
-                curl_close($curl);
-                
-                
+                curl_close($curl);                      
 
                 $this->pesanWaModel->insert([
                     'nomor_penerima' => $nomor,
@@ -152,7 +153,7 @@ class MidtransController extends BaseController
 
         if ($json) {
             // Simpan ke log_error_pembayaran atau tabel log lainnya
-            $this->db->table('log_error_pembayaran')->insert([
+            $this->logErrorModel->insert([
                 'order_id' => $json['order_id'] ?? null,
                 'status_message' => $json['status_message'] ?? null,
                 'status_code' => $json['status_code'] ?? null,

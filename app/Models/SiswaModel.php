@@ -86,6 +86,11 @@ class SiswaModel extends Model
         return $this->where('id', $id)->first();
         //return $this->find($id);
     }
+    public function findSiswaByNis($id_siswa)
+    {
+        return $this->where('nis', $id_siswa)->first();
+        //return $this->find($id);
+    }
 
     public function updateSiswa($id, $data)
     {

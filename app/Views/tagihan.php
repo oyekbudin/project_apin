@@ -66,18 +66,29 @@
                         <tr>
                             <td>Kalimat Pembuka</td>
                             <td id="textArea">
-                                <textarea name="header" id=""></textarea>
+                                <textarea name="header" id="" value="<?= old('header') ?>" placeholder="Salam, maksud dan tujuan, dsb." required oninvalid="this.setCustomValidity('Kalimat pembuka harus diisi')" oninput="this.setCustomValidity('')"></textarea>
+                                
                             </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['header'] ?? '' ?></span></td>
                         </tr>
                         <tr>
                             <td>Kalimat Penutup</td>
                             <td id="textArea">
-                                <textarea name="footer" id=""></textarea>
+                                <textarea name="footer" id="" value="<?= old('footer') ?>" placeholder="Terima kasih, info pembayaran, dsb." required oninvalid="this.setCustomValidity('Kalimat penutup harus diisi')" oninput="this.setCustomValidity('')"></textarea>
+                                
                             </td>
                         </tr>
                         <tr>
+                            <td></td>
+                            <td><span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['footer'] ?? '' ?></span></td>
+                        </tr>
+                        <tr>
                             <td>Pilih Penerima</td>
-                            <td>                           
+                            <td>
+                                <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['siswa_id'] ?? '' ?></span>                           
                             <?php foreach ($penerima as $p) : ?>
                                 <div class="cbkelas">
                                     <input class="" type="checkbox" name="siswa_id[]" id="<?= $p['id'] ?>" value="<?= $p['id'] ?>">
