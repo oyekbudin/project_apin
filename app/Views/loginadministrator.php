@@ -3,9 +3,9 @@
     <header class="header-desktop header-login">
         <h1>Aplikasi Pengelola Infaq SMP Ma'arif NU 01 Wanareja</h1>
         <ul>
-            <li class="tombol primary">Manual Aplikasi</li>
-            <li class="tombol primary">Masuk</li>
-            <li class="tombol secondary">Reset Password</li>
+            <li class="tombol secondary">Panduan Aplikasi</li>
+            <!--li class="tombol primary">Masuk</li>
+            <li class="tombol secondary">Reset Password</li-->
         </ul>
     </header>
     <main class="main-desktop main-login">
