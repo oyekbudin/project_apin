@@ -7,8 +7,6 @@ class SiswaModel extends Model
     protected $table = 'siswa';
     protected $primaryKey = 'nis';
     protected $allowedFields = ['nis', 'name', 'phonenumber', 'gender', 'kelas'];
-    protected $useAutoIncrement = false;
-
 
     public function getTotalSiswa()
     {
@@ -17,7 +15,7 @@ class SiswaModel extends Model
 
     public function getPaginatedSiswa($limit, $offset)
     {
-        return $this->orderBy('kelas', 'ASC')
+        return $this->orderBy('id', 'ASC')
                     ->limit($limit, $offset)
                     ->find();
     }
@@ -39,16 +37,7 @@ class SiswaModel extends Model
         $db = db_connect();
         //$db->query("SELECT setval('users_id_seq', coalesce(max(id), 0) + 1, false) FROM users");
         //$db->query("SELECT setval('tagihan_id_seq', coalesce(max(id), 0) + 1, false) FROM tagihan");
-        $datasiswa = [
-            'id' => $data['id'],
-            'nis' => $data['nis'],
-            'name' => $data['name'],
-            'phonenumber' => $data['phonenumber'],
-            'gender' => $data['gender'],
-            'kelas' => $data['kelas'],
-        ];
-
-        $this->insert($datasiswa);
+        $this->insert($data);
         $siswaId = $data['nis'];
         $kelas = $data['kelas'];
 

@@ -17,7 +17,8 @@
         "guzzlehttp/guzzle": "*",
         "laminas/laminas-escaper": "^2.14",
         "midtrans/midtrans-php": "*",
-        "psr/log": "^3.0"
+        "psr/log": "^3.0",
+        "ramsey/uuid": "*"
     },
     "require-dev": {
         "codeigniter/phpstan-codeigniter": "^1.5.1",

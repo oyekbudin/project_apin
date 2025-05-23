@@ -7,6 +7,7 @@ use App\Models\SiswaModel;
 use App\Models\TagihanAktifModel;
 use App\Models\TagihanModel;
 use CodeIgniter\Controller;
+use Ramsey\Uuid\Uuid;
 
 class Tagihan extends Controller
 {
@@ -58,7 +59,7 @@ class Tagihan extends Controller
         return view('tagihan', $data);
     }
 
-    public function save()
+    /*public function save()
     {
         helper(['form']);
         $rules =
@@ -174,7 +175,7 @@ class Tagihan extends Controller
         $this->infaqModel->delete($id);
 
         return redirect()->to('/aturinfaq')->with('success', 'Data infaq berhasil dihapus.');
-    }
+    }*/
 
     public function detail($id)
     {
@@ -233,6 +234,7 @@ class Tagihan extends Controller
     {
             $data =
             [
+                'id' => Uuid::uuid4()->toString(),
                 'id_tagihan' => $id,
             ];
             
@@ -243,8 +245,8 @@ class Tagihan extends Controller
     {
         $rules = [
             'siswa_id' => 'required',
-            'header' => 'required|min_length[4]|max_length[100]|alpha_numeric_space',
-            'footer' => 'required|min_length[4]|max_length[100]|alpha_numeric_space',
+            'header' => 'required|min_length[4]|max_length[100]',
+            'footer' => 'required|min_length[4]|max_length[100]',
         ];
         $errors = [
             'siswa_id' => [
@@ -252,13 +254,11 @@ class Tagihan extends Controller
             ],
             'header' => [
                 'required'=>'Harus diisi',
-                'alpha_numeric_space'=>'Tidak boleh mengandung karakter khusus',
                 'min_length'=>'Setidaknya 4 karakter',
                 'max_length'=>'Maksimal 100 karakter'
             ],
             'footer' => [
                 'required'=>'Harus diisi',
-                'alpha_numeric_space'=>'Tidak boleh mengandung karakter khusus',
                 'min_length'=>'Setidaknya 4 karakter',
                 'max_length'=>'Maksimal 100 karakter'
             ],
@@ -303,7 +303,7 @@ class Tagihan extends Controller
                     CURLOPT_RETURNTRANSFER => true,
                     CURLOPT_CUSTOMREQUEST => 'POST',
                     CURLOPT_POSTFIELDS => array(
-                        'appkey' => '64dfa16d-cd35-4fa8-bf21-9e93d24ed5c5',
+                        'appkey' => 'bbac7c30-2cfd-45b7-a1da-216717dff430',
                         'authkey' => 'vu9aMiZvSaC5kblVBQtq3eE9q2XuxJaO1nUsROVrHHJYg5U5ru',
                         'to' => $nomor,
                         'message' => $pesan,

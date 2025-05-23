@@ -7,6 +7,7 @@ use App\Models\RequestTagihanModel;
 use App\Models\TagihanAktifModel;
 use App\Models\TagihanInfaqModel;
 use CodeIgniter\Controller;
+use Ramsey\Uuid\Uuid;
 
 class RequestTagihan extends Controller
 {
@@ -16,6 +17,7 @@ class RequestTagihan extends Controller
     //protected $tagihanInfaqModel;
     protected $administratorModel;
     protected $tagihanAktifModel;
+    protected $useAutoIncrement = false;
 
     public function __construct()
     {
@@ -103,6 +105,7 @@ class RequestTagihan extends Controller
         {
             $dataRequest =
             [
+                'id' => Uuid::uuid4()->toString(),
                 'title' => $this->request->getVar('title'),
                 'id_admin' => $this->request->getVar('idadmin'),
                 'status' => $this->request->getVar('status'),

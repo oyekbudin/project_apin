@@ -91,8 +91,8 @@
                                 <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['siswa_id'] ?? '' ?></span>                           
                             <?php foreach ($penerima as $p) : ?>
                                 <div class="cbkelas">
-                                    <input class="" type="checkbox" name="siswa_id[]" id="<?= $p['id'] ?>" value="<?= $p['id'] ?>">
-                                    <label for="<?= $p['id'] ?>"><?= $p['name'] ?> - <?= $p['phonenumber'] ?></label><br>
+                                    <input class="" type="checkbox" name="siswa_id[]" id="<?= $p['nis'] ?>" value="<?= $p['nis'] ?>">
+                                    <label for="<?= $p['nis'] ?>"><?= $p['name'] ?> - <?= $p['phonenumber'] ?></label><br>
                                 </div>
                             <?php endforeach ?>                           
                            </td>

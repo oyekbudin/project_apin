@@ -9,6 +9,7 @@ use CodeIgniter\Controller;
 use Midtrans\Config;
 use Midtrans\Snap;
 use Midtrans\Transaction;
+use Ramsey\Uuid\Uuid;
 
 class MPembayaran extends Controller
 {
@@ -127,6 +128,7 @@ class MPembayaran extends Controller
             'snaptoken' => $snaptoken,   //aktifkan lagi nanti
             //'tagihan' => $tagihan,   //ada nis, id_infaq, sisa_tagihan
             //'id_siswa' => array_column($tagihan, 'nis'),
+            'id' => Uuid::uuid4()->toString(),
             'id_siswa' => $id,
             'id_infaq' => array_column($tagihan, 'id_infaq'),
             'nominal' => array_column($tagihan, 'sisa_tagihan'),

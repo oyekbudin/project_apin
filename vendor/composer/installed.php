@@ -3,13 +3,22 @@
         'name' => 'codeigniter4/codeigniter4',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'a678f1b533dc8363d7f98dedb9eb19f868600155',
+        'reference' => '262d8c50ec7930d9a0f9fd20a9a13b8135978b82',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
+        'brick/math' => array(
+            'pretty_version' => '0.12.3',
+            'version' => '0.12.3.0',
+            'reference' => '866551da34e9a618e64a819ee1e01c20d8a588ba',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../brick/math',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'codeigniter/phpstan-codeigniter' => array(
             'pretty_version' => 'v1.5.3',
             'version' => '1.5.3.0',
@@ -22,7 +31,7 @@
         'codeigniter4/codeigniter4' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'a678f1b533dc8363d7f98dedb9eb19f868600155',
+            'reference' => '262d8c50ec7930d9a0f9fd20a9a13b8135978b82',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -367,6 +376,24 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'ramsey/collection' => array(
+            'pretty_version' => '2.1.1',
+            'version' => '2.1.1.0',
+            'reference' => '344572933ad0181accbf4ba763e85a0306a8c5e2',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../ramsey/collection',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'ramsey/uuid' => array(
+            'pretty_version' => '4.7.6',
+            'version' => '4.7.6.0',
+            'reference' => '91039bc1faa45ba123c4328958e620d382ec7088',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../ramsey/uuid',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'rector/rector' => array(
             'pretty_version' => '2.0.6',
             'version' => '2.0.6.0',
@@ -375,6 +402,12 @@
             'install_path' => __DIR__ . '/../rector/rector',
             'aliases' => array(),
             'dev_requirement' => true,
+        ),
+        'rhumsaa/uuid' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '4.7.6',
+            ),
         ),
         'sabberworm/php-css-parser' => array(
             'pretty_version' => 'v8.8.0',

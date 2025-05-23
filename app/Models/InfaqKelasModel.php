@@ -6,5 +6,6 @@ class InfaqKelasModel extends Model
 {
     protected $table = 'infaq_kelas';
     protected $allowedFields = ['id_infaq', 'id_kelas'];
+    protected $useAutoIncrement = false;
 
 }

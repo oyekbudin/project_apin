@@ -6,6 +6,7 @@ Class KelasModel extends Model
 {
     protected $table = 'kelas';
     protected $allowedFields = 'id, nama';
+    protected $useAutoIncrement = false;
     public function getDataKelas()
     {
         return $this->select()->findAll();

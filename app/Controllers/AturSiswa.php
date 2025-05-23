@@ -2,6 +2,7 @@
 
 use App\Models\SiswaModel;
 use CodeIgniter\Controller;
+use Ramsey\Uuid\Uuid;
 
 class AturSiswa extends Controller
 {
@@ -76,13 +77,15 @@ class AturSiswa extends Controller
 
         if ($this->validate($rules, $errors)) {
             $data = [
+                'id' => Uuid::uuid4()->toString(),
                 'nis' => $this->request->getVar('nis'),
                 'name' => $this->request->getVar('name'),
                 'phonenumber' => $this->request->getVar('phonenumber'),
                 'gender' => $this->request->getVar('gender'),
                 'kelas' => $this->request->getVar('kelas'),
             ];
-            //$this->siswaModel->save($data);
+
+            //print_r($data['id']);
             $this->siswaModel->saveSiswa($data);
             return redirect()->to('/atursiswa')->with('success', 'Data siswa berhasil ditambahkan.');
         } else {

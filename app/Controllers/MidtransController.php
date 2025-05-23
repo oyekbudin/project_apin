@@ -10,6 +10,7 @@ use App\Models\SiswaModel;
 use Midtrans\Config;
 use Midtrans\Snap;
 use Midtrans\Notification;
+use Ramsey\Uuid\Uuid;
 
 class MidtransController extends BaseController
 {
@@ -94,8 +95,9 @@ class MidtransController extends BaseController
             $status = $transaction_status;
             $payment_method = $existingData[0]['payment_method'];
             //$transaction_time = $existingData[0]['transaction_time'];
+            $id = Uuid::uuid4()->toString();
 
-            $this->pembayaranModel->savePembayaran($order_id, $id_siswa, $id_infaq, $nominal, $status, $payment_method);
+            $this->pembayaranModel->savePembayaran($id, $order_id, $id_siswa, $id_infaq, $nominal, $status, $payment_method);
             
             //Api Saung WA Struk Pembayaran
             //$siswa_id = $this->request->getPost('siswa_id');
@@ -125,7 +127,7 @@ class MidtransController extends BaseController
                     CURLOPT_RETURNTRANSFER => true,
                     CURLOPT_CUSTOMREQUEST => 'POST',
                     CURLOPT_POSTFIELDS => array(
-                        'appkey' => '64dfa16d-cd35-4fa8-bf21-9e93d24ed5c5',
+                        'appkey' => 'bbac7c30-2cfd-45b7-a1da-216717dff430',
                         'authkey' => 'vu9aMiZvSaC5kblVBQtq3eE9q2XuxJaO1nUsROVrHHJYg5U5ru',
                         'to' => $nomor,
                         'message' => $pesan,
@@ -136,6 +138,7 @@ class MidtransController extends BaseController
                 curl_close($curl);                      
 
                 $this->pesanWaModel->insert([
+                    'id' => Uuid::uuid4()->toString(),
                     'nomor_penerima' => $nomor,
                     'nama_penerima' => $siswa['name'],
                     'pesan' => $pesan,
@@ -154,6 +157,7 @@ class MidtransController extends BaseController
         if ($json) {
             // Simpan ke log_error_pembayaran atau tabel log lainnya
             $this->logErrorModel->insert([
+                'id' => Uuid::uuid4()->toString(),
                 'order_id' => $json['order_id'] ?? null,
                 'status_message' => $json['status_message'] ?? null,
                 'status_code' => $json['status_code'] ?? null,

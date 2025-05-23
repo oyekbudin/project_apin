@@ -9,4 +9,6 @@
     <script src="<?= base_url('/js/jquery-3.7.1.min.js') ?>"></script>
     <script src="<?= base_url('/js/toastr.min.js') ?>"></script>
     <title><?= $title ?></title>
+    <link rel="manifest" href="<?= base_url('/json/manifest.json') ?>">
+
 </head>

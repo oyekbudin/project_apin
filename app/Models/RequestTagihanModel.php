@@ -1,11 +1,13 @@
 <?php namespace App\Models;
 
       use CodeIgniter\Model;
+      use Ramsey\Uuid\Uuid;
 
 class RequestTagihanModel extends Model
 {
     protected $table = 'request_tagihan';
     protected $allowedFields = ['id','title','id_admin','date','status'];
+    protected $useAutoIncrement = false;
 
     public function search($keyword)
     {
@@ -35,14 +37,21 @@ class RequestTagihanModel extends Model
         $tagihanInfaqModel = new TagihanInfaqModel();
 
         $db = db_connect();        
-        $db->query("SELECT setval('request_tagihan_id_seq', coalesce(max(id), 0) + 1, false) FROM request_tagihan");
+        //$db->query("SELECT setval('request_tagihan_id_seq', coalesce(max(id), 0) + 1, false) FROM request_tagihan");
         $db->transStart();
         try {
-            $this->insert($dataRequest);
-            $requestId = $this->getInsertID();
+            $datatagihan = [
+                'id' => $dataRequest['id'],
+                'title' => $dataRequest['title'],
+                'id_admin' => $dataRequest['id_admin'],
+                'status' => $dataRequest['status'],
+            ];
+            $this->insert($datatagihan);
+            $requestId = $dataRequest['id'];
             
             foreach ($infaqId as $in) {
                 $dataTagihanInfaq = [
+                    'id' => Uuid::uuid4()->toString(),
                     'id_tagihan' => $requestId,
                     'id_infaq' => $in
                 ];

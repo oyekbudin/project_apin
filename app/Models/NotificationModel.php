@@ -8,6 +8,7 @@ class NotificationModel extends Model
     protected $primaryKey ='id';
     protected $allowedFields = ['gross_amount','payment_type','transaction_status','created_at','order_id','id_siswa','id_infaq','nominal','payment_method','snaptoken'];
 
+    protected $useAutoIncrement = false;
     /*public function oldsaveNotification($order_id, $id_siswa, $id_infaq, $nominal, $transaction_status, $payment_method, $gross_amount)
     {
         $db = db_connect();
@@ -45,13 +46,14 @@ class NotificationModel extends Model
 
 
         $db = db_connect();
-        $db->query("SELECT setval('notification_id_seq', coalesce(max(id), 0) + 1, false) FROM notification");
+        //$db->query("SELECT setval('notification_id_seq', coalesce(max(id), 0) + 1, false) FROM notification");
         $db->transStart();
         try {     
             foreach ($id_infaq as $key => $value) {
                 if (isset($nominal[$key]) && !empty($nominal[$key])) {
                 /*foreach ($nominal as $nom) {*/
                     $dataNotification[] = [
+                        'id' => $data['id'],
                         'order_id' => $data['order_id'],
                         'id_siswa' => $data['id_siswa'],
                         'id_infaq' => $value,

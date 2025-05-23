@@ -8,5 +8,5 @@ class PesanWaModel extends Model
     protected $primaryKey ='id';
     protected $allowedFields = ['nomor_penerima','nama_penerima','pesan','status','response_json','waktu_kirim'];
 
-    
+    protected $useAutoIncrement = false;
 }

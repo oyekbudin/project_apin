@@ -5,6 +5,11 @@
 
 class LoginAdministrator extends Controller
 {
+    protected $administratorModel;
+    public function __construct()
+    {
+        $this->administratorModel = new AdministratorModel();
+    }
     public function index()
     {
         helper(['form']);
@@ -15,10 +20,10 @@ class LoginAdministrator extends Controller
     public function auth()
     {
         $session = session();
-        $model = new AdministratorModel();
+        //$model = new AdministratorModel();
         $adminname = $this->request->getVar('adminname');
         $password = $this->request->getVar('password');
-        $data = $model->where('adminname', $adminname)->first();
+        $data = $this->administratorModel->where('adminname', $adminname)->first();
         if($data)
         {
             $pass = $data['password'];
@@ -27,7 +32,7 @@ class LoginAdministrator extends Controller
             {
                 $ses_data =
                 [
-                    'id' => $data['id'],
+                    //'id' => $data['id'],
                     'idadmin' =>$data['idadmin'],
                     'name' => $data['name'],
                     'adminname' => $data['adminname'],

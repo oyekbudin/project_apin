@@ -2,6 +2,7 @@
 
       use App\Models\AdministratorModel;
       use CodeIgniter\Controller;
+      use Ramsey\Uuid\Uuid;
 
 class RegisterAdministrator extends Controller
 {
@@ -70,6 +71,7 @@ class RegisterAdministrator extends Controller
         {
             $data =
             [
+                'id' => Uuid::uuid4()->toString(),
                 'name' => $this->request->getVar('name'),
                 'adminname' => $this->request->getVar('adminname'),
                 'role' => $this->request->getVar('role'),

@@ -11,6 +11,8 @@ return array(
     'SnapBi\\' => array($vendorDir . '/midtrans/midtrans-php/SnapBi'),
     'ShipMonk\\PHPStan\\Baseline\\' => array($vendorDir . '/shipmonk/phpstan-baseline-per-identifier/src'),
     'Sabberworm\\CSS\\' => array($vendorDir . '/sabberworm/php-css-parser/src'),
+    'Ramsey\\Uuid\\' => array($vendorDir . '/ramsey/uuid/src'),
+    'Ramsey\\Collection\\' => array($vendorDir . '/ramsey/collection/src'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log/src'),
     'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-factory/src', $vendorDir . '/psr/http-message/src'),
     'Psr\\Http\\Client\\' => array($vendorDir . '/psr/http-client/src'),
@@ -33,4 +35,5 @@ return array(
     'DeepCopy\\' => array($vendorDir . '/myclabs/deep-copy/src/DeepCopy'),
     'CodeIgniter\\PHPStan\\' => array($vendorDir . '/codeigniter/phpstan-codeigniter/src'),
     'CodeIgniter\\' => array($baseDir . '/system', $baseDir . '/tests/system'),
+    'Brick\\Math\\' => array($vendorDir . '/brick/math/src'),
 );

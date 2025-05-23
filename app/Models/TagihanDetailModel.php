@@ -9,6 +9,7 @@ class TagihanDetailModel extends Model
     protected $table      = 'tagihan_detail';
     protected $primaryKey = 'id';
     protected $allowedFields = ['idtagihan', 'idinfaq', 'nominal', 'sudah_dibayar'];
+    protected $useAutoIncrement = false;
 
     public function getDetailTagihan($id)
     {

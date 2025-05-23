@@ -34,7 +34,7 @@ class LoginWalimurid extends Controller
             {
                 $ses_data =
                 [
-                    'id' => $data['id'],
+                    //'id' => $data['id'],
                     'nis' =>$data['nis'],
                     'name' => $data['name'],
                     'phonenumber' => $data['phonenumber'],

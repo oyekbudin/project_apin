@@ -7,6 +7,7 @@ use App\Models\PembayaranModel;
       use App\Models\SiswaModel;
       use App\Models\TagihanModel;
       use CodeIgniter\Controller;
+      use Ramsey\Uuid\Uuid;
 
 class Pembayaran extends Controller
 {
@@ -82,6 +83,7 @@ class Pembayaran extends Controller
                 'nominal' => $this->request->getVar('nominal'),
             ];
             */
+            $id = Uuid::uuid4()->toString();
             $id_siswa = $this->request->getVar('id_siswa');   //1
             $id_infaq = $this->request->getVar('id_infaq');   //2
             $nominal = $this->request->getVar('nominal');     //3
@@ -90,7 +92,7 @@ class Pembayaran extends Controller
             $status = 'success';                                       //5
             $payment_method = 'manual';                                //6
             //$this->pembayaranModel->save($data);
-            $this->pembayaranModel->savePembayaran($order_id, $id_siswa, $id_infaq, $nominal, $status, $payment_method);
+            $this->pembayaranModel->savePembayaran($id, $order_id, $id_siswa, $id_infaq, $nominal, $status, $payment_method);
             //print_r($order_id);
             return redirect()->to('/pembayaran')->with('success', 'Data pembayaran berhasil ditambahkan.');
             /*

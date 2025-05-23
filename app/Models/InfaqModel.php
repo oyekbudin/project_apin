@@ -1,12 +1,14 @@
 <?php namespace App\Models;
 
 use CodeIgniter\Model;
+use Ramsey\Uuid\Uuid;
 
 class InfaqModel extends Model
 {
     protected $table ='infaq';
     protected $primaryKey ='id';
     protected $allowedFields = ['name','kelas','harga'];
+    protected $useAutoIncrement = false;
     //protected $infaqKelasModel;
 
     /*public function __construct()
@@ -88,8 +90,8 @@ class InfaqModel extends Model
     public function saveInfaq($data)
     {
         $db = db_connect();
-        $db->query("SELECT setval('infaq_id_seq', coalesce(max(id), 0) + 1, false) FROM infaq");
-        $db->query("SELECT setval('tagihan_id_seq', coalesce(max(id), 0) + 1, false) FROM tagihan");
+        //$db->query("SELECT setval('infaq_id_seq', coalesce(max(id), 0) + 1, false) FROM infaq");
+        //$db->query("SELECT setval('tagihan_id_seq', coalesce(max(id), 0) + 1, false) FROM tagihan");
 
         $infaqKelasModel = new InfaqKelasModel();
         $siswaModel = new SiswaModel();  
@@ -97,12 +99,12 @@ class InfaqModel extends Model
 
         $dataInfaq =
         [
-            //'id' => $data['id'],
+            'id' => $data['id'],
             'name' => $data['name'],
             'harga' => $data['harga'],
         ];
         $this->insert($dataInfaq);        
-        $infaqId =  $this->getInsertID(); 
+        $infaqId =  $data['id']; 
        
         $kelas = $data['kelas'];
         
@@ -111,6 +113,7 @@ class InfaqModel extends Model
 
         foreach ($kelas as $k) {
             $dataInfaqKelas = [
+                'id' => Uuid::uuid4()->toString(),
                 'id_infaq' => $infaqId,
                 'id_kelas' => $k,
             ];
@@ -120,6 +123,7 @@ class InfaqModel extends Model
              
             foreach ($siswa as $s) {
                 $dataTagihan = [
+                    'id' => Uuid::uuid4()->toString(),
                     'id_siswa' => $s['nis'],
                     'id_infaq' => $infaqId,
                 ];
@@ -190,6 +194,7 @@ class InfaqModel extends Model
             foreach ($kelasId as $kelas)
             {
                 $dataInfaqKelas[] = [
+                    'id' => Uuid::uuid4()->toString(),
                     'id_infaq' => $infaqId,
                     'id_kelas' => $kelas,
                 ];                

@@ -3,6 +3,7 @@
       use App\Models\InfaqModel;
 use App\Models\KelasModel;
 use CodeIgniter\Controller;
+use Ramsey\Uuid\Uuid;
 
 class AturInfaq extends Controller
 {
@@ -75,12 +76,12 @@ class AturInfaq extends Controller
 
         if($this->validate($rules, $errors))
         {
-            $maxId = $this->infaqModel->selectMax('id')->first();
+            //$maxId = $this->infaqModel->selectMax('id')->first();
             //$nextId = $maxId['id'] + 1;
             
             $data =
             [
-                //'id' => $nextId,
+                'id' => Uuid::uuid4()->toString(),
                 'name' => $this->request->getVar('name'),
                 'harga' => $this->request->getVar('harga'),
                 'kelas' => $this->request->getVar('kelas_id'),

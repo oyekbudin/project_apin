@@ -9,6 +9,7 @@ class PembayaranModel extends Model
     protected $allowedFields = ['id_siswa','id_infaq','nominal','status','order_id','payment_method'];
    
     protected $allowCallbacks = true;
+    protected $useAutoIncrement = false;
     //protected $beforeInsert = ['updateSequence'];
 
     /*public function updateSequence($data)
@@ -160,10 +161,10 @@ class PembayaranModel extends Model
         ->findAll();
     }
 
-    public function savePembayaran($order_id, $id_siswa, $id_infaq, $nominal, $status, $payment_method)
+    public function savePembayaran($id, $order_id, $id_siswa, $id_infaq, $nominal, $status, $payment_method)
     {
         $db = db_connect();
-        $db->query("SELECT setval('pembayaran_id_seq', coalesce(max(id), 0) + 1, false) FROM pembayaran");
+        //$db->query("SELECT setval('pembayaran_id_seq', coalesce(max(id), 0) + 1, false) FROM pembayaran");
         $db->transStart();
         try {     
             //$dataPembayaran =[];    
@@ -172,6 +173,7 @@ class PembayaranModel extends Model
                 if (isset($nominal[$key]) && !empty($nominal[$key])) {
                 /*foreach ($nominal as $nom) {*/
                     $dataPembayaran[] = [
+                        'id' => $id,
                         'order_id' => $order_id,
                         'id_siswa' => $id_siswa,
                         'id_infaq' => $value,
