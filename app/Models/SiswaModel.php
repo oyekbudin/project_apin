@@ -1,6 +1,7 @@
 <?php namespace App\Models;
 
 use CodeIgniter\Model;
+use Ramsey\Uuid\Uuid;
 
 class SiswaModel extends Model
 {
@@ -72,6 +73,7 @@ class SiswaModel extends Model
             if (!empty($infaqId)) {                
                 foreach ($infaqId as $i) {
                     $dataTagihan = [
+                        'id' => Uuid::uuid4()->toString(),
                         'id_siswa' => $siswaId,
                         'id_infaq' => $i['id_infaq'],
                     ];                        

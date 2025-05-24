@@ -22,7 +22,7 @@ class DashboardWalimurid extends Controller
     {
         $session = session();
         $id = $session->get('nis');
-        $tagihan_aktif = $this->tagihanAktifModel->orderBy('id','desc')->first();
+        $tagihan_aktif = $this->tagihanAktifModel->orderBy('date','desc')->first();
         if ($tagihan_aktif) {
             $aktif = $tagihan_aktif['id_tagihan'];
             $tagihan = $this->tagihanModel->getTagihanByRequestById($id, $aktif);

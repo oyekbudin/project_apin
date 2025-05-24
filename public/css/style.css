@@ -1529,7 +1529,7 @@ header.mobile
 }
 .wrap-rekap {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     margin-bottom: 10px;
     gap: 15px;
 }
@@ -1791,8 +1791,13 @@ span.no-tagihan {
 }
 .group-action-tombol {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
+    grid-template-columns: repeat(auto-fill, minmax(150px,1fr));
     gap: 10px;
+}
+.overflow-content
+{
+    /*overflow-y: auto;*/
+    max-height: calc(100vh - 84px);
 }
 
 

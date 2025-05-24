@@ -40,7 +40,7 @@ $routes->post('/profil/update/(:segment)', 'Profil::update/$1');
 
 $routes->get('/loginadministrator', 'LoginAdministrator::index');
 $routes->post('/loginadministrator/auth', 'LoginAdministrator::auth');
-$routes->get('/logout', 'LoginWaliMurid::index');
+$routes->get('/logout', 'LoginAdministrator::logout');
 
 $routes->post('/loginwalimurid/auth', 'LoginWalimurid::auth');
 
@@ -82,8 +82,8 @@ $routes->get('/tagihan/detail/(:segment)', 'Tagihan::detail/$1');
 $routes->get('/tagihan/request/(:segment)', 'Tagihan::request/$1');
 $routes->get('/tagihan/requestdetail', 'Tagihan::requestdetail');
 $routes->get('/tagihan/aktif/(:segment)', 'Tagihan::aktif/$1');
-$routes->get('/pdf/tagihan/(:segment)', 'PdfController::tagihan/$1');
-$routes->get('/pdf/tagihan-siswa/(:segment)', 'PdfController::tagihan_siswa/$1');
+$routes->get('/pdf/tagihan/(:segment)', 'PDFController::tagihan/$1');
+$routes->get('/pdf/tagihan-siswa/(:segment)', 'PDFController::tagihan_siswa/$1');
 
 $routes->get('/request_tagihan', 'RequestTagihan::index',['filter'=>'auth']);
 $routes->post('/request_tagihan/save','RequestTagihan::save');
@@ -94,15 +94,15 @@ $routes->get('/request_tagihan/delete/(:segment)', 'RequestTagihan::delete/$1');
 $routes->get('/siswa', 'carisiswa::index');
 $routes->get('/infaq', 'cariinfaq::index');
 
-$routes->get('/export-pdf', 'PdfController::exportToPdf');
+$routes->get('/export-pdf', 'PDFController::exportToPdf');
 
-$routes->get('/export-pdf/infaq', 'PdfController::exportInfaq');
+$routes->get('/export-pdf/infaq', 'PDFController::exportInfaq');
 
 $routes->get('/laporanbulanan', 'LaporanBulanan::index',['filter'=>'auth']);
-$routes->get('/pdf/laporanbulanan/(:segment)', 'PdfController::laporanBulanan/$1');
+$routes->get('/pdf/laporanbulanan/(:segment)', 'PDFController::laporanBulanan/$1');
 $routes->get('/laporantahunan', 'LaporanTahunan::index',['filter'=>'auth']);
 
-$routes->get('/pdf/laporantahunan', 'PdfController::laporanTahunan');
+$routes->get('/pdf/laporantahunan', 'PDFController::laporanTahunan');
 
 $routes->get('/midtrans', 'MidtransController::index');
 $routes->post('/midtrans/callback', 'MidtransController::callback');

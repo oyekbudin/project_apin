@@ -114,7 +114,8 @@
         <button type="submit">Tambah Pembayaran</button>
     -->
         <!-- script -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!--script src="https://code.jquery.com/jquery-3.6.0.min.js"></script-->
+    <script src="<?= base_url('js/jquery-3.7.1.min.js') ?>"></script>
         <script>
             $(document).ready(function(){
                 $("#search-siswa").keyup(function(){
@@ -156,20 +157,6 @@
                                         $("#kelas").val(kelas);
                                         $("#result-siswa").html("");
 
-                                        /*
-                                        $.ajax({
-                                            url: "<//?= base_url('pembayaran/getInfaqByKelas') ?>",
-                                            type: "GET",
-                                            data: {kelas: kelas},
-                                            success: function(data){
-                                                let infaqOptions = `<option value="">Pilih Jenis Infaq</option>`;
-                                                $.each(data, function(index, infaq){
-                                                    infaqOptions += `<option value="${infaq.id}">${infaq.name} (${infaq.harga}) </option>`;
-                                                });
-                                                $("#jenis-infaq").html(infaqOptions);
-                                            }
-                                        });
-                                        */
 
                                         //ajax baru new database
                                         $.ajax({

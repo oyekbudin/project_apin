@@ -5,11 +5,12 @@ use App\Models\KelasModel;
 use App\Models\PembayaranModel;
 use App\Models\SiswaModel;
 use App\Models\TagihanModel;
-use DateTime;
+use CodeIgniter\Controller;
+      use DateTime;
       use Dompdf\Dompdf;
       use Dompdf\Options;
 
-class PDFController extends baseController
+class PDFController extends Controller
 {
     public function exportToPdf()
 {

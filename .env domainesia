@@ -57,7 +57,7 @@ app_baseURL = 'https://apin.smpmaarifnuwanareja.sch.id'
 # ENCRYPTION
 #--------------------------------------------------------------------
 
-# encryption.key =
+encryption_key = U01QIE1hYXJpZiBOVSAwMSBXYW5hcmVqYQ
 
 #--------------------------------------------------------------------
 # SESSION

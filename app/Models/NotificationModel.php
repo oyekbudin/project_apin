@@ -1,6 +1,7 @@
 <?php namespace App\Models;
 
 use CodeIgniter\Model;
+use Ramsey\Uuid\Uuid;
 
 class NotificationModel extends Model
 {
@@ -9,36 +10,7 @@ class NotificationModel extends Model
     protected $allowedFields = ['gross_amount','payment_type','transaction_status','created_at','order_id','id_siswa','id_infaq','nominal','payment_method','snaptoken'];
 
     protected $useAutoIncrement = false;
-    /*public function oldsaveNotification($order_id, $id_siswa, $id_infaq, $nominal, $transaction_status, $payment_method, $gross_amount)
-    {
-        $db = db_connect();
-        $db->query("SELECT setval('notification_id_seq', coalesce(max(id), 0) + 1, false) FROM notification");
-        $db->transStart();
-        try {     
-            foreach ($id_infaq as $key => $value) {
-                if (isset($nominal[$key]) && !empty($nominal[$key])) {
-                /*foreach ($nominal as $nom) {*/
-                /*
-                    $dataNotification[] = [
-                        'order_id' => $order_id,
-                        'id_siswa' => $id_siswa,
-                        'id_infaq' => $value,
-                        'nominal' => $nominal[$key],
-                        'transaction_status' => $transaction_status,
-                        'payment_method' => $payment_method,
-                        'gross_amount' => $gross_amount,
-                    ];
-                }
-            }
-            $this->insertBatch($dataNotification);
-
-            $db->transComplete();
-            return true;
-        } catch (\Exception $e){
-            $db->transRollback();
-            return false;
-        }
-    }*/
+    
     public function saveNotification($data)
     {
         $id_infaq = $data['id_infaq'];
@@ -53,7 +25,7 @@ class NotificationModel extends Model
                 if (isset($nominal[$key]) && !empty($nominal[$key])) {
                 /*foreach ($nominal as $nom) {*/
                     $dataNotification[] = [
-                        'id' => $data['id'],
+                        'id' => Uuid::uuid4()->toString(),
                         'order_id' => $data['order_id'],
                         'id_siswa' => $data['id_siswa'],
                         'id_infaq' => $value,

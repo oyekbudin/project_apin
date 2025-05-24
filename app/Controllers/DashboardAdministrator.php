@@ -43,7 +43,7 @@ class DashboardAdministrator extends Controller
 
         
         $total_sisa_tagihan = 0;
-        $tagihan_aktif = $this->tagihanAktifModel->orderBy('id','desc')->first();
+        $tagihan_aktif = $this->tagihanAktifModel->orderBy('date','desc')->first();
         if ($tagihan_aktif) {
             $request = $tagihan_aktif['id_tagihan'];
         $sisa_tagihan = $this->tagihanModel->getSisaTagihan($request);

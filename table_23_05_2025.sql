@@ -135,19 +135,20 @@ DROP TABLE IF EXISTS "rekening";
 CREATE TABLE rekening (
     id int PRIMARY KEY,
     nama_sekolah VARCHAR(100),
-    nama_pemilik_rekening VARCHAR(100),
-    nama_bank VARCHAR(50),
-    nomor_rekening VARCHAR(20),
-    nama_kepsek VARCHAR(50),
-    nim_kepsek VARCHAR(20),
-    nama_bendahara VARCHAR(50),
-    phonenumber VARCHAR(15)
+    nama_pemilik_rekening TEXT,
+    nama_bank TEXT,
+    nomor_rekening TEXT,
+    nama_kepsek TEXT,
+    nim_kepsek TEXT,
+    nama_bendahara TEXT,
+    phonenumber TEXT
 );
 
 DROP TABLE IF EXISTS "tagihan_aktif";
 CREATE TABLE tagihan_aktif (
     id UUID PRIMARY KEY,
     id_tagihan UUID,
+    date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (id_tagihan) REFERENCES request_tagihan(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 

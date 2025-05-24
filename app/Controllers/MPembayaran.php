@@ -47,7 +47,7 @@ class MPembayaran extends Controller
             //print_r($data);
             echo view('m-checkout', $data);
         } else {
-            $tagihan_aktif = $this->tagihanAktifModel->orderBy('id','desc')->first();
+            $tagihan_aktif = $this->tagihanAktifModel->orderBy('date','desc')->first();
             if ($tagihan_aktif) {
                 $request = $tagihan_aktif['id_tagihan'];
                 $tagihan = $this->tagihanModel->getTagihanByRequestById($id, $request);
@@ -79,7 +79,14 @@ class MPembayaran extends Controller
         //$request = $tagihan_aktif['id_tagihan'];
         //$nis = $id;
 
+        
+        
         $tagihan_aktif = $this->tagihanAktifModel->orderBy('id','desc')->first();
+/*
+        echo '<pre>';
+        print_r($tagihan_aktif);
+        echo '</pre>';
+        */
         if ($tagihan_aktif) {
             $request = $tagihan_aktif['id_tagihan'];
             $tagihan = $this->tagihanModel->getNominalInfaq($id, $request, $id_infaq);
@@ -126,9 +133,10 @@ class MPembayaran extends Controller
             'kelas' => $last_name,
             //'tagihan' => $this->tagihanModel->getTagihanByRequestById($id, $request),
             'snaptoken' => $snaptoken,   //aktifkan lagi nanti
+            //'snaptoken' => '123456',   //aktifkan lagi nanti
             //'tagihan' => $tagihan,   //ada nis, id_infaq, sisa_tagihan
             //'id_siswa' => array_column($tagihan, 'nis'),
-            'id' => Uuid::uuid4()->toString(),
+            //'id' => Uuid::uuid4()->toString(),
             'id_siswa' => $id,
             'id_infaq' => array_column($tagihan, 'id_infaq'),
             'nominal' => array_column($tagihan, 'sisa_tagihan'),
@@ -146,39 +154,9 @@ class MPembayaran extends Controller
         //print_r($data);
         //echo '</pre>';
         echo view('m-checkout', $data);
+        
     }
 
-    /*public function cancel($id)
-    {
-        Config::$serverKey = config('Midtrans')->serverKey;
-        Config::$isProduction = config('Midtrans')->isProduction;
-        Config::$isSanitized = true;
-        Config::$is3ds = true;
-
-        $order_id = $this->notificationModel->where('order_id',$id)->findAll();
-        
-        $cancel_id = array_column($order_id,'id');
-        $snap_token = array_column($order_id, 'snap_token');
-        
-        if  ($snap_token) {
-            try {
-                $cancel = Transaction::cancel($id);
-                return $this->response->setJSON($cancel);
-            } catch (\Exception $e) {
-                return $this->response->setJSON(['error' => $e->getMessage()]);
-            }
-        } else {
-            $data = [
-            'transaction_status' => 'cancel',
-            ];
-            foreach ($cancel_id as $c) {
-            $this->notificationModel->update($c, $data);
-        }  
-        }        
-        
-        return redirect()->to('/dashboard-walimurid')->with('success', 'Transaksi dibatalkan.');
-        
-    }*/
 
     public function cancel($id)
     {

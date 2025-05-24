@@ -19,6 +19,7 @@
                     <div class="divider"></div>
                     <h5>Silahkan Masuk Untuk Memulai Aplikasi</h5>
                     
+                    
                     <form action="/loginadministrator/auth" method="post" class="form-login">
                         <label for="adminname">User Name</label>
                         <input class="input" type="text" name="adminname" id="inputadminname" value="<?= set_value('adminname') ?>" placeholder="User Name" required oninvalid="this.setCustomValidity('Masukkan Username')" oninput="this.setCustomValidity('')">

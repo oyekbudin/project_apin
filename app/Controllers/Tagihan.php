@@ -193,7 +193,7 @@ class Tagihan extends Controller
     public function request($id)
     {
         $datatagihan = $this->tagihanModel->getTagihanByRequest($id);
-        $tagihan_aktif = $this->tagihanAktifModel->orderBy('id','desc')->first();
+        $tagihan_aktif = $this->tagihanAktifModel->orderBy('date','desc')->first();
         if ($tagihan_aktif) {
             $aktif = $tagihan_aktif['id_tagihan'];
         } else {
@@ -272,7 +272,7 @@ class Tagihan extends Controller
             $header = $this->request->getPost('header');
             $footer = $this->request->getPost('footer');
 
-            $tagihan_aktif = $this->tagihanAktifModel->orderBy('id','desc')->first();
+            $tagihan_aktif = $this->tagihanAktifModel->orderBy('date','desc')->first();
             if ($tagihan_aktif) {
                 $request = $tagihan_aktif['id_tagihan'];
             } else {
