@@ -50,20 +50,20 @@
         <h3>Manual Aplikasi Pengelola Infaq dan Panduan</h3>
         <div class="divider"></div>
         <div class="wrap-manual">
-            <div class="bar blue">
+            <a class="bar blue" href="https://smpnu1wanareja.wordpress.com/manual-penggunaan-aplikasi-pengelola-infaq/" target="_blank">
                 <div class="data-info">
-                    <span class="txtwarning">Manual Penggunaan Aplikasi <br><span class="txtsecondary">Untuk Sistem Admin</span></span>
+                    <span class="txtwarning">Manual Penggunaan Aplikasi <br><span class="txtsecondary">Untuk <?= $role ?></span></span>
                     <i class="i">&#xE887</i>
                 </div>
                 <div class="data-subtitle"><i class="i">&#xE895</i><span>Simak dan Pahami Manual Aplikasi Sebelum Bekerja</span></div>
-            </div>
-            <div class="bar darkpurple">
+            </a>
+            <a class="bar darkpurple" href="https://smpnu1wanareja.wordpress.com/panduan-pengelolaan-dan-pelaporan-aplikasi-pengelola-infaq/" target="_blank">
                 <div class="data-info">
                     <span class="txtwarning">Panduan Pengelolaan dan Pelaporan</span>
                     <i class="i">&#xE88E</i>
                 </div>
                 <div class="data-subtitle"><i class="i">&#xE895</i><span>Simak dan Pahami Panduan Pengelolaan dan Pelaporan</span></div>
-            </div>
+            </a>
         </div>
         </div>
     </div>

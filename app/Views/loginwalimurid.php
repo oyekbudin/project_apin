@@ -3,7 +3,8 @@
     <header class="header-desktop header-login">
         <h1>Aplikasi Pengelola Infaq SMP Ma'arif NU 01 Wanareja</h1>
         <ul>
-            <li class="tombol secondary">Panduan Aplikasi</li>
+            <a href="https://smpnu1wanareja.wordpress.com/panduan-aplikasi-pengelola-infaq/" target="_blank"><li class="tombol secondary">Panduan Aplikasi</li></a>
+            
             <!--li class="tombol primary">Masuk</li>
             <li class="tombol secondary">Reset Password</li-->
         </ul>
