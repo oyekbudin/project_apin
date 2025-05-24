@@ -3,8 +3,9 @@
         <div class="pop">
             <div class="group-action"><h2 class="data-title">Persetujuan Tagihan</h2><a onclick="history.back()"> <i class="i" onclick="offmodalTambah()">&#xe14c</i></a> </div>
             <div class="divider"></div>
+            <div class="overflow-content">
             <form action="/request_tagihan/update/<?= $datarequest['id'] ?>" method="post">
-                <div class="overflow-content">
+                
                     <div class="tombol green">DATA TAGIHAN</div>    
                     <table>
                     <tbody>
@@ -99,8 +100,9 @@
                     ?>
                 
                 </div>
-                </div>
+                
             </form>
+            </div>
     </div>
 </div>
 <?= $this->include('closing') ?>

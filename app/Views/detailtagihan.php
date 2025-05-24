@@ -3,10 +3,12 @@
         <div class="pop">
             <div class="group-action"><h2 class="data-title">Detail Tagihan</h2><a onclick="history.back()"> <i class="i" onclick="offmodalTambah()">&#xe14c</i></a> </div>
             <div class="divider"></div>
+            <div class="overflow-content">
+            <form action="/tagihan/delete/#" method="post">
             <span class="tombol green">DATA TAGIHAN</span>
     
-            <form action="/tagihan/delete/#" method="post">
-            <div class="datacontent" id="pembayaran">
+            
+            <!--div class="datacontent" id="pembayaran"-->
 
             <?php
             $total_tagihan = 0;
@@ -35,7 +37,7 @@
 <div class="tablemobile">
             <table class="mini">
                     <thead>
-                        <tr>
+                        <tr class="tombol green">
                             <th>Jenis Infaq</th>
                             <th>Harga</th>
                             <th>Pembayaran</th>
@@ -64,12 +66,13 @@
                     </tbody>   
                     </table>
                     </div>
-            </div>
+            <!--/div-->
                 <div class="divider"></div>
                 <div class="group-action">
                 <a class="tombol disable" onclick="history.back()">Close</a>
                 </div>
         </form>
+        </div>
     </div>
 </div>
 

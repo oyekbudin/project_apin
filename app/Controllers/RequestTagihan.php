@@ -45,7 +45,7 @@ class RequestTagihan extends Controller
             $datarequest = $this->requestTagihanModel->getPaginated($perPage, $offset);
         }
 
-        $tagihan_aktif = $this->tagihanAktifModel->orderBy('id','desc')->first();
+        $tagihan_aktif = $this->tagihanAktifModel->orderBy('date','desc')->first();
         if ($tagihan_aktif) {
             $aktif = $tagihan_aktif['id_tagihan'];
         } else {

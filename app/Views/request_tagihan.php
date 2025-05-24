@@ -125,8 +125,9 @@
     <div class="pop">
         <div class="group-action"><h2 class="data-title">Buat Tagihan</h2><i class="i" onclick="offmodalTambah()">&#xe14c</i></div>
         <div class="divider"></div>
+        <div class="overflow-content">
         <form action="/request_tagihan/save" method="post" id="myForm">
-            <div class="overflow-content">
+            
         <div class="tombol green">DATA TAGIHAN</div>
 
         
@@ -156,13 +157,14 @@
                         </tr>
                     </tbody>
                 </table>
-                </div>
+                
                 <div class="divider"></div>
                 <div class="group-action">
                 <a class="tombol disable" onclick="offmodalTambah()">Close</a>
                 <button class="tombol primary" type="submit">Simpan</button>
                 </div>
     </form>
+    </div>
     </div>
     </div>
 
