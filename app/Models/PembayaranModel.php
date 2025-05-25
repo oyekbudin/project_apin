@@ -1,7 +1,7 @@
 <?php namespace App\Models;
 
 use CodeIgniter\Model;
-
+use Ramsey\Uuid\Uuid;
 class PembayaranModel extends Model
 {
     protected $table ='pembayaran';
@@ -173,7 +173,7 @@ class PembayaranModel extends Model
                 if (isset($nominal[$key]) && !empty($nominal[$key])) {
                 /*foreach ($nominal as $nom) {*/
                     $dataPembayaran[] = [
-                        'id' => $id,
+                        'id' => Uuid::uuid4()->toString(),
                         'order_id' => $order_id,
                         'id_siswa' => $id_siswa,
                         'id_infaq' => $value,
