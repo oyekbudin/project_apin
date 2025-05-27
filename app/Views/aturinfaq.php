@@ -78,14 +78,14 @@
                             <td>Nama Jenis Infaq</td>
                             <td>
                                 <input class="input" type="text" name="name" id="inputname" value="<?= old('name') ?>" placeholder="Nama Jenis Infaq" required oninvalid="this.setCustomValidity('Nama jenis infaq harus diisi')" oninput="this.setCustomValidity('')">
-                                <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['name'] ?? '' ?></span>
+                                <br> <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['name'] ?? '' ?></span>
                             </td>
                         </tr>
                         
                         <tr>
                             <td>Harga</td>
                             <td><input class="input" type="number" name="harga" id="inputharga" value="<?= old('harga') ?>" placeholder="Harga" required oninvalid="this.setCustomValidity('Harga harus diisi')" oninput="this.setCustomValidity('')">
-                            <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['harga'] ?? '' ?></span></td>
+                            <br> <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['harga'] ?? '' ?></span></td>
                         </tr>
                         <tr>
                             <td>Kelas</td>

@@ -13,13 +13,13 @@
                             <td>Nama Siswa</td>
                             <td>
                                 <input class="input" type="text" name="name" id="inputname" value="<?= $siswa['name'] ?>" placeholder="Nama Siswa" required oninvalid="this.setCustomValidity('Nama siswa harus diisi')" oninput="this.setCustomValidity('')">
-                                <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['name'] ?? '' ?></span>
+                                <br> <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['name'] ?? '' ?></span>
                             </td>
                         </tr>
                         <tr>
                             <td>NIS</td>
                             <td><input class="input" type="text" name="nis" id="inputnis" value="<?= $siswa['nis'] ?>" placeholder="NIS" required oninvalid="this.setCustomValidity('NIS harus diisi')" oninput="this.setCustomValidity('')">
-                            <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['nis'] ?? '' ?></span></td>
+                            <br> <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['nis'] ?? '' ?></span></td>
                         </tr>
                             <td>Kelas</td>
                             <td><select class="input" name="kelas" id="inputkelas" value="<?= $siswa['kelas'] ?>">
@@ -38,7 +38,7 @@
                         <tr>
                             <td>No Whatsapp</td>
                             <td><input class="input" type="text" name="phonenumber" id="inputphonenumber" value="<?= $siswa['phonenumber'] ?>" placeholder="Nomor Whatsapp" required oninvalid="this.setCustomValidity('Nomor whatsapp harus diisi')" oninput="this.setCustomValidity('')">
-                            <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['phonenumber'] ?? '' ?></span></td>
+                            <br> <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['phonenumber'] ?? '' ?></span></td>
                         </tr>
                     </tbody>
                 </table>

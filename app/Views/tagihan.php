@@ -67,23 +67,15 @@
                             <td>Kalimat Pembuka</td>
                             <td id="textArea">
                                 <textarea name="header" id="" value="<?= old('header') ?>" placeholder="Salam, maksud dan tujuan, dsb." required oninvalid="this.setCustomValidity('Kalimat pembuka harus diisi')" oninput="this.setCustomValidity('')"></textarea>
-                                
+                                <br> <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['header'] ?? '' ?></span>
                             </td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td><span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['header'] ?? '' ?></span></td>
                         </tr>
                         <tr>
                             <td>Kalimat Penutup</td>
                             <td id="textArea">
                                 <textarea name="footer" id="" value="<?= old('footer') ?>" placeholder="Terima kasih, info pembayaran, dsb." required oninvalid="this.setCustomValidity('Kalimat penutup harus diisi')" oninput="this.setCustomValidity('')"></textarea>
-                                
+                                <br> <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['footer'] ?? '' ?></span>
                             </td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td><span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['footer'] ?? '' ?></span></td>
                         </tr>
                         <tr>
                             <td>Pilih Penerima</td>

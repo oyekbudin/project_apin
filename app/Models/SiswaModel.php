@@ -19,6 +19,7 @@ class SiswaModel extends Model
     public function getPaginatedSiswa($limit, $offset)
     {
         return $this->orderBy('kelas', 'ASC')
+                    ->orderBy('name', 'ASC')
                     ->limit($limit, $offset)
                     ->find();
     }

@@ -111,7 +111,7 @@
             <?php endforeach; ?>
             <?php else : ?>
                 <tr>
-                    <td colspan="5">Tidak ada data</td>
+                    <td colspan="7">Tidak ada data tagihan</td>
                 </tr>
                 <?php endif; ?>
         </tbody>
@@ -139,7 +139,7 @@
                             <td>Judul Tagihan</td>
                             <td>
                                 <input class="input" type="text" name="title" id="" value="<?= old('title') ?>" placeholder="Judul Tagihan" required oninvalid="this.setCustomValidity('Judul Tagihan harus diisi')" oninput="this.setCustomValidity('')">
-                                <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['title'] ?? '' ?></span>
+                                <br> <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['title'] ?? '' ?></span>
                             </td>
                         </tr>                        
                         <tr>

@@ -28,7 +28,8 @@ DROP TABLE IF EXISTS "infaq" CASCADE;
 CREATE TABLE infaq (
     id UUID PRIMARY KEY,
     name VARCHAR(50) UNIQUE NOT NULL,
-    harga int NOT NULL
+    harga int NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE infaq_kelas (

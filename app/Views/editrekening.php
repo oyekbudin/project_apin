@@ -16,14 +16,14 @@
                             <td>Nama Sekolah</td>
                             <td>
                                 <input class="input" type="text" name="nama_sekolah" id="" value="<?= $rekening['nama_sekolah'] ?>" placeholder="Nama Sekolah" required oninvalid="this.setCustomValidity('Nama sekolah harus diisi')" oninput="this.setCustomValidity('')">
-                                <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['nama_sekolah'] ?? '' ?></span>
+                                <br> <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['nama_sekolah'] ?? '' ?></span>
                             </td>
                         </tr>
                         <tr>
                             <td>Nama Pemilik Rekening</td>
                             <td>
                                 <input class="input" type="text" name="nama_pemilik_rekening" id="" value="<?= $rekening['nama_pemilik_rekening'] ?>" placeholder="Nama Pemilik Rekening" required oninvalid="this.setCustomValidity('Nama pemilik rekening harus diisi')" oninput="this.setCustomValidity('')">
-                                <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['nama_pemilik_rekening'] ?? '' ?></span>
+                                <br> <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['nama_pemilik_rekening'] ?? '' ?></span>
                             </td>
                         </tr>
                         <tr>
@@ -86,31 +86,31 @@
                         <tr>
                             <td>Nomor Rekening</td>
                             <td><input class="input" type="text" name="nomor_rekening" id="" value="<?= $rekening['nomor_rekening'] ?>" placeholder="Nomor Rekening" required oninvalid="this.setCustomValidity('Nomor rekening harus diisi')" oninput="this.setCustomValidity('')">
-                            <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['nomor_rekening'] ?? '' ?></span></td>
+                            <br> <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['nomor_rekening'] ?? '' ?></span></td>
                         </tr>
                         <tr>
                             <td>Nama Kepala Sekolah</td>
                             <td>
                                 <input class="input" type="text" name="nama_kepsek" id="" value="<?= $rekening['nama_kepsek'] ?>" placeholder="Nama Kepala Sekolah" required oninvalid="this.setCustomValidity('Nama kepala sekolah harus diisi')" oninput="this.setCustomValidity('')">
-                                <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['nama_kepsek'] ?? '' ?></span>
+                                <br> <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['nama_kepsek'] ?? '' ?></span>
                             </td>
                         </tr>
                         <tr>
                             <td>NIM</td>
                             <td><input class="input" type="text" name="nim_kepsek" id="" value="<?= $rekening['nim_kepsek'] ?>" placeholder="NIM" required oninvalid="this.setCustomValidity('NIM harus diisi')" oninput="this.setCustomValidity('')">
-                            <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['nim_kepsek'] ?? '' ?></span></td>
+                            <br> <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['nim_kepsek'] ?? '' ?></span></td>
                         </tr>
                         <tr>
                             <td>Nama Bendahara</td>
                             <td>
                                 <input class="input" type="text" name="nama_bendahara" id="" value="<?= $rekening['nama_bendahara'] ?>" placeholder="Nama Bendahara" required oninvalid="this.setCustomValidity('Nama bendahara harus diisi')" oninput="this.setCustomValidity('')">
-                                <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['nama_bendahara'] ?? '' ?></span>
+                                <br> <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['nama_bendahara'] ?? '' ?></span>
                             </td>
                         </tr>
                         <tr>
                             <td>Nomor Whatsapp</td>
                             <td><input class="input" type="text" name="phonenumber" id="" value="<?= $rekening['phonenumber'] ?>" placeholder="Nomor Whatsapp" required oninvalid="this.setCustomValidity('Nomor Whatsapp harus diisi')" oninput="this.setCustomValidity('')">
-                            <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['phonenumber'] ?? '' ?></span></td>
+                            <br> <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['phonenumber'] ?? '' ?></span></td>
                         </tr>
                     </tbody>
                 </table>

@@ -74,20 +74,20 @@
                             <td>Nama Lengkap</td>
                             <td>
                                 <input class="input" type="text" name="name" id="inputname" value="<?= old('name') ?>" placeholder="Nama Lengkap" required oninvalid="this.setCustomValidity('Nama Lengkap harus diisi')" oninput="this.setCustomValidity('')">
-                                <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['name'] ?? '' ?></span>
+                                <br> <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['name'] ?? '' ?></span>
                             </td>
                         </tr>
                         <tr>
                             <td>Username</td>
                             <td>
                                 <input class="input" type="text" name="adminname" id="inputadminname" value="<?= old('adminname') ?>" placeholder="Username" required oninvalid="this.setCustomValidity('Username harus diisi')" oninput="this.setCustomValidity('')" >
-                                <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['adminname'] ?? '' ?></span>
+                                <br> <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['adminname'] ?? '' ?></span>
                             </td>
                         </tr>
                         <tr>
                             <td>Password</td>
                             <td><input class="input" type="text" name="password" id="inputpassword" value="<?= old('password') ?>" placeholder="Password" required oninvalid="this.setCustomValidity('Password harus diisi')" oninput="this.setCustomValidity('')">
-                            <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['password'] ?? '' ?></span></td>
+                            <br> <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['password'] ?? '' ?></span></td>
                         </tr>
                         <tr>
                             <td>Roles</td>

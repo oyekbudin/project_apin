@@ -11,20 +11,20 @@
                             <td>Nama Lengkap</td>
                             <td>
                                 <input class="input" type="text" name="name" id="inputname" value="<?= $user['name'] ?>" placeholder="Nama Lengkap"required oninvalid="this.setCustomValidity('Nama Lengkap harus diisi')" oninput="this.setCustomValidity('')">
-                                <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['name'] ?? '' ?></span>
+                                <br> <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['name'] ?? '' ?></span>
                             </td>
                         </tr>
                         <tr>
                             <td>Username</td>
                             <td>
                                 <input class="input" type="text" name="adminname" id="inputadminname" value="<?= $user['adminname'] ?>" placeholder="Username"required oninvalid="this.setCustomValidity('Username harus diisi')" oninput="this.setCustomValidity('')" >
-                                <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['adminname'] ?? '' ?></span>
+                                <br> <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['adminname'] ?? '' ?></span>
                             </td>
                         </tr>
                         <tr>
                             <td>Ubah Password</td>
                             <td><input class="input" type="text" name="password" id="inputpassword" value="" placeholder="Masukkan Password Baru">
-                            <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['password'] ?? '' ?></span></td>
+                            <br> <span class="txtdanger data-subtitle"><?= session()->getFlashdata('errors') ['password'] ?? '' ?></span></td>
                         </tr>
                         <tr>
                             <td>Roles</td>
