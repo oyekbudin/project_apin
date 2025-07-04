@@ -149,6 +149,7 @@ class TagihanModel extends Model
         ->where('t.id_siswa', $id)
         ->where('ti.id_tagihan',$request)
         ->groupBy('s.nis, s.name, s.kelas, i.id, i.name, i.harga, ti.id_tagihan')
+        ->orderBy('i.created_at','ASC')
         ->get()
         ->getResultArray();
     }

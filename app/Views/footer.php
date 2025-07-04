@@ -1,10 +1,10 @@
     
         <span>Aplikasi Pengelola Infaq </span><span class="txtwarning">Versi 1.1.0 </span><span>, Arvin Noer Hakim | 215720010 STMIK KOMPUTAMA MAJENANG 2025</span>
     </footer>
-    <script>
+    <script> /*
   if (typeof navigator.serviceWorker !== 'undefined') {
     navigator.serviceWorker.register('sw.js')
-  }
+  } */
 </script>
 
 </body>
