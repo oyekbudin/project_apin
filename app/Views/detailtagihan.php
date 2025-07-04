@@ -37,11 +37,11 @@
 <div class="tablemobile">
             <table class="mini">
                     <thead>
-                        <tr class="tombol green">
-                            <th>Jenis Infaq</th>
-                            <th>Harga</th>
-                            <th>Pembayaran</th>
-                            <th>Sisa</th>
+                        <tr>
+                            <th><div class="tombol green">Jenis Infaq</div></th>
+                            <th><div class="tombol green">Harga</div></th>
+                            <th><div class="tombol green">Pembayaran</div></th>
+                            <th><div class="tombol green">Sisa</div></th>
                         </tr>
                     </thead>                
                     <tbody>
