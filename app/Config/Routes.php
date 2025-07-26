@@ -33,6 +33,10 @@ $routes->get('/aturrekening', 'AturRekening::index');
 $routes->get('/aturrekening/edit/(:segment)', 'AturRekening::edit/$1');
 $routes->post('/aturrekening/update/(:segment)', 'AturRekening::update/$1');
 
+$routes->get('/backuprestore', 'BackupRestore::index');
+$routes->post('/backuprestore/restore', 'BackupRestore::restore');
+$routes->get('/backuprestore/backup', 'BackupRestore::backup');
+
 
 $routes->get('/profil', 'Profil::index');
 $routes->get('/profil/edit/(:segment)', 'Profil::edit/$1');

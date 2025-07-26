@@ -46,6 +46,7 @@
                 <ul <?= ($menu == 'Pengaturan') ? 'style="display:block;"' : 'style="display:none;"' ?>>
                     <a href="<?= base_url('registeradministrator') ?>"><li <?= ($title == 'Atur User') ? 'class="on"' : 'class=""' ?>><i class="i">&#xE5CC</i><span class="t">Atur User</span></li></a>
                     <a href="<?= base_url('aturrekening') ?>"><li <?= ($title == 'Atur Rekening') ? 'class="on"' : 'class=""' ?>><i class="i">&#xE5CC</i><span class="t">Atur Rekening</span></li></a>
+                    <a href="<?= base_url('backuprestore') ?>"><li <?= ($title == 'Backup & Restore') ? 'class="on"' : 'class=""' ?>><i class="i">&#xE5CC</i><span class="t">Backup & Restore</span></li></a>
                 </ul>
                 </li>
                 <?php endif ?>
