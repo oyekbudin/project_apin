@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Test Report</title>
+</head>
+<body>
+    <pre>
+    <span><b>UNIT TEST REPORT - Aplikasi Pengelola Infaq (APIN)</b></span>
+    <table>
+        <tbody>
+            <tr>
+                <td>Framework </td>
+                <td>: CodeIgniter 4</td>
+            </tr>
+            <tr>
+                <td>Phpunit </td>
+                <td>: 11.5.20</td>
+            </tr>
+            <tr>
+                <td>Status </td>
+                <td>: Berjalan Sempurna (terverifikasi secara fungsional)</td>
+            </tr>
+        </tbody>
+    </table>
+    <span><b>1. Models Test Summary</b></span>
+    <table>
+        <thead style="font-weight: bold;">
+            <tr>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+            </tr>
+            <tr>
+                <td>Model</td>
+                <td>Method yang diuji</td>
+                <td>Status</td>
+            </tr>
+            <tr>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>+ Administrator Model</td>
+                <td>- getTotalAdministrator() <br>- getPaginated() <br>- search() <br>- saveAdministrator()</td>
+                <td>PASS <br>PASS <br>PASS <br>PASS</td>
+            </tr>
+            <tr>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+            </tr>
+            <tr>
+                <td>+ InfaqModel</td>
+                <td>- getTotalInfaq() <br>- getPaginated() <br>- exportInfaqPDF() <br>- getInfaqById() <br>- search() <br>- searchByKelas() <br>- getDataInfaq() <br>- saveInfaq() <br>- updateInfaq()</td>
+                <td>PASS <br>PASS <br>PASS <br>PASS <br>PASS <br>PASS <br>PASS <br>PASS <br>PASS</td>
+            </tr>
+            <tr>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+            </tr>
+            <tr>
+                <td>+ NotificationModel</td>
+                <td>- saveNotification() <br>- getNotification()</td>
+                <td>PASS <br>PASS </td>
+            </tr>
+            <tr>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+            </tr>
+            <tr>
+                <td>+ PembayaranModel</td>
+                <td>- getPembayaranDetail() <br>- getPembayaran() <br>- getTotalPembayaran() <br>- getPembayaranBySiswa() <br>- getPembayaranByBulan() <br>- getPembayaranByTahun() <br>- getPembayaranBulanIni() <br>- getTagihan() <br>- savePembayaran() </td>
+                <td>PASS <br>PASS <br>PASS <br>PASS <br>PASS <br>PASS <br>PASS <br>PASS <br>PASS</td>
+            </tr>
+            <tr>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+            </tr>
+            <tr>
+                <td>+ RequestTagihanModel</td>
+                <td>- search() <br>- getPaginated() <br>- saveRequest() <br>- getReqTagihanById()</td>
+                <td>PASS <br>PASS <br>PASS <br>PASS</td>
+            </tr>
+            <tr>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+            </tr>
+            <tr>
+                <td>+ SiswaModel</td>
+                <td>- getTotalSiswa() <br>- getPaginatedSiswa() <br>- search() <br>- saveSiswa() <br>- findSiswa() <br>- findSiswaByNis() <br>- updateSiswa()</td>
+                <td>PASS <br>PASS <br>PASS <br>PASS <br>PASS <br>PASS <br>PASS</td>
+            </tr>
+            <tr>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+            </tr>
+            <tr>
+                <td>+ TagihanAktifModel</td>
+                <td>- aktif()</td>
+                <td>PASS</td>
+            </tr>
+            <tr>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+            </tr>
+            <tr>
+                <td>+ TagihanDetailModel</td>
+                <td>- getDetailTagihan()</td>
+                <td>PASS</td>
+            </tr>
+            <tr>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+            </tr>
+            <tr>
+                <td>+ TagihanModel</td>
+                <td>- getPaginated() <br>- getTagihanByRequest() <br>- getTagihanByRequestForExport() <br>- getSisaTagihan() <br>- getNominalInfaq() <br>- getTagihanByRequestById() <br>- search() <br>- getTagihanById() </td>
+                <td>PASS <br>PASS <br>PASS <br>PASS <br>PASS <br>PASS <br>PASS <br>PASS </td>
+            </tr>
+            <tr>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+            </tr>
+        </tbody>
+    </table>
+    <span><b>2. Controllers Test Summary</b></span>
+<table>
+        <thead style="font-weight: bold;">
+            <tr>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+            </tr>
+            <tr>
+                <td>Controller</td>
+                <td>Handler yang diuji</td>
+                <td>Status</td>
+            </tr>
+            <tr>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>+ AturInfaq</td>
+                <td>- index() <br>- save() <br>- edit() <br>- update() <br>- delete() <br>- confirmdeleteinfaq() </td>
+                <td>PASS <br>PASS <br>PASS <br>PASS <br>PASS <br>PASS </td>
+            </tr>
+            <tr>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+            </tr>
+            <tr>
+                <td>+ AturRekening</td>
+                <td>- index() <br>- edit() <br>- update()</td>
+                <td>PASS <br>PASS <br>PASS</td>
+            </tr>
+            <tr>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+            </tr>
+            <tr>
+                <td>+ AturSiswa</td>
+                <td>- index() <br>- save() <br>- edit() <br>- update() <br>- delete() <br>- confirmdelete()</td>
+                <td>PASS<br>PASS<br>PASS<br>PASS<br>PASS<br>PASS</td>
+            </tr>
+            <tr>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+            </tr>
+            <tr>
+                <td>+ cariinfaq</td>
+                <td>- index()</td>
+                <td>PASS</td>
+            </tr>
+            <tr>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+            </tr>
+            <tr>
+                <td>+ carisiswa</td>
+                <td>- index()</td>
+                <td>PASS</td>
+            </tr>
+            <tr>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+            </tr>
+            <tr>
+                <td>+ DashboardAdministrator</td>
+                <td>- index() <br>- logout()</td>
+                <td>PASS <br>PASS</td>
+            </tr>
+            <tr>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+            </tr>
+            <tr>
+                <td>+ DashboardWalimurid</td>
+                <td>- index() <br>- logout()</td>
+                <td>PASS <br>PASS</td>
+            </tr>
+            <tr>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+            </tr>
+            <tr>
+                <td>+ DBTest</td>
+                <td>- index()</td>
+                <td>PASS</td>
+            </tr>
+            <tr>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+            </tr>
+            <tr>
+                <td>+ LaporanBulanan</td>
+                <td>- index()</td>
+                <td>PASS</td>
+            </tr>
+            <tr>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+            </tr>
+            <tr>
+                <td>+ LaporanTahunan</td>
+                <td>- index()</td>
+                <td>PASS</td>
+            </tr>
+            <tr>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+            </tr>
+            <tr>
+                <td>+ LoginAdministrator</td>
+                <td>- index() <br>- auth() <br>- logout()</td>
+                <td>PASS <br>PASS <br>PASS</td>
+            </tr>
+            <tr>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+            </tr>
+            <tr>
+                <td>+ LoginWalimurid</td>
+                <td>- index() <br>- auth() </td>
+                <td>PASS <br>PASS</td>
+            </tr>
+            <tr>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+            </tr>
+            <tr>
+                <td>+ MidtransController</td>
+                <td>- callback() <br>- finish() <br>- unfinish() <br>- error() <br>- notification() <br>- logerror()</td>
+                <td>PASS <br>PASS<br>PASS<br>PASS<br>PASS<br>PASS</td>
+            </tr>
+            <tr>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+            </tr>
+            <tr>
+                <td>+ MPembayaran</td>
+                <td>- tagihan() <br>- checkout() <br>- cancel() </td>
+                <td>PASS<br>PASS<br>PASS</td>
+            </tr>
+            <tr>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+            </tr>
+            <tr>
+                <td>+ MProfil</td>
+                <td>- edit() <br>- update() <br>- help()</td>
+                <td>PASS <br>PASS <br>PASS</td>
+            </tr>
+            <tr>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+            </tr>
+            <tr>
+                <td>+ PDFController</td>
+                <td>- exportToPdf() <br>- exportInfaq() <br>- laporanBulanan() <br>- laporanTahunan() <br>- tagihan() <br>- tagihan_siswa() </td>
+                <td>PASS<br>PASS<br>PASS<br>PASS<br>PASS<br>PASS</td>
+            </tr>
+            <tr>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+            </tr>
+            <tr>
+                <td>+ Pembayaran</td>
+                <td>- index() <br>- save() <br>- searchSiswa() <br>- getInfaqByKelas() <br>- getTagihanForPembayaran() <br>- delete() <br>- deleteall() <br>- detailPembayaran() <br>- notifikasi() <br>- log_error() </td>
+                <td>PASS<br>PASS<br>PASS<br>PASS<br>PASS<br>PASS<br>PASS<br>PASS<br>PASS<br>PASS</td>
+            </tr>
+            <tr>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+            </tr>
+            <tr>
+                <td>+ Profil</td>
+                <td>- edit() <br>- update()</td>
+                <td>PASS <br>PASS</td>
+            </tr>
+            <tr>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+            </tr>
+            <tr>
+                <td>+ RegisterAdministrator</td>
+                <td>- index() <br>- save() <br>- edit() <br>- update() <br>- delete() <br>- confirmdelete()</td>
+                <td>PASS<br>PASS<br>PASS<br>PASS<br>PASS<br>PASS</td>
+            </tr>
+            <tr>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+            </tr>
+            <tr>
+                <td>+ RequestTagihan</td>
+                <td>- index() <br>- save() <br>- edit() <br>- update() <br>- delete()</td>
+                <td>PASS<br>PASS<br>PASS<br>PASS<br>PASS</td>
+            </tr>
+            <tr>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+            </tr>
+            <tr>
+                <td>+ Tagihan</td>
+                <td>- index() <br>- detail() <br>- request() <br>- requestdetail() <br>- aktif() <br>- kirim_tagihan() <br>- riwayat_pengiriman() <br>- detail_pengiriman() <br>- delete_pengiriman()</td>
+                <td>PASS<br>PASS<br>PASS<br>PASS<br>PASS<br>PASS<br>PASS<br>PASS<br>PASS</td>
+            </tr>
+            <tr>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+                <td>-----------------------------</td>
+            </tr>
+        </tbody>
+    </pre>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="vendor/autoload.php"
+         colors="true"
+         verbose="true"
+         processIsolation="false">
+
+    <php>
+        <const name="SUPPORTPATH" value="tests/_support/" />
+    </php>
+
+    <testsuites>
+        <testsuite name="App Tests">
+            <directory suffix="Test.php">./tests</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>
