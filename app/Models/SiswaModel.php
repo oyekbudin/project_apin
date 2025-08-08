@@ -97,7 +97,7 @@ class SiswaModel extends Model
 
     public function findSiswa($id)
     {
-        return $this->where('id', $id)->first();
+        return $this->where('nis', $id)->first();
         //return $this->find($id);
     }
     public function findSiswaByNis($id_siswa)

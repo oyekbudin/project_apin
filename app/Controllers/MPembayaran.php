@@ -52,7 +52,7 @@ class MPembayaran extends Controller
                 $request = $tagihan_aktif['id_tagihan'];
                 $tagihan = $this->tagihanModel->getTagihanByRequestById($id, $request);
             } else {
-                $tagihan = '';
+                $tagihan = [];
             }
 
             $data = [

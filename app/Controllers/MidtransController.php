@@ -127,7 +127,7 @@ class MidtransController extends BaseController
                     CURLOPT_RETURNTRANSFER => true,
                     CURLOPT_CUSTOMREQUEST => 'POST',
                     CURLOPT_POSTFIELDS => array(
-                        'appkey' => 'bbac7c30-2cfd-45b7-a1da-216717dff430',
+                        'appkey' => 'ca82035f-a6c2-4d18-9d01-73fb07f815ca',
                         'authkey' => 'vu9aMiZvSaC5kblVBQtq3eE9q2XuxJaO1nUsROVrHHJYg5U5ru',
                         'to' => $nomor,
                         'message' => $pesan,
