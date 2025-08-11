@@ -10,8 +10,44 @@ class NotificationModel extends Model
     protected $allowedFields = ['gross_amount','payment_type','transaction_status','created_at','order_id','id_siswa','id_infaq','nominal','payment_method','snaptoken'];
 
     protected $useAutoIncrement = false;
-    
+
     public function saveNotification($data)
+{
+    $id_infaq = $data['id_infaq'];
+    $nominal  = $data['nominal'];
+
+    $db = db_connect();
+    $db->transStart();
+    try {
+        $dataNotification = [];
+
+        foreach ($id_infaq as $value) {
+            if (!empty($nominal[$value])) {
+                $dataNotification[] = [
+                    'id' => Uuid::uuid4()->toString(),
+                    'order_id' => $data['order_id'],
+                    'id_siswa' => $data['id_siswa'],
+                    'id_infaq' => $value,
+                    'nominal' => $nominal[$value],
+                    'transaction_status' => $data['transaction_status'],
+                    'payment_method' => $data['payment_method'],
+                    'gross_amount' => $data['gross_amount'],
+                    'snaptoken' => $data['snaptoken'],
+                ];
+            }
+        }
+
+        $this->insertBatch($dataNotification);
+        $db->transComplete();
+        return true;
+    } catch (\Exception $e) {
+        $db->transRollback();
+        return false;
+    }
+}
+
+    
+    public function oldsaveNotification($data)
     {
         $id_infaq = $data['id_infaq'];
         $nominal = $data['nominal'];

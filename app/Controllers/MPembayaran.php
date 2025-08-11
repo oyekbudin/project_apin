@@ -65,6 +65,70 @@ class MPembayaran extends Controller
     }
 
     public function checkout()
+{
+    $session = session();
+    $id = $session->get('nis');
+    $first_name = $session->get('name');
+    $last_name = $session->get('kelas');
+    $phone = $session->get('phonenumber');
+    
+    $gross_amount = $this->request->getVar('nilaiTotal');
+    $date = date('md');
+    $order_id = $date . $id . uniqid();
+
+    // Ambil dari form
+    $id_infaq = $this->request->getVar('infaq_id'); // array terpilih
+    $nominal  = $this->request->getVar('nominal');  // array asosiatif
+
+    //midtrans
+    Config::$serverKey = config('Midtrans')->serverKey;
+    Config::$isProduction = config('Midtrans')->isProduction;
+    Config::$isSanitized = true;
+    Config::$is3ds = true;
+
+    $params = [
+        'transaction_details' => [
+            'order_id' => $order_id,
+            'gross_amount' => $gross_amount,
+        ],
+        'customer_details' => [
+            'first_name' => $first_name,
+            'last_name' => $last_name,
+            'email' => 'hakimarvinnoer@gmail.com',
+            'phone' => $phone,
+        ],
+        'locale' => 'id',
+        'callbacks' => [
+            'finish' => base_url('payment/finish'),
+            'unfinish' => base_url('payment/unfinish'),
+            'error' => base_url('payment/error'),
+        ]
+    ];
+
+    $snaptoken = Snap::getSnapToken($params);
+
+    $data = [
+        'menu' => 'Pembayaran',
+        'title' => 'Checkout',
+        'total_pembayaran' => $gross_amount,
+        'nama' => $first_name,
+        'kelas' => $last_name,
+        'snaptoken' => $snaptoken,
+        'id_siswa' => $id,
+        'id_infaq' => $id_infaq,
+        'nominal' => $nominal,
+        'order_id' => $order_id,
+        'transaction_status' => 'pending',
+        'payment_method' => 'midtrans',
+        'gross_amount' => $gross_amount,
+    ];
+
+    $this->notificationModel->saveNotification($data);
+    echo view('m-checkout', $data);
+}
+
+
+    public function oldcheckout()
     {
         $session = session();
         $id = $session->get('nis');
