@@ -397,6 +397,17 @@ aside ul li, #profil ul li
     border-radius: 4px;
 }
 
+.tombolgroup
+{
+    padding: 8px;
+    font-size: 14px;
+    justify-content: flex-start;
+    align-items: center;
+    display: flex;
+    border-radius: 4px;
+    column-gap: 10px;
+}
+
 .tombol img
 {
     vertical-align: middle;
@@ -451,6 +462,12 @@ aside ul li, #profil ul li
     background-color: var(--secondary);
     color: var(--dark);
     border: 1px solid var(--disable);
+}
+
+.noborder
+{
+    background-color: var(--secondary);
+    color: var(--dark);
 }
 
 .warning-outline
@@ -820,6 +837,11 @@ aside ul li, #profil ul li
 {
     display: flex;
     gap: 10px;
+}
+.morerow
+{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
 }
 
 .group-action .search
@@ -1377,9 +1399,17 @@ body
 {
     padding: 14px;
     font-size: 14px;
-    cursor: pointer;
-    
+    cursor: pointer;    
 }
+
+.tombolgroup
+{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+    text-align: center;
+}
+
 .form-login
 {
     display: flex;
@@ -1799,6 +1829,7 @@ span.no-tagihan {
     /*overflow-y: auto;*/
     max-height: calc(100vh - 84px);
 }
+
 
 
 

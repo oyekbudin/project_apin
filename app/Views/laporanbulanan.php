@@ -2,7 +2,7 @@
 <div class="board-wrap">
 <div class="group-action">
     <div>
-    <span>Pilih Bulan :</span>
+    <span>Rekap Bulanan :</span>
     <select name="bulan" id="bulan" class="input">
         <option value="">Pilih Bulan</option>
         <option value="01">Januari</option>
@@ -26,8 +26,14 @@
  <div class="" id="pdf-preview">
  </div>
 <!--iframe id="iframe-laporan" src="" frameborder="0" width="100%" height="400px"></iframe-->
-    
-    </div>
+</div>
+
+
+</div>
+
+
+
+
 
     <script>/*
 document.getElementById('bulan').addEventListener('change', function() {

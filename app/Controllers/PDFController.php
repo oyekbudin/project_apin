@@ -5,13 +5,21 @@ use App\Models\KelasModel;
 use App\Models\PembayaranModel;
 use App\Models\SiswaModel;
 use App\Models\TagihanModel;
+use App\Models\TagihanAktifModel;
 use CodeIgniter\Controller;
-      use DateTime;
+use CodeIgniter\HTTP\Request;
+use DateTime;
       use Dompdf\Dompdf;
       use Dompdf\Options;
 
 class PDFController extends Controller
 {
+    protected $tagihanAktifModel;
+
+    public function __construct()
+    {
+        $this->tagihanAktifModel = new TagihanAktifModel();   
+    }
     public function exportToPdf()
 {
     date_default_timezone_set('Asia/Jakarta');
@@ -291,6 +299,7 @@ public function tagihan($id)
     $tagihanModel = new TagihanModel();
     //$siswa = $siswaModel->findAll(); 
     $datatagihan = $tagihanModel->getTagihanByRequestForExport($id);
+    //$datatagihan = $tagihanModel->getTagihanByRequestForExportList($id, $list);
 
     //echo '<pre>';
     //print_r($datatagihan);
@@ -329,7 +338,159 @@ public function tagihan($id)
     echo $dompdf->output();
     exit; 
 }
+public function cetaktagihan()
+{
 
+    date_default_timezone_set('Asia/Jakarta');
+    $tgl = new DateTime();
+    $bln = [
+        'January' => 'Januari',
+        'February' => 'Februari',
+        'March' => 'Maret',
+        'May' => 'Mei',
+        'June' => 'Juni',
+        'July' => 'Juli',
+        'August' => 'Agustus',
+        'October' => 'Oktober',
+        'December' => 'Desember'
+    ];
+
+    $formatTgl = $tgl->format('j') . ' ' . $bln[$tgl->format('F')] . ' ' . $tgl->format('Y');
+
+    $tagihanModel = new TagihanModel();
+    //$siswa = $siswaModel->findAll(); 
+    //$datatagihan = $tagihanModel->getTagihanByRequestForExport($id);
+
+    $list = session()->get('list');
+    $tagihan_aktif = $this->tagihanAktifModel->orderBy('date','desc')->first();
+        if ($tagihan_aktif) {
+            $id = $tagihan_aktif['id_tagihan'];
+        } else {
+            $id = '';
+        }
+    $datatagihan = $tagihanModel->getTagihanByRequestForExportList($id, $list);
+
+    //echo '<pre>';
+    //print_r($datatagihan);
+    //echo '</pre>';
+    
+    $kepalasekolah = 'Ibnu Sadun Isngadi, S.Pd.';
+    $nim = '113401118';
+    $data = [
+        'datatagihan' => $datatagihan,
+        'tanggal' => $formatTgl,
+        'kepalasekolah' => $kepalasekolah,
+        'nim' => $nim,
+    ];
+    $html = view('pdf_tagihan', $data);
+
+    $options = new Options();
+    $options->set('defaultFont', 'Arial');
+    $options->set('isRemoteEnabled', false);
+    $dompdf = new Dompdf($options);
+
+    $dompdf->loadHtml($html);
+
+    $dompdf->setPaper('A4', 'portrait');
+    $dompdf->render();
+
+    $canvas = $dompdf->getCanvas();
+    $font = $dompdf->getFontMetrics()->get_font("helvetica", "normal");
+    $canvas->page_text(270, 820, "Halaman {PAGE_NUM} dari {PAGE_COUNT}", $font, 10, array(0,0,0));
+
+    header('Content-Type: application/pdf');
+    header('Content-Disposition: inline; filename="data_tagihan.pdf"'); 
+    header('Cache-Control: public, must-revalidate, max-age=0');
+    header('Pragma: public');
+    header('Expires: 0');
+
+    echo $dompdf->output();
+    exit; 
+}
+public function tagihanlist()
+{
+    $selectedItems = $this->request->getJSON()->selectedItems ?? [];
+    session()->set('list', $selectedItems);
+    return $this->response->setJSON([
+        'pdf_url' => base_url('pdf/cetaktagihan')
+    ]);
+}
+public function tagihansiswalist()
+{
+    $selectedItems = $this->request->getJSON()->selectedItems ?? [];
+    session()->set('list', $selectedItems);
+    return $this->response->setJSON([
+        'pdf_url' => base_url('pdf/cetaktagihansiswa')
+    ]);
+}
+
+public function cetaktagihansiswa()
+{
+    date_default_timezone_set('Asia/Jakarta');
+    $tgl = new DateTime();
+    $bln = [
+        'January' => 'Januari',
+        'February' => 'Februari',
+        'March' => 'Maret',
+        'May' => 'Mei',
+        'June' => 'Juni',
+        'July' => 'Juli',
+        'August' => 'Agustus',
+        'October' => 'Oktober',
+        'December' => 'Desember'
+    ];
+
+    $formatTgl = $tgl->format('j') . ' ' . $bln[$tgl->format('F')] . ' ' . $tgl->format('Y');
+
+    $tagihanModel = new TagihanModel();
+    //$siswa = $siswaModel->findAll(); 
+    //$datatagihan = $tagihanModel->getTagihanByRequestForExport($id);
+
+    $list = session()->get('list');
+    $tagihan_aktif = $this->tagihanAktifModel->orderBy('date','desc')->first();
+        if ($tagihan_aktif) {
+            $id = $tagihan_aktif['id_tagihan'];
+        } else {
+            $id = '';
+        }
+    $datatagihan = $tagihanModel->getTagihanByRequestForExportList($id, $list);
+    //echo '<pre>';
+    //print_r($datatagihan);
+    //echo '</pre>';
+    
+    $kepalasekolah = 'Ibnu Sadun Isngadi, S.Pd.';
+    $nim = '113401118';
+    $data = [
+        'datatagihan' => $datatagihan,
+        'tanggal' => $formatTgl,
+        'kepalasekolah' => $kepalasekolah,
+        'nim' => $nim,
+    ];
+    $html = view('pdf_tagihan_siswa', $data);
+
+    $options = new Options();
+    $options->set('defaultFont', 'Arial');
+    $options->set('isRemoteEnabled', false);
+    $dompdf = new Dompdf($options);
+
+    $dompdf->loadHtml($html);
+
+    $dompdf->setPaper('A4', 'portrait');
+    $dompdf->render();
+
+    $canvas = $dompdf->getCanvas();
+    $font = $dompdf->getFontMetrics()->get_font("helvetica", "normal");
+    $canvas->page_text(270, 820, "Halaman {PAGE_NUM} dari {PAGE_COUNT}", $font, 10, array(0,0,0));
+
+    header('Content-Type: application/pdf');
+    header('Content-Disposition: inline; filename="data_tagihan_siswa.pdf"'); 
+    header('Cache-Control: public, must-revalidate, max-age=0');
+    header('Pragma: public');
+    header('Expires: 0');
+
+    echo $dompdf->output();
+    exit; 
+}
 public function tagihan_siswa($id)
 {
     date_default_timezone_set('Asia/Jakarta');

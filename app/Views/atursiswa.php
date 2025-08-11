@@ -3,8 +3,9 @@
 <div class="group-action">
 <button class="tombol green" onclick="onmodalTambah()">Tambah Siswa</button>
 <a href="<?= base_url('/export-pdf'); ?>" class="tombol secondary" target="_blank">Export PDF</a>
-<div class="search">
-    
+
+<!-- search bar -->
+<div class="search">    
     <form method="GET" action="<?= base_url('atursiswa'); ?>">
         <span>Search :</span>
     <div class="input">
@@ -13,7 +14,7 @@
     <a href="<?= base_url('atursiswa')?>"><i class="i">&#xE14C</i></a>
     <?php endif; ?>
     </div>
-</form>
+    </form>
 </div>
 
 </div>

@@ -191,8 +191,8 @@ class Tagihan extends Controller
     }
     
     public function request($id)
-    {
-        $datatagihan = $this->tagihanModel->getTagihanByRequest($id);
+    {      
+        $datatagihan = $this->tagihanModel->getTagihanByRequest($id);   //01
         $tagihan_aktif = $this->tagihanAktifModel->orderBy('date','desc')->first();
         if ($tagihan_aktif) {
             $aktif = $tagihan_aktif['id_tagihan'];
@@ -200,7 +200,19 @@ class Tagihan extends Controller
             $aktif = '';
         }
 
+        //penerima wa
         $penerima = $this->siswaModel->findAll();
+
+        //search bar
+        $keyword = $this->request->getGet('keyword');
+        if ($keyword) {
+            //$datasiswa = $this->siswaModel->search($keyword);
+            $tagihanbaru = $this->tagihanModel->searchTagihanByRequestForExport($id, $keyword);
+        } else {
+            //$datasiswa = $this->siswaModel->getPaginatedSiswa($perPage, $offset);
+            $tagihanbaru = $this->tagihanModel->getTagihanByRequestForExport($id);
+        }
+        
         
         $data = [
             'menu' => 'Pengelolaan',
@@ -208,6 +220,12 @@ class Tagihan extends Controller
             'datatagihan' => $datatagihan,
             'tagihan_aktif' => $aktif,
             'penerima' => $penerima,
+            'tagihanbaru' => $tagihanbaru,
+            'status_filter' => $this->request->getGet('status'), // array ['L', 'B']
+            'kelas_filter' => $this->request->getGet('kelas'),
+            'urutkan' => $this->request->getGet('urutkan'),
+            'keyword' => $keyword,
+            //'cariNama' => $this->request->getGet('cari'), 
         ];
         //echo '<pre>';
         //print_r($datatagihan);
@@ -222,7 +240,7 @@ class Tagihan extends Controller
         $data = [
             'menu' => 'Pengelolaan',
             'title' => 'Detail Tagihan',
-            'tagihan' => $this->tagihanModel->getTagihanByRequestById($id, $request),
+            'tagihan' => $this->tagihanModel->getTagihanByRequestById($id, $request),  //02
             'on' => true,
         ];
 
@@ -241,10 +259,24 @@ class Tagihan extends Controller
             $this->tagihanAktifModel->aktif($data);
             return redirect()->back()->with('success', 'Tagihan berhasil diaktifkan.');
     }
+    public function listkirim()
+    {
+        $selectedItems = $this->request->getJSON()->selectedItems ?? [];
+        $header = $this->request->getJSON()->header;
+        $footer = $this->request->getJSON()->footer;
+        session()->set([
+            'list' => $selectedItems,
+            'header' => $header,
+            'footer' => $footer,
+        ]);
+        return $this->response->setJSON([
+        'kirim_url' => base_url('tagihan/kirim_tagihan')
+    ]);
+    }
     public function kirim_tagihan()
     {
-        $rules = [
-            'siswa_id' => 'required',
+        /*$rules = [
+            //'siswa_id' => 'required',
             'header' => 'required|min_length[4]|max_length[100]',
             'footer' => 'required|min_length[4]|max_length[100]',
         ];
@@ -266,11 +298,13 @@ class Tagihan extends Controller
         ];
 
         if ($this->validate($rules, $errors))
-        {
-            
-            $siswa_id = $this->request->getPost('siswa_id');
-            $header = $this->request->getPost('header');
-            $footer = $this->request->getPost('footer');
+        {*/
+            $siswa_id = session()->get('list');
+            $header = session()->get('header');
+            $footer = session()->get('footer');
+            //$siswa_id = $this->request->getPost('siswa_id');
+            //$header = $this->request->getPost('header');
+            //$footer = $this->request->getPost('footer');
 
             $tagihan_aktif = $this->tagihanAktifModel->orderBy('date','desc')->first();
             if ($tagihan_aktif) {
@@ -324,11 +358,12 @@ class Tagihan extends Controller
             }
 
             return redirect()->back()->with('success', 'Pesan berhasil dikirim');
+            /*
         } else {
             session()->setFlashdata('errors', $this->validator->getErrors());
             session()->setFlashdata('show_modal',true);
             return redirect()->back()->withInput();
-        }        
+        }     */   
     }
         
         

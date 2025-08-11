@@ -87,6 +87,12 @@ $routes->get('/tagihan/request/(:segment)', 'Tagihan::request/$1');
 $routes->get('/tagihan/requestdetail', 'Tagihan::requestdetail');
 $routes->get('/tagihan/aktif/(:segment)', 'Tagihan::aktif/$1');
 $routes->get('/pdf/tagihan/(:segment)', 'PDFController::tagihan/$1');
+$routes->post('/pdf/tagihanlist', 'PDFController::tagihanlist');
+$routes->get('/pdf/cetaktagihan', 'PDFController::cetaktagihan');
+$routes->post('/pdf/tagihansiswalist', 'PDFController::tagihansiswalist');
+$routes->get('/pdf/cetaktagihansiswa', 'PDFController::cetaktagihansiswa');
+$routes->post('/tagihan/listkirim', 'Tagihan::listkirim');
+$routes->get('/tagihan/kirim_tagihan', 'Tagihan::kirim_tagihan');
 $routes->get('/pdf/tagihan-siswa/(:segment)', 'PDFController::tagihan_siswa/$1');
 
 $routes->get('/request_tagihan', 'RequestTagihan::index',['filter'=>'auth']);

@@ -1,5 +1,5 @@
     
-        <span>Aplikasi Pengelola Infaq </span><span class="txtwarning">Versi 1.1.0 </span><span>, Arvin Noer Hakim | 215720010 STMIK KOMPUTAMA MAJENANG 2025</span>
+        <span>Aplikasi Pengelola Infaq </span><span class="txtwarning">Versi 1.2.0 </span><span>, Arvin Noer Hakim | 215720010 STMIK KOMPUTAMA MAJENANG 2025</span>
     </footer>
     <script> /*
   if (typeof navigator.serviceWorker !== 'undefined') {
@@ -62,6 +62,38 @@
         document.getElementById("modalTambah").style.display = "none";
     }
 </script>
+
+<script>
+    function onmodalFilter()
+    {
+        document.getElementById("modalFilter").style.display = "flex";
+        document.querySelectorAll('#modalFilter input[type="text"], #modalFilter input[type="number"], #modalFilter select').forEach(function(element)
+    {
+        if (element.type === 'select-one')
+    {
+        element.selectedIndex = 0;
+    } else {
+        element.value = '';
+    }
+    });
+        
+    }
+
+    function offmodalFilter()
+    {
+        document.getElementById("modalFilter").style.display = "none";
+        document.querySelectorAll('#modalFilter input[type="text"], #modalFilter input[type="number"], #modalFilter select').forEach(function(element)
+    {
+        if (element.type === 'select-one')
+    {
+        element.selectedIndex = 0;
+    } else {
+        element.value = '';
+    }
+    });
+    }
+</script>
+
 <script>
     /*function onProfil()
     {
@@ -169,7 +201,168 @@ checkAll.addEventListener('change', function () {
 
 </script>
 
+<script>
+    document.getElementById('selectAllSiswa').addEventListener('change', function()
+{
+    var checkboxes = document.querySelectorAll('.listsiswa');
+    checkboxes.forEach(function(checkbox)
+{
+    checkbox.checked = document.getElementById('selectAllSiswa').checked;
+});
+});
+</script>
 
+
+<!-- checkbox tabel -->
+<script>
+    let selectedItems = [];
+    
+    function updateSelectedCount()
+    {
+        var checkboxes = document.querySelectorAll('.listsiswa');
+        selectedItems = [];
+        var selectedCount = 0;
+        checkboxes.forEach(function(checkbox)
+    {
+        if (checkbox.checked)
+        {
+            selectedItems.push(checkbox.value);
+            selectedCount++;
+        }
+    });
+        document.getElementById('selectedCount').innerText = selectedCount + ' terpilih';
+    }
+
+    document.getElementById('selectAllSiswa').addEventListener('change', function()
+    {
+    var checkboxes = document.querySelectorAll('.listsiswa');
+    checkboxes.forEach(function(checkbox)
+        {
+            checkbox.checked = document.getElementById('selectAllSiswa').checked;
+        });
+
+        updateSelectedCount();
+    });
+
+    var checkboxes = document.querySelectorAll('.listsiswa');
+    checkboxes.forEach(function(checkbox)
+{
+    checkbox.addEventListener('change', updateSelectedCount);
+});
+
+updateSelectedCount();
+
+// button export-tagihan
+document.getElementById('export-tagihan').addEventListener('click', function()
+{
+    if (selectedItems.length >0)
+    {
+        fetch('/pdf/tagihanlist', 
+            {
+                method: 'POST',
+                headers: 
+                {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({selectedItems: selectedItems})
+            }
+        )
+        
+        .then(response => response.json())
+        .then(data => {
+            window.open(data.pdf_url, '_blank');
+        })
+        .catch(error => console.error(error))
+    } else {
+        alert('Tidak ada data yang dipilih');
+    }
+});
+
+// button export-tagihan-siswa
+document.getElementById('export-tagihan-siswa').addEventListener('click', function()
+{
+    if (selectedItems.length >0)
+    {
+        fetch('/pdf/tagihansiswalist', 
+            {
+                method: 'POST',
+                headers: 
+                {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({selectedItems: selectedItems})
+            }
+        )
+        
+        .then(response => response.json())
+        .then(data => {
+            window.open(data.pdf_url, '_blank');
+        })
+        .catch(error => console.error(error))
+    } else {
+        alert('Tidak ada data yang dipilih');
+    }
+});
+
+// button kirim-tagihan
+    
+document.getElementById('kirim_tagihan').addEventListener('click', function()
+{
+    const header = document.getElementById('headerwa').value;
+    const footer = document.getElementById('footerwa').value;
+    if (selectedItems.length >0)
+    {
+        if (header.length > 0)
+        {
+            if (footer.length > 0)
+            {
+                        fetch('/tagihan/listkirim', 
+                    {
+                        method: 'POST',
+                        headers: 
+                        {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({header: header, footer: footer, selectedItems: selectedItems})
+                    }
+                )
+                
+                .then(response => response.json())
+                .then(data => {
+                    window.open(data.kirim_url, '_blank');
+                })
+                .catch(error => console.error(error))
+            } else {
+                alert('Kalimat penutup tidak boleh kosong');
+            }
+        } else {
+            alert('Kalimat pembuka tidak boleh kosong');
+        }
+        
+    } else {
+        alert('Tidak ada data yang dipilih');
+    }
+});
+
+</script>
+
+<!-- clear search in tagihan -->
+ <script>
+    document.getElementById('clear-search').addEventListener('click', function(e)
+{
+    e.preventDefault();
+    document.getElementById('search').value = '';
+    //document.getElementById('search').focus();
+
+    fetch('?keyword=', {        
+            method: 'GET',
+        })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error(error));
+    
+});
+ </script>
 
 
 

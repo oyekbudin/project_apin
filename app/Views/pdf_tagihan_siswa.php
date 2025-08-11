@@ -178,6 +178,8 @@ foreach ($datatagihan as $item) {
         'nama_infaq' => $item['nama_infaq'],
         'harga_infaq' => $item['sisa_tagihan']
     ];
+
+    //$status = ($nis[$nis]['total_tagihan'] == 0) ? "L" : "B";
 }
 
 $counter = 0;
@@ -207,6 +209,7 @@ foreach ($grouped as $nis => $siswa):
             $total = 0;
             foreach ($siswa['infaq'] as $item): 
                 $total += $item['harga_infaq'];
+            $status = ($total == 0) ? "L" : "B";
         ?>
         <tr>
             <td><?= $item['nama_infaq'] ?></td>
@@ -218,6 +221,10 @@ foreach ($grouped as $nis => $siswa):
         <tr>
             <td>Jumlah</td>
             <td style="text-align: right;"><?= number_format($total, 0, ',', '.') ?></td>
+        </tr>
+        <tr>
+            <td>Keterangan</td>
+            <td style="text-align: center;"><?= ($status == "L") ? "Lunas" : "Belum Lunas" ?></td>
         </tr>
         <tr>
             <td colspan="2" style="text-align: center;">

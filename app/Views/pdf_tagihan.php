@@ -80,6 +80,7 @@
 
         $siswa[$nis]['total_tagihan'] += $item['sisa_tagihan'];
         $grand_total += $item['sisa_tagihan'];
+        $status = ($siswa[$nis]['total_tagihan'] == 0) ? "L" : "B";
     } 
     ?>
     <table class="tablearea">
@@ -90,6 +91,7 @@
                 <th>Nama</th>
                 <th>Kelas</th>
                 <th>Total Tagihan</th>
+                <th>Keterangan</th>
             </tr>
         </thead>
         <tbody>
@@ -102,6 +104,7 @@
                 <td><?= $row['nama']; ?></td>
                 <td><?= $row['kelas']; ?></td>                
                 <td style="text-align:right"><?= number_format($row['total_tagihan'], 0, ',', '.'); ?></td>
+                <td><?= ($status == "L") ? "Lunas" : "Belum Lunas" ?></td>   
             </tr>
             <?php endforeach; ?>
         </tbody>
@@ -109,6 +112,7 @@
                 <tr>
                     <td colspan="4" style="text-align: center;">Jumlah</td>
                     <td style="text-align: right;"><?= number_format($grand_total, 0, ',', '.'); ?></td>
+                    <td style="text-align: center;"></td>
                 </tr>
             </tfoot>
     </table>
